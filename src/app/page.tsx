@@ -63,7 +63,7 @@ export default function Home() {
           poster="/images/heros/bespoke-kitchen-stone-farmhouse-bucks-county-poster.jpg"
           aria-label="Bespoke stone farmhouse custom kitchen with Calacatta marble island built by Vitrin Cabinetery in Bucks County, PA"
         >
-          <source src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4" type="video/mp4" />
+          <source media="(prefers-reduced-motion: no-preference)" src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4" type="video/mp4" />
         </video>
         <div className="hero__overlay" />
         <div className="hero__inner">

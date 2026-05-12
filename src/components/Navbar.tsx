@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 const navItems = [
@@ -10,41 +12,44 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [isOpen]);
+
+  const close = () => setIsOpen(false);
+
   return (
     <nav
-      className="glass-morphism"
-      style={{
-        position: "fixed",
-        top: "20px",
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: "92%",
-        maxWidth: "1200px",
-        zIndex: 1000,
-        padding: "1rem 1.5rem",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: "1rem",
-      }}
+      className={`navbar glass-morphism ${isOpen ? "navbar--open" : ""}`}
+      aria-label="Primary"
     >
-      <div style={{ fontSize: "1.4rem", fontWeight: "bold", fontFamily: "var(--font-serif)" }}>
-        <Link href="/">Vitrin Cabinetery</Link>
+      <div className="navbar__brand">
+        <Link href="/" onClick={close}>Vitrin Cabinetery</Link>
       </div>
-      <div
-        style={{
-          display: "flex",
-          gap: "1.6rem",
-          fontSize: "0.85rem",
-          fontWeight: 500,
-          textTransform: "uppercase",
-          letterSpacing: "1px",
-          flexWrap: "wrap",
-          justifyContent: "flex-end",
-        }}
+
+      <button
+        className="navbar__toggle"
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls="primary-navigation"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        onClick={() => setIsOpen((o) => !o)}
       >
+        <span aria-hidden="true" className="navbar__toggle-bar" />
+        <span aria-hidden="true" className="navbar__toggle-bar" />
+        <span aria-hidden="true" className="navbar__toggle-bar" />
+      </button>
+
+      <div id="primary-navigation" className="navbar__links">
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href} onClick={close}>
             {item.label}
           </Link>
         ))}

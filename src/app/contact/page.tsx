@@ -29,7 +29,7 @@ export default function Contact() {
           poster="/images/heros/custom-kitchen-indoor-outdoor-garden-bucks-county-poster.jpg"
           aria-label="Indoor-outdoor custom kitchen opening onto a Bucks County garden, built by Vitrin Cabinetery"
         >
-          <source src="/videos/custom-kitchen-indoor-outdoor-garden-bucks-county.mp4" type="video/mp4" />
+          <source media="(prefers-reduced-motion: no-preference)" src="/videos/custom-kitchen-indoor-outdoor-garden-bucks-county.mp4" type="video/mp4" />
         </video>
         <div className="hero__overlay" />
         <div className="hero__inner">
