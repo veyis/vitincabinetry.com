@@ -10,7 +10,7 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "About — A Custom Cabinetry Shop in Quakertown, PA",
   description:
-    "Vitrin Cabinetery is a Quakertown, PA cabinet shop that builds and supplies custom kitchens and baths from our own bench. Meet the team and the shop.",
+    "Vitrin Cabinetery is a Quakertown, PA cabinet shop — stock cabinets from the showroom, custom work built at our bench. Meet the team and the shop.",
   alternates: { canonical: "/about" },
 };
 
@@ -41,7 +41,7 @@ export default function AboutPage() {
             A workshop. Not a showroom for someone else&apos;s cabinets.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetery is a small, hands-on cabinet shop in Quakertown, PA. We build every cabinet at our bench and deliver finished work our crew installs. No franchise. No catalog. No outsourcing.
+            Vitrin Cabinetery is a small, hands-on cabinet shop in Quakertown, PA. We build every cabinet at our bench and install it with our own crew. No franchise. No catalog. No outsourcing.
           </p>
         </div>
       </section>
