@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/process", label: "Process" },
@@ -13,6 +14,7 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -24,15 +26,17 @@ export default function Navbar() {
   }, [isOpen]);
 
   const close = () => setIsOpen(false);
+  const isActive = (href: string) =>
+    pathname === href || (href !== "/" && pathname?.startsWith(href + "/"));
 
   return (
     <nav
-      className={`navbar glass-morphism ${isOpen ? "navbar--open" : ""}`}
+      className={`navbar ${isOpen ? "navbar--open" : ""}`}
       aria-label="Primary"
     >
-      <div className="navbar__brand">
-        <Link href="/" onClick={close}>Vitrin Cabinetery</Link>
-      </div>
+      <Link href="/" className="navbar__brand" onClick={close}>
+        Vitrin Cabinetery
+      </Link>
 
       <button
         className="navbar__toggle"
@@ -44,15 +48,23 @@ export default function Navbar() {
       >
         <span aria-hidden="true" className="navbar__toggle-bar" />
         <span aria-hidden="true" className="navbar__toggle-bar" />
-        <span aria-hidden="true" className="navbar__toggle-bar" />
       </button>
 
       <div id="primary-navigation" className="navbar__links">
-        {navItems.map((item) => (
-          <Link key={item.href} href={item.href} onClick={close}>
-            {item.label}
-          </Link>
-        ))}
+        {navItems.map((item) => {
+          const active = pathname === item.href || isActive(item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={close}
+              aria-current={active ? "page" : undefined}
+              className={active ? "navbar__link--active" : undefined}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

@@ -184,7 +184,7 @@ export default async function TownPage({ params }: PageParams) {
             <span className="eyebrow">Styles Popular in {data.name}</span>
             <h2 className="section-heading">What looks right in a {data.name} house.</h2>
             <p className="section-sub">
-              Built around the town's housing stock — {data.housing}. {data.popularStyleNote}
+              Built around the town&apos;s housing stock — {data.housing}. {data.popularStyleNote}
             </p>
           </div>
 

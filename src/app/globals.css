@@ -153,7 +153,7 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.45);
   z-index: -1;
 }
 
@@ -358,41 +358,85 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
   align-items: center;
 }
 
-/* Navbar */
+/* Navbar — premium minimalist capsule.
+   Design system: 4-pt sub-grid for padding, 8-pt for type scale, iOS-standard 44px target height,
+   single brand-color accent on active state (the "expressive moment" in a minimal frame). */
 .navbar {
   position: fixed;
-  top: 20px;
+  top: 14px;
   left: 50%;
   transform: translateX(-50%);
-  width: 92%;
-  max-width: 1200px;
+  width: calc(100% - 32px);
+  max-width: 1180px;
+  height: 46px;
   z-index: 1000;
-  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: 0 1.4rem;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 100px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: height 0.22s ease, border-radius 0.22s ease;
+}
+
+.navbar--open {
+  height: auto;
+  border-radius: 24px;
+  overflow: visible;
 }
 
 .navbar__brand {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 700;
   font-family: var(--font-serif);
+  letter-spacing: -0.005em;
+  line-height: 1;
+  color: var(--text);
+  white-space: nowrap;
 }
 
 .navbar__links {
   display: flex;
-  gap: 1.6rem;
-  font-size: 0.85rem;
+  align-items: center;
+  gap: 1.85rem;
+  font-size: 0.68rem;
   font-weight: 500;
+  font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary);
+}
+
+.navbar__links a {
+  position: relative;
+  padding: 0.4rem 0;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.navbar__links a:hover { color: var(--text); }
+
+.navbar__links a.navbar__link--active { color: var(--text); }
+.navbar__links a.navbar__link--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--primary);
 }
 
 .navbar__toggle {
   display: none;
-  width: 44px;
-  height: 44px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   background: transparent;
   border: 0;
@@ -400,27 +444,24 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
 }
 
 .navbar__toggle-bar {
   display: block;
-  width: 22px;
-  height: 2px;
+  width: 16px;
+  height: 1.5px;
   background: var(--text);
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  border-radius: 1px;
+  transition: transform 0.25s ease;
   transform-origin: center;
 }
 
 .navbar--open .navbar__toggle-bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(2.75px) rotate(45deg);
 }
 .navbar--open .navbar__toggle-bar:nth-child(2) {
-  opacity: 0;
-}
-.navbar--open .navbar__toggle-bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-2.75px) rotate(-45deg);
 }
 
 /* Tablet and below */
@@ -429,31 +470,45 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
   section { padding: 70px 0; }
   .container { padding: 0 1.25rem; }
 
-  /* Navbar collapses to hamburger */
+  /* Mobile capsule navbar — explicitly fixed at 38px tall when closed. */
   .navbar {
     flex-wrap: wrap;
-    padding: 0.85rem 1.25rem;
+    padding: 0 0.85rem 0 1.1rem;
+    height: 38px;
+    border-radius: 100px;
+    top: 12px;
+    width: calc(100% - 24px);
   }
-  .navbar__brand { font-size: 1.2rem; }
+  .navbar--open {
+    height: auto;
+    padding-bottom: 0.55rem;
+  }
+  .navbar__brand { font-size: 1.05rem; }
   .navbar__toggle { display: flex; }
+
+  /* Drawer hidden by default, no layout footprint */
   .navbar__links {
+    display: none;
     flex: 1 0 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding-top 0.3s ease, margin-top 0.3s ease;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 0.25rem 0.4rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
   .navbar__links a {
-    padding: 0.85rem 0.25rem;
-    border-top: 1px solid var(--glass-border);
+    padding: 0.4rem 0.65rem;
+    border-radius: 100px;
+    color: var(--text-secondary);
   }
-  .navbar--open .navbar__links {
-    max-height: 70vh;
-    padding-top: 0.5rem;
-    margin-top: 0.5rem;
+  .navbar__links a.navbar__link--active {
+    background: rgba(184, 146, 74, 0.08);
+    color: var(--primary);
   }
+  .navbar__links a.navbar__link--active::after { display: none; }
+  .navbar--open .navbar__links { display: flex; }
 
   /* Heroes / subhero — pull text up so it isn't crushed under the floating nav.
      !important here overrides inline padding/min-height set on inner-page heroes. */
@@ -474,8 +529,15 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
 @media (max-width: 480px) {
   section { padding: 56px 0; }
   .container, .container--narrow { padding: 0 1rem; }
-  .navbar { top: 12px; width: 94%; padding: 0.75rem 1rem; }
-  .navbar__brand { font-size: 1.05rem; }
+  .navbar { top: 10px; width: calc(100% - 20px); padding: 0 0.75rem 0 1rem; height: 34px; border-radius: 100px; }
+  .navbar--open { height: auto; padding-bottom: 0.45rem; }
+  .navbar__brand { font-size: 1rem; }
+  .navbar__toggle { width: 26px; height: 26px; }
+  .navbar__toggle-bar { width: 15px; }
+  .navbar--open .navbar__toggle-bar:nth-child(1) { transform: translateY(2.75px) rotate(45deg); }
+  .navbar--open .navbar__toggle-bar:nth-child(2) { transform: translateY(-2.75px) rotate(-45deg); }
+  .navbar__links { font-size: 0.58rem; gap: 0.2rem 0.3rem; padding-top: 0.4rem; margin-top: 0.35rem; }
+  .navbar__links a { padding: 0.35rem 0.55rem; }
   .hero { min-height: 68vh !important; padding: 110px 0 48px !important; }
   .subhero { padding: 110px 0 48px; }
   .hero__inner { padding: 0 1rem; }
