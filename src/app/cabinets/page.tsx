@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -34,6 +35,14 @@ export default function CabinetsPage() {
       <Navbar />
 
       <section className="hero" style={{ minHeight: "50vh", padding: "180px 0 60px" }}>
+        <Image
+          src="/images/heros/heritage-green-custom-kitchen-cabinets-bucks-county.png"
+          alt="Two ways to buy cabinets at Vitrin Cabinetery — stock and custom, Quakertown PA"
+          fill
+          priority
+          sizes="100vw"
+          className="hero__image"
+        />
         <div className="hero__overlay" />
         <div className="hero__inner">
           <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
@@ -58,19 +67,26 @@ export default function CabinetsPage() {
             <span className="eyebrow">Compare</span>
             <h2 className="section-heading">Vitrin Stock vs. Vitrin Signature</h2>
           </div>
-          <div style={{ overflowX: "auto" }}>
+          <div
+            style={{ overflowX: "auto" }}
+            tabIndex={0}
+            role="region"
+            aria-label="Stock vs Signature comparison"
+          >
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.95rem" }}>
               <thead>
                 <tr>
-                  <th style={{ textAlign: "left", padding: "0.85rem 0.75rem", borderBottom: "2px solid var(--border)" }}></th>
-                  <th style={{ textAlign: "left", padding: "0.85rem 0.75rem", borderBottom: "2px solid var(--border)", color: "var(--text)" }}>Vitrin Stock</th>
-                  <th style={{ textAlign: "left", padding: "0.85rem 0.75rem", borderBottom: "2px solid var(--border)", color: "var(--text)" }}>Vitrin Signature</th>
+                  <th scope="col" style={{ textAlign: "left", padding: "0.85rem 0.75rem", borderBottom: "2px solid var(--border)" }}>
+                    <span style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>Feature</span>
+                  </th>
+                  <th scope="col" style={{ textAlign: "left", padding: "0.85rem 0.75rem", borderBottom: "2px solid var(--border)", color: "var(--text)" }}>Vitrin Stock</th>
+                  <th scope="col" style={{ textAlign: "left", padding: "0.85rem 0.75rem", borderBottom: "2px solid var(--border)", color: "var(--text)" }}>Vitrin Signature</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.label}>
-                    <td style={{ padding: "0.75rem", borderBottom: "1px solid var(--border)", fontWeight: 600, color: "var(--text)" }}>{r.label}</td>
+                    <th scope="row" style={{ padding: "0.75rem", borderBottom: "1px solid var(--border)", fontWeight: 600, color: "var(--text)", textAlign: "left" }}>{r.label}</th>
                     <td style={{ padding: "0.75rem", borderBottom: "1px solid var(--border)", color: "var(--text-secondary)" }}>{r.stock}</td>
                     <td style={{ padding: "0.75rem", borderBottom: "1px solid var(--border)", color: "var(--text-secondary)" }}>{r.signature}</td>
                   </tr>
@@ -99,12 +115,12 @@ export default function CabinetsPage() {
               <p className="card__desc">→ Vitrin Stock. In-showroom pickup, lower price tier.</p>
             </Link>
             <Link href="/cabinets/custom" className="card">
-              <h3 className="card__title">I&rsquo;m doing a full kitchen and want it built to fit</h3>
+              <h3 className="card__title">I&apos;m doing a full kitchen and want it built to fit</h3>
               <p className="card__desc">→ Vitrin Signature. 4–8 week build. Any style, any finish.</p>
             </Link>
             <Link href="/contact" className="card">
-              <h3 className="card__title">I&rsquo;m not sure which fits my project</h3>
-              <p className="card__desc">→ Talk to us. We&rsquo;ll tell you the truth in 10 minutes.</p>
+              <h3 className="card__title">I&apos;m not sure which fits my project</h3>
+              <p className="card__desc">→ Talk to us. We&apos;ll tell you the truth in 10 minutes.</p>
             </Link>
           </div>
         </div>
