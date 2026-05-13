@@ -10,9 +10,11 @@ export function toJsonLd(payload: Record<string, unknown>): string {
   return JSON.stringify(payload).replace(/</g, "\\u003c");
 }
 
+// Omit streetAddress when site.address.street is still the placeholder value.
+// Once NEXT_PUBLIC_BUSINESS_STREET is set in the env, the real street flows through.
 const postalAddress = {
   "@type": "PostalAddress",
-  streetAddress: site.address.street,
+  ...(site.address.street.startsWith("TBD") ? {} : { streetAddress: site.address.street }),
   addressLocality: site.address.locality,
   addressRegion: site.address.region,
   postalCode: site.address.postalCode,
