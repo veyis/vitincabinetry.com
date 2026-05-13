@@ -104,3 +104,64 @@ export function serviceSchema(opts: {
     areaServed: site.areaServed,
   };
 }
+
+/**
+ * Vitrin operates as both a custom cabinetry workshop AND a cabinet store —
+ * stock cabinets sold from the showroom plus made-to-order custom. The
+ * default localBusinessSchema (@type "CabinetMaker") emphasizes the workshop.
+ * This variant emphasizes the storefront and is rendered on /, /showroom,
+ * and the town pages where both tiers are sold.
+ */
+export const cabinetStoreSchema = {
+  "@context": "https://schema.org",
+  "@type": ["FurnitureStore", "HomeAndConstructionBusiness"],
+  "@id": `${site.url}#cabinetstore`,
+  name: site.name,
+  url: site.url,
+  image: `${site.url}/og.jpg`,
+  telephone: site.phone,
+  email: site.email,
+  priceRange: "$$",
+  address: postalAddress,
+  geo: { "@type": "GeoCoordinates", ...site.geo },
+  areaServed: site.areaServed,
+  openingHoursSpecification: openingHours,
+  ...(sameAs.length > 0 ? { sameAs } : {}),
+};
+
+export function productSchema(opts: {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+  sku?: string;
+  offer?: ReturnType<typeof offerSchema>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: opts.name,
+    description: opts.description,
+    image: opts.image,
+    url: opts.url,
+    ...(opts.sku ? { sku: opts.sku } : {}),
+    brand: { "@type": "Brand", name: site.name },
+    ...(opts.offer ? { offers: opts.offer } : {}),
+  };
+}
+
+export function offerSchema(opts: {
+  price: string;
+  priceCurrency?: string;
+  availability?: "InStock" | "PreOrder" | "MadeToOrder";
+  url?: string;
+}) {
+  return {
+    "@type": "Offer",
+    priceCurrency: opts.priceCurrency ?? "USD",
+    price: opts.price,
+    availability: `https://schema.org/${opts.availability ?? "InStock"}`,
+    ...(opts.url ? { url: opts.url } : {}),
+    seller: { "@id": `${site.url}#cabinetstore` },
+  };
+}
