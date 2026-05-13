@@ -43,7 +43,7 @@ const steps = [
     title: "Delivery — install optional",
     duration: "1 day",
     body:
-      "Cabinets delivered to your home or jobsite. Install if you want us to — most contractors install themselves. Lifetime cabinet warranty included on the workmanship.",
+      "Cabinets delivered to your home or jobsite. Lifetime warranty on the workmanship — covers your cabinets for as long as you own the home. Install is available from our crew, or your contractor can install directly.",
   },
 ];
 
@@ -101,8 +101,17 @@ export default function ProcessPage() {
       <section className="section--surface">
         <div className="container--narrow" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Stock cabinets work differently.</h2>
-          <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
+          <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             This 5-step process is for Vitrin Signature custom kitchens. For stock cabinets — pickup from the showroom this week — see <Link href="/cabinets/stock" className="text-link">Vitrin Stock</Link>.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div className="container--narrow" style={{ textAlign: "center" }}>
+          <h2 className="section-heading">Ready to start your custom kitchen?</h2>
+          <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
+            Book a 30-minute discovery call. We&apos;ll talk scope, budget, and timeline before either of us spends a minute on a quote.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact?type=custom" className="btn-primary">Start a Custom Kitchen</Link>
@@ -129,11 +138,11 @@ export default function ProcessPage() {
         dangerouslySetInnerHTML={{
           __html: toJsonLd(
             serviceSchema({
-              name: "Custom Cabinet Manufacturing",
+              name: "Custom Cabinet Supply",
               description:
                 "A 5-step process for ordering custom kitchens and bath cabinetry, manufactured at our Quakertown, PA shop. Installation is optional and offered separately.",
               url: pageUrl,
-              serviceType: "Custom Cabinet Manufacturing",
+              serviceType: "Custom Cabinet Supply",
             })
           ),
         }}
