@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ConstructionSpecs from "@/components/ConstructionSpecs";
 import InstallOptionalNote from "@/components/InstallOptionalNote";
 import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
@@ -65,7 +66,7 @@ export default function CustomPage() {
               <h2 className="section-heading">Built to fit your house — not the next house over.</h2>
               <div className="prose">
                 <p>
-                  Vitrin Signature cabinets are drawn, milled, assembled, and finished at our Quakertown shop. We don&apos;t resell a manufactured line. Every box is built for your dimensions, in the door style and finish you chose, on the timeline we both agreed to.
+                  Vitrin Signature cabinets are drawn, milled, assembled, and finished at our Quakertown shop. We don&apos;t resell a manufactured line. Every box is built for your dimensions, in the door style and finish you chose.
                 </p>
                 <p>
                   Most of our Signature kitchens land between $35,000 and $90,000 in cabinetry alone. Final figure depends on box count, door style, wood species, and accessory choices.
@@ -73,7 +74,7 @@ export default function CustomPage() {
               </div>
             </div>
             <div>
-              <h3 className="card__title" style={{ marginTop: 0 }}>What you can choose</h3>
+              <h3 style={{ marginTop: 0, fontSize: "1.3rem", marginBottom: "0.75rem", color: "var(--text)" }}>What you can choose</h3>
               <ul style={{ paddingLeft: "1.1rem", color: "var(--text-secondary)" }}>
                 <li><strong>Door styles:</strong> inset Shaker, full-overlay Shaker, beaded inset, slab modern, raised panel, mullion glass — and bespoke styles drawn to your reference.</li>
                 <li><strong>Wood species:</strong> rift-cut white oak, walnut, cherry, maple, paint-grade poplar/MDF.</li>
@@ -85,13 +86,15 @@ export default function CustomPage() {
         </div>
       </section>
 
+      <ConstructionSpecs />
+
       <section className="section--surface">
         <div className="container--narrow">
           <div className="section-center">
             <span className="eyebrow">How ordering works</span>
             <h2 className="section-heading">From first sketch to delivery — five steps.</h2>
           </div>
-          <ol style={{ listStyle: "none", padding: 0 }}>
+          <ol role="list" aria-label="Custom kitchen ordering steps" style={{ listStyle: "none", padding: 0 }}>
             {orderSteps.map((s, i) => (
               <li key={s.title} className="step">
                 <div className="step__num">{String(i + 1).padStart(2, "0")}</div>
