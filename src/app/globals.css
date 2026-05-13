@@ -115,11 +115,11 @@ section {
   padding: 100px 0;
 }
 
-section--tight { padding: 70px 0; }
-section--surface { background: var(--surface); }
-section--dark { background: #0a0a0a; color: #fff; }
-section--dark h1, section--dark h2, section--dark h3 { color: #fff; }
-section--dark p { color: rgba(255, 255, 255, 0.78); }
+.section--tight { padding: 70px 0; }
+.section--surface { background: var(--surface); }
+.section--dark { background: #0a0a0a; color: #fff; }
+.section--dark h1, .section--dark h2, .section--dark h3 { color: #fff; }
+.section--dark p { color: rgba(255, 255, 255, 0.78); }
 
 /* Hero — reserved-space wrapper for next/image fill (no CLS) */
 .hero {
