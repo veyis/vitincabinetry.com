@@ -20,17 +20,6 @@ function normalizeType(input: string | null): ProjectType | "" {
   return (ALLOWED_TYPES as readonly string[]).includes(input ?? "") ? (input as ProjectType) : "";
 }
 
-// Friendly labels for the projectType <select> value when prefilled via ?type=
-const TYPE_LABEL: Record<ProjectType, string> = {
-  trade: "Trade pricing inquiry",
-  install: "Installation add-on",
-  custom: "Vitrin Signature (custom kitchen)",
-  stock: "Vitrin Stock cabinets",
-  kitchen: "Kitchen cabinets",
-  bath: "Bath cabinets",
-  "built-ins": "Built-ins / library / mudroom",
-  "aging-in-place": "Aging-in-place cabinetry",
-};
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -154,17 +143,17 @@ export default function ContactForm() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label htmlFor="projectType" style={labelStyle}>What you need</label>
-        <select id="projectType" name="projectType" required defaultValue={prefillType ? TYPE_LABEL[prefillType] : ""} key={prefillType} style={inputStyle}>
+        <select id="projectType" name="projectType" required defaultValue={prefillType} style={inputStyle}>
           <option value="" disabled>— Select —</option>
-          <option>Vitrin Stock cabinets</option>
-          <option>Vitrin Signature (custom kitchen)</option>
-          <option>Kitchen cabinets</option>
-          <option>Bath cabinets</option>
-          <option>Built-ins / library / mudroom</option>
-          <option>Aging-in-place cabinetry</option>
-          <option>Installation add-on</option>
-          <option>Trade pricing inquiry</option>
-          <option>Other</option>
+          <option value="stock">Vitrin Stock cabinets</option>
+          <option value="custom">Vitrin Signature (custom kitchen)</option>
+          <option value="kitchen">Kitchen cabinets</option>
+          <option value="bath">Bath cabinets</option>
+          <option value="built-ins">Built-ins / library / mudroom</option>
+          <option value="aging-in-place">Aging-in-place cabinetry</option>
+          <option value="install">Installation add-on</option>
+          <option value="trade">Trade pricing inquiry</option>
+          <option value="other">Other</option>
         </select>
       </div>
 
