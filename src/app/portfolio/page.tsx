@@ -5,37 +5,18 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { projects } from "@/lib/projects";
-import { shareMetadata } from "@/lib/seo";
-import { breadcrumbSchema, itemListJsonLd, toJsonLd } from "@/lib/schema";
-
-const PAGE_TITLE = "Portfolio — Custom Kitchens Built by Vitrin Cabinetery";
-const PAGE_DESC =
-  "Selected custom kitchen and bath projects by Vitrin Cabinetery — designed, built, and installed at our Quakertown, PA shop. Browse by style and town.";
+import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import PortfolioGrid from "./PortfolioGrid";
 
 export const metadata: Metadata = {
-  title: PAGE_TITLE,
-  description: PAGE_DESC,
+  title: "Portfolio — Custom Kitchens Built by Vitrin Cabinetery",
+  description:
+    "Selected custom kitchen and bath projects by Vitrin Cabinetery — bench-built at our Quakertown, PA shop. Browse by style and town.",
   alternates: { canonical: "/portfolio" },
-  ...shareMetadata("/portfolio", PAGE_TITLE, PAGE_DESC, {
-    imagePath: "/images/heros/navy-blue-custom-kitchen-cabinets-twilight.png",
-    imageAlt: "Custom navy blue kitchen with brass pendants at twilight, built by Vitrin Cabinetery in Bucks County PA",
-  }),
 };
 
 export default function PortfolioPage() {
   const pageUrl = `${site.url}/portfolio`;
-
-  const portfolioListLd = itemListJsonLd({
-    name: "Custom kitchen and bath portfolio — Vitrin Cabinetery",
-    description: PAGE_DESC,
-    url: `${pageUrl}#projects`,
-    items: projects.map((p) => ({
-      name: p.title,
-      description: p.summary,
-      url: `${site.url}/portfolio/${p.slug}`,
-    })),
-  });
 
   return (
     <main>
@@ -62,48 +43,14 @@ export default function PortfolioPage() {
             Selected work, photographed and named.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Every project below was designed, built, and installed by our team. Click through any of them for the story, the style, and the choices behind the work.
+            Every project below was built by our team at the bench in Quakertown. Click through any of them for the story, the style, and the choices behind the work.
           </p>
         </div>
       </section>
 
-      <section id="projects">
+      <section>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
-            {projects.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/portfolio/${p.slug}`}
-                style={{
-                  display: "block",
-                  border: "1px solid var(--border)",
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  transition: "all 0.25s ease",
-                  background: "#fff",
-                }}
-              >
-                <div
-                  className="img-placeholder"
-                  style={{ minHeight: "260px", border: "none", borderRadius: 0, fontSize: "0.8rem" }}
-                  role="img"
-                  aria-label={`${p.title} — photo coming soon`}
-                >
-                  {p.title} — photo coming soon
-                </div>
-                <div style={{ padding: "1.5rem" }}>
-                  <div style={{ color: "var(--primary)", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "1.5px", marginBottom: "0.5rem" }}>
-                    {p.style} · {p.town}
-                  </div>
-                  <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>{p.title}</h3>
-                  <p style={{ color: "var(--text-secondary)", lineHeight: 1.55, fontSize: "0.95rem" }}>{p.summary}</p>
-                  <div style={{ marginTop: "1rem", color: "var(--primary)", fontWeight: 600, fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "1px" }}>
-                    View Project →
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <PortfolioGrid />
         </div>
       </section>
 
@@ -113,7 +60,7 @@ export default function PortfolioPage() {
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
             Every project starts with a 30-minute discovery call. Tell us what you&apos;re thinking and we&apos;ll tell you what&apos;s realistic for your space and budget tier.
           </p>
-          <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+          <Link href="/contact" className="btn-primary">Start a Conversation</Link>
         </div>
       </section>
 
@@ -129,10 +76,6 @@ export default function PortfolioPage() {
             ])
           ),
         }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(portfolioListLd) }}
       />
     </main>
   );

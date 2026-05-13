@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const questions = [
   {
     q: "Do you design and build, or just design?",
-    why: "Some kitchen designers are independent — they draw, you bring your own cabinet maker and installer. Others (like us) do all three under one roof. Both models work. Knowing which one you're hiring matters.",
+    why: "Some kitchen designers are independent — they draw, you bring your own cabinet shop and installer. Others work within a cabinet shop and handle design as part of the cabinet package. Both models work. Knowing which one you're hiring matters.",
   },
   {
     q: "Are the cabinets built in-house, or are they a manufactured line you resell?",
@@ -82,12 +82,12 @@ const faqs = [
     a: "Certifications signal seriousness but don't guarantee good work. Plenty of excellent designers don't have them; plenty of mediocre ones do. Use them as a tiebreaker, not a filter.",
   },
   {
-    q: "Should I hire a separate designer and cabinet maker, or use a design-build firm?",
-    a: "Either works. Separate designer gives you a neutral party with no incentive to push a specific cabinet line — but you manage two contracts and split accountability. Design-build (us) gives you a single contract and single point of contact — at the cost of less neutrality on the cabinet decision. Both models produce great kitchens. Match the model to your project size and your appetite for managing vendors.",
+    q: "Should I hire a separate designer and cabinet maker, or find a shop that does both?",
+    a: "Either works. A separate designer gives you a neutral party with no incentive to push a specific cabinet line — but you manage two contracts and split accountability. A cabinet shop that also handles design gives you a single contract and single point of contact — at the cost of less neutrality on the cabinet decision. Both models produce great kitchens. Match the model to your project size and your appetite for managing vendors.",
   },
   {
     q: "How much should I pay for design alone?",
-    a: "Design-only fees in this region run $1,500–$8,000 for a typical kitchen, depending on the designer's reputation and the project's complexity. Design-build firms often roll design into the project price or charge a modest standalone fee that's credited to the deposit.",
+    a: "Design-only fees in this region run $1,500–$8,000 for a typical kitchen, depending on the designer's reputation and the project's complexity. Some cabinet shops roll design into the project price or charge a modest standalone fee that's credited to the deposit.",
   },
   {
     q: "What's the difference between a kitchen designer and an interior designer?",
@@ -217,7 +217,7 @@ export default function ChoosingDesignerGuide() {
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
             Free 30-minute discovery call. Bring the list. We&apos;ll give you straight answers — and if we&apos;re not the right shop for your project, we&apos;ll tell you who is.
           </p>
-          <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+          <Link href="/contact" className="btn-primary">Get a Quote</Link>
         </div>
       </section>
 

@@ -32,6 +32,31 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/services/kitchen-cabinets",
+        destination: "/cabinets/kitchen",
+        permanent: true,
+      },
+      {
+        source: "/services/bathroom-vanities",
+        destination: "/cabinets/bath",
+        permanent: true,
+      },
+      {
+        source: "/services/living-room-units",
+        destination: "/cabinets/built-ins",
+        permanent: true,
+      },
+      {
+        source: "/services/aging-in-place",
+        destination: "/cabinets/aging-in-place",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

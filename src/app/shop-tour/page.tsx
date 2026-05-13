@@ -5,27 +5,14 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { shareMetadata } from "@/lib/seo";
-import { breadcrumbSchema, itemListJsonLd, toJsonLd, videoObjectJsonLd } from "@/lib/schema";
-
-const PAGE_TITLE = "Shop Tour — Inside the Vitrin Workshop in Quakertown, PA";
-const PAGE_DESC =
-  "Walk through the Vitrin Cabinetery workshop in Quakertown, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.";
+import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: PAGE_TITLE,
-  description: PAGE_DESC,
+  title: "Workshop Tour — Where Vitrin Signature Is Built in Quakertown, PA",
+  description:
+    "Walk through the Vitrin Cabinetery workshop in Quakertown, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.",
   alternates: { canonical: "/shop-tour" },
-  ...shareMetadata("/shop-tour", PAGE_TITLE, PAGE_DESC, {
-    imagePath: "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png",
-    imageAlt: "Master cabinetmaker at the bench inside the Vitrin Cabinetery workshop in Quakertown, PA",
-  }),
 };
-
-const SHOP_TOUR_VIDEO = "/videos/vitrin-cabinetery-shop-tour-workshop-quakertown.mp4";
-const SHOP_TOUR_POSTER = "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png";
-/** ISO 8601 date — update when replacing the video file. */
-const SHOP_TOUR_VIDEO_UPLOAD_DATE = "2026-05-12";
 
 const stations = [
   {
@@ -62,25 +49,6 @@ const stations = [
 
 export default function ShopTourPage() {
   const pageUrl = `${site.url}/shop-tour`;
-  const videoContentUrl = `${site.url}${SHOP_TOUR_VIDEO}`;
-  const thumbnailUrl = `${site.url}${SHOP_TOUR_POSTER}`;
-
-  const videoLd = videoObjectJsonLd({
-    name: "Vitrin Cabinetery — workshop tour (Quakertown, PA)",
-    description: PAGE_DESC,
-    thumbnailUrl,
-    contentUrl: videoContentUrl,
-    uploadDate: SHOP_TOUR_VIDEO_UPLOAD_DATE,
-    embedUrl: pageUrl,
-  });
-
-  const stationsLd = itemListJsonLd({
-    name: "Workshop stations on a Vitrin Cabinetery shop tour",
-    description: "Areas visitors see when touring the Quakertown bench-built cabinetry workshop.",
-    url: `${pageUrl}#stations`,
-    items: stations.map((s) => ({ name: s.title, description: s.body })),
-  });
-
   return (
     <main>
       <Navbar />
@@ -99,44 +67,34 @@ export default function ShopTourPage() {
           <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Shop Tour</span>
+            <span aria-current="page" style={{ color: "#fff" }}>Workshop Tour</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Inside the Workshop</span>
+          <span className="eyebrow" style={{ color: "#e6c87a" }}>Workshop Tour</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            The shop where your kitchen actually gets built.
+            Tour the Workshop — where Vitrin Signature is built.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Most kitchen showrooms display product. Ours is the same room where the work happens. You can stand at the bench where your cabinets will be assembled.
+            Most kitchen shops keep the work floor off-limits. Ours is the same room where the work happens. You can stand at the bench where your cabinets will be assembled.
           </p>
         </div>
       </section>
 
+      <div style={{ textAlign: "center", margin: "2rem auto", padding: "1rem", background: "var(--surface)", borderRadius: "6px", maxWidth: "640px" }}>
+        Looking to visit the showroom instead? See <Link href="/showroom" className="text-link">Showroom →</Link>
+      </div>
+
       <section>
         <div className="container">
           <div
-            style={{
-              aspectRatio: "16 / 9",
-              maxWidth: 960,
-              margin: "0 auto 2.5rem",
-              borderRadius: 12,
-              overflow: "hidden",
-              border: "1px solid var(--border)",
-              background: "#0a0a0a",
-            }}
+            className="img-placeholder"
+            style={{ minHeight: "440px", marginBottom: "2.5rem" }}
+            role="img"
+            aria-label="Shop tour video — coming soon"
           >
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              poster={SHOP_TOUR_POSTER}
-              aria-label="Video tour of the Vitrin Cabinetery workshop in Quakertown, Pennsylvania"
-              style={{ width: "100%", height: "100%", display: "block" }}
-            >
-              <source src={SHOP_TOUR_VIDEO} type="video/mp4" />
-            </video>
+            Shop tour video — coming soon
           </div>
 
-          <div className="section-center" id="stations">
+          <div className="section-center">
             <span className="eyebrow">Six Stations</span>
             <h2 className="section-heading">What you&apos;ll see when you walk through.</h2>
           </div>
@@ -173,18 +131,10 @@ export default function ShopTourPage() {
           __html: toJsonLd(
             breadcrumbSchema([
               { name: "Home", url: site.url },
-              { name: "Shop Tour", url: pageUrl },
+              { name: "Workshop Tour", url: pageUrl },
             ])
           ),
         }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(videoLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(stationsLd) }}
       />
     </main>
   );

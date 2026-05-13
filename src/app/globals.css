@@ -115,11 +115,11 @@ section {
   padding: 100px 0;
 }
 
-section--tight { padding: 70px 0; }
-section--surface { background: var(--surface); }
-section--dark { background: #0a0a0a; color: #fff; }
-section--dark h1, section--dark h2, section--dark h3 { color: #fff; }
-section--dark p { color: rgba(255, 255, 255, 0.78); }
+.section--tight { padding: 70px 0; }
+.section--surface { background: var(--surface); }
+.section--dark { background: #0a0a0a; color: #fff; }
+.section--dark h1, .section--dark h2, .section--dark h3 { color: #fff; }
+.section--dark p { color: rgba(255, 255, 255, 0.78); }
 
 /* Hero — reserved-space wrapper for next/image fill (no CLS) */
 .hero {
@@ -381,14 +381,14 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 100px;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
+  overflow: visible;
   transition: height 0.22s ease, border-radius 0.22s ease;
 }
 
 .navbar--open {
   height: auto;
   border-radius: 24px;
-  overflow: visible;
+  /* mobile menu open state — flex container shows */
 }
 
 .navbar__brand {
@@ -422,8 +422,10 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
 
 .navbar__links a:hover { color: var(--text); }
 
-.navbar__links a.navbar__link--active { color: var(--text); }
-.navbar__links a.navbar__link--active::after {
+.navbar__links a.navbar__link--active,
+.navbar__links button.navbar__link--active { color: var(--text); }
+.navbar__links a.navbar__link--active::after,
+.navbar__links button.navbar__link--active::after {
   content: "";
   position: absolute;
   left: 0;
@@ -503,12 +505,24 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
     border-radius: 100px;
     color: var(--text-secondary);
   }
-  .navbar__links a.navbar__link--active {
+  .navbar__links a.navbar__link--active,
+  .navbar__links button.navbar__link--active {
     background: rgba(184, 146, 74, 0.08);
     color: var(--primary);
   }
-  .navbar__links a.navbar__link--active::after { display: none; }
+  .navbar__links a.navbar__link--active::after,
+  .navbar__links button.navbar__link--active::after { display: none; }
   .navbar--open .navbar__links { display: flex; }
+  .navbar--open .navbar__dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0.25rem 0 0.5rem 1rem;
+    min-width: 0;
+    margin-top: 0;
+    background: transparent;
+  }
 
   /* Heroes / subhero — pull text up so it isn't crushed under the floating nav.
      !important here overrides inline padding/min-height set on inner-page heroes. */
@@ -570,4 +584,11 @@ section--dark p { color: rgba(255, 255, 255, 0.78); }
   letter-spacing: 1.5px;
   text-align: center;
   padding: 1rem;
+}
+
+/* Focus visible rings for keyboard navigation (a11y baseline) */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }

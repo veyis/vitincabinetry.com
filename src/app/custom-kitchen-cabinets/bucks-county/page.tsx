@@ -7,18 +7,13 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { projects } from "@/lib/projects";
-import { shareMetadata } from "@/lib/seo";
-import { breadcrumbSchema, faqPageJsonLd, itemListJsonLd, serviceSchema, toJsonLd } from "@/lib/schema";
-
-const PAGE_TITLE = "Custom Kitchen Cabinets in Bucks County, PA";
-const PAGE_DESC =
-  "Custom kitchen cabinets across Bucks County, PA. Vitrin Cabinetery designs, builds, and installs every kitchen at our Quakertown shop — serving 12+ towns from Quakertown to New Hope.";
+import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: PAGE_TITLE,
-  description: PAGE_DESC,
+  title: "Custom Kitchen Cabinets in Bucks County, PA",
+  description:
+    "Custom kitchen cabinets across Bucks County, PA. Vitrin Cabinetery builds every cabinet at our Quakertown shop and supplies them across 12+ towns from Quakertown to New Hope.",
   alternates: { canonical: "/custom-kitchen-cabinets/bucks-county" },
-  ...shareMetadata("/custom-kitchen-cabinets/bucks-county", PAGE_TITLE, PAGE_DESC),
 };
 
 const reasons = [
@@ -80,23 +75,15 @@ const faqs = [
 export default function BucksCountyPillar() {
   const pageUrl = `${site.url}/custom-kitchen-cabinets/bucks-county`;
 
-  const faqLd = faqPageJsonLd(faqs);
-
-  const townsListLd = itemListJsonLd({
-    name: "Custom kitchen cabinet service towns — Bucks County region",
-    description:
-      "Towns and municipalities served by Vitrin Cabinetery with dedicated local landing pages for custom kitchen cabinetry.",
-    url: `${pageUrl}#town-pages`,
-    items: towns.map((t) => {
-      const desc =
-        t.intro.length > 280 ? `${t.intro.slice(0, 277).trimEnd()}…` : t.intro;
-      return {
-        name: `Custom kitchen cabinets in ${t.name}, PA`,
-        description: desc,
-        url: `${site.url}/custom-kitchen-cabinets/${t.slug}`,
-      };
-    }),
-  });
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   const featured = projects.slice(0, 3);
 
@@ -118,7 +105,7 @@ export default function BucksCountyPillar() {
           <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <Link href="/services/kitchen-cabinets" style={{ color: "inherit" }}>Custom Kitchens</Link>
+            <Link href="/cabinets/kitchen" style={{ color: "inherit" }}>Cabinet Types</Link>
             <span className="sep">/</span>
             <span aria-current="page" style={{ color: "#fff" }}>Bucks County, PA</span>
           </nav>
@@ -127,10 +114,10 @@ export default function BucksCountyPillar() {
             Custom kitchen cabinets across Bucks County.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetery is a Quakertown-based custom cabinetry shop serving Bucks County and the Lehigh Valley. Every project is designed, built, and installed by our own team — not franchised, not sub&apos;d out, not picked from a catalog.
+            Vitrin Cabinetery is a Quakertown-based custom cabinetry shop serving Bucks County and the Lehigh Valley. Every cabinet is built in our shop — not franchised, not sub&apos;d out, not picked from a catalog.
           </p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+            <Link href="/contact" className="btn-primary">Get a Quote</Link>
             <Link href="/portfolio" className="btn-secondary" style={{ background: "transparent", color: "#fff", borderColor: "#fff" }}>See Recent Work</Link>
           </div>
         </div>
@@ -155,7 +142,7 @@ export default function BucksCountyPillar() {
       </section>
 
       {/* Towns we serve */}
-      <section className="section--surface" id="town-pages">
+      <section className="section--surface">
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Towns We Serve</span>
@@ -278,7 +265,7 @@ export default function BucksCountyPillar() {
             Free 30-minute discovery call. We&apos;ll talk space, budget tier, timeline, and whether we&apos;re the right shop for your project.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+            <Link href="/contact" className="btn-primary">Get a Quote</Link>
             <Link href="/shop-tour" className="btn-secondary">Take the Shop Tour</Link>
           </div>
         </div>
@@ -292,7 +279,7 @@ export default function BucksCountyPillar() {
           __html: toJsonLd(
             breadcrumbSchema([
               { name: "Home", url: site.url },
-              { name: "Custom Kitchens", url: `${site.url}/services/kitchen-cabinets` },
+              { name: "Cabinet Types", url: `${site.url}/cabinets/kitchen` },
               { name: "Bucks County, PA", url: pageUrl },
             ])
           ),
@@ -305,15 +292,14 @@ export default function BucksCountyPillar() {
             serviceSchema({
               name: "Custom Kitchen Cabinets in Bucks County, PA",
               description:
-                "Custom kitchen cabinetry across Bucks County, PA. Designed, built, and installed in Quakertown by Vitrin Cabinetery. Serving 12+ towns from Quakertown to New Hope.",
+                "Custom kitchen cabinetry built in Quakertown and supplied across Bucks County, PA by Vitrin Cabinetery. Serving 12+ towns from Quakertown to New Hope.",
               url: pageUrl,
               serviceType: "Custom Kitchen Cabinets",
             })
           ),
         }}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(townsListLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqSchema) }} />
     </main>
   );
 }

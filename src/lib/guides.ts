@@ -49,6 +49,51 @@ export const guides: GuideMeta[] = [
     readingMinutes: 7,
     datePublished: "2026-05-12",
   },
+  {
+    slug: "setting-up-a-trade-cabinet-account",
+    title: "Setting Up a Trade Cabinet Account at Vitrin",
+    excerpt:
+      "How contractors, builders, and installers set up a trade account with Vitrin Cabinetery — application, pricing sheet, and net terms after first order.",
+    category: "Process",
+    readingMinutes: 6,
+    datePublished: "2026-05-12",
+  },
+  {
+    slug: "stock-vs-custom-cabinets-when-to-choose-each",
+    title: "Stock vs. Custom Cabinets — When to Choose Each",
+    excerpt:
+      "When stock cabinets are the smart pick and when custom is worth the wait. A decision framework from a shop that sells both.",
+    category: "Decision",
+    readingMinutes: 9,
+    datePublished: "2026-05-12",
+  },
+  {
+    slug: "buying-cabinets-for-a-spec-home",
+    title: "Buying Cabinets for a Spec Home — Builder's Guide",
+    excerpt:
+      "How builders and developers source cabinets for spec homes — volume pricing, lead times, and design flexibility for buyers-in-tow.",
+    category: "Pricing",
+    readingMinutes: 8,
+    datePublished: "2026-05-12",
+  },
+  {
+    slug: "cabinet-delivery-and-jobsite-coordination",
+    title: "Cabinet Delivery and Jobsite Coordination",
+    excerpt:
+      "Will-call pickup, jobsite delivery, lift-gate, and inside delivery — how Vitrin gets cabinets to your install date without breaking your schedule.",
+    category: "Process",
+    readingMinutes: 7,
+    datePublished: "2026-05-12",
+  },
+  {
+    slug: "contractor-cabinet-pricing-explained",
+    title: "Contractor Cabinet Pricing Explained",
+    excerpt:
+      "How trade pricing works at Vitrin — tiered by volume, account terms, and what to expect on your first pricing sheet.",
+    category: "Pricing",
+    readingMinutes: 10,
+    datePublished: "2026-05-12",
+  },
 ];
 
 export function getGuide(slug: string): GuideMeta | undefined {

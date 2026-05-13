@@ -10,9 +10,11 @@ export function toJsonLd(payload: Record<string, unknown>): string {
   return JSON.stringify(payload).replace(/</g, "\\u003c");
 }
 
+// Omit streetAddress when site.address.street is still the placeholder value.
+// Once NEXT_PUBLIC_BUSINESS_STREET is set in the env, the real street flows through.
 const postalAddress = {
   "@type": "PostalAddress",
-  streetAddress: site.address.street,
+  ...(site.address.street.startsWith("TBD") ? {} : { streetAddress: site.address.street }),
   addressLocality: site.address.locality,
   addressRegion: site.address.region,
   postalCode: site.address.postalCode,
@@ -288,5 +290,76 @@ export function serviceSchema(opts: {
     serviceType: opts.serviceType ?? "Custom Cabinetry",
     provider: { "@id": `${site.url}#localbusiness` },
     areaServed: site.areaServed,
+  };
+}
+
+/**
+ * Vitrin operates as both a custom cabinetry workshop AND a cabinet store —
+ * stock cabinets sold from the showroom plus made-to-order custom. The
+ * default localBusinessSchema (@type "CabinetMaker") emphasizes the workshop.
+ * This variant emphasizes the storefront and is rendered on /, /showroom,
+ * and the town pages where both tiers are sold.
+ */
+export const cabinetStoreSchema = {
+  "@context": "https://schema.org",
+  "@type": ["FurnitureStore", "HomeAndConstructionBusiness"],
+  "@id": `${site.url}#cabinetstore`,
+  name: site.name,
+  url: site.url,
+  image: `${site.url}/og.jpg`,
+  telephone: site.phone,
+  email: site.email,
+  priceRange: "$$",
+  address: postalAddress,
+  geo: { "@type": "GeoCoordinates", ...site.geo },
+  areaServed: site.areaServed,
+  openingHoursSpecification: openingHours,
+  // aggregateRating intentionally omitted — the storefront and the workshop
+  // share the same rating pool; render it only on localBusinessSchema.
+  ...(sameAs.length > 0 ? { sameAs } : {}),
+};
+
+export function productSchema(opts: {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+  sku?: string;
+  offers?: ReturnType<typeof offerSchema> | ReturnType<typeof offerSchema>[];
+}) {
+  const offers = opts.offers
+    ? Array.isArray(opts.offers)
+      ? opts.offers
+      : [opts.offers]
+    : undefined;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: opts.name,
+    description: opts.description,
+    image: opts.image,
+    url: opts.url,
+    ...(opts.sku ? { sku: opts.sku } : {}),
+    brand: { "@type": "Brand", name: site.name },
+    ...(offers ? { offers } : {}),
+  };
+}
+
+export function offerSchema(opts: {
+  price: string;
+  priceCurrency?: string;
+  // schema.org ItemAvailability enum — "MadeToOrder" is not a valid value.
+  // Use "PreOrder" for custom-built items not yet in production,
+  // or "InStock" when the item is orderable from stock.
+  availability?: "InStock" | "OutOfStock" | "PreOrder" | "BackOrder";
+  url?: string;
+}) {
+  return {
+    "@type": "Offer",
+    priceCurrency: opts.priceCurrency ?? "USD",
+    price: opts.price,
+    availability: `https://schema.org/${opts.availability ?? "InStock"}`,
+    ...(opts.url ? { url: opts.url } : {}),
+    seller: { "@id": `${site.url}#cabinetstore` },
   };
 }

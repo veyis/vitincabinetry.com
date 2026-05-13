@@ -174,9 +174,9 @@ export default function InsetVsFullOverlayPage() {
         <div className="container--narrow" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Want to see both in person?</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Every consultation includes time at the shop materials bench — full-size inset and full-overlay door samples, side by side. Decisions feel different in person.
+            Every showroom visit includes time at the shop materials bench — full-size inset and full-overlay door samples, side by side. Decisions feel different in person.
           </p>
-          <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+          <Link href="/contact" className="btn-primary">Get a Quote</Link>
         </div>
       </section>
 

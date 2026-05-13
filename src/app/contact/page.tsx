@@ -1,40 +1,19 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "./ContactForm";
 import { site } from "@/lib/site";
-import { shareMetadata } from "@/lib/seo";
-import { breadcrumbSchema, toJsonLd, videoObjectJsonLd } from "@/lib/schema";
-
-const CONTACT_HERO_VIDEO = "/videos/custom-kitchen-indoor-outdoor-garden-bucks-county.mp4";
-const CONTACT_HERO_POSTER = "/images/heros/custom-kitchen-indoor-outdoor-garden-bucks-county-poster.jpg";
-const CONTACT_HERO_VIDEO_UPLOAD_DATE = "2026-05-12";
-
-const CONTACT_TITLE = "Contact — Vitrin Cabinetery";
-const CONTACT_DESC =
-  "Book a free consultation with Vitrin Cabinetery in Quakertown, PA. Serving Bucks County and the Lehigh Valley.";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: CONTACT_DESC,
+  description:
+    "Get a cabinet quote from Vitrin Cabinetery in Quakertown, PA. Stock and custom cabinets for homeowners and trade in Bucks County and the Lehigh Valley.",
   alternates: { canonical: "/contact" },
-  ...shareMetadata("/contact", CONTACT_TITLE, CONTACT_DESC),
 };
 
 export default function Contact() {
-  const pageUrl = `${site.url}/contact`;
-  const contactHeroVideoLd = videoObjectJsonLd({
-    name: "Indoor-outdoor custom kitchen — Vitrin Cabinetery, Bucks County, PA",
-    description:
-      "Indoor-outdoor custom kitchen opening onto a Bucks County garden, built by Vitrin Cabinetery in Quakertown, Pennsylvania.",
-    thumbnailUrl: `${site.url}${CONTACT_HERO_POSTER}`,
-    contentUrl: `${site.url}${CONTACT_HERO_VIDEO}`,
-    uploadDate: CONTACT_HERO_VIDEO_UPLOAD_DATE,
-    embedUrl: pageUrl,
-  });
-
   return (
     <main>
       <Navbar />
@@ -46,11 +25,11 @@ export default function Contact() {
           muted
           loop
           playsInline
-          preload="auto"
-          poster={CONTACT_HERO_POSTER}
-          aria-label="Indoor-outdoor custom kitchen opening onto a Bucks County garden, built by Vitrin Cabinetery"
+          preload="none"
+          poster="/images/heros/custom-kitchen-indoor-outdoor-garden-bucks-county-poster.jpg"
+          aria-hidden="true"
         >
-          <source media="(prefers-reduced-motion: no-preference)" src={CONTACT_HERO_VIDEO} type="video/mp4" />
+          <source media="(prefers-reduced-motion: no-preference)" src="/videos/custom-kitchen-indoor-outdoor-garden-bucks-county.mp4" type="video/mp4" />
         </video>
         <div className="hero__overlay" />
         <div className="hero__inner">
@@ -59,12 +38,12 @@ export default function Contact() {
             <span className="sep">/</span>
             <span aria-current="page" style={{ color: "#fff" }}>Contact</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Book a Consultation</span>
+          <span className="eyebrow" style={{ color: "#e6c87a" }}>Get a Quote</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Let&apos;s create your masterpiece.
+            Tell us about your cabinets.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            From initial sketch to final installation, we guide you through every step of your bespoke cabinetry journey.
+            Stock or custom. Trade or retail. Send us the project — we&apos;ll quote within one business day.
           </p>
         </div>
       </section>
@@ -73,16 +52,22 @@ export default function Contact() {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem" }}>
             <div>
-              <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>Get In Touch</h2>
+              <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>Get a cabinet quote</h2>
               <p style={{ color: "var(--text-secondary)", marginBottom: "2rem" }}>
-                Fill out the form, and one of our master designers will reach out within 24 hours to discuss your project.
+                Fill out the form. Your dedicated rep will reach out within one business day to confirm the details.
               </p>
 
               <div style={{ marginBottom: "2rem" }}>
                 <div style={{ fontWeight: "bold", color: "var(--primary)", marginBottom: "0.5rem" }}>Showroom</div>
                 <div style={{ color: "var(--text-secondary)" }}>
-                  {site.address.street}<br />
-                  {site.address.locality}, {site.address.region} {site.address.postalCode}
+                  {site.address.street.startsWith("TBD") ? (
+                    <>Address coming soon<br />{site.address.locality}, {site.address.region} {site.address.postalCode}</>
+                  ) : (
+                    <>
+                      {site.address.street}<br />
+                      {site.address.locality}, {site.address.region} {site.address.postalCode}
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -104,29 +89,15 @@ export default function Contact() {
             </div>
 
             <div className="glass-morphism" style={{ padding: "3rem" }}>
-              <ContactForm />
+              <Suspense fallback={<div style={{ color: "var(--text-secondary)" }}>Loading form…</div>}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
         </div>
       </section>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: toJsonLd(
-            breadcrumbSchema([
-              { name: "Home", url: site.url },
-              { name: "Contact", url: pageUrl },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(contactHeroVideoLd) }}
-      />
     </main>
   );
 }

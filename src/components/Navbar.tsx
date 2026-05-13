@@ -1,33 +1,65 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const navItems = [
-  { href: "/process", label: "Process" },
-  { href: "/services/kitchen-cabinets", label: "Kitchens" },
-  { href: "/services/bathroom-vanities", label: "Bathrooms" },
+const cabinetsLinks = [
+  { href: "/cabinets/stock", label: "Vitrin Stock" },
+  { href: "/cabinets/custom", label: "Vitrin Signature" },
+  { href: "/cabinets/kitchen", label: "Kitchen" },
+  { href: "/cabinets/bath", label: "Bath" },
+  { href: "/cabinets/built-ins", label: "Built-ins" },
+  { href: "/cabinets/aging-in-place", label: "Aging in Place" },
+];
+
+const topLevel: Array<{ href: string; label: string }> = [
+  { href: "/trade", label: "Trade" },
+  { href: "/showroom", label: "Showroom" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Escape closes the mobile menu and the dropdown.
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen && !dropdownOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
+      if (e.key === "Escape") {
+        setIsOpen(false);
+        setDropdownOpen(false);
+      }
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [isOpen]);
+  }, [isOpen, dropdownOpen]);
 
-  const close = () => setIsOpen(false);
+  // Click outside the dropdown closes it.
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [dropdownOpen]);
+
+  const close = () => {
+    setIsOpen(false);
+    setDropdownOpen(false);
+  };
+
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname?.startsWith(href + "/"));
+
+  const cabinetsActive = isActive("/cabinets");
 
   return (
     <nav
@@ -51,8 +83,83 @@ export default function Navbar() {
       </button>
 
       <div id="primary-navigation" className="navbar__links">
-        {navItems.map((item) => {
-          const active = pathname === item.href || isActive(item.href);
+        {/* Cabinets dropdown */}
+        <div
+          ref={dropdownRef}
+          className="navbar__dropdown"
+          style={{ position: "relative" }}
+          onMouseEnter={() => setDropdownOpen(true)}
+          onMouseLeave={() => setDropdownOpen(false)}
+        >
+          <button
+            type="button"
+            className={cabinetsActive ? "navbar__link--active" : undefined}
+            aria-current={cabinetsActive ? "page" : undefined}
+            aria-haspopup="true"
+            aria-expanded={dropdownOpen}
+            onClick={() => setDropdownOpen((o) => !o)}
+            onFocus={() => setDropdownOpen(true)}
+            onBlur={(e) => {
+              if (!dropdownRef.current?.contains(e.relatedTarget)) {
+                setDropdownOpen(false);
+              }
+            }}
+            style={{
+              background: "transparent",
+              border: "none",
+              padding: 0,
+              font: "inherit",
+              color: "inherit",
+              cursor: "pointer",
+              position: "relative",
+            }}
+          >
+            Cabinets <span aria-hidden="true">▾</span>
+          </button>
+          {dropdownOpen && (
+            <div
+              className="navbar__dropdown-menu"
+              aria-label="Cabinets submenu"
+              style={{
+                position: "absolute",
+                top: "100%",
+                left: 0,
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: "6px",
+                padding: "0.5rem 0",
+                minWidth: "200px",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+                zIndex: 100,
+                marginTop: "0.5rem",
+              }}
+              onBlur={(e) => {
+                if (!e.currentTarget.contains(e.relatedTarget)) {
+                  setDropdownOpen(false);
+                }
+              }}
+            >
+              {cabinetsLinks.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={close}
+                  style={{
+                    display: "block",
+                    padding: "0.5rem 1rem",
+                    color: "var(--text)",
+                    fontSize: "0.95rem",
+                  }}
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {topLevel.map((item) => {
+          const active = isActive(item.href);
           return (
             <Link
               key={item.href}
