@@ -1,6 +1,36 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
+
+const ALLOWED_TYPES = [
+  "trade",
+  "install",
+  "custom",
+  "stock",
+  "kitchen",
+  "bath",
+  "built-ins",
+  "aging-in-place",
+] as const;
+
+type ProjectType = typeof ALLOWED_TYPES[number];
+
+function normalizeType(input: string | null): ProjectType | "" {
+  return (ALLOWED_TYPES as readonly string[]).includes(input ?? "") ? (input as ProjectType) : "";
+}
+
+// Friendly labels for the projectType <select> value when prefilled via ?type=
+const TYPE_LABEL: Record<ProjectType, string> = {
+  trade: "Trade pricing inquiry",
+  install: "Installation add-on",
+  custom: "Vitrin Signature (custom kitchen)",
+  stock: "Vitrin Stock cabinets",
+  kitchen: "Kitchen cabinets",
+  bath: "Bath cabinets",
+  "built-ins": "Built-ins / library / mudroom",
+  "aging-in-place": "Aging-in-place cabinetry",
+};
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -20,6 +50,9 @@ const labelStyle: React.CSSProperties = {
 };
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
+  const prefillType = normalizeType(searchParams.get("type"));
+
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -35,6 +68,7 @@ export default function ContactForm() {
       lastName: String(data.get("lastName") ?? ""),
       email: String(data.get("email") ?? ""),
       phone: String(data.get("phone") ?? ""),
+      audienceType: String(data.get("audienceType") ?? ""),
       projectType: String(data.get("projectType") ?? ""),
       message: String(data.get("message") ?? ""),
       honeypot: String(data.get("company") ?? ""),
@@ -63,7 +97,7 @@ export default function ContactForm() {
       <div style={{ textAlign: "center", padding: "2rem 0" }}>
         <h3 style={{ fontSize: "1.5rem", marginBottom: "0.75rem" }}>Thank you.</h3>
         <p style={{ color: "var(--text-secondary)" }}>
-          Your message is in. A designer will reach out within 24 hours.
+          Your inquiry is in. Your dedicated rep will reach out within one business day.
         </p>
       </div>
     );
@@ -105,13 +139,32 @@ export default function ContactForm() {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-        <label htmlFor="projectType" style={labelStyle}>Project Type</label>
-        <select id="projectType" name="projectType" required defaultValue="Kitchen Remodel" style={inputStyle}>
-          <option>Kitchen Remodel</option>
-          <option>Bathroom Vanity</option>
-          <option>Living Room Built-in</option>
-          <option>Closet / Pantry / Mudroom</option>
-          <option>Other / Custom</option>
+        <label htmlFor="audienceType" style={labelStyle}>I&apos;m a…</label>
+        <select id="audienceType" name="audienceType" required defaultValue="" style={inputStyle}>
+          <option value="" disabled>— Select —</option>
+          <option value="homeowner">Homeowner</option>
+          <option value="contractor">General contractor / remodeler</option>
+          <option value="installer">Kitchen &amp; bath installer</option>
+          <option value="builder">Builder / developer</option>
+          <option value="designer">Interior designer</option>
+          <option value="architect">Architect</option>
+          <option value="trade-other">Trade — other</option>
+        </select>
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+        <label htmlFor="projectType" style={labelStyle}>What you need</label>
+        <select id="projectType" name="projectType" required defaultValue={prefillType ? TYPE_LABEL[prefillType] : ""} key={prefillType} style={inputStyle}>
+          <option value="" disabled>— Select —</option>
+          <option>Vitrin Stock cabinets</option>
+          <option>Vitrin Signature (custom kitchen)</option>
+          <option>Kitchen cabinets</option>
+          <option>Bath cabinets</option>
+          <option>Built-ins / library / mudroom</option>
+          <option>Aging-in-place cabinetry</option>
+          <option>Installation add-on</option>
+          <option>Trade pricing inquiry</option>
+          <option>Other</option>
         </select>
       </div>
 

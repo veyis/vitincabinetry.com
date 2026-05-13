@@ -20,15 +20,17 @@ export type ContactPayload = {
   email: string;
   phone?: string;
   projectType: string;
+  audienceType?: string;
   message: string;
   zip?: string;
 };
 
 export async function sendContactEmail(payload: ContactPayload) {
-  const subject = `New consultation request — ${payload.projectType}`;
+  const subject = `New cabinet inquiry — ${payload.projectType}${payload.audienceType ? ` (${payload.audienceType})` : ""}`;
   const text = [
     `Name: ${payload.firstName} ${payload.lastName}`,
     `Email: ${payload.email}`,
+    payload.audienceType ? `Audience: ${payload.audienceType}` : null,
     payload.phone ? `Phone: ${payload.phone}` : null,
     payload.zip ? `Zip: ${payload.zip}` : null,
     `Project: ${payload.projectType}`,
