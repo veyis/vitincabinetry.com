@@ -64,11 +64,22 @@ export default function StockVsCustomPage() {
                 - Trade-respectful — never describe Vitrin doing what trade does for themselves
                 - No emojis, no exclamation marks
                 Target length: 800–1500 words.
+                After writing: update readingMinutes in src/lib/guides.ts to match (≈ word count ÷ 200).
             */}
             <p>This guide is being written. Check back soon — or <Link href="/contact" className="text-link">ask us directly</Link> in the meantime.</p>
           </div>
         </section>
       </article>
+
+      {/* TODO(content): Add closing CTA section here. Pattern (see existing guides):
+          <section className="section--surface">
+            <div className="container--narrow" style={{ textAlign: "center" }}>
+              <h2 className="section-heading">Get a quote — or come in.</h2>
+              <p className="section-sub">...</p>
+              <Link href="/contact" className="btn-primary">...</Link>
+            </div>
+          </section>
+      */}
 
       <Footer />
 
