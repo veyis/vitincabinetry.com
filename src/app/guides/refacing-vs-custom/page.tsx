@@ -203,7 +203,7 @@ export default function GuidePage() {
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
             We&apos;ll give you a custom-replacement quote — and tell you honestly if refacing is the better call for your specific room. The conversation is free.
           </p>
-          <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+          <Link href="/contact" className="btn-primary">Get a Quote</Link>
         </div>
       </section>
 

@@ -114,10 +114,10 @@ export default function BucksCountyPillar() {
             Custom kitchen cabinets across Bucks County.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetery is a Quakertown-based custom cabinetry shop serving Bucks County and the Lehigh Valley. Every project is designed, built, and installed by our own team — not franchised, not sub&apos;d out, not picked from a catalog.
+            Vitrin Cabinetery is a Quakertown-based custom cabinetry shop serving Bucks County and the Lehigh Valley. Every cabinet is built in our shop — not franchised, not sub&apos;d out, not picked from a catalog.
           </p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+            <Link href="/contact" className="btn-primary">Get a Quote</Link>
             <Link href="/portfolio" className="btn-secondary" style={{ background: "transparent", color: "#fff", borderColor: "#fff" }}>See Recent Work</Link>
           </div>
         </div>
@@ -265,7 +265,7 @@ export default function BucksCountyPillar() {
             Free 30-minute discovery call. We&apos;ll talk space, budget tier, timeline, and whether we&apos;re the right shop for your project.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+            <Link href="/contact" className="btn-primary">Get a Quote</Link>
             <Link href="/shop-tour" className="btn-secondary">Take the Shop Tour</Link>
           </div>
         </div>
@@ -292,7 +292,7 @@ export default function BucksCountyPillar() {
             serviceSchema({
               name: "Custom Kitchen Cabinets in Bucks County, PA",
               description:
-                "Custom kitchen cabinetry across Bucks County, PA. Designed, built, and installed in Quakertown by Vitrin Cabinetery. Serving 12+ towns from Quakertown to New Hope.",
+                "Custom kitchen cabinetry built in Quakertown and supplied across Bucks County, PA by Vitrin Cabinetery. Serving 12+ towns from Quakertown to New Hope.",
               url: pageUrl,
               serviceType: "Custom Kitchen Cabinets",
             })

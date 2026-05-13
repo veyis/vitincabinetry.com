@@ -290,7 +290,7 @@ export default function CostGuidePage() {
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
             Free 30-minute discovery call, free in-home survey, full line-item proposal after design lock. No mystery, no &quot;call for pricing,&quot; no commitment until you sign.
           </p>
-          <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+          <Link href="/contact" className="btn-primary">Get a Quote</Link>
         </div>
       </section>
 

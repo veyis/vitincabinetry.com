@@ -21,15 +21,15 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   if (!data) return {};
   return {
     title: `Custom Kitchen Cabinets in ${data.name}, PA`,
-    description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetery designs, builds, and installs every project at our own shop. Free in-home consultation, transparent pricing tiers, lifetime cabinetry warranty.`,
+    description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetery builds every cabinet at our Quakertown shop and supplies them across Bucks County. Transparent pricing tiers, lifetime cabinetry warranty.`,
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
   };
 }
 
 const sharedWhyCards = [
   {
-    title: "Same team, start to finish.",
-    body: "The person who measures your kitchen is the person watching it leave the shop and the person on site the day it goes in. One point of contact for the whole project.",
+    title: "One shop, start to finish.",
+    body: "The person who measures your kitchen is the person building your cabinets. No hand-offs, no catalog middleman — your project is built by the same shop that priced it.",
   },
   {
     title: "Bench-built, not catalog product.",

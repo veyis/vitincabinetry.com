@@ -120,7 +120,7 @@ export default async function ProjectPage({ params }: PageParams) {
 
               <div style={{ marginTop: "1.5rem" }}>
                 <Link href="/contact" className="btn-primary" style={{ width: "100%", textAlign: "center" }}>
-                  Book a Consultation
+                  Get a Quote
                 </Link>
               </div>
             </div>
