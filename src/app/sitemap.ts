@@ -20,11 +20,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
   ];
 
-  const services: MetadataRoute.Sitemap = [
-    { url: `${base}/services/kitchen-cabinets`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/services/bathroom-vanities`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/services/living-room-units`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/services/aging-in-place`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+  const cabinets: MetadataRoute.Sitemap = [
+    { url: `${base}/cabinets`,                lastModified: now, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${base}/cabinets/stock`,          lastModified: now, changeFrequency: "weekly",  priority: 0.95 },
+    { url: `${base}/cabinets/custom`,         lastModified: now, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${base}/cabinets/kitchen`,        lastModified: now, changeFrequency: "monthly", priority: 0.9  },
+    { url: `${base}/cabinets/bath`,           lastModified: now, changeFrequency: "monthly", priority: 0.9  },
+    { url: `${base}/cabinets/built-ins`,      lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/cabinets/aging-in-place`, lastModified: now, changeFrequency: "monthly", priority: 0.8  },
+  ];
+
+  const supporting: MetadataRoute.Sitemap = [
+    { url: `${base}/installation`, lastModified: now, changeFrequency: "yearly",  priority: 0.5 },
+    { url: `${base}/showroom`,     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 
   const pillars: MetadataRoute.Sitemap = [
@@ -52,5 +60,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...core, ...services, ...pillars, ...townPages, ...projectPages, ...guidePages];
+  return [...core, ...cabinets, ...supporting, ...pillars, ...townPages, ...projectPages, ...guidePages];
 }
