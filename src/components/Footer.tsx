@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { site } from "@/lib/site";
@@ -25,6 +27,7 @@ const tradeCol = [
   { href: "/trade#installers", label: "For installers" },
   { href: "/trade#builders", label: "For builders" },
   { href: "/trade#designers", label: "For designers" },
+  { href: "/trade#architects", label: "For architects" },
 ];
 
 const vitrinCol = [
