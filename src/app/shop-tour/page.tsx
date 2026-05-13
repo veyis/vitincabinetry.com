@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Shop Tour — Inside the Vitrin Workshop in Quakertown, PA",
+  title: "Workshop Tour — Where Vitrin Signature Is Built in Quakertown, PA",
   description:
     "Walk through the Vitrin Cabinetery workshop in Quakertown, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.",
   alternates: { canonical: "/shop-tour" },
@@ -67,17 +67,21 @@ export default function ShopTourPage() {
           <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Shop Tour</span>
+            <span aria-current="page" style={{ color: "#fff" }}>Workshop Tour</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Inside the Workshop</span>
+          <span className="eyebrow" style={{ color: "#e6c87a" }}>Workshop Tour</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            The shop where your kitchen actually gets built.
+            Tour the Workshop — where Vitrin Signature is built.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Most kitchen showrooms display product. Ours is the same room where the work happens. You can stand at the bench where your cabinets will be assembled.
+            Most kitchen shops keep the work floor off-limits. Ours is the same room where the work happens. You can stand at the bench where your cabinets will be assembled.
           </p>
         </div>
       </section>
+
+      <div style={{ textAlign: "center", margin: "2rem auto", padding: "1rem", background: "var(--surface)", borderRadius: "6px", maxWidth: "640px" }}>
+        Looking to visit the showroom instead? See <Link href="/showroom" className="text-link">Showroom →</Link>
+      </div>
 
       <section>
         <div className="container">

@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { towns, getTown, type TownData } from "@/lib/towns";
-import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, cabinetStoreSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 type PageParams = { params: Promise<{ town: string }> };
 
@@ -135,8 +135,33 @@ export default async function TownPage({ params }: PageParams) {
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>{data.intro}</p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+            <Link href="/contact" className="btn-primary">Start a Conversation</Link>
             <Link href="/process" className="btn-secondary" style={{ background: "transparent", color: "#fff", borderColor: "#fff" }}>See Our Process</Link>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="section-center">
+            <span className="eyebrow">Two ways to buy in {data.name}</span>
+            <h2 className="section-heading">Stock and custom cabinets — one Quakertown shop, both delivered to {data.name}.</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
+            <Link href="/cabinets/stock" className="card">
+              <h3 className="card__title">Stock cabinets in {data.name}</h3>
+              <p className="card__desc">
+                In-showroom inventory ready for pickup or delivery to {data.name}. Plywood boxes, Blum hardware, dovetail drawers. Best for rentals, bath vanities, mudrooms, and fast-turn contractor jobs.
+              </p>
+              <div className="card__more">Browse Vitrin Stock →</div>
+            </Link>
+            <Link href="/cabinets/custom" className="card">
+              <h3 className="card__title">Custom kitchens in {data.name}</h3>
+              <p className="card__desc">
+                Built at our Quakertown bench to your kitchen&apos;s exact dimensions. Delivered to {data.name} when ready — install if you&apos;d like us to, or your contractor&apos;s crew if you wouldn&apos;t.
+              </p>
+              <div className="card__more">Order a Vitrin Signature kitchen →</div>
+            </Link>
           </div>
         </div>
       </section>
@@ -250,7 +275,7 @@ export default async function TownPage({ params }: PageParams) {
             Free 30-minute discovery call. We&apos;ll talk through your space, budget tier, and what custom actually means for your house.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn-primary">Book a Consultation</Link>
+            <Link href="/contact" className="btn-primary">Start a Conversation</Link>
             <Link href="/shop-tour" className="btn-secondary">Take the Shop Tour</Link>
           </div>
           <div style={{ marginTop: "2rem", color: "var(--text-secondary)", fontSize: "0.95rem" }}>
@@ -275,11 +300,15 @@ export default async function TownPage({ params }: PageParams) {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(cabinetStoreSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: toJsonLd(
             serviceSchema({
               name: `Custom Kitchen Cabinets in ${data.name}, PA`,
-              description: `Custom kitchen cabinetry designed, built, and installed in ${data.name}, PA by Vitrin Cabinetery. Bench-built cabinets, in-house installers, lifetime warranty.`,
+              description: `Custom kitchen cabinetry bench-built and installed in ${data.name}, PA by Vitrin Cabinetery. Plywood boxes, in-house crew, lifetime warranty.`,
               url: pageUrl,
               serviceType: "Custom Kitchen Cabinets",
             })
