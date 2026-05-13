@@ -49,7 +49,7 @@ export default function InstallationPage() {
       <section className="hero" style={{ minHeight: "45vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png"
-          alt="Vitrin installer fitting a cabinet on a jobsite in Bucks County, PA"
+          alt="Cabinet craftsman at the Vitrin workshop in Quakertown, PA"
           fill
           priority
           sizes="100vw"
@@ -156,7 +156,7 @@ export default function InstallationPage() {
         <div className="container" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Add install to your cabinet quote</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            One CTA, one form. Install is added to your existing cabinet order — it&apos;s not a separate process.
+            Installation is added to your existing cabinet quote — no separate form or process.
           </p>
           <Link href="/contact?type=install" className="btn-primary">Add Installation to Your Quote</Link>
         </div>
