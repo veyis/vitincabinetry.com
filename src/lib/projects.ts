@@ -5,6 +5,8 @@
  * /portfolio/[slug] route picks them up automatically.
  */
 
+export type ProjectCategory = "custom-kitchens" | "stock" | "trade" | "bath" | "built-ins";
+
 export type Project = {
   slug: string;
   title: string;
@@ -15,7 +17,7 @@ export type Project = {
   summary: string;    // 1-sentence
   story: string;      // 2–3 paragraph story
   image: string;      // /projects/[slug].jpg (placeholder)
-  category?: string;  // "custom-kitchens" | "stock" | "trade" | "bath" | "built-ins"
+  category?: ProjectCategory;
 };
 
 export const projects: Project[] = [
@@ -82,7 +84,7 @@ export const projects: Project[] = [
     story:
       "Period-correct from the doorway, modern from inside. The original Victorian was beautiful, the 1950s extension awkward but full of light — a recurring problem in downtown Emmaus.\n\nWe drew tall shaker uppers to take advantage of the extra height, built a long island down the middle, and kept the original arched doorway as the visual anchor. Painted in a warm off-white with brushed-brass hardware.\n\nA pantry tower replaced the back wall. The light is the centerpiece.",
     image: "/projects/emmaus-victorian-extension.jpg",
-    category: "built-ins",
+    category: "custom-kitchens",
   },
   {
     slug: "center-valley-colonial",
@@ -95,7 +97,7 @@ export const projects: Project[] = [
     story:
       "Original developer-grade cabinets — particle-board boxes, oak doors darkened over twenty years, awkward corners that wasted real space. The owners wanted custom storage in a contemporary palette without moving any walls.\n\nWe drew painted shaker fronts in a soft warm white, replaced every lower door with a drawer bank, added two pantry towers framing the breakfast nook, and finished the island in a deeper greige paint.\n\nNew cabinets, same footprint. Twice the working storage. The owners haven't put a thing in a top cabinet since.",
     image: "/projects/center-valley-colonial.jpg",
-    category: "stock",
+    category: "custom-kitchens",
   },
 ];
 

@@ -131,7 +131,7 @@ export default function ShopTourPage() {
           __html: toJsonLd(
             breadcrumbSchema([
               { name: "Home", url: site.url },
-              { name: "Shop Tour", url: pageUrl },
+              { name: "Workshop Tour", url: pageUrl },
             ])
           ),
         }}

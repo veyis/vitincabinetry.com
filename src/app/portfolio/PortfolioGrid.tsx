@@ -90,6 +90,8 @@ export default function PortfolioGrid() {
                 fontFamily: "inherit",
                 fontSize: "0.875rem",
                 transition: "background 0.15s ease, color 0.15s ease",
+                outline: isActive ? "2px solid var(--primary)" : undefined,
+                outlineOffset: "2px",
               }}
               aria-pressed={isActive}
             >
