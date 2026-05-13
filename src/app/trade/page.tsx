@@ -60,7 +60,7 @@ const audiences = [
   {
     id: "designers",
     title: "Interior designers",
-    desc: "Spec Vitrin on your projects. Trade pricing on both Stock and Signature. Renderings available on custom projects.",
+    desc: "Spec Vitrin on your projects — we never appear at the consumer level. Trade pricing on both Stock and Signature. Renderings available on custom projects.",
   },
   {
     id: "architects",
