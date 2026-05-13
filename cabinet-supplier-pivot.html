@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vitrin Cabinetery — Cabinet Supplier Pivot · Complete Strategy Brief</title>
+<style>
+  :root {
+    --ink: #1c1c1c;
+    --ink-soft: #4a4a4a;
+    --ink-mute: #777;
+    --surface: #fbfaf7;
+    --surface-2: #f3efe6;
+    --accent: #8a6d3b;
+    --accent-soft: #c9a96a;
+    --rule: #e5dfd1;
+    --good: #2f6a3a;
+    --warn: #a05010;
+    --danger: #a32a2a;
+    --code-bg: #1f1d18;
+    --code-ink: #f1ead7;
+    --serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--surface); color: var(--ink); font-family: var(--sans); line-height: 1.55; font-size: 16px; }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 64px 32px 96px; }
+  header.doc { border-bottom: 1px solid var(--rule); padding-bottom: 28px; margin-bottom: 40px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 1.2px; font-size: 12px; color: var(--accent); font-weight: 600; }
+  h1 { font-family: var(--serif); font-size: 40px; line-height: 1.1; margin: 8px 0 12px; font-weight: 600; }
+  h2 { font-family: var(--serif); font-size: 26px; line-height: 1.2; margin: 56px 0 14px; padding-top: 28px; border-top: 1px solid var(--rule); font-weight: 600; }
+  h2.first { border-top: none; padding-top: 0; }
+  h3 { font-family: var(--sans); font-size: 17px; line-height: 1.3; margin: 28px 0 8px; color: var(--ink); font-weight: 700; }
+  h4 { font-family: var(--sans); font-size: 14px; margin: 20px 0 6px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; }
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  p strong, li strong { color: var(--ink); }
+  ul, ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  li { margin-bottom: 6px; }
+  blockquote { margin: 16px 0; padding: 14px 18px; border-left: 3px solid var(--accent-soft); background: var(--surface-2); color: var(--ink); font-family: var(--serif); font-size: 17px; font-style: italic; }
+  blockquote strong { font-style: normal; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); padding: 1px 6px; border-radius: 3px; font-size: 13px; color: var(--ink); }
+  pre { background: var(--code-bg); color: var(--code-ink); padding: 16px 18px; border-radius: 6px; overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.55; margin: 12px 0 18px; }
+  pre code { background: transparent; padding: 0; color: inherit; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 22px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { background: var(--surface-2); font-weight: 700; color: var(--ink); }
+  td { color: var(--ink-soft); }
+  td strong { color: var(--ink); }
+  .meta { display: flex; flex-wrap: wrap; gap: 20px; font-size: 13px; color: var(--ink-mute); }
+  .meta span strong { color: var(--ink); font-weight: 600; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle; }
+  .badge--locked { background: #e3f1e6; color: var(--good); }
+  .badge--open   { background: #fbecd9; color: var(--warn); }
+  .badge--new    { background: #ece6f5; color: #5a3f9c; }
+  .badge--keep   { background: #e0ecf5; color: #2a5d8a; }
+  .badge--die    { background: #f7e0e0; color: var(--danger); }
+  .callout { border: 1px solid var(--rule); background: #fff; border-radius: 6px; padding: 18px 22px; margin: 18px 0 24px; }
+  .callout--accent { border-left: 4px solid var(--accent); }
+  .callout--good { border-left: 4px solid var(--good); }
+  .callout--warn { border-left: 4px solid var(--warn); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 12px 0 24px; }
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 22px; }
+    .wrap { padding: 32px 18px 56px; }
+    .toc ol { columns: 1 !important; }
+  }
+  .compare-table th:first-child, .compare-table td:first-child { width: 28%; font-weight: 600; color: var(--ink); }
+  .toc { background: #fff; border: 1px solid var(--rule); border-radius: 6px; padding: 18px 22px; margin: 24px 0 8px; }
+  .toc h4 { margin: 0 0 8px; color: var(--accent); }
+  .toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 32px; }
+  .toc li { color: var(--ink); }
+  .decision-row { display: grid; grid-template-columns: 220px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--rule); font-size: 14px; }
+  .decision-row:last-child { border-bottom: 1px solid var(--rule); }
+  .decision-row .label { font-weight: 600; color: var(--ink); }
+  .decision-row .value { color: var(--ink-soft); }
+  .footnote { font-size: 13px; color: var(--ink-mute); margin-top: 8px; }
+  hr { border: none; border-top: 1px dashed var(--rule); margin: 28px 0; }
+  .pill-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; }
+  .pill-list li { background: var(--surface-2); padding: 4px 10px; border-radius: 999px; font-size: 13px; color: var(--ink); margin: 0; }
+  .matrix-table td:nth-child(2) { white-space: nowrap; width: 110px; }
+  .matrix-table td:nth-child(1) { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: var(--ink); white-space: nowrap; }
+  .vocab-table th, .vocab-table td { width: 50%; }
+  .vocab-table td.drop { color: var(--danger); text-decoration: line-through; }
+  .vocab-table td.use { color: var(--good); font-weight: 600; }
+  .pull-quote { font-family: var(--serif); font-size: 22px; font-style: italic; line-height: 1.4; color: var(--ink); border-top: 1px solid var(--accent-soft); border-bottom: 1px solid var(--accent-soft); padding: 20px 0; margin: 28px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc">
+  <span class="eyebrow">Strategy Brief · Complete · Awaiting Final Review</span>
+  <h1>Cabinet Supplier Pivot</h1>
+  <div class="meta">
+    <span><strong>Project:</strong> vitrincabinetery.com</span>
+    <span><strong>Date:</strong> 2026-05-12</span>
+    <span><strong>Status:</strong> 9 of 9 sections drafted</span>
+    <span><strong>Approach:</strong> C — Two-Tier Cabinet House</span>
+  </div>
+</header>
+
+<section>
+  <h2 class="first">The pivot, in one paragraph</h2>
+  <p>The current Vitrin site is built around <em>"Designed, built, and installed by our own hands."</em> That sentence is also the one that scares contractors away — it claims the whole-job revenue that contractors live on. The client has decided to drop the design-build-install framing and reposition Vitrin as <strong>a Quakertown cabinet supplier</strong>: <strong>Vitrin Stock</strong> from the showroom for the buyer who needs cabinets this week, and <strong>Vitrin Signature</strong> custom-built kitchens for the buyer who wants a designed space. Installation stays available on request, but never as the headline. The trade channel becomes a first-class audience served by the same brand.</p>
+
+  <div class="pull-quote">
+    "Most local kitchen shops are reselling a manufactured cabinet line and subcontracting installation. Vitrin will be the rare thing — a real manufacturer that also stocks, sells across the counter, and gets out of the contractor's way."
+  </div>
+
+  <h3>The industry pattern this borrows from</h3>
+  <p>Dual-channel cabinet supply is rare in the residential market but well-understood in adjacent categories. The pivot quietly imports the playbook from:</p>
+  <ul>
+    <li><strong>Floor &amp; Decor Pro</strong> — One physical store, two doors (retail + pro desk), separate pricing tiers, transparent inventory.</li>
+    <li><strong>Sherwin-Williams</strong> — Same building, retail counter and pro counter, dedicated reps, net terms.</li>
+    <li><strong>Home Depot Pro</strong> — Pro Xtra loyalty + bulk pricing + delivery infrastructure visible to both audiences.</li>
+    <li><strong>IKEA Business</strong> — Same product line, audience-segmented marketing and CTAs at every step.</li>
+  </ul>
+  <p>None of Vitrin's local competitors run this play. The opportunity in <code>strategy.md</code> ("the quadrant nobody owns") was Quakertown-local + true custom. The pivot moves the flag: Quakertown-local + dual-channel cabinet supply. Larger TAM, lower-trust friction, harder for competitors to copy fast.</p>
+</section>
+
+<section>
+  <h2>Decisions locked in</h2>
+
+  <div class="decision-row">
+    <div class="label">Product model</div>
+    <div class="value">Mix — stock cabinets <em>plus</em> Vitrin-built custom. Two tiers, one shop.</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Audience positioning</div>
+    <div class="value">Unified "cabinet supplier" — one homepage that serves homeowners and trade without forcing a split front door.</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Installation visibility</div>
+    <div class="value">Available but quiet — never the headline. Single subordinate page, footer link only.</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Showroom address</div>
+    <div class="value">TBD — copy stays vague on street address; emphasize phone, email, and "Quakertown, PA" until address lands.</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Tier names</div>
+    <div class="value"><strong>Vitrin Signature</strong> (custom-built) and <strong>Vitrin Stock</strong> (ready from showroom).</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Strategic approach</div>
+    <div class="value">Approach C — Two-Tier Cabinet House. Tier choice is explicit above the fold on the homepage.</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Trade audience order</div>
+    <div class="value">Contractors → Installers → Builders → Designers → Architects. Frequency-led, not whale-led.</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Net terms</div>
+    <div class="value">"Account terms available after first paid order." Soft, but real. Tightens to Net 30 when AR infra is built.</div>
+  </div>
+  <div class="decision-row">
+    <div class="label">Trade pricing sheet</div>
+    <div class="value">Real PDF, tiered, sent privately on first quote after approval. Not public on the site.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Sections in this brief</h2>
+  <div class="toc">
+    <ol>
+      <li>Information Architecture</li>
+      <li>Homepage redesign</li>
+      <li>Cabinet tier pages</li>
+      <li>Trade page rewrite</li>
+      <li>Installation page</li>
+      <li>Existing pages disposition</li>
+      <li>Brand voice &amp; language rules</li>
+      <li>SEO continuity plan</li>
+      <li>Adjacent operational considerations</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ SECTION 1 ============================ -->
+<section>
+  <h2>1 · Information Architecture <span class="badge badge--locked">locked</span></h2>
+  <p>The current site is built around a <em>service</em> mental model (Process / Services / Trade). The new IA is built around a <em>product</em> mental model — Cabinets → tier choice → buy.</p>
+
+  <h3>New top-level structure</h3>
+<pre><code>/                         (homepage — two-track hero)
+/cabinets                 (overview + tier comparison)
+  /cabinets/stock         ("Vitrin Stock" — ready from showroom)
+  /cabinets/custom        ("Vitrin Signature" — built to order)
+  /cabinets/kitchen       (application — repurposed from /services/kitchen-cabinets)
+  /cabinets/bath          (application — repurposed from /services/bathroom-vanities)
+  /cabinets/built-ins     (application — repurposed from /services/living-room-units)
+  /cabinets/aging-in-place (application — repurposed from /services/aging-in-place)
+/trade                    (rewrite: supply partner, not design partner)
+/installation             (NEW — quiet, footer-only link)
+/showroom                 (NEW — "visit us" page)
+/portfolio                (keep — proof of what Vitrin builds)
+/process                  (reframe: "how ordering works")
+/about                    (keep, small tone adjustments)
+/guides                   (keep + add 5 new supply-side guides)
+/contact                  (keep, updated CTAs + audience segmentation)
+/custom-kitchen-cabinets/[town]   (keep all 12 town pages, retarget content)
+/shop-tour                (keep, reframe as workshop tour)
+</code></pre>
+
+  <h3>New navbar (5 items max)</h3>
+<pre><code>Cabinets ▾   Trade   Showroom   Portfolio   Contact</code></pre>
+  <p><strong>Cabinets ▾</strong> dropdown reveals: Stock · Custom · Kitchen · Bath · Built-ins · Aging in Place.</p>
+
+  <div class="callout callout--accent">
+    <h4>Why this IA over the current one</h4>
+    <ul>
+      <li><strong>Product is the noun</strong>, not "service." Reframes Vitrin from contractor-substitute to supplier.</li>
+      <li><strong>Trade is a top-level peer item</strong> — signals contractors are first-class without forcing a dual-front-door homepage.</li>
+      <li><strong><code>/installation</code> is footer-only</strong> — the "quiet but findable" model.</li>
+      <li><strong><code>/process</code> survives</strong> because the custom-kitchen buyer journey is real — it just becomes "how ordering works."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ SECTION 2 ============================ -->
+<section>
+  <h2>2 · Homepage redesign <span class="badge badge--locked">locked</span></h2>
+
+  <h3>Hero</h3>
+  <blockquote>
+    <strong>Eyebrow:</strong> Quakertown's Cabinet Shop<br/>
+    <strong>Headline:</strong> Cabinets, built and sold in Quakertown.<br/>
+    <strong>Subhead:</strong> Two ways to buy — pick from in-stock door styles in our showroom, or order a kitchen custom-built at our bench. For homeowners, contractors, designers, and builders across Bucks County and the Lehigh Valley.<br/>
+    <strong>CTAs:</strong> [Browse Stock Cabinets →]&nbsp;&nbsp; [Order a Custom Kitchen →]
+  </blockquote>
+  <p>The word <em>installed</em> is gone from the hero. <em>Sold</em> is the new operative verb. <em>Contractors</em> appears in the subhead — explicit welcome.</p>
+
+  <h3>Pillar strip (replaces "Designed/Built/Installed by us")</h3>
+  <ol>
+    <li><strong>Built in Quakertown.</strong> Every Vitrin Signature cabinet is milled, assembled, and finished at our shop. Plywood boxes, dovetail drawers, Blum hardware.</li>
+    <li><strong>Two tiers, one shop.</strong> Vitrin Stock ships fast from the showroom floor. Vitrin Signature is built to your kitchen's exact dimensions. Same quality bar.</li>
+    <li><strong>Yours to install — or we'll do it.</strong> Most contractors install our cabinets themselves. Homeowners who'd rather not can add installation as an option.</li>
+  </ol>
+  <p class="footnote">Pillar #3 is the critical line — the one sentence that tells contractors <em>"we are not after your install revenue."</em></p>
+
+  <h3>"Who we sell to" strip <span class="badge badge--new">NEW</span></h3>
+  <ul>
+    <li><strong>Homeowners</strong> — Walk in, sit at the materials bench, take stock cabinets home this week or order a full custom kitchen. → <code>/cabinets</code></li>
+    <li><strong>Contractors &amp; installers</strong> — Bulk pricing, fast quoting, will-call pickup or jobsite delivery. → <code>/trade</code></li>
+    <li><strong>Designers &amp; architects</strong> — Spec-grade cabinetry behind your name, with 3D renderings on custom orders. → <code>/trade#designers</code></li>
+  </ul>
+
+  <h3>From the showroom <span class="badge badge--new">NEW</span></h3>
+  <p>3-up grid of featured Vitrin Stock door styles. Each tile: photo + "from $X" + "Available now" badge + link to <code>/cabinets/stock</code>. Launched as placeholder until real SKUs land.</p>
+
+  <h3>Custom kitchen teaser</h3>
+  <p>One large image, one paragraph, one CTA. Headline: <em>"When stock isn't right, we build it."</em></p>
+
+  <h3>Trade callout strip <span class="badge badge--new">NEW</span></h3>
+  <blockquote><strong>Bulk pricing for contractors, builders, and trade.</strong> No minimums on the first order. → Apply for trade pricing</blockquote>
+
+  <h3>Process snapshot (kept, reframed)</h3>
+  <p>Trim 7 steps → 5: Discovery → In-home survey → Design &amp; quote → Fabrication at our bench → Delivery (install optional). Retitled <em>"How ordering a custom kitchen works."</em></p>
+
+  <h3>Stats, local proof, final CTA</h3>
+  <ul>
+    <li>Stats kept; swap <em>"Kitchens Delivered"</em> → <strong>"Cabinets Built"</strong>.</li>
+    <li>12-town grid kept verbatim — drives SEO.</li>
+    <li>Final CTA changes from <em>"Book a Consultation"</em> to two CTAs: <strong>Visit the Showroom</strong> + <strong>Get a Cabinet Quote</strong>.</li>
+  </ul>
+</section>
+
+<!-- ============================ SECTION 3 ============================ -->
+<section>
+  <h2>3 · Cabinet tier pages <span class="badge badge--locked">locked</span></h2>
+  <p>Three new pages: <code>/cabinets</code> (overview), <code>/cabinets/stock</code>, <code>/cabinets/custom</code>. Job: make the Stock vs. Signature choice obvious in 10 seconds.</p>
+
+  <h3><code>/cabinets</code> — overview &amp; comparison</h3>
+  <table class="compare-table">
+    <thead>
+      <tr><th></th><th>Vitrin Stock</th><th>Vitrin Signature</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Lead time</td><td>In stock — pick up this week</td><td>4–8 weeks</td></tr>
+      <tr><td>Sizes</td><td>Fixed cabinet box sizes</td><td>Built to your exact dimensions</td></tr>
+      <tr><td>Door styles</td><td>Curated lineup (≈6 styles)</td><td>Any style we make</td></tr>
+      <tr><td>Finishes</td><td>Curated palette</td><td>Full paint / stain match</td></tr>
+      <tr><td>Construction</td><td>Plywood box · Blum hardware · dovetail drawers</td><td><em>Same</em></td></tr>
+      <tr><td>Price tier</td><td>$</td><td>$$–$$$</td></tr>
+      <tr><td>Trade pricing</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Install</td><td>Optional add-on</td><td>Optional add-on</td></tr>
+      <tr><td>Best for</td><td>Bath vanities · laundry · mudrooms · rentals · spec homes · contractor jobs</td><td>Whole kitchens · custom built-ins · designed spaces</td></tr>
+    </tbody>
+  </table>
+
+  <h3><code>/cabinets/stock</code> — Vitrin Stock detail</h3>
+  <ol>
+    <li><strong>Hero</strong> — <em>"Stock cabinets, ready to take home."</em></li>
+    <li><strong>What's in stock</strong> — grid of door-style + finish tiles with "from $X" + "Available now" badge.</li>
+    <li><strong>Cabinet sizes available</strong> — list of standard box sizes.</li>
+    <li><strong>Construction specs</strong> — plywood, dovetail, Blum. <em>Identical bar to Signature.</em></li>
+    <li><strong>Pickup, delivery, will-call</strong> — transactional block.</li>
+    <li><strong>Trade pricing strip</strong>.</li>
+    <li><strong>CTA</strong> — "Get a stock cabinet quote" + "Visit the showroom."</li>
+  </ol>
+
+  <h3><code>/cabinets/custom</code> — Vitrin Signature detail</h3>
+  <ol>
+    <li><strong>Hero</strong> — <em>"Custom cabinets, built at our Quakertown bench."</em></li>
+    <li><strong>What "custom" actually means</strong>.</li>
+    <li><strong>Customization options</strong> — door styles · wood species · finishes · accessories.</li>
+    <li><strong>Process snapshot</strong> — 5 steps, links to <code>/process</code>.</li>
+    <li><strong>Lead time honesty</strong> — 4–8 weeks, weekly photo updates.</li>
+    <li><strong>Portfolio teaser</strong>.</li>
+    <li><strong>Installation note</strong> — small block: <em>"We can install yours, or your contractor can. Your call."</em></li>
+    <li><strong>CTA</strong> — "Start a custom kitchen" + "Visit the showroom."</li>
+  </ol>
+
+  <div class="callout callout--good">
+    <h4>Why the three pages work together</h4>
+    <ul>
+      <li><strong>Shared construction specs</strong> (plywood, Blum, dovetail) repeated on all three pages = the bridge that says <em>"buying stock is not buying down."</em></li>
+      <li><strong>"Optional add-on" install language</strong> repeated identically = consistency = trust signal.</li>
+      <li>Existing <code>/services/kitchen-cabinets</code> copy is reusable — ports into <code>/cabinets/custom</code> and <code>/cabinets/kitchen</code>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ SECTION 4 ============================ -->
+<section>
+  <h2>4 · Trade page rewrite <span class="badge badge--locked">locked</span></h2>
+  <p>The current <code>/trade</code> page is one of the strongest on the site — but pitched as a <strong>design partnership</strong>. The bones stay. The framing flips to <strong>supply partnership</strong>.</p>
+
+  <h3>Headline rewrite</h3>
+  <table>
+    <thead><tr><th>Today</th><th>New</th></tr></thead>
+    <tbody>
+      <tr><td><em>"Custom cabinetry, behind your name."</em></td><td><em>"Your cabinet supplier in Quakertown."</em></td></tr>
+      <tr><td>"You bring the client and the vision. We build the cabinetry…"</td><td>"Trade pricing on every cabinet we make. Stock cabinets ready for pickup. Custom kitchens built to your spec. For contractors, builders, designers, and installers across Bucks County and the Lehigh Valley."</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Audience cards (5, reordered)</h3>
+  <ol>
+    <li><strong>General contractors &amp; remodelers</strong> — Stock pickup for fast jobs, custom for the kitchens you don't want to outsource. Account terms after first order.</li>
+    <li><strong>Kitchen &amp; bath installers</strong> <span class="badge badge--new">NEW</span> — Buy from us, install for your client. We don't compete with your install crew.</li>
+    <li><strong>Builders &amp; developers</strong> — Volume pricing on stock for spec homes; custom for buyers-in-tow.</li>
+    <li><strong>Interior designers</strong> — Spec Vitrin behind your name. Renderings on custom projects.</li>
+    <li><strong>Architects</strong> — Spec-grade casework drawings, residential and small commercial.</li>
+  </ol>
+
+  <h3>"What you get" — reframed</h3>
+  <table>
+    <thead><tr><th>Today</th><th>Rewritten</th></tr></thead>
+    <tbody>
+      <tr><td>Trade pricing — 15–20% off list</td><td><strong>Standing trade pricing.</strong> Tiered by volume. Pricing sheet sent on first quote.</td></tr>
+      <tr><td>One dedicated rep</td><td><strong>One dedicated rep.</strong> Same person handles every order.</td></tr>
+      <tr><td>Fast-turn quoting — 5 days</td><td><strong>Fast quotes.</strong> Most preliminary quotes within 5 business days. Stock priced same-day.</td></tr>
+      <tr><td>Photo-realistic renderings</td><td><strong>3D renderings on custom orders.</strong> Optional. <em>Moved later in list.</em></td></tr>
+      <tr><td>Co-marketing rights</td><td><strong>Co-marketing optional, never required.</strong> We'll credit you in our portfolio if you want it. <em>We disappear at the consumer level if you don't.</em></td></tr>
+      <tr><td>Honest scheduling</td><td><strong>Honest lead times.</strong> Stock ships when promised. Signature: 4–8 weeks, weekly updates.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>"How buying works for trade" (replaces 3-step "How to join")</h3>
+  <div class="grid-2">
+    <div class="callout">
+      <h4>First time buying from us</h4>
+      <ol>
+        <li>Apply — 2-minute form.</li>
+        <li>Get your pricing sheet — within 2 business days.</li>
+        <li>Place your first order — stock ships the same week; custom enters the 4–8 wk queue.</li>
+      </ol>
+    </div>
+    <div class="callout">
+      <h4>After your first order</h4>
+      <ul>
+        <li>Stock orders by phone, email, or showroom walk-in. Quoted same-day.</li>
+        <li>Custom orders go through your rep with drawings and specs.</li>
+        <li>Account terms available after first paid order.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Delivery, pickup &amp; jobsite <span class="badge badge--new">NEW</span></h3>
+  <ul>
+    <li><strong>Will-call pickup</strong> at the Quakertown shop, by appointment.</li>
+    <li><strong>Local delivery</strong> — Bucks County, Lehigh Valley, Montgomery County. Flat fee tiers.</li>
+    <li><strong>Jobsite delivery</strong> — scheduled against your install date.</li>
+    <li><strong>Lift-gate / inside delivery</strong> — on request.</li>
+  </ul>
+
+  <h3>Stable anchor IDs</h3>
+  <ul class="pill-list">
+    <li>#contractors</li>
+    <li>#installers</li>
+    <li>#builders</li>
+    <li>#designers</li>
+    <li>#architects</li>
+  </ul>
+</section>
+
+<!-- ============================ SECTION 5 ============================ -->
+<section>
+  <h2>5 · Installation page <span class="badge badge--locked">locked</span></h2>
+  <p>The trickiest page in the entire pivot. It must be (a) findable for the homeowner who needs install, (b) quiet enough that contractors don't read it as competition, (c) honest about pricing, (d) routed back into the existing custom-kitchen funnel without spinning up a parallel sales process.</p>
+
+  <h3>Page structure</h3>
+  <ol>
+    <li><strong>Hero</strong> — <em>"Installation, if you want it."</em><br/>Subhead: <em>"Most of our cabinets are installed by the contractor who bought them. For homeowners buying direct, we offer installation as an optional service."</em><br/>Photo: a Vitrin installer hands-on with cabinets — not a kitchen reveal photo.</li>
+    <li><strong>Who handles install</strong> (table — the contractor-reassurance moment):
+      <table>
+        <thead><tr><th>Buyer type</th><th>Typically installed by</th></tr></thead>
+        <tbody>
+          <tr><td>Homeowner buying direct</td><td>Vitrin install crew, or homeowner's chosen contractor</td></tr>
+          <tr><td>Contractor / installer</td><td>Their own crew</td></tr>
+          <tr><td>Designer / architect</td><td>Their preferred install partner</td></tr>
+          <tr><td>Builder</td><td>Their on-site crew</td></tr>
+        </tbody>
+      </table>
+      <p class="footnote">Three of four buyer types install with their own crew. The homeowner is the exception. This table is the page's most important block.</p>
+    </li>
+    <li><strong>What's included</strong> — Cabinet install only. Filler/scribe fitting. Crown / light rail. Toe kick. Hardware install. Punch list. Counter templating coordination (not templating itself).</li>
+    <li><strong>What's NOT included</strong> — Plumbing, electrical, tile, drywall, flooring. We coordinate with your trades but don't perform them. This line draws the boundary so contractors don't read "install" as "GC services."</li>
+    <li><strong>Pricing model</strong> — <em>"Installation is typically 10–15% of cabinet order value for kitchens, 8–12% for bath. Final figure included in your quote."</em></li>
+    <li><strong>Timeline</strong> — Most installs scheduled within 2–4 weeks of cabinet delivery. Crew of 2–3. Most kitchens installed in 5–10 working days.</li>
+    <li><strong>CTA</strong> — single CTA: <strong>"Add installation to your cabinet quote"</strong> → <code>/contact?type=install</code>. Not a separate sales funnel.</li>
+  </ol>
+
+  <div class="callout callout--warn">
+    <p style="margin:0;"><strong>Page is intentionally short — one screen of content.</strong> No portfolio. No big photos. No process flow. The opposite of the <code>/process</code> page energy. The page exists to inform, not to sell.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION 6 ============================ -->
+<section>
+  <h2>6 · Existing pages — keep, retire, repurpose <span class="badge badge--locked">locked</span></h2>
+  <p>Page-by-page disposition. Net change: +9 new pages, 4 retired (with 301s), 17 retained (some edited).</p>
+
+  <table class="matrix-table">
+    <thead><tr><th>URL</th><th>Action</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>/</td><td><span class="badge badge--new">REWRITE</span></td><td>Section 2. New hero, pillars, "Who we sell to" strip, stock grid, trade band, retitled process snapshot.</td></tr>
+      <tr><td>/about</td><td><span class="badge badge--keep">EDIT</span></td><td>De-emphasize "design-build-install"; emphasize "cabinet shop and supplier in Quakertown." Founder/craft story stays.</td></tr>
+      <tr><td>/contact</td><td><span class="badge badge--keep">UPDATE</span></td><td>Add audience segmentation field ("I'm a: homeowner / contractor / designer / builder / installer"). Support <code>?type=trade</code>, <code>?type=install</code>, <code>?type=custom</code> prefills. Update success copy + email auto-replies.</td></tr>
+      <tr><td>/custom-kitchen-cabinets/[town] × 12</td><td><span class="badge badge--keep">RETARGET</span></td><td>Each page now has TWO sections: "Stock cabinets in [town]" + "Custom kitchens in [town]." Same URLs, same SEO equity, new content blocks. Add LocalBusiness "Cabinet Store" schema.</td></tr>
+      <tr><td>/guides/*</td><td><span class="badge badge--keep">KEEP + EXPAND</span></td><td>All existing guides survive. Add 5 new supply-side guides (Section 8).</td></tr>
+      <tr><td>/portfolio</td><td><span class="badge badge--keep">EDIT</span></td><td>Add filter chips: All / Custom kitchens / Stock projects / Trade installs / Bath / Built-ins.</td></tr>
+      <tr><td>/process</td><td><span class="badge badge--keep">REFRAME</span></td><td>Trim 7 steps → 5 ordering steps. Retitle "How ordering a custom kitchen works." Drop the "design-build" framing; the steps themselves remain useful for the custom buyer.</td></tr>
+      <tr><td>/services/kitchen-cabinets</td><td><span class="badge badge--die">RETIRE</span></td><td>301 → <code>/cabinets/kitchen</code>. Port content.</td></tr>
+      <tr><td>/services/bathroom-vanities</td><td><span class="badge badge--die">RETIRE</span></td><td>301 → <code>/cabinets/bath</code>. Port content.</td></tr>
+      <tr><td>/services/living-room-units</td><td><span class="badge badge--die">RETIRE</span></td><td>301 → <code>/cabinets/built-ins</code>. Port content.</td></tr>
+      <tr><td>/services/aging-in-place</td><td><span class="badge badge--die">RETIRE</span></td><td>301 → <code>/cabinets/aging-in-place</code>. Port content.</td></tr>
+      <tr><td>/shop-tour</td><td><span class="badge badge--keep">REFRAME</span></td><td>Stays — reframed as the <em>workshop tour</em> (where custom is built). Distinct from <code>/showroom</code> (where you buy). Cross-links each other.</td></tr>
+      <tr><td>/trade</td><td><span class="badge badge--new">REWRITE</span></td><td>Section 4. Full reframe to supply partnership.</td></tr>
+      <tr><td>/cabinets</td><td><span class="badge badge--new">NEW</span></td><td>Section 3. Overview + comparison table.</td></tr>
+      <tr><td>/cabinets/stock</td><td><span class="badge badge--new">NEW</span></td><td>Section 3. Vitrin Stock detail.</td></tr>
+      <tr><td>/cabinets/custom</td><td><span class="badge badge--new">NEW</span></td><td>Section 3. Vitrin Signature detail.</td></tr>
+      <tr><td>/cabinets/kitchen</td><td><span class="badge badge--new">NEW</span></td><td>Repurposed from <code>/services/kitchen-cabinets</code>. Kitchen-specific application of both tiers.</td></tr>
+      <tr><td>/cabinets/bath</td><td><span class="badge badge--new">NEW</span></td><td>Repurposed from <code>/services/bathroom-vanities</code>.</td></tr>
+      <tr><td>/cabinets/built-ins</td><td><span class="badge badge--new">NEW</span></td><td>Repurposed from <code>/services/living-room-units</code>.</td></tr>
+      <tr><td>/cabinets/aging-in-place</td><td><span class="badge badge--new">NEW</span></td><td>Repurposed from <code>/services/aging-in-place</code>.</td></tr>
+      <tr><td>/installation</td><td><span class="badge badge--new">NEW</span></td><td>Section 5. Quiet, footer-only.</td></tr>
+      <tr><td>/showroom</td><td><span class="badge badge--new">NEW</span></td><td>"Visit us" page. Hours (when address lands), photos of the showroom interior, what to expect, parking + entry notes, phone. Until address lands: phone-only contact + "Address coming soon — book a visit by phone or email."</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Footer reorganization</h3>
+  <p>The footer absorbs the secondary nav. Recommended footer structure:</p>
+  <div class="grid-2">
+    <div>
+      <h4>Cabinets</h4>
+      <ul>
+        <li>Stock cabinets</li>
+        <li>Custom kitchens</li>
+        <li>Kitchen · Bath · Built-ins · Aging in Place</li>
+      </ul>
+      <h4>For Buyers</h4>
+      <ul>
+        <li>How ordering works</li>
+        <li>Installation</li>
+        <li>Visit the showroom</li>
+        <li>Workshop tour</li>
+      </ul>
+    </div>
+    <div>
+      <h4>For Trade</h4>
+      <ul>
+        <li>Trade program</li>
+        <li>Pricing &amp; account</li>
+        <li>Delivery &amp; pickup</li>
+      </ul>
+      <h4>Vitrin</h4>
+      <ul>
+        <li>About</li>
+        <li>Portfolio</li>
+        <li>Guides</li>
+        <li>Contact · Phone · Email</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 7 ============================ -->
+<section>
+  <h2>7 · Brand voice &amp; language rules <span class="badge badge--locked">locked</span></h2>
+  <p>The pivot lives or dies in word choice. A single misplaced word like "consultation" in the homepage CTA signals "design firm" and undoes everything else. This section is the editor's bible — give it to anyone writing copy for the site.</p>
+
+  <h3>Vocabulary</h3>
+  <table class="vocab-table">
+    <thead><tr><th>Drop (never use)</th><th>Use instead</th></tr></thead>
+    <tbody>
+      <tr><td class="drop">Design-build / Design-build-install</td><td class="use">Cabinet supplier · Cabinet shop</td></tr>
+      <tr><td class="drop">Design partner · Behind your name</td><td class="use">Supply partner · Trade partner</td></tr>
+      <tr><td class="drop">Your project · Your remodel (in headlines)</td><td class="use">Your cabinets · Your order</td></tr>
+      <tr><td class="drop">Consultation (as the only CTA)</td><td class="use">Quote · Showroom visit · Pricing</td></tr>
+      <tr><td class="drop">Turnkey kitchen · Whole-home remodel</td><td class="use">Custom kitchen · Stock cabinets</td></tr>
+      <tr><td class="drop">We manage your remodel · We coordinate all trades</td><td class="use">We supply your cabinets · We can install if you'd like</td></tr>
+      <tr><td class="drop">Custom-built kitchens <em>for you</em></td><td class="use">Custom kitchens, built at our bench</td></tr>
+      <tr><td class="drop">Lifetime kitchen warranty</td><td class="use">Lifetime cabinet warranty</td></tr>
+      <tr><td class="drop">Single-point promise · One company, one team (as ownership claims)</td><td class="use">One supplier, one rep, one accountable shop</td></tr>
+      <tr><td>—</td><td class="use">Stock · In stock · Ready now · Built to order · Pickup · Will-call · Delivery · Quote · Pricing sheet · Trade pricing · Account terms · Buy · Order</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Headline rules</h3>
+  <ol>
+    <li><strong>Lead with the noun</strong> (Cabinets). Never with the verb of service ("We design," "We build," "We install").</li>
+    <li><strong>Use "and" not "or"</strong> for dual-channel signaling. ("Cabinets, built and sold in Quakertown.")</li>
+    <li><strong>Geographic anchor</strong> in ~90% of headlines. <em>Quakertown</em> works — keep it.</li>
+    <li><strong>Avoid sentimental kitchen-reveal language</strong> ("heart of the home," "where memories are made"). Suppliers don't write that way; design firms do.</li>
+  </ol>
+
+  <h3>Voice attributes</h3>
+  <ul>
+    <li><strong>Plainspoken, not poetic.</strong> "Stock cabinets, ready to take home." Not "Crafted with care for the home you've always dreamed of."</li>
+    <li><strong>Numbers when possible.</strong> "4–8 weeks." "10–15% of cabinet order." Numbers signal supply discipline.</li>
+    <li><strong>Transactional verbs.</strong> Buy. Pick up. Order. Quote. Ship. Deliver. Stock. Supply.</li>
+    <li><strong>Trade-respectful.</strong> Never describe Vitrin doing something the trade audience does for themselves. "We'll install for you" is bad. "We install if you want, or your contractor can" is good.</li>
+    <li><strong>No emojis. No exclamation marks.</strong> Suppliers do not use exclamation marks.</li>
+  </ul>
+
+  <h3>Audience-respecting copy patterns</h3>
+  <ul>
+    <li>Every retail-facing page gets a small trade band: <em>"Buying for trade? See trade pricing →"</em></li>
+    <li>Every trade-facing page gets the inverse, optional: <em>"Not a trade buyer? Visit our showroom →"</em></li>
+    <li><strong>Photograph products, not outcomes.</strong> Cabinets ready to ship beats finished-kitchen reveals on the supplier-facing pages. (Outcome photography is still right for <code>/portfolio</code> and <code>/cabinets/custom</code>.)</li>
+  </ul>
+</section>
+
+<!-- ============================ SECTION 8 ============================ -->
+<section>
+  <h2>8 · SEO continuity plan <span class="badge badge--locked">locked</span></h2>
+  <p>The existing <code>strategy.md</code> is strong — most of it survives. Three things change.</p>
+
+  <h3>a · Town pages retarget (no URL changes)</h3>
+  <p>The 12 <code>/custom-kitchen-cabinets/[town]</code> URLs survive verbatim. <strong>Keep the SEO equity. Change the content blocks inside.</strong></p>
+  <ul>
+    <li>New hero: <em>"Stock and custom cabinets in [town], PA"</em></li>
+    <li>New section: "What we stock for [town]"</li>
+    <li>New section: "Custom kitchens we've built in [town]"</li>
+    <li>Same map, same neighbor town links, same schema</li>
+    <li>Add <code>LocalBusiness</code> "Cabinet Store" schema with <code>Offer</code> schema for representative stock SKUs</li>
+  </ul>
+
+  <h3>b · New keyword universe (additive — Tier 4)</h3>
+  <table>
+    <thead><tr><th>Keyword</th><th>Target page</th></tr></thead>
+    <tbody>
+      <tr><td>stock kitchen cabinets quakertown</td><td>/cabinets/stock + town pages</td></tr>
+      <tr><td>cabinet store quakertown pa</td><td>/ + /showroom</td></tr>
+      <tr><td>wholesale kitchen cabinets bucks county</td><td>/trade</td></tr>
+      <tr><td>cabinet supplier bucks county</td><td>/trade</td></tr>
+      <tr><td>buy kitchen cabinets near me</td><td>/cabinets/stock</td></tr>
+      <tr><td>contractor cabinet pricing pa</td><td>/trade#contractors</td></tr>
+      <tr><td>trade cabinet account</td><td>/trade</td></tr>
+      <tr><td>ready to go kitchen cabinets pa</td><td>/cabinets/stock</td></tr>
+      <tr><td>shaker cabinets in stock pa</td><td>/cabinets/stock (door-style filter)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>c · Schema changes</h3>
+  <p>In <code>src/lib/schema.ts</code>:</p>
+  <ul>
+    <li><span class="badge badge--die">DROP</span> <code>serviceType: "Design-Build Cabinetry"</code> on <code>/process</code>.</li>
+    <li><span class="badge badge--new">ADD</span> <code>LocalBusiness</code> variant — type <code>"FurnitureStore"</code> or <code>"HomeAndConstructionBusiness"</code> — category "Cabinet Store" on / and /showroom.</li>
+    <li><span class="badge badge--new">ADD</span> <code>Product</code> + <code>Offer</code> schemas for representative stock SKUs on <code>/cabinets/stock</code>.</li>
+    <li><span class="badge badge--new">ADD</span> <code>hasOfferCatalog</code> on the LocalBusiness for the stock cabinet line.</li>
+    <li><span class="badge badge--keep">KEEP</span> existing <code>Service</code> schema, retarget — service offered is <em>"Cabinet Supply"</em> or <em>"Custom Cabinet Manufacturing,"</em> not <em>"Design-Build Cabinetry."</em></li>
+  </ul>
+
+  <h3>d · 301 redirect map</h3>
+<pre><code>/services/kitchen-cabinets       → /cabinets/kitchen
+/services/bathroom-vanities      → /cabinets/bath
+/services/living-room-units      → /cabinets/built-ins
+/services/aging-in-place         → /cabinets/aging-in-place</code></pre>
+  <p>Permanent (301) redirects, configured in <code>next.config.ts</code>. Critical for preserving any backlinks the old URLs have accumulated.</p>
+
+  <h3>e · Google Business Profile changes</h3>
+  <ul>
+    <li><strong>Primary category:</strong> Cabinet Store</li>
+    <li><strong>Secondary:</strong> Kitchen Remodeler (keep — drives retail intent searches)</li>
+    <li><strong>Secondary:</strong> Cabinet Maker</li>
+    <li>Add GBP <strong>Products</strong> module — representative stock SKUs with photos, names, prices, links to <code>/cabinets/stock</code>.</li>
+    <li>Update GBP <strong>Services</strong> module to remove "Design-Build" language and add "Stock Cabinets," "Custom Cabinets," "Trade Pricing," "Installation (Optional)."</li>
+  </ul>
+
+  <h3>f · 5 new guides to add</h3>
+  <ul>
+    <li><code>/guides/setting-up-a-trade-cabinet-account</code></li>
+    <li><code>/guides/stock-vs-custom-cabinets-when-to-choose-each</code></li>
+    <li><code>/guides/buying-cabinets-for-a-spec-home</code></li>
+    <li><code>/guides/cabinet-delivery-and-jobsite-coordination</code></li>
+    <li><code>/guides/contractor-cabinet-pricing-explained</code></li>
+  </ul>
+  <p class="footnote">Each guide is a high-intent capture page for the new keyword universe. Expected return: 5–10k organic visits/yr per guide once ranked, primarily from contractor-side searches that the current site has no page targeting.</p>
+</section>
+
+<!-- ============================ SECTION 9 ============================ -->
+<section>
+  <h2>9 · Adjacent operational considerations <span class="badge badge--new">flagged, not in scope</span></h2>
+  <p>These items are <em>adjacent</em> to the website pivot but critical for the pivot to work in practice. They're not part of the website spec — they're an operational checklist for the client. Flagged here so nothing falls through.</p>
+
+  <table>
+    <thead><tr><th>Item</th><th>Why it matters</th><th>Recommended action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Photography</strong></td>
+        <td>Without supplier-side photos (will-call counter, stock shelf, jobsite delivery, contractor at the counter) the "supplier" signal stays weak. Today's photo library is all finished-kitchen reveals — those photos read as design firm.</td>
+        <td>Half-day photo shoot once showroom address is set. Shot list: 8–10 supplier-side shots, plus 4–5 outcome shots for portfolio.</td>
+      </tr>
+      <tr>
+        <td><strong>Trade application infrastructure</strong></td>
+        <td>The trade page promises a 2-minute apply → 2-day pricing sheet flow. Without a real form + CRM sequence, the promise breaks on the first lead.</td>
+        <td>HubSpot or Tally form → Mailchimp/Klaviyo sequence: welcome → pricing sheet PDF → first-order incentive. Owner: client (not a code task).</td>
+      </tr>
+      <tr>
+        <td><strong>Credit / account terms infrastructure</strong></td>
+        <td>"Account terms after first paid order" requires a credit application, optional D&amp;B check, and AR follow-up. Otherwise the promise is empty.</td>
+        <td>Set up Quickbooks or Xero AR workflow. Build a credit application PDF. Decide Net 15 vs Net 30 internally.</td>
+      </tr>
+      <tr>
+        <td><strong>Inventory truth</strong></td>
+        <td>"Stock cabinets in stock" must be real. A buyer driving to Quakertown to find an out-of-stock cabinet ends the brand.</td>
+        <td>Airtable, Google Sheets, or POS-driven inventory list. Mid-term: surface live inventory on <code>/cabinets/stock</code> via API.</td>
+      </tr>
+      <tr>
+        <td><strong>Pricing sheet design</strong></td>
+        <td>The pricing sheet IS the trade pitch in physical form. A bad PDF undoes the whole site.</td>
+        <td>2-page branded PDF. Tier pricing visible. Updated quarterly. Sent only to approved trade applicants.</td>
+      </tr>
+      <tr>
+        <td><strong>Dedicated trade rep</strong></td>
+        <td>The "one dedicated rep" promise requires a real person. If the client doesn't have a rep yet, the page needs softer language.</td>
+        <td>Hire / designate. Until then: rewrite "one dedicated rep" → "a direct line to our trade desk."</td>
+      </tr>
+      <tr>
+        <td><strong>Email segmentation</strong></td>
+        <td>Trade leads and homeowner leads should never receive the same nurture sequence. Mixing audiences hurts both.</td>
+        <td>Mailchimp/Klaviyo lists split by audience: Homeowner Leads / Trade Leads / Past Customers / Designers. Different sequences per audience.</td>
+      </tr>
+      <tr>
+        <td><strong>Showroom physical setup</strong></td>
+        <td>The site implies stock cabinets are visible and ready in the showroom. If the physical space is bare or all-custom-displays, the supplier story fails in person.</td>
+        <td>Display a wall of stock cabinets when the showroom opens. Will-call counter visible. Trade-pricing-sheet stand by the door.</td>
+      </tr>
+      <tr>
+        <td><strong>Hours that match contractor schedules</strong></td>
+        <td>Current site lists 9-6 weekday hours. Contractors pick up at 7am. A pickup window of 7-8am, Mon-Fri, is a structural advantage that the homepage should mention.</td>
+        <td>Decide if 7am pickup-by-appointment is operationally possible. If yes, advertise it on <code>/trade</code> and <code>/cabinets/stock</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================ NEXT STEPS ============================ -->
+<section>
+  <h2>Next steps</h2>
+  <ol>
+    <li><strong>Final review of this brief.</strong> Read all 9 sections. Flag anything that needs revision. Items left unflagged are treated as approved.</li>
+    <li><strong>Commit the formal spec.</strong> Once approved, the spec is saved at <code>docs/superpowers/specs/2026-05-12-cabinet-supplier-pivot-design.md</code> and committed to git. This is the canonical document the implementation plan will read from.</li>
+    <li><strong>Implementation plan.</strong> The <code>superpowers:writing-plans</code> skill produces a step-by-step plan to execute the pivot — file-by-file edits, the order of changes, redirects, schema updates, and a validation checklist for each step.</li>
+    <li><strong>Execution.</strong> The implementation plan is the contract. Each step ships in a small, reviewable commit. No surprises.</li>
+  </ol>
+</section>
+
+<footer style="margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-mute);">
+  Brief complete · 9 of 9 sections · Awaiting final review before formal spec is committed
+</footer>
+
+</div>
+</body>
+</html>
