@@ -10,18 +10,18 @@ import { breadcrumbSchema, cabinetStoreSchema, toJsonLd } from "@/lib/schema";
 const stats = [
   { num: "15+", label: "Years on the Bench" },
   { num: "500+", label: "Cabinets Built" },
-  { num: "100%", label: "Built in Our Shop" },
-  { num: "4.9★", label: "Avg Customer Rating" },
+  { num: "100%", label: "Signature Built Here" },
+  { num: `${towns.length}+`, label: "Towns We Serve Weekly" },
 ];
 
 const pillars = [
   {
     title: "Built in Quakertown.",
-    desc: "Every Vitrin Signature cabinet is milled, assembled, and finished at our shop. Plywood boxes, dovetail drawers, Blum hardware.",
+    desc: "Every Vitrin Signature cabinet is milled, assembled, and finished here. Plywood boxes, dovetail drawers, Blum hardware — and shop tours so you see the bench before you sign.",
   },
   {
     title: "Two tiers, one shop.",
-    desc: "Vitrin Stock ships fast from the showroom floor. Vitrin Signature is built to your kitchen&apos;s exact dimensions. Same quality bar.",
+    desc: "Vitrin Stock ships fast from the showroom floor. Vitrin Signature is built to your kitchen's exact dimensions — drawn, milled, and finished on our bench. Same team stands behind both.",
   },
   {
     title: "Yours to install — or we’ll do it.",
@@ -87,8 +87,8 @@ export default function Home() {
           <h1 style={{ fontSize: "clamp(2.6rem, 6vw, 4.5rem)", marginBottom: "1.25rem", color: "#fff" }}>
             Cabinets, built and sold in Quakertown.
           </h1>
-          <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
-            Two ways to buy — pick from in-stock door styles in our showroom, or order a kitchen custom-built at our bench. For homeowners, contractors, designers, and builders across Bucks County and the Lehigh Valley.
+          <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.92)", maxWidth: "720px", margin: "0 auto", lineHeight: 1.6 }}>
+            Custom kitchen cabinets built in Quakertown, PA — plus in-stock door styles when speed matters. We measure, draw, fabricate, and deliver across Bucks County and the Lehigh Valley; your contractor can install, or ours can. No franchise layers — just the shop and the people who build it.
           </p>
           <div className="hero__cta">
             <Link href="/cabinets/stock" className="btn-primary">Browse Stock Cabinets &rarr;</Link>
@@ -118,9 +118,9 @@ export default function Home() {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">The Vitrin Difference</span>
-            <h2 className="section-heading">A franchise sells you a catalog. We build you a cabinet.</h2>
+            <h2 className="section-heading">Bench-built Signature. Curated Stock. One Quakertown shop.</h2>
             <p className="section-sub">
-              Most local cabinet shops are reselling a manufactured line. We build our custom cabinets ourselves, in our own shop — and stock a curated lineup ready for pickup.
+              When you want a kitchen built to your room — not a line card — we mill and finish it here. When you need quality fast, we stock door styles on the floor. Same address, same craftspeople, same warranty philosophy: we answer for the work.
             </p>
           </div>
 

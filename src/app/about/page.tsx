@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "About — A Custom Cabinetry Shop in Quakertown, PA",
+  title: "About — Bench-Built Custom Cabinets in Quakertown, PA",
   description:
-    "Vitrin Cabinetery is a Quakertown, PA cabinet shop — stock cabinets from the showroom, custom work built at our bench. Meet the team and the shop.",
+    "Meet Vitrin Cabinetery: a Quakertown, PA shop building Vitrin Signature kitchens to order, stocking Vitrin Stock for faster projects, and serving Bucks County and the Lehigh Valley with transparent timelines and line-item quotes.",
   alternates: { canonical: "/about" },
 };
 
@@ -38,10 +38,10 @@ export default function AboutPage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>About Vitrin</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            A workshop. Not a showroom for someone else&apos;s cabinets.
+            A working shop — not a pass-through for someone else&apos;s line.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetery is a small, hands-on cabinet shop in Quakertown, PA. We build every cabinet at our bench and install it with our own crew. No franchise. No catalog. No outsourcing.
+            Vitrin Cabinetery is a hands-on cabinet shop in Quakertown, PA. Vitrin Signature kitchens are drawn, built, and finished at our bench — then delivered by us, installed by our crew or yours. Vitrin Stock is a curated in-shop lineup for faster projects, still backed by the same team. No franchise. No disappearing act after the sale.
           </p>
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function AboutPage() {
         <div className="container--narrow prose">
           <h3>Why we exist</h3>
           <p>
-            The cabinetry buyer in Bucks County and the Lehigh Valley has two real options today: a national franchise selling catalog product with subcontracted installers, or a legacy luxury shop a 25-minute drive away with a six-month waitlist. Vitrin is the third option neither one offers — a local custom shop, honest pricing, real craft, sane timelines.
+            The cabinetry buyer in Bucks County and the Lehigh Valley is often stuck between two extremes: a semi-custom showroom that optimizes for catalog SKUs and outsourced install, or a luxury design-build firm with a months-long queue. Vitrin sits in the middle — a real Quakertown shop where Signature work is bench-built to your dimensions, Stock is on the floor when you need speed, pricing tiers are published, and timelines are what we&apos;d want quoted to our own families.
           </p>
 
           <h3>The shop</h3>

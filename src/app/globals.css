@@ -10,8 +10,8 @@
   --glass: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.08);
   --border: #e8e6e1;
-  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-dm-serif-display), Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -45,7 +45,10 @@ a.text-link:hover { border-color: var(--primary); }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  font-weight: 700;
+  /* DM Serif Display ships as Regular on Google Fonts — avoid faux-bold. */
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.015em;
   line-height: 1.2;
   color: var(--text);
 }
@@ -245,8 +248,12 @@ section {
 }
 
 .card__title {
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 1.3rem;
   margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 .card__desc {
@@ -393,9 +400,10 @@ section {
 
 .navbar__brand {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 400;
+  font-synthesis: none;
   font-family: var(--font-serif);
-  letter-spacing: -0.005em;
+  letter-spacing: -0.015em;
   line-height: 1;
   color: var(--text);
   white-space: nowrap;

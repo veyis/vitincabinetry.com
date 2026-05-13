@@ -12,7 +12,7 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Custom Kitchen Cabinets in Bucks County, PA",
   description:
-    "Custom kitchen cabinets across Bucks County, PA. Vitrin Cabinetery builds every cabinet at our Quakertown shop and supplies them across 12+ towns from Quakertown to New Hope.",
+    "Custom kitchen cabinets for Bucks County homes — bench-built in Quakertown, not catalog-dropped. Vitrin Cabinetery: local install, published pricing tiers, historic-district experience, and a lifetime workmanship warranty on Signature work.",
   alternates: { canonical: "/custom-kitchen-cabinets/bucks-county" },
 };
 
@@ -113,8 +113,8 @@ export default function BucksCountyPillar() {
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
             Custom kitchen cabinets across Bucks County.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetery is a Quakertown-based custom cabinetry shop serving Bucks County and the Lehigh Valley. Every cabinet is built in our shop — not franchised, not sub&apos;d out, not picked from a catalog.
+          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
+            From Doylestown to New Hope to Quakertown, Bucks County kitchens are rarely “standard size.” Vitrin draws, mills, and finishes Signature cabinetry at our Quakertown shop — and keeps curated Stock on hand when the schedule does not allow an 8-week bench build. One team, line-item quotes, weekly bench photos on custom work.
           </p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Get a Quote</Link>

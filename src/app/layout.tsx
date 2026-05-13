@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -8,17 +8,19 @@ import { site } from "@/lib/site";
 import { localBusinessSchema, organizationSchema, websiteSchema, toJsonLd } from "@/lib/schema";
 import "./globals.css";
 
-const inter = Inter({
+/** DM Sans + DM Serif Display — Colophon Foundry / Google Fonts; designed as a harmonious premium pair. */
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: "400",
   style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-dm-serif-display",
   display: "swap",
 });
 
@@ -35,14 +37,17 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "Stock and custom cabinets, built and sold in Quakertown, PA. For homeowners and trade across Bucks County and the Lehigh Valley.",
+    "Custom kitchen cabinets bench-built in Quakertown, PA — plus curated in-stock door styles. Vitrin Signature (made to your room) and Vitrin Stock (ready fast). Homeowners, contractors, and designers across Bucks County and the Lehigh Valley.",
   applicationName: site.name,
   keywords: [
     "custom kitchen cabinets Quakertown",
+    "bench built cabinets Bucks County",
     "kitchen remodeling Bucks County",
     "custom cabinetry PA",
+    "inset kitchen cabinets Pennsylvania",
     "bathroom vanities Quakertown",
     "kitchen designer Bucks County",
+    "cabinet shop Lehigh Valley",
     site.name,
   ],
   authors: [{ name: site.name }],
@@ -58,7 +63,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} — Stock & Custom Cabinets in Quakertown, PA`,
     description:
-      "Cabinets, built and sold in Quakertown. Stock from the showroom; custom from our bench. Serving Bucks County and the Lehigh Valley.",
+      "Bench-built custom kitchens in Quakertown, PA — plus curated stock when you need cabinets fast. Bucks County & Lehigh Valley.",
     images: [
       {
         url: "/og.jpg",
@@ -72,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${site.name} — Stock & Custom Cabinets in Quakertown, PA`,
     description:
-      "Cabinets, built and sold in Quakertown — for homeowners and trade.",
+      "Bench-built in Quakertown — Signature custom + Stock on the floor. Bucks County & Lehigh Valley.",
     images: ["/og.jpg"],
   },
   robots: {
@@ -95,7 +100,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
       <body>
         {children}
 
