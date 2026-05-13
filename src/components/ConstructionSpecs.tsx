@@ -7,11 +7,11 @@ import React from "react";
  */
 export default function ConstructionSpecs({ heading = "How every Vitrin cabinet is built" }: { heading?: string }) {
   return (
-    <section>
+    <section aria-labelledby="construction-specs-heading">
       <div className="container">
         <div className="section-center">
           <span className="eyebrow">Construction</span>
-          <h2 className="section-heading">{heading}</h2>
+          <h2 className="section-heading" id="construction-specs-heading">{heading}</h2>
           <p className="section-sub">
             The construction bar is the same for Vitrin Stock and Vitrin Signature. The difference is how each cabinet is made, not how well.
           </p>

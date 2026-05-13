@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function InstallOptionalNote() {
   return (
     <div
-      className="callout"
       style={{
         border: "1px solid var(--border)",
         borderRadius: "6px",
