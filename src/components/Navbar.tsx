@@ -94,10 +94,16 @@ export default function Navbar() {
           <button
             type="button"
             className={cabinetsActive ? "navbar__link--active" : undefined}
-            aria-haspopup="menu"
+            aria-current={cabinetsActive ? "page" : undefined}
+            aria-haspopup="true"
             aria-expanded={dropdownOpen}
             onClick={() => setDropdownOpen((o) => !o)}
             onFocus={() => setDropdownOpen(true)}
+            onBlur={(e) => {
+              if (!dropdownRef.current?.contains(e.relatedTarget)) {
+                setDropdownOpen(false);
+              }
+            }}
             style={{
               background: "transparent",
               border: "none",
@@ -105,14 +111,15 @@ export default function Navbar() {
               font: "inherit",
               color: "inherit",
               cursor: "pointer",
+              position: "relative",
             }}
           >
-            Cabinets &#9662;
+            Cabinets <span aria-hidden="true">▾</span>
           </button>
           {dropdownOpen && (
             <div
-              role="menu"
               className="navbar__dropdown-menu"
+              aria-label="Cabinets submenu"
               style={{
                 position: "absolute",
                 top: "100%",
@@ -127,7 +134,7 @@ export default function Navbar() {
                 marginTop: "0.5rem",
               }}
               onBlur={(e) => {
-                if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                if (!e.currentTarget.contains(e.relatedTarget)) {
                   setDropdownOpen(false);
                 }
               }}
@@ -137,7 +144,6 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={close}
-                  role="menuitem"
                   style={{
                     display: "block",
                     padding: "0.5rem 1rem",
