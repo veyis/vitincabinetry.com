@@ -75,9 +75,9 @@ export default function Home() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           poster="/images/heros/bespoke-kitchen-stone-farmhouse-bucks-county-poster.jpg"
-          aria-label="Custom kitchen built by Vitrin Cabinetery in Quakertown, PA"
+          aria-hidden="true"
         >
           <source media="(prefers-reduced-motion: no-preference)" src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4" type="video/mp4" />
         </video>
@@ -209,7 +209,7 @@ export default function Home() {
               <h2 className="section-heading">How ordering a custom kitchen works — five steps.</h2>
               <div className="prose" style={{ marginTop: "1.5rem" }}>
                 <p>
-                  One supplier, one rep, one accountable shop. We deliver — install if you want us to, or your contractor&apos;s crew if you don&apos;t.
+                  One supplier, one rep, one accountable shop. We deliver — your crew installs, or ours can.
                 </p>
               </div>
               <div style={{ marginTop: "2rem" }}>

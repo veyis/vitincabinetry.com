@@ -31,11 +31,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Custom Kitchen Cabinets in Quakertown, PA`,
+    default: `${site.name} | Stock & Custom Cabinets in Quakertown, PA`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Custom-built kitchen and bathroom cabinetry, designed and installed by our own shop in Quakertown, PA. Serving Bucks County and the Lehigh Valley.",
+    "Stock and custom cabinets, built and sold in Quakertown, PA. For homeowners and trade across Bucks County and the Lehigh Valley.",
   applicationName: site.name,
   keywords: [
     "custom kitchen cabinets Quakertown",
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Custom Kitchen Cabinets in Quakertown, PA`,
+    title: `${site.name} — Stock & Custom Cabinets in Quakertown, PA`,
     description:
-      "Designed, built, and installed by our own shop in Quakertown. Serving Bucks County and the Lehigh Valley.",
+      "Cabinets, built and sold in Quakertown. Stock from the showroom; custom from our bench. Serving Bucks County and the Lehigh Valley.",
     images: [
       {
         url: "/og.jpg",
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Custom Kitchen Cabinets in Quakertown, PA`,
+    title: `${site.name} — Stock & Custom Cabinets in Quakertown, PA`,
     description:
-      "Designed, built, and installed by our own shop in Quakertown.",
+      "Cabinets, built and sold in Quakertown — for homeowners and trade.",
     images: ["/og.jpg"],
   },
   robots: {
