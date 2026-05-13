@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cabinets/stock" },
 };
 
-// Placeholder SKUs — replace with real inventory as it lands.
+// Placeholder SKUs — replace with real inventory + photography as it lands.
 const featured = [
-  { name: "Inset Shaker", finish: "Painted White Dove", from: "$X" },
-  { name: "Full-Overlay Shaker", finish: "Painted Iron Ore", from: "$X" },
-  { name: "Slab Modern", finish: "Rift-Cut White Oak", from: "$X" },
-  { name: "Beaded Inset", finish: "Stained Walnut", from: "$X" },
+  { name: "Inset Shaker", finish: "Painted White Dove", from: "$X", img: "/images/placeholder.png" },
+  { name: "Full-Overlay Shaker", finish: "Painted Iron Ore", from: "$X", img: "/images/placeholder.png" },
+  { name: "Slab Modern", finish: "Rift-Cut White Oak", from: "$X", img: "/images/placeholder.png" },
+  { name: "Beaded Inset", finish: "Stained Walnut", from: "$X", img: "/images/placeholder.png" },
 ];
 
 const sizes = [
