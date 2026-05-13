@@ -126,6 +126,8 @@ export const cabinetStoreSchema = {
   geo: { "@type": "GeoCoordinates", ...site.geo },
   areaServed: site.areaServed,
   openingHoursSpecification: openingHours,
+  // aggregateRating intentionally omitted — the storefront and the workshop
+  // share the same rating pool; render it only on localBusinessSchema.
   ...(sameAs.length > 0 ? { sameAs } : {}),
 };
 
@@ -135,8 +137,13 @@ export function productSchema(opts: {
   image: string;
   url: string;
   sku?: string;
-  offer?: ReturnType<typeof offerSchema>;
+  offers?: ReturnType<typeof offerSchema> | ReturnType<typeof offerSchema>[];
 }) {
+  const offers = opts.offers
+    ? Array.isArray(opts.offers)
+      ? opts.offers
+      : [opts.offers]
+    : undefined;
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -146,14 +153,17 @@ export function productSchema(opts: {
     url: opts.url,
     ...(opts.sku ? { sku: opts.sku } : {}),
     brand: { "@type": "Brand", name: site.name },
-    ...(opts.offer ? { offers: opts.offer } : {}),
+    ...(offers ? { offers } : {}),
   };
 }
 
 export function offerSchema(opts: {
   price: string;
   priceCurrency?: string;
-  availability?: "InStock" | "PreOrder" | "MadeToOrder";
+  // schema.org ItemAvailability enum — "MadeToOrder" is not a valid value.
+  // Use "PreOrder" for custom-built items not yet in production,
+  // or "InStock" when the item is orderable from stock.
+  availability?: "InStock" | "OutOfStock" | "PreOrder" | "BackOrder";
   url?: string;
 }) {
   return {
