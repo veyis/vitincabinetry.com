@@ -105,7 +105,7 @@ export default function BucksCountyPillar() {
           <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <Link href="/services/kitchen-cabinets" style={{ color: "inherit" }}>Custom Kitchens</Link>
+            <Link href="/cabinets/kitchen" style={{ color: "inherit" }}>Cabinet Types</Link>
             <span className="sep">/</span>
             <span aria-current="page" style={{ color: "#fff" }}>Bucks County, PA</span>
           </nav>
@@ -279,7 +279,7 @@ export default function BucksCountyPillar() {
           __html: toJsonLd(
             breadcrumbSchema([
               { name: "Home", url: site.url },
-              { name: "Custom Kitchens", url: `${site.url}/services/kitchen-cabinets` },
+              { name: "Cabinet Types", url: `${site.url}/cabinets/kitchen` },
               { name: "Bucks County, PA", url: pageUrl },
             ])
           ),
