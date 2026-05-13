@@ -5,14 +5,27 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, itemListJsonLd, toJsonLd, videoObjectJsonLd } from "@/lib/schema";
+
+const PAGE_TITLE = "Shop Tour — Inside the Vitrin Workshop in Quakertown, PA";
+const PAGE_DESC =
+  "Walk through the Vitrin Cabinetery workshop in Quakertown, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.";
 
 export const metadata: Metadata = {
-  title: "Shop Tour — Inside the Vitrin Workshop in Quakertown, PA",
-  description:
-    "Walk through the Vitrin Cabinetery workshop in Quakertown, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/shop-tour" },
+  ...shareMetadata("/shop-tour", PAGE_TITLE, PAGE_DESC, {
+    imagePath: "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png",
+    imageAlt: "Master cabinetmaker at the bench inside the Vitrin Cabinetery workshop in Quakertown, PA",
+  }),
 };
+
+const SHOP_TOUR_VIDEO = "/videos/vitrin-cabinetery-shop-tour-workshop-quakertown.mp4";
+const SHOP_TOUR_POSTER = "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png";
+/** ISO 8601 date — update when replacing the video file. */
+const SHOP_TOUR_VIDEO_UPLOAD_DATE = "2026-05-12";
 
 const stations = [
   {
@@ -49,6 +62,25 @@ const stations = [
 
 export default function ShopTourPage() {
   const pageUrl = `${site.url}/shop-tour`;
+  const videoContentUrl = `${site.url}${SHOP_TOUR_VIDEO}`;
+  const thumbnailUrl = `${site.url}${SHOP_TOUR_POSTER}`;
+
+  const videoLd = videoObjectJsonLd({
+    name: "Vitrin Cabinetery — workshop tour (Quakertown, PA)",
+    description: PAGE_DESC,
+    thumbnailUrl,
+    contentUrl: videoContentUrl,
+    uploadDate: SHOP_TOUR_VIDEO_UPLOAD_DATE,
+    embedUrl: pageUrl,
+  });
+
+  const stationsLd = itemListJsonLd({
+    name: "Workshop stations on a Vitrin Cabinetery shop tour",
+    description: "Areas visitors see when touring the Quakertown bench-built cabinetry workshop.",
+    url: `${pageUrl}#stations`,
+    items: stations.map((s) => ({ name: s.title, description: s.body })),
+  });
+
   return (
     <main>
       <Navbar />
@@ -82,15 +114,29 @@ export default function ShopTourPage() {
       <section>
         <div className="container">
           <div
-            className="img-placeholder"
-            style={{ minHeight: "440px", marginBottom: "2.5rem" }}
-            role="img"
-            aria-label="Shop tour video — coming soon"
+            style={{
+              aspectRatio: "16 / 9",
+              maxWidth: 960,
+              margin: "0 auto 2.5rem",
+              borderRadius: 12,
+              overflow: "hidden",
+              border: "1px solid var(--border)",
+              background: "#0a0a0a",
+            }}
           >
-            Shop tour video — coming soon
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster={SHOP_TOUR_POSTER}
+              aria-label="Video tour of the Vitrin Cabinetery workshop in Quakertown, Pennsylvania"
+              style={{ width: "100%", height: "100%", display: "block" }}
+            >
+              <source src={SHOP_TOUR_VIDEO} type="video/mp4" />
+            </video>
           </div>
 
-          <div className="section-center">
+          <div className="section-center" id="stations">
             <span className="eyebrow">Six Stations</span>
             <h2 className="section-heading">What you&apos;ll see when you walk through.</h2>
           </div>
@@ -131,6 +177,14 @@ export default function ShopTourPage() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(videoLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(stationsLd) }}
       />
     </main>
   );

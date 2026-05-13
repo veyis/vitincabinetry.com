@@ -5,7 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
 
 const SLUG = "inset-vs-full-overlay";
 const meta = getGuide(SLUG)!;
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   title: meta.title,
   description: meta.excerpt,
   alternates: { canonical: `/guides/${SLUG}` },
+  ...shareMetadata(`/guides/${SLUG}`, meta.title, meta.excerpt, { article: true }),
 };
 
 const comparisonRows = [
@@ -53,27 +55,13 @@ const faqs = [
 export default function InsetVsFullOverlayPage() {
   const pageUrl = `${site.url}/guides/${SLUG}`;
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+  const articleSchema = articleJsonLd({
     headline: meta.title,
     description: meta.excerpt,
-    author: { "@id": `${site.url}#organization` },
-    publisher: { "@id": `${site.url}#organization` },
-    datePublished: meta.datePublished,
-    dateModified: meta.datePublished,
-    mainEntityOfPage: pageUrl,
     url: pageUrl,
-  };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+    datePublished: meta.datePublished,
+  });
+  const faqSchema = faqPageJsonLd(faqs);
 
   return (
     <main>

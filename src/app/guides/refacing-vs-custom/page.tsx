@@ -4,13 +4,18 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { getGuide } from "@/lib/guides";
+import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+
+const SLUG = "refacing-vs-custom";
+const meta = getGuide(SLUG)!;
 
 export const metadata: Metadata = {
-  title: "Cabinet Refacing vs. Custom Replacement — An Honest Comparison",
-  description:
-    "When cabinet refacing makes sense and when it doesn't. A custom cabinetmaker's honest comparison of refacing vs. full replacement — cost, lifespan, design freedom, and the math behind the decision.",
-  alternates: { canonical: "/guides/refacing-vs-custom" },
+  title: meta.title,
+  description: meta.excerpt,
+  alternates: { canonical: `/guides/${SLUG}` },
+  ...shareMetadata(`/guides/${SLUG}`, meta.title, meta.excerpt, { article: true }),
 };
 
 const faqs = [
@@ -50,31 +55,16 @@ const tableRows = [
 ];
 
 export default function GuidePage() {
-  const pageUrl = `${site.url}/guides/refacing-vs-custom`;
+  const pageUrl = `${site.url}/guides/${SLUG}`;
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Cabinet Refacing vs. Custom Replacement — An Honest Comparison",
-    description:
-      "A custom cabinetmaker's honest comparison of cabinet refacing vs. full replacement — cost, lifespan, design freedom, and how to decide.",
-    author: { "@id": `${site.url}#organization` },
-    publisher: { "@id": `${site.url}#organization` },
-    datePublished: "2026-05-12",
-    dateModified: "2026-05-12",
-    mainEntityOfPage: pageUrl,
+  const articleSchema = articleJsonLd({
+    headline: meta.title,
+    description: meta.excerpt,
     url: pageUrl,
-  };
+    datePublished: meta.datePublished,
+  });
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  const faqSchema = faqPageJsonLd(faqs);
 
   return (
     <main>

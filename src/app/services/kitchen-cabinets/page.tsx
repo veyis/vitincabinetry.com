@@ -5,13 +5,18 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+import { shareMetadata } from "@/lib/seo";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
+const PAGE_TITLE = "Custom Kitchen Cabinets — Designed, Built & Installed in Quakertown";
+const PAGE_DESC =
+  "Bench-built custom kitchen cabinets designed and installed by Vitrin Cabinetery. Inset, full-overlay, painted, stained, or natural — drawn to your dimensions, built in our Quakertown, PA shop.";
+
 export const metadata: Metadata = {
-  title: "Custom Kitchen Cabinets — Designed, Built & Installed in Quakertown",
-  description:
-    "Bench-built custom kitchen cabinets designed and installed by Vitrin Cabinetery. Inset, full-overlay, painted, stained, or natural — drawn to your dimensions, built in our Quakertown, PA shop.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/services/kitchen-cabinets" },
+  ...shareMetadata("/services/kitchen-cabinets", PAGE_TITLE, PAGE_DESC),
 };
 
 const features = [

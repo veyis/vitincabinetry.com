@@ -5,17 +5,31 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, aboutPageJsonLd, toJsonLd } from "@/lib/schema";
+
+const PAGE_TITLE = "About — A Custom Cabinetry Shop in Quakertown, PA";
+const PAGE_DESC =
+  "Vitrin Cabinetery is a Quakertown, PA workshop that designs, builds, and installs custom kitchens and baths under one roof. Meet the team and the shop.";
 
 export const metadata: Metadata = {
-  title: "About — A Custom Cabinetry Shop in Quakertown, PA",
-  description:
-    "Vitrin Cabinetery is a Quakertown, PA workshop that designs, builds, and installs custom kitchens and baths under one roof. Meet the team and the shop.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/about" },
+  ...shareMetadata("/about", PAGE_TITLE, PAGE_DESC, {
+    imagePath: "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png",
+    imageAlt: "Master cabinetmaker hand-planing solid white oak at the Vitrin Cabinetery workshop in Quakertown, PA",
+  }),
 };
 
 export default function AboutPage() {
   const pageUrl = `${site.url}/about`;
+  const aboutLd = aboutPageJsonLd({
+    name: PAGE_TITLE,
+    description: PAGE_DESC,
+    url: pageUrl,
+  });
+
   return (
     <main>
       <Navbar />
@@ -104,6 +118,10 @@ export default function AboutPage() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(aboutLd) }}
       />
     </main>
   );

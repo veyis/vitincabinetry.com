@@ -5,13 +5,18 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+import { shareMetadata } from "@/lib/seo";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
+const PAGE_TITLE = "Living Room Built-ins & Whole-Home Cabinetry — Vitrin Cabinetery";
+const PAGE_DESC =
+  "Custom entertainment walls, libraries, home offices, mudrooms, and pantries — built in our Quakertown, PA shop. The cabinetry shop you wish your contractor knew about.";
+
 export const metadata: Metadata = {
-  title: "Living Room Built-ins & Whole-Home Cabinetry — Vitrin Cabinetery",
-  description:
-    "Custom entertainment walls, libraries, home offices, mudrooms, and pantries — built in our Quakertown, PA shop. The cabinetry shop you wish your contractor knew about.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/services/living-room-units" },
+  ...shareMetadata("/services/living-room-units", PAGE_TITLE, PAGE_DESC),
 };
 
 const rooms = [

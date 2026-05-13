@@ -6,7 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { projects, getProject } from "@/lib/projects";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, portfolioProjectJsonLd, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
 
 type PageParams = { params: Promise<{ slug: string }> };
 
@@ -18,10 +19,15 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
+  const title = `${project.title} — Project by Vitrin Cabinetery`;
   return {
-    title: `${project.title} — Project by Vitrin Cabinetery`,
+    title,
     description: project.summary,
     alternates: { canonical: `/portfolio/${slug}` },
+    ...shareMetadata(`/portfolio/${slug}`, title, project.summary, {
+      imagePath: project.image,
+      imageAlt: project.title,
+    }),
   };
 }
 
@@ -33,17 +39,15 @@ export default async function ProjectPage({ params }: PageParams) {
   const pageUrl = `${site.url}/portfolio/${slug}`;
   const related = projects.filter((p) => p.slug !== slug).slice(0, 3);
 
-  const creativeWorkSchema = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
+  const creativeWorkSchema = portfolioProjectJsonLd({
     name: project.title,
     description: project.summary,
     url: pageUrl,
-    creator: { "@id": `${site.url}#organization` },
+    imageUrl: `${site.url}${project.image}`,
     dateCreated: `${project.year}-01-01`,
     locationCreated: project.town,
     keywords: [project.style, project.town, ...project.scope].join(", "),
-  };
+  });
 
   return (
     <main>

@@ -6,13 +6,21 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { guides } from "@/lib/guides";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, itemListJsonLd, toJsonLd } from "@/lib/schema";
+
+const PAGE_TITLE = "Guides — Kitchen Remodeling Resources by Vitrin Cabinetery";
+const PAGE_DESC =
+  "Honest, plain-language guides on custom cabinetry, kitchen remodeling, and the questions buyers in Bucks County actually ask. Pricing, comparisons, decisions.";
 
 export const metadata: Metadata = {
-  title: "Guides — Kitchen Remodeling Resources by Vitrin Cabinetery",
-  description:
-    "Honest, plain-language guides on custom cabinetry, kitchen remodeling, and the questions buyers in Bucks County actually ask. Pricing, comparisons, decisions.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/guides" },
+  ...shareMetadata("/guides", PAGE_TITLE, PAGE_DESC, {
+    imagePath: "/images/heros/calacatta-marble-kitchen-island-overhead.png",
+    imageAlt: "Custom kitchen island with honed Calacatta marble countertop by Vitrin Cabinetery",
+  }),
 };
 
 const categoryOrder: ReadonlyArray<typeof guides[number]["category"]> = ["Decision", "Pricing", "Materials", "Process"];
@@ -22,6 +30,17 @@ export default function GuidesPage() {
   const grouped = categoryOrder
     .map((cat) => ({ cat, items: guides.filter((g) => g.category === cat) }))
     .filter((g) => g.items.length > 0);
+
+  const guidesListLd = itemListJsonLd({
+    name: "Kitchen remodeling guides by Vitrin Cabinetery",
+    description: PAGE_DESC,
+    url: `${pageUrl}#guides`,
+    items: guides.map((g) => ({
+      name: g.title,
+      description: g.excerpt,
+      url: `${site.url}/guides/${g.slug}`,
+    })),
+  });
 
   return (
     <main>
@@ -53,7 +72,7 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      <section>
+      <section id="guides">
         <div className="container--narrow">
           {grouped.map((group) => (
             <div key={group.cat} style={{ marginBottom: "3rem" }}>
@@ -93,6 +112,10 @@ export default function GuidesPage() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(guidesListLd) }}
       />
     </main>
   );

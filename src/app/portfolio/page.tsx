@@ -6,17 +6,36 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { projects } from "@/lib/projects";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, itemListJsonLd, toJsonLd } from "@/lib/schema";
+
+const PAGE_TITLE = "Portfolio — Custom Kitchens Built by Vitrin Cabinetery";
+const PAGE_DESC =
+  "Selected custom kitchen and bath projects by Vitrin Cabinetery — designed, built, and installed at our Quakertown, PA shop. Browse by style and town.";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Custom Kitchens Built by Vitrin Cabinetery",
-  description:
-    "Selected custom kitchen and bath projects by Vitrin Cabinetery — designed, built, and installed at our Quakertown, PA shop. Browse by style and town.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/portfolio" },
+  ...shareMetadata("/portfolio", PAGE_TITLE, PAGE_DESC, {
+    imagePath: "/images/heros/navy-blue-custom-kitchen-cabinets-twilight.png",
+    imageAlt: "Custom navy blue kitchen with brass pendants at twilight, built by Vitrin Cabinetery in Bucks County PA",
+  }),
 };
 
 export default function PortfolioPage() {
   const pageUrl = `${site.url}/portfolio`;
+
+  const portfolioListLd = itemListJsonLd({
+    name: "Custom kitchen and bath portfolio — Vitrin Cabinetery",
+    description: PAGE_DESC,
+    url: `${pageUrl}#projects`,
+    items: projects.map((p) => ({
+      name: p.title,
+      description: p.summary,
+      url: `${site.url}/portfolio/${p.slug}`,
+    })),
+  });
 
   return (
     <main>
@@ -48,7 +67,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section>
+      <section id="projects">
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
             {projects.map((p) => (
@@ -110,6 +129,10 @@ export default function PortfolioPage() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(portfolioListLd) }}
       />
     </main>
   );

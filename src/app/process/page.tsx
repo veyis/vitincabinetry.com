@@ -5,13 +5,18 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, howToJsonLd, serviceSchema, toJsonLd } from "@/lib/schema";
+
+const PAGE_TITLE = "Our Process — Designed, Built & Installed by One Team";
+const PAGE_DESC =
+  "How Vitrin Cabinetery designs, builds, and installs every custom kitchen and bath at our Quakertown, PA shop. A 7-step process under one roof.";
 
 export const metadata: Metadata = {
-  title: "Our Process — Designed, Built & Installed by One Team",
-  description:
-    "How Vitrin Cabinetery designs, builds, and installs every custom kitchen and bath at our Quakertown, PA shop. A 7-step process under one roof.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/process" },
+  ...shareMetadata("/process", PAGE_TITLE, PAGE_DESC),
 };
 
 const steps = [
@@ -61,6 +66,17 @@ const steps = [
 
 export default function ProcessPage() {
   const pageUrl = `${site.url}/process`;
+
+  const howToLd = howToJsonLd({
+    name: "Custom kitchen and bath cabinetry — design through install",
+    description: PAGE_DESC,
+    url: pageUrl,
+    steps: steps.map((s) => ({
+      name: s.title,
+      text: `${s.duration}. ${s.body}`,
+    })),
+  });
+
   return (
     <main>
       <Navbar />
@@ -149,6 +165,10 @@ export default function ProcessPage() {
             })
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(howToLd) }}
       />
     </main>
   );

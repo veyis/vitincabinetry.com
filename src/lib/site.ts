@@ -43,6 +43,18 @@ export const site = {
     "Center Valley, PA",
   ],
 
+  /** Topics for Organization / LocalBusiness `knowsAbout` in JSON-LD. */
+  knowsAbout: [
+    "Custom kitchen cabinets",
+    "Custom bathroom vanities",
+    "Bench-built cabinetry",
+    "Kitchen design-build",
+    "Inset and full-overlay cabinets",
+    "Bucks County kitchen remodeling",
+    "Lehigh Valley cabinetry",
+    "Aging-in-place kitchen design",
+  ],
+
   // Hours — keep aligned with Google Business Profile.
   hours: [
     { dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" },
@@ -53,6 +65,7 @@ export const site = {
     facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || "",
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",
     houzz: process.env.NEXT_PUBLIC_HOUZZ_URL || "",
+    /** Google Maps place URL (not just the GBP admin link) enables `hasMap` in LocalBusiness JSON-LD. */
     google: process.env.NEXT_PUBLIC_GOOGLE_PROFILE_URL || "",
   },
 

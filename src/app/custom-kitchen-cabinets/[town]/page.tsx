@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { towns, getTown, type TownData } from "@/lib/towns";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
 
 type PageParams = { params: Promise<{ town: string }> };
 
@@ -23,6 +24,11 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     title: `Custom Kitchen Cabinets in ${data.name}, PA`,
     description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetery designs, builds, and installs every project at our own shop. Free in-home consultation, transparent pricing tiers, lifetime cabinetry warranty.`,
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
+    ...shareMetadata(
+      `/custom-kitchen-cabinets/${slug}`,
+      `Custom Kitchen Cabinets in ${data.name}, PA`,
+      `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetery designs, builds, and installs every project at our own shop. Free in-home consultation, transparent pricing tiers, lifetime cabinetry warranty.`
+    ),
   };
 }
 

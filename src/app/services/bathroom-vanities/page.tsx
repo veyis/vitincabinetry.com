@@ -5,13 +5,18 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+import { shareMetadata } from "@/lib/seo";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
+const PAGE_TITLE = "Custom Bathroom Vanities — Bench-Built in Quakertown, PA";
+const PAGE_DESC =
+  "Custom bathroom vanities designed, built, and installed by Vitrin Cabinetery. Floating, freestanding, single, double — built for moisture and made for your space.";
+
 export const metadata: Metadata = {
-  title: "Custom Bathroom Vanities — Bench-Built in Quakertown, PA",
-  description:
-    "Custom bathroom vanities designed, built, and installed by Vitrin Cabinetery. Floating, freestanding, single, double — built for moisture and made for your space.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/services/bathroom-vanities" },
+  ...shareMetadata("/services/bathroom-vanities", PAGE_TITLE, PAGE_DESC),
 };
 
 const types = [

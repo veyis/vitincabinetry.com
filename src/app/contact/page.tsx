@@ -5,15 +5,36 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "./ContactForm";
 import { site } from "@/lib/site";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, toJsonLd, videoObjectJsonLd } from "@/lib/schema";
+
+const CONTACT_HERO_VIDEO = "/videos/custom-kitchen-indoor-outdoor-garden-bucks-county.mp4";
+const CONTACT_HERO_POSTER = "/images/heros/custom-kitchen-indoor-outdoor-garden-bucks-county-poster.jpg";
+const CONTACT_HERO_VIDEO_UPLOAD_DATE = "2026-05-12";
+
+const CONTACT_TITLE = "Contact — Vitrin Cabinetery";
+const CONTACT_DESC =
+  "Book a free consultation with Vitrin Cabinetery in Quakertown, PA. Serving Bucks County and the Lehigh Valley.";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description:
-    "Book a free consultation with Vitrin Cabinetery in Quakertown, PA. Serving Bucks County and the Lehigh Valley.",
+  description: CONTACT_DESC,
   alternates: { canonical: "/contact" },
+  ...shareMetadata("/contact", CONTACT_TITLE, CONTACT_DESC),
 };
 
 export default function Contact() {
+  const pageUrl = `${site.url}/contact`;
+  const contactHeroVideoLd = videoObjectJsonLd({
+    name: "Indoor-outdoor custom kitchen — Vitrin Cabinetery, Bucks County, PA",
+    description:
+      "Indoor-outdoor custom kitchen opening onto a Bucks County garden, built by Vitrin Cabinetery in Quakertown, Pennsylvania.",
+    thumbnailUrl: `${site.url}${CONTACT_HERO_POSTER}`,
+    contentUrl: `${site.url}${CONTACT_HERO_VIDEO}`,
+    uploadDate: CONTACT_HERO_VIDEO_UPLOAD_DATE,
+    embedUrl: pageUrl,
+  });
+
   return (
     <main>
       <Navbar />
@@ -26,10 +47,10 @@ export default function Contact() {
           loop
           playsInline
           preload="auto"
-          poster="/images/heros/custom-kitchen-indoor-outdoor-garden-bucks-county-poster.jpg"
+          poster={CONTACT_HERO_POSTER}
           aria-label="Indoor-outdoor custom kitchen opening onto a Bucks County garden, built by Vitrin Cabinetery"
         >
-          <source media="(prefers-reduced-motion: no-preference)" src="/videos/custom-kitchen-indoor-outdoor-garden-bucks-county.mp4" type="video/mp4" />
+          <source media="(prefers-reduced-motion: no-preference)" src={CONTACT_HERO_VIDEO} type="video/mp4" />
         </video>
         <div className="hero__overlay" />
         <div className="hero__inner">
@@ -90,6 +111,22 @@ export default function Contact() {
       </section>
 
       <Footer />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: toJsonLd(
+            breadcrumbSchema([
+              { name: "Home", url: site.url },
+              { name: "Contact", url: pageUrl },
+            ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(contactHeroVideoLd) }}
+      />
     </main>
   );
 }

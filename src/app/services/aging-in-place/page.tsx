@@ -5,13 +5,18 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+import { shareMetadata } from "@/lib/seo";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
+const PAGE_TITLE = "Aging-in-Place Kitchen & Bath Cabinetry — Vitrin Cabinetery";
+const PAGE_DESC =
+  "Custom kitchens and bathrooms designed for accessibility and aging in place — roll-under sinks, easy-glide drawers, lever pulls, lighting strategy. Built in our Quakertown, PA shop.";
+
 export const metadata: Metadata = {
-  title: "Aging-in-Place Kitchen & Bath Cabinetry — Vitrin Cabinetery",
-  description:
-    "Custom kitchens and bathrooms designed for accessibility and aging in place — roll-under sinks, easy-glide drawers, lever pulls, lighting strategy. Built in our Quakertown, PA shop.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/services/aging-in-place" },
+  ...shareMetadata("/services/aging-in-place", PAGE_TITLE, PAGE_DESC),
 };
 
 const principles = [

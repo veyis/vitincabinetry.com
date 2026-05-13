@@ -7,13 +7,18 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { projects } from "@/lib/projects";
-import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, faqPageJsonLd, itemListJsonLd, serviceSchema, toJsonLd } from "@/lib/schema";
+
+const PAGE_TITLE = "Custom Kitchen Cabinets in Bucks County, PA";
+const PAGE_DESC =
+  "Custom kitchen cabinets across Bucks County, PA. Vitrin Cabinetery designs, builds, and installs every kitchen at our Quakertown shop — serving 12+ towns from Quakertown to New Hope.";
 
 export const metadata: Metadata = {
-  title: "Custom Kitchen Cabinets in Bucks County, PA",
-  description:
-    "Custom kitchen cabinets across Bucks County, PA. Vitrin Cabinetery designs, builds, and installs every kitchen at our Quakertown shop — serving 12+ towns from Quakertown to New Hope.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/custom-kitchen-cabinets/bucks-county" },
+  ...shareMetadata("/custom-kitchen-cabinets/bucks-county", PAGE_TITLE, PAGE_DESC),
 };
 
 const reasons = [
@@ -75,15 +80,23 @@ const faqs = [
 export default function BucksCountyPillar() {
   const pageUrl = `${site.url}/custom-kitchen-cabinets/bucks-county`;
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  const faqLd = faqPageJsonLd(faqs);
+
+  const townsListLd = itemListJsonLd({
+    name: "Custom kitchen cabinet service towns — Bucks County region",
+    description:
+      "Towns and municipalities served by Vitrin Cabinetery with dedicated local landing pages for custom kitchen cabinetry.",
+    url: `${pageUrl}#town-pages`,
+    items: towns.map((t) => {
+      const desc =
+        t.intro.length > 280 ? `${t.intro.slice(0, 277).trimEnd()}…` : t.intro;
+      return {
+        name: `Custom kitchen cabinets in ${t.name}, PA`,
+        description: desc,
+        url: `${site.url}/custom-kitchen-cabinets/${t.slug}`,
+      };
+    }),
+  });
 
   const featured = projects.slice(0, 3);
 
@@ -142,7 +155,7 @@ export default function BucksCountyPillar() {
       </section>
 
       {/* Towns we serve */}
-      <section className="section--surface">
+      <section className="section--surface" id="town-pages">
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Towns We Serve</span>
@@ -299,7 +312,8 @@ export default function BucksCountyPillar() {
           ),
         }}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(townsListLd) }} />
     </main>
   );
 }

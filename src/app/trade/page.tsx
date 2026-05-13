@@ -5,13 +5,36 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, howToJsonLd, serviceSchema, toJsonLd } from "@/lib/schema";
+
+const tradeJoinSteps = [
+  {
+    title: "Apply",
+    body: "Use the form at the bottom of this page. Tell us your firm, the kinds of projects you do, and a sample portfolio link.",
+  },
+  {
+    title: "Intro call + shop visit",
+    body: "30 minutes on the phone or in our Quakertown shop. We learn how you work, you confirm we're the right partner.",
+  },
+  {
+    title: "Approved + first project",
+    body: "Onboarding packet (price list, sample kit, materials library, design checklist). Most partners send their first project within 30 days.",
+  },
+] as const;
+
+const PAGE_TITLE = "Trade Program — For Designers, Architects, and Builders";
+const PAGE_DESC =
+  "Vitrin Cabinetery's Trade Program: trade pricing, fast-turn quoting, dedicated rep, and a shared portfolio for interior designers, architects, and general contractors in Bucks County and the Lehigh Valley.";
 
 export const metadata: Metadata = {
-  title: "Trade Program — For Designers, Architects, and Builders",
-  description:
-    "Vitrin Cabinetery's Trade Program: trade pricing, fast-turn quoting, dedicated rep, and a shared portfolio for interior designers, architects, and general contractors in Bucks County and the Lehigh Valley.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/trade" },
+  ...shareMetadata("/trade", PAGE_TITLE, PAGE_DESC, {
+    imagePath: "/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png",
+    imageAlt: "Pennsylvania stone farmhouse custom inset Shaker kitchen built by Vitrin Cabinetery for trade clients",
+  }),
 };
 
 const benefits = [
@@ -62,6 +85,22 @@ const fits = [
 
 export default function TradePage() {
   const pageUrl = `${site.url}/trade`;
+
+  const tradeServiceLd = serviceSchema({
+    name: "Trade Program — cabinetry for design and build partners",
+    description: PAGE_DESC,
+    url: pageUrl,
+    serviceType: "B2B Cabinetry Partnership",
+  });
+
+  const tradeHowToLd = howToJsonLd({
+    name: "How to join the Vitrin Cabinetery Trade Program",
+    description:
+      "Three steps to apply and onboard for interior designers, architects, builders, and GCs partnering with Vitrin for bench-built cabinetry in Bucks County and the Lehigh Valley.",
+    url: `${pageUrl}#onboarding`,
+    steps: tradeJoinSteps.map((s) => ({ name: s.title, text: s.body })),
+  });
+
   return (
     <main>
       <Navbar />
@@ -126,7 +165,7 @@ export default function TradePage() {
         </div>
       </section>
 
-      <section>
+      <section id="onboarding">
         <div className="container--narrow">
           <div className="section-center">
             <span className="eyebrow">How To Join</span>
@@ -134,20 +173,7 @@ export default function TradePage() {
           </div>
 
           <ol style={{ listStyle: "none", padding: 0 }}>
-            {[
-              {
-                title: "Apply",
-                body: "Use the form at the bottom of this page. Tell us your firm, the kinds of projects you do, and a sample portfolio link.",
-              },
-              {
-                title: "Intro call + shop visit",
-                body: "30 minutes on the phone or in our Quakertown shop. We learn how you work, you confirm we're the right partner.",
-              },
-              {
-                title: "Approved + first project",
-                body: "Onboarding packet (price list, sample kit, materials library, design checklist). Most partners send their first project within 30 days.",
-              },
-            ].map((s, i) => (
+            {tradeJoinSteps.map((s, i) => (
               <li key={s.title} className="step">
                 <div className="step__num">{String(i + 1).padStart(2, "0")}</div>
                 <div className="step__body">
@@ -194,6 +220,14 @@ export default function TradePage() {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(tradeServiceLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(tradeHowToLd) }}
       />
     </main>
   );

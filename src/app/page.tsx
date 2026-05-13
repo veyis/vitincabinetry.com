@@ -1,9 +1,24 @@
 import React from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { shareMetadata } from "@/lib/seo";
+import { breadcrumbSchema, toJsonLd, videoObjectJsonLd } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  ...shareMetadata(
+    "/",
+    `${site.name} | Custom Kitchen Cabinets in Quakertown, PA`,
+    "Custom-built kitchen and bathroom cabinetry, designed and installed by our own shop in Quakertown, PA. Serving Bucks County and the Lehigh Valley."
+  ),
+};
+
+const HOME_HERO_VIDEO = "/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4";
+const HOME_HERO_POSTER = "/images/heros/bespoke-kitchen-stone-farmhouse-bucks-county-poster.jpg";
+const HOME_HERO_VIDEO_UPLOAD_DATE = "2026-05-12";
 
 const stats = [
   { num: "15+", label: "Years on the Bench" },
@@ -46,6 +61,17 @@ const services = [
 ];
 
 export default function Home() {
+  const pageUrl = site.url;
+  const homeHeroVideoLd = videoObjectJsonLd({
+    name: "Bespoke stone farmhouse kitchen — Vitrin Cabinetery, Bucks County, PA",
+    description:
+      "Bespoke stone farmhouse custom kitchen with Calacatta marble island built by Vitrin Cabinetery in Bucks County, Pennsylvania.",
+    thumbnailUrl: `${site.url}${HOME_HERO_POSTER}`,
+    contentUrl: `${site.url}${HOME_HERO_VIDEO}`,
+    uploadDate: HOME_HERO_VIDEO_UPLOAD_DATE,
+    embedUrl: pageUrl,
+  });
+
   return (
     <main>
       <a href="#main-content" className="skip-link">Skip to content</a>
@@ -60,10 +86,10 @@ export default function Home() {
           loop
           playsInline
           preload="auto"
-          poster="/images/heros/bespoke-kitchen-stone-farmhouse-bucks-county-poster.jpg"
+          poster={HOME_HERO_POSTER}
           aria-label="Bespoke stone farmhouse custom kitchen with Calacatta marble island built by Vitrin Cabinetery in Bucks County, PA"
         >
-          <source media="(prefers-reduced-motion: no-preference)" src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4" type="video/mp4" />
+          <source media="(prefers-reduced-motion: no-preference)" src={HOME_HERO_VIDEO} type="video/mp4" />
         </video>
         <div className="hero__overlay" />
         <div className="hero__inner">
@@ -256,6 +282,10 @@ export default function Home() {
             breadcrumbSchema([{ name: "Home", url: site.url }])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(homeHeroVideoLd) }}
       />
     </main>
   );
