@@ -8,55 +8,64 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Trade Program — For Designers, Architects, and Builders",
+  title: "Trade Program — Cabinet Supply for Contractors, Builders & Designers",
   description:
-    "Vitrin Cabinetery's Trade Program: trade pricing, fast-turn quoting, dedicated rep, and a shared portfolio for interior designers, architects, and general contractors in Bucks County and the Lehigh Valley.",
+    "Vitrin Cabinetery's Trade Program: standing trade pricing, fast quotes, dedicated rep, will-call pickup, and jobsite delivery for contractors, builders, designers, architects, and installers in Bucks County and the Lehigh Valley.",
   alternates: { canonical: "/trade" },
 };
 
 const benefits = [
   {
-    title: "Trade pricing",
-    desc: "Standing 15–20% off published list on every project, with additional terms on multi-unit and new-construction orders.",
+    title: "Standing trade pricing",
+    desc: "Tiered by volume. Pricing sheet sent on first quote after approval. Additional terms on multi-unit and new-construction orders.",
   },
   {
     title: "One dedicated rep",
-    desc: "A single point of contact who learns your style, your timeline expectations, and your typical project shape. No re-explaining yourself project to project.",
+    desc: "Same person handles every order — knows your style, your timeline expectations, and your typical project shape.",
   },
   {
-    title: "Fast-turn quoting",
-    desc: "Most preliminary quotes turned around in 5 business days. Final fabrication drawings within 2 weeks of design lock.",
+    title: "Fast quotes",
+    desc: "Most preliminary quotes within 5 business days. Stock orders priced same-day.",
   },
   {
-    title: "Photo-realistic renderings",
-    desc: "Every project includes 3D renderings you can drop straight into your client presentations — no extra fee, no extra round-trip.",
+    title: "Honest lead times",
+    desc: "Stock ships when promised. Signature: 4–8 weeks at our bench, with weekly progress updates.",
   },
   {
-    title: "Co-marketing rights",
-    desc: "Finished projects are credited to you in our portfolio, with reciprocal links and high-resolution photography you can use in yours.",
+    title: "Co-marketing optional, never required",
+    desc: "We'll credit you in our portfolio if you want it. We disappear at the consumer level if you don't.",
   },
   {
-    title: "Honest scheduling",
-    desc: "We tell you the truth about lead times — 4 to 8 weeks in the shop — and we give weekly progress updates so you can manage your own client.",
+    title: "3D renderings on custom orders",
+    desc: "Optional. Drop photo-realistic renderings into your client presentations on Signature projects.",
   },
 ];
 
-const fits = [
+const audiences = [
   {
-    title: "Interior designers",
-    desc: "Kitchens, baths, libraries, mudrooms, closets. We do the cabinetry, you keep the design fee and the client relationship.",
+    id: "contractors",
+    title: "General contractors & remodelers",
+    desc: "Stock pickup for fast jobs, custom for the kitchens you don't want to outsource. Account terms after first order.",
   },
   {
-    title: "Architects",
-    desc: "Spec-level millwork and bespoke casework for both residential and small commercial. We can produce drawings to your standard.",
+    id: "installers",
+    title: "Kitchen & bath installers",
+    desc: "Buy from us, install for your client. We don't compete with your install crew. Will-call or jobsite delivery.",
   },
   {
-    title: "General contractors",
-    desc: "Reliable lead times, single-shop accountability, in-house install. The cabinet sub that doesn't blow up your schedule.",
-  },
-  {
+    id: "builders",
     title: "Builders & developers",
-    desc: "Multi-unit pricing on new-construction kitchens, with flexible style packages for spec homes and full-custom for buyers-in-tow.",
+    desc: "Volume pricing on stock for spec homes; custom for buyers-in-tow. Multi-unit terms.",
+  },
+  {
+    id: "designers",
+    title: "Interior designers",
+    desc: "Spec Vitrin on your projects. Trade pricing on both Stock and Signature. Renderings available on custom projects.",
+  },
+  {
+    id: "architects",
+    title: "Architects",
+    desc: "Spec-grade casework drawings, residential and small commercial. We can produce drawings to your standard.",
   },
 ];
 
@@ -69,7 +78,7 @@ export default function TradePage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"
-          alt="Pennsylvania stone farmhouse custom inset Shaker kitchen built by Vitrin Cabinetery for trade clients"
+          alt="Inset Shaker custom kitchen built by Vitrin Cabinetery for a trade client in Pennsylvania"
           fill
           priority
           sizes="100vw"
@@ -84,10 +93,10 @@ export default function TradePage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>Trade Program</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Custom cabinetry, behind your name.
+            Your cabinet supplier in Quakertown.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin partners with interior designers, architects, GCs, and builders across Bucks County and the Lehigh Valley. You bring the client and the vision. We build the cabinetry — and stay invisible at the consumer level if that&apos;s how you want it.
+          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
+            Trade pricing on every cabinet we make. Stock cabinets ready for pickup. Custom kitchens built to your spec. For contractors, builders, designers, and installers across Bucks County and the Lehigh Valley.
           </p>
         </div>
       </section>
@@ -96,7 +105,7 @@ export default function TradePage() {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">What You Get</span>
-            <h2 className="section-heading">A real trade partner, not just a discount code.</h2>
+            <h2 className="section-heading">A real supply partner, not a discount code.</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
             {benefits.map((b) => (
@@ -113,13 +122,13 @@ export default function TradePage() {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Who It&apos;s For</span>
-            <h2 className="section-heading">Built for four kinds of partner.</h2>
+            <h2 className="section-heading">Built for five kinds of partner.</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
-            {fits.map((f) => (
-              <div key={f.title} className="card">
-                <h3 className="card__title">{f.title}</h3>
-                <p className="card__desc">{f.desc}</p>
+            {audiences.map((a) => (
+              <div key={a.id} id={a.id} className="card">
+                <h3 className="card__title">{a.title}</h3>
+                <p className="card__desc">{a.desc}</p>
               </div>
             ))}
           </div>
@@ -129,55 +138,62 @@ export default function TradePage() {
       <section>
         <div className="container--narrow">
           <div className="section-center">
-            <span className="eyebrow">How To Join</span>
-            <h2 className="section-heading">Three steps. About a week.</h2>
+            <span className="eyebrow">How Buying Works</span>
+            <h2 className="section-heading">Two paths — first order, then every order after.</h2>
           </div>
 
-          <ol style={{ listStyle: "none", padding: 0 }}>
-            {[
-              {
-                title: "Apply",
-                body: "Use the form at the bottom of this page. Tell us your firm, the kinds of projects you do, and a sample portfolio link.",
-              },
-              {
-                title: "Intro call + shop visit",
-                body: "30 minutes on the phone or in our Quakertown shop. We learn how you work, you confirm we're the right partner.",
-              },
-              {
-                title: "Approved + first project",
-                body: "Onboarding packet (price list, sample kit, materials library, design checklist). Most partners send their first project within 30 days.",
-              },
-            ].map((s, i) => (
-              <li key={s.title} className="step">
-                <div className="step__num">{String(i + 1).padStart(2, "0")}</div>
-                <div className="step__body">
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
+            <div className="card">
+              <h3 className="card__title">First time buying from us</h3>
+              <ol style={{ paddingLeft: "1.1rem", color: "var(--text-secondary)" }}>
+                <li><strong>Apply</strong> — 2-minute form. Tell us your firm and the kinds of projects you do.</li>
+                <li><strong>Get your pricing sheet</strong> — emailed within 2 business days.</li>
+                <li><strong>Place your first order</strong> — stock ships the same week; custom enters the 4–8 wk queue.</li>
+              </ol>
+            </div>
+            <div className="card">
+              <h3 className="card__title">After your first order</h3>
+              <ul style={{ paddingLeft: "1.1rem", color: "var(--text-secondary)" }}>
+                <li>Stock orders by phone, email, or showroom walk-in. Quoted same-day.</li>
+                <li>Custom orders go through your rep with drawings and specs.</li>
+                <li>Account terms available after first paid order.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="section--surface">
+        <div className="container">
+          <div className="section-center">
+            <span className="eyebrow">Delivery &amp; Pickup</span>
+            <h2 className="section-heading">How cabinets get out the door</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
+            {[
+              { title: "Will-call pickup", desc: "At the Quakertown shop, by appointment." },
+              { title: "Local delivery", desc: "Bucks County, Lehigh Valley, Montgomery County. Flat-fee tiers by zone." },
+              { title: "Jobsite delivery", desc: "Scheduled against your install date. We coordinate with your foreman." },
+              { title: "Lift-gate / inside delivery", desc: "Available on request for larger orders." },
+            ].map((b) => (
+              <div key={b.title} className="card">
+                <h3 className="card__title">{b.title}</h3>
+                <p className="card__desc">{b.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
         <div className="container--narrow" style={{ textAlign: "center" }}>
-          <h2 className="section-heading">Apply now.</h2>
+          <h2 className="section-heading">Apply for trade pricing</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
             Tell us about your firm and one project that&apos;s in front of you. We respond within two business days.
           </p>
-          <Link
-            href="/contact?type=trade"
-            className="btn-primary"
-            style={{ padding: "1.25rem 2.5rem", fontSize: "1rem" }}
-          >
-            Apply to the Trade Program
-          </Link>
-          <div style={{ marginTop: "1.5rem", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
-            Or email{" "}
-            <a className="text-link" href={`mailto:${site.email}?subject=Trade%20Program%20Inquiry`}>
-              {site.email}
-            </a>
+          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/contact?type=trade" className="btn-primary">Apply for Trade Pricing</Link>
+            <a className="btn-secondary" href={`mailto:${site.email}?subject=Trade%20Project%20Quote`}>Email a Project for a Quote</a>
           </div>
         </div>
       </section>
