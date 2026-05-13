@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Our Process — Designed, Built & Installed by One Team",
+  title: "How Ordering a Custom Kitchen Works — Vitrin Cabinetery",
   description:
-    "How Vitrin Cabinetery designs, builds, and installs every custom kitchen and bath at our Quakertown, PA shop. A 7-step process under one roof.",
+    "How Vitrin Cabinetery handles a custom kitchen order, end to end: discovery, in-home survey, design and quote, fabrication at our Quakertown bench, and delivery (install optional).",
   alternates: { canonical: "/process" },
 };
 
@@ -19,43 +19,31 @@ const steps = [
     title: "Discovery call",
     duration: "30 minutes · free",
     body:
-      "A focused phone call: project scope, location, budget tier, timeline, and whether we're the right fit. No pressure, no obligation. If we're not the right shop for the job, we'll tell you who is.",
+      "A focused phone call: project scope, location, budget tier, timeline, and whether Vitrin Stock or Vitrin Signature is the right tier. No pressure, no obligation.",
   },
   {
     title: "In-home survey & measurements",
     duration: "60–90 minutes · free",
     body:
-      "We come to your home, measure the existing space (including utilities, ductwork, and what's behind the walls when we can), photograph current conditions, and talk through how you actually live in the room.",
+      "We come to your home, measure the space (including utilities, ductwork, and what's behind the walls when we can), photograph current conditions, and talk through how you actually use the room.",
   },
   {
-    title: "Design & 3D renderings",
+    title: "Design & quote",
     duration: "1–2 weeks",
     body:
-      "We deliver photo-realistic 3D renderings, full elevations, and a written proposal with transparent, line-item pricing. You see what you're paying for — door style, drawer count, hinge brand, wood species — line by line.",
-  },
-  {
-    title: "Materials & finishes at our shop",
-    duration: "1–2 in-shop visits",
-    body:
-      "You sit at our materials bench and select door styles, wood species, paint and stain colors, hardware, and counter samples in person. The shop where it's built doubles as the showroom where you choose.",
+      "We deliver 3D renderings, full elevations, and a written quote with transparent, line-item pricing. You see what you're paying for — door style, drawer count, hinge brand, wood species — line by line.",
   },
   {
     title: "Fabrication at our bench",
     duration: "4–8 weeks",
     body:
-      "Your cabinets are built at our Quakertown shop by our team. We use plywood boxes, dovetail solid-wood drawers, Blum soft-close hardware, and finish in a dust-controlled spray booth. You get weekly photo updates.",
+      "Your cabinets are built at our Quakertown shop by our team. Plywood boxes, dovetail solid-wood drawers, Blum soft-close hardware, finished in a dust-controlled spray booth. Weekly photo updates.",
   },
   {
-    title: "Installation by our own crew",
-    duration: "1–2 weeks on site",
+    title: "Delivery — install optional",
+    duration: "1 day",
     body:
-      "The same people who built your kitchen install it. We coordinate counter templating, plumbing, electrical, and tile if those scopes are in your contract. One point of contact for the whole job.",
-  },
-  {
-    title: "Walkthrough & lifetime warranty",
-    duration: "Final day",
-    body:
-      "We walk the finished space with you, work through any punch list on the spot, and hand off your warranty documents, paint touch-up kit, and care guide. Our lifetime cabinetry warranty covers the work for as long as you own the home.",
+      "Cabinets delivered to your home or jobsite. Install if you want us to — most contractors install themselves. Lifetime cabinet warranty included on the workmanship.",
   },
 ];
 
@@ -68,7 +56,7 @@ export default function ProcessPage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/calacatta-marble-kitchen-island-overhead.png"
-          alt="Honed Calacatta marble custom kitchen island overhead detail showing craftsmanship by Vitrin Cabinetery"
+          alt="Custom Vitrin Signature kitchen with honed Calacatta marble island"
           fill
           priority
           sizes="100vw"
@@ -81,19 +69,19 @@ export default function ProcessPage() {
             <span className="sep">/</span>
             <span aria-current="page" style={{ color: "#fff" }}>Process</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Our Process</span>
+          <span className="eyebrow" style={{ color: "#e6c87a" }}>How Ordering Works</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            One team, seven steps, no hand-offs.
+            One supplier, five steps.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Most kitchen remodels involve a designer, a cabinet line, an installer, and a GC. Each one points at the others when something goes wrong. Vitrin is all of them — one accountable shop, from first sketch to lifetime warranty.
+            The full ordering path for a Vitrin Signature custom kitchen — from discovery call to delivery. Install is optional; your own contractor can install too.
           </p>
         </div>
       </section>
 
       <section>
         <div className="container--narrow">
-          <ol style={{ listStyle: "none", padding: 0 }}>
+          <ol role="list" aria-label="Five-step custom kitchen ordering flow" style={{ listStyle: "none", padding: 0 }}>
             {steps.map((s, i) => (
               <li key={s.title} className="step">
                 <div className="step__num">{String(i + 1).padStart(2, "0")}</div>
@@ -112,13 +100,13 @@ export default function ProcessPage() {
 
       <section className="section--surface">
         <div className="container--narrow" style={{ textAlign: "center" }}>
-          <h2 className="section-heading">Want to see the bench where it&apos;s built?</h2>
+          <h2 className="section-heading">Stock cabinets work differently.</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Every consultation includes an optional shop tour. Walk the floor where your kitchen will be built before you sign anything.
+            This 5-step process is for Vitrin Signature custom kitchens. For stock cabinets — pickup from the showroom this week — see <Link href="/cabinets/stock" className="text-link">Vitrin Stock</Link>.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn-primary">Book a Consultation</Link>
-            <Link href="/shop-tour" className="btn-secondary">Take the Shop Tour</Link>
+            <Link href="/contact?type=custom" className="btn-primary">Start a Custom Kitchen</Link>
+            <Link href="/shop-tour" className="btn-secondary">Take the Workshop Tour</Link>
           </div>
         </div>
       </section>
@@ -141,11 +129,11 @@ export default function ProcessPage() {
         dangerouslySetInnerHTML={{
           __html: toJsonLd(
             serviceSchema({
-              name: "Custom Cabinetry Design-Build-Install",
+              name: "Custom Cabinet Manufacturing",
               description:
-                "A 7-step design-build-install process for custom kitchens and bath cabinetry, performed entirely in-house at our Quakertown, PA shop.",
+                "A 5-step process for ordering custom kitchens and bath cabinetry, manufactured at our Quakertown, PA shop. Installation is optional and offered separately.",
               url: pageUrl,
-              serviceType: "Design-Build Cabinetry",
+              serviceType: "Custom Cabinet Manufacturing",
             })
           ),
         }}
