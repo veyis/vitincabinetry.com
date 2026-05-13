@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ConstructionSpecs from "@/components/ConstructionSpecs";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Bath Vanities & Cabinets — Stock & Custom · Vitrin Cabinetery",
@@ -182,6 +182,19 @@ export default function Page() {
               { name: "Cabinets", url: `${site.url}/cabinets` },
               { name: "Bath", url: pageUrl },
             ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: toJsonLd(
+            serviceSchema({
+              name: "Bath Vanity & Cabinet Supply",
+              description: "Stock and custom bath vanities sold from Vitrin Cabinetery in Quakertown, PA. Plywood boxes, moisture-rated finishes.",
+              url: pageUrl,
+              serviceType: "Custom Cabinetry Supply",
+            })
           ),
         }}
       />

@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ConstructionSpecs from "@/components/ConstructionSpecs";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Aging-in-Place Cabinets — Stock & Custom · Vitrin Cabinetery",
@@ -170,7 +170,7 @@ export default function Page() {
             Two options, one shop. We&apos;ll help you choose the right tier.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact?type=aging-in-place" className="btn-primary">Get a Aging-in-Place Quote</Link>
+            <Link href="/contact?type=aging-in-place" className="btn-primary">Get an Aging-in-Place Quote</Link>
             <Link href="/showroom" className="btn-secondary">Visit the Showroom</Link>
           </div>
         </div>
@@ -187,6 +187,19 @@ export default function Page() {
               { name: "Cabinets", url: `${site.url}/cabinets` },
               { name: "Aging in Place", url: pageUrl },
             ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: toJsonLd(
+            serviceSchema({
+              name: "Aging-in-Place Cabinet Supply",
+              description: "Accessible cabinetry for kitchens and baths — lower counters, knee space, pull-out drawers. Stock and custom options from Vitrin Cabinetery, Quakertown, PA.",
+              url: pageUrl,
+              serviceType: "Custom Cabinetry Supply",
+            })
           ),
         }}
       />

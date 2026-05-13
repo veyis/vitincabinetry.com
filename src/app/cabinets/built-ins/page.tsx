@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ConstructionSpecs from "@/components/ConstructionSpecs";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Built-Ins, Libraries & Mudrooms — Stock & Custom · Vitrin Cabinetery",
@@ -21,7 +21,7 @@ const rooms = [
   { title: "Home offices", desc: "Workstations and credenzas built for cable management, monitor mounts, and the storage a working office needs. Custom widths and configurations." },
   { title: "Mudrooms", desc: "Lockers, benches, hooks, drop zones. Sized for boots, jackets, backpacks. Stock locker modules or custom-built to your entry." },
   { title: "Custom pantries", desc: "Walk-in or reach-in. Adjustable shelving, drawer banks, pull-outs, integrated counter, and lighting. Custom-built to your pantry footprint." },
-  { title: "Wet bars & coffee stations", desc: "Compact bars, butler&apos;s pantries, and coffee niches. Refrigeration, plumbing, and ice integration where needed. Custom builds only." },
+  { title: "Wet bars & coffee stations", desc: "Compact bars, butler's pantries, and coffee niches. Refrigeration, plumbing, and ice integration where needed. Custom builds only." },
 ];
 
 export default function Page() {
@@ -48,7 +48,7 @@ export default function Page() {
             <span className="sep">/</span>
             <span aria-current="page" style={{ color: "#fff" }}>Built-ins</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Built-ins Cabinets</span>
+          <span className="eyebrow" style={{ color: "#e6c87a" }}>Built-In Cabinets</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
             Built-ins for the rest of your house.
           </h1>
@@ -168,6 +168,19 @@ export default function Page() {
               { name: "Cabinets", url: `${site.url}/cabinets` },
               { name: "Built-ins", url: pageUrl },
             ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: toJsonLd(
+            serviceSchema({
+              name: "Built-In Cabinet Supply",
+              description: "Custom built-ins, libraries, mudrooms, home offices, and entertainment walls built by Vitrin Cabinetery in Quakertown, PA.",
+              url: pageUrl,
+              serviceType: "Custom Cabinetry Supply",
+            })
           ),
         }}
       />
