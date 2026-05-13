@@ -50,7 +50,7 @@ export const towns: TownData[] = [
     townships: "Perkasie Borough, Hilltown Township, and East Rockhill Township",
     permitsNote: "We work with Pennridge-area municipalities regularly and pull permits for any scope beyond a like-for-like cabinet swap.",
     popularStyleNote: "Painted shaker, two-tone with stained islands, and traditional raised panel for the older Victorian homes.",
-    whyLocalLine: "We're a quick drive from Perkasie — most quotes in town are turned around the same week you call.",
+    whyLocalLine: "We're a quick drive from Perkasie — about 20 minutes from the shop, and we install there regularly.",
   },
   {
     slug: "doylestown",

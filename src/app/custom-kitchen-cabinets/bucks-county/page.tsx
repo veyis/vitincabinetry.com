@@ -12,7 +12,7 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Custom Kitchen Cabinets in Bucks County, PA",
   description:
-    "Custom kitchen cabinets across Bucks County, PA. Vitrin Cabinetery designs, builds, and installs every kitchen at our Quakertown shop — serving 12+ towns from Quakertown to New Hope.",
+    "Custom kitchen cabinets across Bucks County, PA. Vitrin Cabinetery builds every cabinet at our Quakertown shop and supplies them across 12+ towns from Quakertown to New Hope.",
   alternates: { canonical: "/custom-kitchen-cabinets/bucks-county" },
 };
 
