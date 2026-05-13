@@ -10,7 +10,7 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "About — A Custom Cabinetry Shop in Quakertown, PA",
   description:
-    "Vitrin Cabinetery is a Quakertown, PA workshop that designs, builds, and installs custom kitchens and baths under one roof. Meet the team and the shop.",
+    "Vitrin Cabinetery is a Quakertown, PA cabinet shop that builds and supplies custom kitchens and baths from our own bench. Meet the team and the shop.",
   alternates: { canonical: "/about" },
 };
 
@@ -41,7 +41,7 @@ export default function AboutPage() {
             A workshop. Not a showroom for someone else&apos;s cabinets.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetery is a small, hands-on team in Quakertown, PA. We design every project, build every cabinet at our bench, and install with our own crew. No franchise. No catalog. No outsourcing.
+            Vitrin Cabinetery is a small, hands-on cabinet shop in Quakertown, PA. We build every cabinet at our bench and deliver finished work our crew installs. No franchise. No catalog. No outsourcing.
           </p>
         </div>
       </section>
@@ -60,7 +60,7 @@ export default function AboutPage() {
 
           <h3>The team</h3>
           <p>
-            Vitrin is intentionally small. The same person who draws your kitchen helps measure it, watches it go through the bench, and is on site the day it goes in. One designer, one project manager, one builder, one installer — sometimes the same person filling more than one role. That is the entire point. There is nobody for accountability to land on but us.
+            Vitrin is intentionally small. The same person who draws your cabinet layout helps measure the space, watches every piece go through the bench, and is present the day it goes in. One shop, a handful of people — sometimes the same person filling more than one role. That is the entire point. There is nobody for accountability to land on but us.
           </p>
 
           <h3>What we believe</h3>
