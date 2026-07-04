@@ -9,9 +9,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Aging-in-Place Cabinets — Stock & Custom · Vitrin Cabinetery",
+  title: "Aging-in-Place Cabinets — Stock & Custom · Vitrin Cabinetry",
   description:
-    "Aging-in-place kitchen and bath cabinetry from Vitrin Cabinetery — lower counter heights, knee space, pull-out accessibility. Stock and custom options. Built in Quakertown, PA.",
+    "Aging-in-place kitchen and bath cabinetry from Vitrin Cabinetry — lower counter heights, knee space, pull-out accessibility. Stock and custom options. Built in Quakertown, PA.",
   alternates: { canonical: "/cabinets/aging-in-place" },
 };
 
@@ -66,7 +66,7 @@ export default function Page() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/minimalist-white-oak-custom-kitchen-cabinetry.png"
-          alt="Aging-in-place accessible cabinetry by Vitrin Cabinetery"
+          alt="Aging-in-place accessible cabinetry by Vitrin Cabinetry"
           fill
           priority
           sizes="100vw"
@@ -196,7 +196,7 @@ export default function Page() {
           __html: toJsonLd(
             serviceSchema({
               name: "Aging-in-Place Cabinet Supply",
-              description: "Accessible cabinetry for kitchens and baths — lower counters, knee space, pull-out drawers. Stock and custom options from Vitrin Cabinetery, Quakertown, PA.",
+              description: "Accessible cabinetry for kitchens and baths — lower counters, knee space, pull-out drawers. Stock and custom options from Vitrin Cabinetry, Quakertown, PA.",
               url: pageUrl,
               serviceType: "Custom Cabinetry Supply",
             })

@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Cabinets — Stock & Custom · Vitrin Cabinetery",
+  title: "Cabinets — Stock & Custom · Vitrin Cabinetry",
   description:
     "Two ways to buy cabinets from Vitrin: stock cabinets ready from our Quakertown showroom, or fully custom kitchens built to your exact dimensions. Trade pricing on both.",
   alternates: { canonical: "/cabinets" },
@@ -37,7 +37,7 @@ export default function CabinetsPage() {
       <section className="hero" style={{ minHeight: "50vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/heritage-green-custom-kitchen-cabinets-bucks-county.png"
-          alt="Two ways to buy cabinets at Vitrin Cabinetery — stock and custom, Quakertown PA"
+          alt="Two ways to buy cabinets at Vitrin Cabinetry — stock and custom, Quakertown PA"
           fill
           priority
           sizes="100vw"

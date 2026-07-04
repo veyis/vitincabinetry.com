@@ -10,7 +10,7 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Trade Program — Cabinet Supply for Contractors, Builders & Designers",
   description:
-    "Vitrin Cabinetery's Trade Program: standing trade pricing, fast quotes, dedicated rep, will-call pickup, and jobsite delivery for contractors, builders, designers, architects, and installers in Bucks County and the Lehigh Valley.",
+    "Vitrin Cabinetry's Trade Program: standing trade pricing, fast quotes, dedicated rep, will-call pickup, and jobsite delivery for contractors, builders, designers, architects, and installers in Bucks County and the Lehigh Valley.",
   alternates: { canonical: "/trade" },
 };
 
@@ -78,7 +78,7 @@ export default function TradePage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"
-          alt="Inset Shaker custom kitchen built by Vitrin Cabinetery for a trade client in Pennsylvania"
+          alt="Inset Shaker custom kitchen built by Vitrin Cabinetry for a trade client in Pennsylvania"
           fill
           priority
           sizes="100vw"

@@ -12,7 +12,7 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Custom Kitchen Cabinets in Bucks County, PA",
   description:
-    "Custom kitchen cabinets for Bucks County homes — bench-built in Quakertown, not catalog-dropped. Vitrin Cabinetery: local install, published pricing tiers, historic-district experience, and a lifetime workmanship warranty on Signature work.",
+    "Custom kitchen cabinets for Bucks County homes — bench-built in Quakertown, not catalog-dropped. Vitrin Cabinetry: local install, published pricing tiers, historic-district experience, and a lifetime workmanship warranty on Signature work.",
   alternates: { canonical: "/custom-kitchen-cabinets/bucks-county" },
 };
 
@@ -94,7 +94,7 @@ export default function BucksCountyPillar() {
       <section className="hero" style={{ minHeight: "70vh", padding: "180px 0 100px" }}>
         <Image
           src="/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"
-          alt="Pennsylvania stone farmhouse custom inset Shaker kitchen with sage cabinets and brass hardware, built by Vitrin Cabinetery in Bucks County"
+          alt="Pennsylvania stone farmhouse custom inset Shaker kitchen with sage cabinets and brass hardware, built by Vitrin Cabinetry in Bucks County"
           fill
           priority
           sizes="100vw"
@@ -292,7 +292,7 @@ export default function BucksCountyPillar() {
             serviceSchema({
               name: "Custom Kitchen Cabinets in Bucks County, PA",
               description:
-                "Custom kitchen cabinetry built in Quakertown and supplied across Bucks County, PA by Vitrin Cabinetery. Serving 12+ towns from Quakertown to New Hope.",
+                "Custom kitchen cabinetry built in Quakertown and supplied across Bucks County, PA by Vitrin Cabinetry. Serving 12+ towns from Quakertown to New Hope.",
               url: pageUrl,
               serviceType: "Custom Kitchen Cabinets",
             })

@@ -4,6 +4,7 @@
   --surface-hover: #f1efea;
   --primary: #b8924a;
   --primary-hover: #a07f3e;
+  --brand-red: #9b0e0c; /* sampled from the logo mark */
   --text: #1a1a1a;
   --text-secondary: #6b6b6b;
   --accent: #b8924a;
@@ -382,12 +383,12 @@ section {
   align-items: center;
   gap: 1rem;
   padding: 0 1.4rem;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(252, 250, 246, 0.82);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(26, 26, 26, 0.07);
   border-radius: 100px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 18px rgba(26, 26, 26, 0.05);
   overflow: visible;
   transition: height 0.22s ease, border-radius 0.22s ease;
 }
@@ -399,14 +400,37 @@ section {
 }
 
 .navbar__brand {
-  font-size: 1.1rem;
-  font-weight: 400;
-  font-synthesis: none;
-  font-family: var(--font-serif);
-  letter-spacing: -0.015em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   line-height: 1;
-  color: var(--text);
   white-space: nowrap;
+}
+
+/* Two-line lockup mirroring the logo: serif VITRIN over tracked red CABINETRY */
+.navbar__wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.navbar__wordmark-name {
+  font-family: var(--font-serif);
+  font-synthesis: none;
+  font-size: 0.98rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text);
+}
+
+.navbar__wordmark-sub {
+  font-family: var(--font-sans);
+  font-size: 0.48rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: var(--brand-red);
 }
 
 .navbar__links {
@@ -421,26 +445,114 @@ section {
   color: var(--text-secondary);
 }
 
-.navbar__links a {
+.navbar__links a,
+.navbar__navlink {
   position: relative;
   padding: 0.4rem 0;
   color: inherit;
   transition: color 0.2s ease;
 }
 
-.navbar__links a:hover { color: var(--text); }
+/* Button variant of a nav link — resets UA styles, matches anchors */
+.navbar__navlink {
+  background: transparent;
+  border: none;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
 
-.navbar__links a.navbar__link--active,
-.navbar__links button.navbar__link--active { color: var(--text); }
-.navbar__links a.navbar__link--active::after,
-.navbar__links button.navbar__link--active::after {
+/* Hover: ink text + carmine underline growing from the left */
+.navbar__links a:not(.navbar__cta)::after,
+.navbar__navlink::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   height: 1px;
-  background: var(--primary);
+  background: var(--brand-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.navbar__links a:hover,
+.navbar__navlink:hover { color: var(--text); }
+.navbar__links a:not(.navbar__cta):hover::after,
+.navbar__navlink:hover::after { transform: scaleX(1); }
+
+.navbar__links a.navbar__link--active,
+.navbar__links button.navbar__link--active { color: var(--text); }
+.navbar__links a.navbar__link--active::after,
+.navbar__links button.navbar__link--active::after {
+  transform: scaleX(1);
+}
+
+.navbar__caret {
+  display: inline-block;
+  font-size: 0.8em;
+  opacity: 0.55;
+  transition: transform 0.2s ease;
+}
+
+.navbar__navlink[aria-expanded="true"] .navbar__caret {
+  transform: rotate(180deg);
+}
+
+/* Contact as the conversion anchor: quiet outlined pill, fills on hover */
+.navbar__links a.navbar__cta {
+  padding: 0.45em 1.15em;
+  border: 1px solid rgba(26, 26, 26, 0.35);
+  border-radius: 100px;
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar__links a.navbar__cta:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fcfaf6;
+}
+
+.navbar__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--surface);
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 12px;
+  padding: 0.45rem;
+  min-width: 210px;
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.1);
+  z-index: 100;
+  margin-top: 0.5rem;
+  animation: navbar-dropdown-in 0.16s ease both;
+}
+
+@keyframes navbar-dropdown-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.navbar__dropdown-menu a.navbar__dropdown-item {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  transition: background 0.15s ease;
+}
+
+.navbar__dropdown-menu a.navbar__dropdown-item::after { display: none; }
+
+.navbar__dropdown-menu a.navbar__dropdown-item:hover {
+  background: var(--surface-hover);
+  color: var(--brand-red);
 }
 
 .navbar__toggle {
@@ -493,7 +605,8 @@ section {
     height: auto;
     padding-bottom: 0.55rem;
   }
-  .navbar__brand { font-size: 1.05rem; }
+  .navbar__wordmark-name { font-size: 0.92rem; }
+  .navbar__wordmark-sub { font-size: 0.45rem; }
   .navbar__toggle { display: flex; }
 
   /* Drawer hidden by default, no layout footprint */
@@ -515,8 +628,8 @@ section {
   }
   .navbar__links a.navbar__link--active,
   .navbar__links button.navbar__link--active {
-    background: rgba(184, 146, 74, 0.08);
-    color: var(--primary);
+    background: rgba(155, 14, 12, 0.06);
+    color: var(--brand-red);
   }
   .navbar__links a.navbar__link--active::after,
   .navbar__links button.navbar__link--active::after { display: none; }
@@ -553,7 +666,9 @@ section {
   .container, .container--narrow { padding: 0 1rem; }
   .navbar { top: 10px; width: calc(100% - 20px); padding: 0 0.75rem 0 1rem; height: 34px; border-radius: 100px; }
   .navbar--open { height: auto; padding-bottom: 0.45rem; }
-  .navbar__brand { font-size: 1rem; }
+  .navbar__brand img { width: 26px; height: auto; }
+  .navbar__wordmark-name { font-size: 0.85rem; }
+  .navbar__wordmark-sub { font-size: 0.42rem; letter-spacing: 0.42em; }
   .navbar__toggle { width: 26px; height: 26px; }
   .navbar__toggle-bar { width: 15px; }
   .navbar--open .navbar__toggle-bar:nth-child(1) { transform: translateY(2.75px) rotate(45deg); }

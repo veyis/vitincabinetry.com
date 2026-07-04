@@ -9,9 +9,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Kitchen Cabinets — Stock & Custom · Vitrin Cabinetery",
+  title: "Kitchen Cabinets — Stock & Custom · Vitrin Cabinetry",
   description:
-    "Kitchen cabinets from Vitrin Cabinetery — stock cabinets ready from the Quakertown showroom, or fully custom kitchens built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
+    "Kitchen cabinets from Vitrin Cabinetry — stock cabinets ready from the Quakertown showroom, or fully custom kitchens built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
   alternates: { canonical: "/cabinets/kitchen" },
 };
 
@@ -40,7 +40,7 @@ export default function Page() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/walnut-waterfall-island-modern-custom-kitchen.png"
-          alt="Custom kitchen cabinets built by Vitrin Cabinetery in Quakertown, PA"
+          alt="Custom kitchen cabinets built by Vitrin Cabinetry in Quakertown, PA"
           fill
           priority
           sizes="100vw"
@@ -194,7 +194,7 @@ export default function Page() {
           __html: toJsonLd(
             serviceSchema({
               name: "Kitchen Cabinet Supply",
-              description: "Stock and custom kitchen cabinets sold from Vitrin Cabinetery in Quakertown, PA. Plywood box construction, Blum hardware, dovetail drawers.",
+              description: "Stock and custom kitchen cabinets sold from Vitrin Cabinetry in Quakertown, PA. Plywood box construction, Blum hardware, dovetail drawers.",
               url: pageUrl,
               serviceType: "Custom Cabinetry Supply",
             })

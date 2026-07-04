@@ -10,7 +10,7 @@ import { breadcrumbSchema, cabinetStoreSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Visit the Vitrin Showroom — Quakertown, PA",
   description:
-    "Vitrin Cabinetery's showroom in Quakertown, PA. Sit at the materials bench, browse stock cabinets ready to take home, and start a custom kitchen — all in one place.",
+    "Vitrin Cabinetry's showroom in Quakertown, PA. Sit at the materials bench, browse stock cabinets ready to take home, and start a custom kitchen — all in one place.",
   alternates: { canonical: "/showroom" },
 };
 

@@ -6,15 +6,15 @@
  */
 
 export const site = {
-  name: "Vitrin Cabinetery",
-  legalName: "Vitrin Cabinetery LLC",
-  url: "https://vitrincabinetery.com",
+  name: "Vitrin Cabinetry",
+  legalName: "Vitrin Cabinetry",
+  url: "https://vitrincabinetry.com",
   defaultLocale: "en-US",
 
   // Replace placeholders before launch — these become the schema NAP.
   phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-267-555-0100",
   phoneDisplay: process.env.NEXT_PUBLIC_BUSINESS_PHONE_DISPLAY || "(267) 555-0100",
-  email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "hello@vitrincabinetery.com",
+  email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "hello@vitrincabinetry.com",
 
   address: {
     street: process.env.NEXT_PUBLIC_BUSINESS_STREET || "TBD — Showroom address",

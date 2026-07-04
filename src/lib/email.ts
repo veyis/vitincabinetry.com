@@ -19,7 +19,7 @@ function projectLabel(key: string): string {
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const contactToEmail = process.env.CONTACT_TO_EMAIL || site.email;
-const contactFromEmail = process.env.CONTACT_FROM_EMAIL || "no-reply@vitrincabinetery.com";
+const contactFromEmail = process.env.CONTACT_FROM_EMAIL || "no-reply@vitrincabinetry.com";
 
 let client: Resend | null = null;
 function getClient(): Resend {

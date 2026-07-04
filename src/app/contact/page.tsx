@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get a cabinet quote from Vitrin Cabinetery in Quakertown, PA. Stock and custom cabinets for homeowners and trade in Bucks County and the Lehigh Valley.",
+    "Get a cabinet quote from Vitrin Cabinetry in Quakertown, PA. Stock and custom cabinets for homeowners and trade in Bucks County and the Lehigh Valley.",
   alternates: { canonical: "/contact" },
 };
 

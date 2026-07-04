@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const cabinetsLinks = [
@@ -66,8 +67,18 @@ export default function Navbar() {
       className={`navbar ${isOpen ? "navbar--open" : ""}`}
       aria-label="Primary"
     >
-      <Link href="/" className="navbar__brand" onClick={close}>
-        Vitrin Cabinetery
+      <Link href="/" className="navbar__brand" onClick={close} aria-label="Vitrin Cabinetry — home">
+        <Image
+          src="/logo-mark.png"
+          alt=""
+          width={30}
+          height={26}
+          priority
+        />
+        <span className="navbar__wordmark" aria-hidden="true">
+          <span className="navbar__wordmark-name">Vitrin</span>
+          <span className="navbar__wordmark-sub">Cabinetry</span>
+        </span>
       </Link>
 
       <button
@@ -93,7 +104,7 @@ export default function Navbar() {
         >
           <button
             type="button"
-            className={cabinetsActive ? "navbar__link--active" : undefined}
+            className={`navbar__navlink${cabinetsActive ? " navbar__link--active" : ""}`}
             aria-current={cabinetsActive ? "page" : undefined}
             aria-haspopup="true"
             aria-expanded={dropdownOpen}
@@ -104,35 +115,16 @@ export default function Navbar() {
                 setDropdownOpen(false);
               }
             }}
-            style={{
-              background: "transparent",
-              border: "none",
-              padding: 0,
-              font: "inherit",
-              color: "inherit",
-              cursor: "pointer",
-              position: "relative",
-            }}
           >
-            Cabinets <span aria-hidden="true">▾</span>
+            Cabinets{" "}
+            <span aria-hidden="true" className="navbar__caret">
+              ▾
+            </span>
           </button>
           {dropdownOpen && (
             <div
               className="navbar__dropdown-menu"
               aria-label="Cabinets submenu"
-              style={{
-                position: "absolute",
-                top: "100%",
-                left: 0,
-                background: "var(--surface)",
-                border: "1px solid var(--border)",
-                borderRadius: "6px",
-                padding: "0.5rem 0",
-                minWidth: "200px",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
-                zIndex: 100,
-                marginTop: "0.5rem",
-              }}
               onBlur={(e) => {
                 if (!e.currentTarget.contains(e.relatedTarget)) {
                   setDropdownOpen(false);
@@ -144,12 +136,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={close}
-                  style={{
-                    display: "block",
-                    padding: "0.5rem 1rem",
-                    color: "var(--text)",
-                    fontSize: "0.95rem",
-                  }}
+                  className="navbar__dropdown-item"
                 >
                   {l.label}
                 </Link>
@@ -160,13 +147,21 @@ export default function Navbar() {
 
         {topLevel.map((item) => {
           const active = isActive(item.href);
+          const isCta = item.href === "/contact";
+          const className =
+            [
+              isCta ? "navbar__cta" : "",
+              active && !isCta ? "navbar__link--active" : "",
+            ]
+              .filter(Boolean)
+              .join(" ") || undefined;
           return (
             <Link
               key={item.href}
               href={item.href}
               onClick={close}
               aria-current={active ? "page" : undefined}
-              className={active ? "navbar__link--active" : undefined}
+              className={className}
             >
               {item.label}
             </Link>

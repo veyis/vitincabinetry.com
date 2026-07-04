@@ -10,7 +10,7 @@ import { breadcrumbSchema, toJsonLd, videoObjectJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Workshop Tour — Where Vitrin Signature Is Built in Quakertown, PA",
   description:
-    "Walk through the Vitrin Cabinetery workshop in Quakertown, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.",
+    "Walk through the Vitrin Cabinetry workshop in Quakertown, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.",
   alternates: { canonical: "/shop-tour" },
 };
 
@@ -56,7 +56,7 @@ export default function ShopTourPage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png"
-          alt="Master cabinetmaker at the bench inside the Vitrin Cabinetery workshop in Quakertown, PA"
+          alt="Master cabinetmaker at the bench inside the Vitrin Cabinetry workshop in Quakertown, PA"
           fill
           priority
           sizes="100vw"
@@ -102,10 +102,10 @@ export default function ShopTourPage() {
               playsInline
               preload="metadata"
               poster="/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png"
-              aria-label="Video tour of the Vitrin Cabinetery workshop in Quakertown, Pennsylvania"
+              aria-label="Video tour of the Vitrin Cabinetry workshop in Quakertown, Pennsylvania"
               style={{ display: "block", width: "100%", height: "auto" }}
             >
-              <source src="/videos/vitrin-cabinetery-shop-tour-workshop-quakertown.mp4" type="video/mp4" />
+              <source src="/videos/vitrin-cabinetry-shop-tour-workshop-quakertown.mp4" type="video/mp4" />
               Your browser does not support embedded video. You can still book an in-person shop tour below.
             </video>
           </div>
@@ -157,11 +157,11 @@ export default function ShopTourPage() {
         dangerouslySetInnerHTML={{
           __html: toJsonLd(
             videoObjectJsonLd({
-              name: "Vitrin Cabinetery workshop tour — Quakertown, PA",
+              name: "Vitrin Cabinetry workshop tour — Quakertown, PA",
               description:
-                "Walk through the Vitrin Cabinetery workshop where Signature kitchens are designed, built, and finished before delivery.",
+                "Walk through the Vitrin Cabinetry workshop where Signature kitchens are designed, built, and finished before delivery.",
               thumbnailUrl: `${site.url}/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png`,
-              contentUrl: `${site.url}/videos/vitrin-cabinetery-shop-tour-workshop-quakertown.mp4`,
+              contentUrl: `${site.url}/videos/vitrin-cabinetry-shop-tour-workshop-quakertown.mp4`,
               uploadDate: "2026-05-01",
             })
           ),

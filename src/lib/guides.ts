@@ -53,7 +53,7 @@ export const guides: GuideMeta[] = [
     slug: "setting-up-a-trade-cabinet-account",
     title: "Setting Up a Trade Cabinet Account at Vitrin",
     excerpt:
-      "How contractors, builders, and installers set up a trade account with Vitrin Cabinetery — application, pricing sheet, and net terms after first order.",
+      "How contractors, builders, and installers set up a trade account with Vitrin Cabinetry — application, pricing sheet, and net terms after first order.",
     category: "Process",
     readingMinutes: 6,
     datePublished: "2026-05-12",

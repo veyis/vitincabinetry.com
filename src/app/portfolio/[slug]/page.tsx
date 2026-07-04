@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  const title = `${project.title} — Project by Vitrin Cabinetery`;
+  const title = `${project.title} — Project by Vitrin Cabinetry`;
   return {
     title,
     description: project.summary,

@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Cabinet Installation — Optional Service · Vitrin Cabinetery",
+  title: "Cabinet Installation — Optional Service · Vitrin Cabinetry",
   description:
     "Most of our cabinets are installed by the contractor who bought them. For homeowners buying direct, Vitrin offers installation as an optional service. Cabinet install only — we coordinate with your other trades but don't perform them.",
   alternates: { canonical: "/installation" },

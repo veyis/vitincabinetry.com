@@ -9,9 +9,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Built-Ins, Libraries & Mudrooms — Stock & Custom · Vitrin Cabinetery",
+  title: "Built-Ins, Libraries & Mudrooms — Stock & Custom · Vitrin Cabinetry",
   description:
-    "Custom built-ins, libraries, mudrooms, and home offices from Vitrin Cabinetery — built at our Quakertown bench. Plywood, dovetail drawers, Blum hardware.",
+    "Custom built-ins, libraries, mudrooms, and home offices from Vitrin Cabinetry — built at our Quakertown bench. Plywood, dovetail drawers, Blum hardware.",
   alternates: { canonical: "/cabinets/built-ins" },
 };
 
@@ -33,7 +33,7 @@ export default function Page() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png"
-          alt="Custom built-in cabinetry by Vitrin Cabinetery in Quakertown, PA"
+          alt="Custom built-in cabinetry by Vitrin Cabinetry in Quakertown, PA"
           fill
           priority
           sizes="100vw"
@@ -177,7 +177,7 @@ export default function Page() {
           __html: toJsonLd(
             serviceSchema({
               name: "Built-In Cabinet Supply",
-              description: "Custom built-ins, libraries, mudrooms, home offices, and entertainment walls built by Vitrin Cabinetery in Quakertown, PA.",
+              description: "Custom built-ins, libraries, mudrooms, home offices, and entertainment walls built by Vitrin Cabinetry in Quakertown, PA.",
               url: pageUrl,
               serviceType: "Custom Cabinetry Supply",
             })

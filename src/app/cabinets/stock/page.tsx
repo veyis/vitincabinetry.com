@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Stock Cabinets — Ready from the Showroom · Vitrin Cabinetery",
+  title: "Stock Cabinets — Ready from the Showroom · Vitrin Cabinetry",
   description:
     "Vitrin Stock cabinets — plywood-box construction, Blum hardware, dovetail drawers. Curated door styles and finishes, available for pickup or delivery from our Quakertown, PA showroom. Trade pricing.",
   alternates: { canonical: "/cabinets/stock" },
@@ -42,7 +42,7 @@ export default function StockPage() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"
-          alt="Stock cabinets ready for pickup at the Vitrin Cabinetery showroom in Quakertown, PA"
+          alt="Stock cabinets ready for pickup at the Vitrin Cabinetry showroom in Quakertown, PA"
           fill
           priority
           sizes="100vw"

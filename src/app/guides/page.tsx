@@ -9,7 +9,7 @@ import { guides } from "@/lib/guides";
 import { shareMetadata } from "@/lib/seo";
 import { breadcrumbSchema, itemListJsonLd, toJsonLd } from "@/lib/schema";
 
-const PAGE_TITLE = "Guides — Kitchen Remodeling Resources by Vitrin Cabinetery";
+const PAGE_TITLE = "Guides — Kitchen Remodeling Resources by Vitrin Cabinetry";
 const PAGE_DESC =
   "Honest, plain-language guides on custom cabinetry, kitchen remodeling, and the questions buyers in Bucks County actually ask. Pricing, comparisons, decisions.";
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/guides" },
   ...shareMetadata("/guides", PAGE_TITLE, PAGE_DESC, {
     imagePath: "/images/heros/calacatta-marble-kitchen-island-overhead.png",
-    imageAlt: "Custom kitchen island with honed Calacatta marble countertop by Vitrin Cabinetery",
+    imageAlt: "Custom kitchen island with honed Calacatta marble countertop by Vitrin Cabinetry",
   }),
 };
 
@@ -32,7 +32,7 @@ export default function GuidesPage() {
     .filter((g) => g.items.length > 0);
 
   const guidesListLd = itemListJsonLd({
-    name: "Kitchen remodeling guides by Vitrin Cabinetery",
+    name: "Kitchen remodeling guides by Vitrin Cabinetry",
     description: PAGE_DESC,
     url: `${pageUrl}#guides`,
     items: guides.map((g) => ({
@@ -49,7 +49,7 @@ export default function GuidesPage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/calacatta-marble-kitchen-island-overhead.png"
-          alt="Custom kitchen island with honed Calacatta marble countertop by Vitrin Cabinetery — design guide reference"
+          alt="Custom kitchen island with honed Calacatta marble countertop by Vitrin Cabinetry — design guide reference"
           fill
           priority
           sizes="100vw"

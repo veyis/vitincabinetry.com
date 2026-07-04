@@ -10,7 +10,7 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "About — Bench-Built Custom Cabinets in Quakertown, PA",
   description:
-    "Meet Vitrin Cabinetery: a Quakertown, PA shop building Vitrin Signature kitchens to order, stocking Vitrin Stock for faster projects, and serving Bucks County and the Lehigh Valley with transparent timelines and line-item quotes.",
+    "Meet Vitrin Cabinetry: a Quakertown, PA shop building Vitrin Signature kitchens to order, stocking Vitrin Stock for faster projects, and serving Bucks County and the Lehigh Valley with transparent timelines and line-item quotes.",
   alternates: { canonical: "/about" },
 };
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png"
-          alt="Master cabinetmaker hand-planing solid white oak at the Vitrin Cabinetery workshop in Quakertown, PA"
+          alt="Master cabinetmaker hand-planing solid white oak at the Vitrin Cabinetry workshop in Quakertown, PA"
           fill
           priority
           sizes="100vw"
@@ -41,7 +41,7 @@ export default function AboutPage() {
             A working shop — not a pass-through for someone else&apos;s line.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetery is a hands-on cabinet shop in Quakertown, PA. Vitrin Signature kitchens are drawn, built, and finished at our bench — then delivered by us, installed by our crew or yours. Vitrin Stock is a curated in-shop lineup for faster projects, still backed by the same team. No franchise. No disappearing act after the sale.
+            Vitrin Cabinetry is a hands-on cabinet shop in Quakertown, PA. Vitrin Signature kitchens are drawn, built, and finished at our bench — then delivered by us, installed by our crew or yours. Vitrin Stock is a curated in-shop lineup for faster projects, still backed by the same team. No franchise. No disappearing act after the sale.
           </p>
         </div>
       </section>

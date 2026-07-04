@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   if (!data) return {};
   return {
     title: `Custom Kitchen Cabinets in ${data.name}, PA`,
-    description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetery builds every cabinet at our Quakertown shop and supplies them across Bucks County. Transparent pricing tiers, lifetime cabinetry warranty.`,
+    description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetry builds every cabinet at our Quakertown shop and supplies them across Bucks County. Transparent pricing tiers, lifetime cabinetry warranty.`,
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
   };
 }
@@ -114,7 +114,7 @@ export default async function TownPage({ params }: PageParams) {
       <section className="hero" style={{ minHeight: "70vh", padding: "180px 0 100px" }}>
         <Image
           src="/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"
-          alt={`Pennsylvania stone farmhouse custom inset kitchen cabinets by Vitrin Cabinetery, serving ${data.name}, PA`}
+          alt={`Pennsylvania stone farmhouse custom inset kitchen cabinets by Vitrin Cabinetry, serving ${data.name}, PA`}
           fill
           priority
           sizes="100vw"
@@ -279,7 +279,7 @@ export default async function TownPage({ params }: PageParams) {
             <Link href="/shop-tour" className="btn-secondary">Take the Shop Tour</Link>
           </div>
           <div style={{ marginTop: "2rem", color: "var(--text-secondary)", fontSize: "0.95rem" }}>
-            Vitrin Cabinetery · {site.address.locality}, {site.address.region} {site.address.postalCode} · {site.phoneDisplay}
+            Vitrin Cabinetry · {site.address.locality}, {site.address.region} {site.address.postalCode} · {site.phoneDisplay}
           </div>
         </div>
       </section>
@@ -308,7 +308,7 @@ export default async function TownPage({ params }: PageParams) {
           __html: toJsonLd(
             serviceSchema({
               name: `Custom Kitchen Cabinets in ${data.name}, PA`,
-              description: `Custom kitchen cabinetry bench-built and installed in ${data.name}, PA by Vitrin Cabinetery. Plywood boxes, in-house crew, lifetime warranty.`,
+              description: `Custom kitchen cabinetry bench-built and installed in ${data.name}, PA by Vitrin Cabinetry. Plywood boxes, in-house crew, lifetime warranty.`,
               url: pageUrl,
               serviceType: "Custom Kitchen Cabinets",
             })

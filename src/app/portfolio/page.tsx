@@ -9,9 +9,9 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 import PortfolioGrid from "./PortfolioGrid";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Custom Kitchens Built by Vitrin Cabinetery",
+  title: "Portfolio — Custom Kitchens Built by Vitrin Cabinetry",
   description:
-    "Selected custom kitchen and bath projects by Vitrin Cabinetery — bench-built at our Quakertown, PA shop. Browse by style and town.",
+    "Selected custom kitchen and bath projects by Vitrin Cabinetry — bench-built at our Quakertown, PA shop. Browse by style and town.",
   alternates: { canonical: "/portfolio" },
 };
 
@@ -25,7 +25,7 @@ export default function PortfolioPage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/navy-blue-custom-kitchen-cabinets-twilight.png"
-          alt="Custom navy blue kitchen with brass pendants at twilight, built by Vitrin Cabinetery in Bucks County PA"
+          alt="Custom navy blue kitchen with brass pendants at twilight, built by Vitrin Cabinetry in Bucks County PA"
           fill
           priority
           sizes="100vw"

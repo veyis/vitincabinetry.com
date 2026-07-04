@@ -6,7 +6,7 @@ const napIncomplete =
   !street.trim() || street.includes("TBD") || !phone.trim() || phone.includes("555");
 if (process.env.VERCEL_ENV === "production" && napIncomplete) {
   console.warn(
-    "\n[vitrincabinetery] SEO: set NEXT_PUBLIC_BUSINESS_STREET and NEXT_PUBLIC_BUSINESS_PHONE to real values (NAP must match Google Business Profile).\n"
+    "\n[vitrincabinetry] SEO: set NEXT_PUBLIC_BUSINESS_STREET and NEXT_PUBLIC_BUSINESS_PHONE to real values (NAP must match Google Business Profile).\n"
   );
 }
 
