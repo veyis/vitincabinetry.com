@@ -27,12 +27,15 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   // Escape closes the mobile menu and the dropdown.
   useEffect(() => {
     if (!isOpen && !dropdownOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
+        // Restore focus before the drawer's display:none drops it to <body>.
+        if (isOpen) toggleRef.current?.focus();
         setIsOpen(false);
         setDropdownOpen(false);
       }
@@ -40,6 +43,15 @@ export default function Navbar() {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [isOpen, dropdownOpen]);
+
+  // Reset on route change — covers back/forward and redirects that skip link
+  // onClick. State-during-render per react.dev "adjusting state when a prop changes".
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
+    setIsOpen(false);
+    setDropdownOpen(false);
+  }
 
   // Click outside the dropdown closes it.
   useEffect(() => {
@@ -85,12 +97,16 @@ export default function Navbar() {
       </Link>
 
       <button
+        ref={toggleRef}
         className="navbar__toggle"
         type="button"
         aria-expanded={isOpen}
         aria-controls="primary-navigation"
         aria-label={isOpen ? "Close menu" : "Open menu"}
-        onClick={() => setIsOpen((o) => !o)}
+        onClick={() => {
+          setIsOpen((o) => !o);
+          setDropdownOpen(false); // don't leave the Cabinets submenu pre-expanded
+        }}
       >
         <span aria-hidden="true" className="navbar__toggle-bar" />
         <span aria-hidden="true" className="navbar__toggle-bar" />
@@ -102,17 +118,22 @@ export default function Navbar() {
           ref={dropdownRef}
           className="navbar__dropdown"
           style={{ position: "relative" }}
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}
+          /* Hover open/close only on hover-capable devices — on touch, taps
+             synthesize mouseenter before click and the two would cancel out. */
+          onMouseEnter={() => {
+            if (window.matchMedia("(hover: hover)").matches) setDropdownOpen(true);
+          }}
+          onMouseLeave={() => {
+            if (window.matchMedia("(hover: hover)").matches) setDropdownOpen(false);
+          }}
         >
           <button
             type="button"
             className={`navbar__navlink${cabinetsActive ? " navbar__link--active" : ""}`}
             aria-current={cabinetsActive ? "page" : undefined}
-            aria-haspopup="true"
+            aria-controls="cabinets-menu"
             aria-expanded={dropdownOpen}
             onClick={() => setDropdownOpen((o) => !o)}
-            onFocus={() => setDropdownOpen(true)}
             onBlur={(e) => {
               if (!dropdownRef.current?.contains(e.relatedTarget)) {
                 setDropdownOpen(false);
@@ -126,6 +147,7 @@ export default function Navbar() {
           </button>
           {dropdownOpen && (
             <div
+              id="cabinets-menu"
               className="navbar__dropdown-menu"
               aria-label="Cabinets submenu"
               onBlur={(e) => {

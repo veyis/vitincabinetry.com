@@ -523,10 +523,29 @@ footer a {
   color: #fcfaf6;
 }
 
+/* Current-page state for the CTA pill (aria-current is already set in JSX) */
+.navbar__links a.navbar__cta[aria-current="page"] {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fcfaf6;
+}
+
 .navbar__dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
+}
+/* Invisible bridge over the 8px margin gap so the pointer can travel from
+   trigger to menu without firing mouseleave on the dropdown wrapper. */
+.navbar__dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+.navbar__dropdown-menu {
   background: var(--surface);
   border: 1px solid rgba(26, 26, 26, 0.08);
   border-radius: 12px;
@@ -564,6 +583,7 @@ footer a {
 
 .navbar__toggle {
   display: none;
+  position: relative;
   width: 28px;
   height: 28px;
   padding: 0;
@@ -574,6 +594,12 @@ footer a {
   align-items: center;
   justify-content: center;
   gap: 4px;
+}
+/* Expand the tap target to ~44px without changing the 28px visual */
+.navbar__toggle::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
 }
 
 .navbar__toggle-bar {
@@ -696,6 +722,7 @@ footer a {
   .animate-fade-in { animation: none; }
   .navbar__toggle-bar { transition: none; }
   .navbar__links { transition: none; }
+  .navbar__dropdown-menu { animation: none; }
   .card { transition: none; }
 }
 
