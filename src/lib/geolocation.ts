@@ -18,7 +18,8 @@ export async function getGeolocationFromIP(ip: string): Promise<GeolocationData>
     ip === "127.0.0.1" ||
     ip.startsWith("192.168.") ||
     ip.startsWith("10.") ||
-    ip.startsWith("172.")
+    // 172.16.0.0/12 only — 172.32+ are public (common mobile/CDN ranges)
+    /^172\.(1[6-9]|2\d|3[01])\./.test(ip)
   ) {
     return { ip, country: "Local", region: "Local", city: "Local" };
   }
