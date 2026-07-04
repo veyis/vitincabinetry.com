@@ -27,7 +27,7 @@ const dmSerifDisplay = DM_Serif_Display({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#b8924a",
+  themeColor: "#8d6f37",
 };
 
 export const metadata: Metadata = {

@@ -2,12 +2,12 @@
   --background: #ffffff;
   --surface: #f8f7f4;
   --surface-hover: #f1efea;
-  --primary: #b8924a;
-  --primary-hover: #a07f3e;
+  --primary: #8d6f37;
+  --primary-hover: #7b6130;
   --brand-red: #9b0e0c; /* sampled from the logo mark */
   --text: #1a1a1a;
   --text-secondary: #6b6b6b;
-  --accent: #b8924a;
+  --accent: #8d6f37;
   --glass: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.08);
   --border: #e8e6e1;
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(184, 146, 74, 0.25);
+  box-shadow: 0 10px 20px rgba(141, 111, 55, 0.25);
 }
 
 .btn-secondary {
@@ -126,6 +126,10 @@ section {
 /* .btn-secondary inherits --text (near-black) — invisible on the dark band without this */
 .section--dark .btn-secondary { color: #fff; border-color: #fff; }
 .section--dark .btn-secondary:hover { background: #fff; color: #0a0a0a; }
+/* Deep gold reads muddy and under-contrasts on near-black — use the bright
+   hero gold for small accents in dark bands (same treatment as the hero). */
+.section--dark .eyebrow,
+.section--dark .eyebrow-num { color: #e6c87a; }
 
 /* Footer links: pad to a ≥24px touch target (WCAG 2.5.8) without changing the layout */
 footer a {
@@ -144,6 +148,8 @@ footer a {
   overflow: hidden;
   isolation: isolate;
   padding: 180px 0 100px;
+  /* Dark fallback: white hero text stays readable if the video/poster fails */
+  background: #17130d;
 }
 
 .hero__image {
