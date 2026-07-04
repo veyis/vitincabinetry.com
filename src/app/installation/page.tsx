@@ -29,7 +29,7 @@ const included = [
   "Toe kick",
   "Hardware install (knobs, pulls, soft-close adjustment)",
   "Punch-list walkthrough on the final day",
-  "Counter templating coordination (we coordinate; templating itself is by your fabricator)",
+  "Counter templating coordination (or full countertop supply — see our countertop service)",
 ];
 
 const notIncluded = [
@@ -116,12 +116,14 @@ export default function InstallationPage() {
             </div>
             <div>
               <span className="eyebrow">Not included</span>
-              <h3 style={{ marginTop: "0.5rem", fontSize: "1.3rem", marginBottom: "0.75rem", color: "var(--text)" }}>What we don&apos;t do</h3>
+              <h3 style={{ marginTop: "0.5rem", fontSize: "1.3rem", marginBottom: "0.75rem", color: "var(--text)" }}>Not in the flat install rate</h3>
               <ul style={{ paddingLeft: "1.1rem", color: "var(--text-secondary)" }}>
                 {notIncluded.map((i) => <li key={i} style={{ marginBottom: "0.4rem" }}>{i}</li>)}
               </ul>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginTop: "0.75rem" }}>
-                We coordinate with your other trades — we just don&apos;t perform them.
+                These aren&apos;t part of the cabinet-install rate — but we do offer them as part of a{" "}
+                <Link href="/remodeling">full kitchen or bath remodel</Link>, alongside{" "}
+                <Link href="/countertops">countertops</Link> and <Link href="/flooring">flooring</Link>. Working with your own trades instead? We coordinate with them.
               </p>
             </div>
           </div>

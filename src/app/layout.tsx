@@ -33,19 +33,23 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Stock & Custom Cabinets in Quakertown, PA`,
+    default: `${site.name} | Kitchen, Bathroom & Closet Cabinetry in Quakertown, PA`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Custom kitchen cabinets bench-built in Quakertown, PA — plus curated in-stock door styles. Vitrin Signature (made to your room) and Vitrin Stock (ready fast). Homeowners, contractors, and designers across Bucks County and the Lehigh Valley.",
+    "Custom and semi-custom kitchen, bathroom, and closet cabinetry bench-built in Quakertown, PA — plus quartz, granite, and porcelain countertops, flooring, and complete kitchen and bath remodeling. Homeowners, contractors, and designers across Bucks County and the Lehigh Valley.",
   applicationName: site.name,
   keywords: [
     "custom kitchen cabinets Quakertown",
     "bench built cabinets Bucks County",
     "kitchen remodeling Bucks County",
+    "bathroom remodeling Bucks County",
     "custom cabinetry PA",
     "inset kitchen cabinets Pennsylvania",
     "bathroom vanities Quakertown",
+    "custom closets Bucks County",
+    "quartz countertops Quakertown",
+    "granite countertops Bucks County",
     "kitchen designer Bucks County",
     "cabinet shop Lehigh Valley",
     site.name,
@@ -61,9 +65,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Stock & Custom Cabinets in Quakertown, PA`,
+    title: `${site.name} — Kitchen, Bathroom & Closet Cabinetry in Quakertown, PA`,
     description:
-      "Bench-built custom kitchens in Quakertown, PA — plus curated stock when you need cabinets fast. Bucks County & Lehigh Valley.",
+      "Bench-built kitchen, bath, and closet cabinetry in Quakertown, PA — plus countertops, flooring, and full remodeling. Bucks County & Lehigh Valley.",
     images: [
       {
         url: "/og.jpg",
@@ -75,9 +79,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Stock & Custom Cabinets in Quakertown, PA`,
+    title: `${site.name} — Kitchen, Bathroom & Closet Cabinetry in Quakertown, PA`,
     description:
-      "Bench-built in Quakertown — Signature custom + Stock on the floor. Bucks County & Lehigh Valley.",
+      "Bench-built in Quakertown — kitchens, baths, closets, countertops, flooring, remodeling. Bucks County & Lehigh Valley.",
     images: ["/og.jpg"],
   },
   robots: {

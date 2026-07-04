@@ -14,6 +14,13 @@ const cabinetsCol = [
   { href: "/cabinets/aging-in-place", label: "Aging in Place" },
 ];
 
+const servicesCol = [
+  { href: "/remodeling", label: "Kitchen & bath remodeling" },
+  { href: "/countertops", label: "Countertops" },
+  { href: "/flooring", label: "Flooring" },
+  { href: "/closets", label: "Custom closets" },
+];
+
 const buyersCol = [
   { href: "/process", label: "How ordering works" },
   { href: "/installation", label: "Installation" },
@@ -53,7 +60,7 @@ export default function Footer() {
           <div style={{ fontFamily: "var(--font-serif)", fontSize: "1.25rem", color: "var(--text)", marginBottom: "0.75rem" }}>
             {site.name}
           </div>
-          <div>Cabinets, built and sold in Quakertown, PA. For homeowners and trade.</div>
+          <div>Kitchen, bathroom &amp; closet cabinetry — plus countertops, flooring, and full remodeling. Built and sold in Quakertown, PA, for homeowners and trade.</div>
           <div style={{ marginTop: "0.75rem" }}>
             <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a><br/>
             <a href={`mailto:${site.email}`}>{site.email}</a>
@@ -64,6 +71,15 @@ export default function Footer() {
           <div style={{ fontWeight: 600, color: "var(--text)", marginBottom: "0.75rem" }}>Cabinets</div>
           <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.4rem" }}>
             {cabinetsCol.map((l) => (
+              <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <div style={{ fontWeight: 600, color: "var(--text)", marginBottom: "0.75rem" }}>Services</div>
+          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+            {servicesCol.map((l) => (
               <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
             ))}
           </ul>

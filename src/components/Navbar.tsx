@@ -15,6 +15,7 @@ const cabinetsLinks = [
 ];
 
 const topLevel: Array<{ href: string; label: string }> = [
+  { href: "/remodeling", label: "Remodeling" },
   { href: "/trade", label: "Trade" },
   { href: "/showroom", label: "Showroom" },
   { href: "/portfolio", label: "Portfolio" },

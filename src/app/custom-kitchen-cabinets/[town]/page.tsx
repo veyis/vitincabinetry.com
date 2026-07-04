@@ -268,6 +268,15 @@ export default async function TownPage({ params }: PageParams) {
         </div>
       </section>
 
+      <section>
+        <div className="container--narrow prose" style={{ textAlign: "center" }}>
+          <h2>More than cabinets in {data.name}.</h2>
+          <p>
+            Most of our {data.name} projects grow past the cabinet order — <Link href="/countertops">quartz, granite, and porcelain countertops</Link> templated after the boxes are set, <Link href="/flooring">LVP, hardwood, and tile flooring</Link> sequenced correctly against the install, <Link href="/closets">custom closets</Link> off the same bench, or a <Link href="/remodeling">complete kitchen or bath remodel</Link> run on one calendar.
+          </p>
+        </div>
+      </section>
+
       <section className="section--surface">
         <div className="container--narrow" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Ready to design your {data.name} kitchen?</h2>

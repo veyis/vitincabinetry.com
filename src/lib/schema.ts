@@ -37,11 +37,23 @@ const hasMapUrl =
     ? googleProfile
     : undefined;
 
+/** Mirrors the GBP service list so Google sees the same offering on both surfaces. */
+const offerCatalog = {
+  "@type": "OfferCatalog",
+  name: "Kitchen, Bathroom & Closet Services",
+  itemListElement: site.services.map((s) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name: s },
+  })),
+};
+
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "CabinetMaker",
   "@id": `${site.url}#localbusiness`,
   name: site.name,
+  alternateName: site.gbpName,
+  description: site.description,
   url: site.url,
   image: `${site.url}/og.jpg`,
   telephone: site.phone,
@@ -52,6 +64,7 @@ export const localBusinessSchema = {
   areaServed: site.areaServed,
   openingHoursSpecification: openingHours,
   knowsAbout: [...site.knowsAbout],
+  hasOfferCatalog: offerCatalog,
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -93,7 +106,7 @@ export const websiteSchema = {
   "@id": `${site.url}#website`,
   name: site.name,
   url: site.url,
-  description: `Custom kitchen and bath cabinetry designed, built, and installed in-house in ${site.address.locality}, ${site.address.region}. Serving Bucks County and the Lehigh Valley.`,
+  description: `Custom kitchen, bathroom, and closet cabinetry designed, built, and installed in-house in ${site.address.locality}, ${site.address.region} — plus countertops, flooring, and complete kitchen and bath remodeling. Serving Bucks County and the Lehigh Valley.`,
   inLanguage: "en-US",
   publisher: { "@id": `${site.url}#organization` },
   potentialAction: [
@@ -305,6 +318,7 @@ export const cabinetStoreSchema = {
   "@type": ["FurnitureStore", "HomeAndConstructionBusiness"],
   "@id": `${site.url}#cabinetstore`,
   name: site.name,
+  alternateName: site.gbpName,
   url: site.url,
   image: `${site.url}/og.jpg`,
   telephone: site.phone,

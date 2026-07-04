@@ -258,6 +258,15 @@ export default function BucksCountyPillar() {
         </div>
       </section>
 
+      <section>
+        <div className="container--narrow prose" style={{ textAlign: "center" }}>
+          <h2>The whole room, not just the boxes.</h2>
+          <p>
+            Cabinets are where most Bucks County projects start — and rarely where they end. We also handle <Link href="/countertops">quartz, granite, and porcelain countertops</Link>, <Link href="/flooring">LVP, hardwood, and tile flooring</Link>, <Link href="/closets">custom closets</Link>, and <Link href="/remodeling">complete kitchen and bathroom remodels</Link> — one shop, one schedule, one crew that answers for all of it.
+          </p>
+        </div>
+      </section>
+
       <section className="section--surface">
         <div className="container--narrow" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Ready to start your project?</h2>

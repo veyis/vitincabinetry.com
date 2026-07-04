@@ -8,8 +8,36 @@
 export const site = {
   name: "Vitrin Cabinetry",
   legalName: "Vitrin Cabinetry",
+  /** Business name as listed on Google Business Profile. */
+  gbpName: "Vitrin Cabinetry | Kitchen, Bathroom & Closet",
   url: "https://www.vitrincabinetry.com",
   defaultLocale: "en-US",
+
+  /** Keep in sync with the Google Business Profile "About" description. */
+  description:
+    "Vitrin Cabinetry specializes in custom and semi-custom kitchen, bathroom, and closet cabinetry tailored to every style and budget. We offer expert design, premium craftsmanship, and professional installation to create beautiful, functional spaces. Our services include kitchen cabinets, bathroom vanities, custom closets, quartz, granite and porcelain countertops, luxury vinyl plank, hardwood, engineered hardwood, and tile flooring. We also provide complete kitchen and bathroom remodeling, custom closet design, 3D design, demolition, cabinetry, countertops, lighting, plumbing, electrical, backsplashes, and finishing — all delivered with exceptional quality and attention to detail.",
+
+  /** Service list — mirrors the Google Business Profile; feeds schema hasOfferCatalog. */
+  services: [
+    "Kitchen cabinets",
+    "Bathroom vanities",
+    "Custom closets",
+    "Quartz countertops",
+    "Granite countertops",
+    "Porcelain countertops",
+    "Luxury vinyl plank flooring",
+    "Hardwood flooring",
+    "Engineered hardwood flooring",
+    "Tile flooring",
+    "Kitchen remodeling",
+    "Bathroom remodeling",
+    "Custom closet design",
+    "3D design",
+    "Backsplash installation",
+    "Demolition",
+    "Lighting, plumbing & electrical (remodel scope)",
+    "Finishing",
+  ],
 
   // Replace placeholders before launch — these become the schema NAP.
   phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-267-555-0100",
@@ -47,9 +75,15 @@ export const site = {
   knowsAbout: [
     "Custom kitchen cabinets",
     "Custom bathroom vanities",
+    "Custom closets and closet design",
     "Bench-built cabinetry",
     "Kitchen design-build",
     "Inset and full-overlay cabinets",
+    "Quartz, granite, and porcelain countertops",
+    "Luxury vinyl plank, hardwood, engineered hardwood, and tile flooring",
+    "Kitchen and bathroom remodeling",
+    "3D kitchen design",
+    "Backsplash installation",
     "Bucks County kitchen remodeling",
     "Lehigh Valley cabinetry",
     "Aging-in-place kitchen design",

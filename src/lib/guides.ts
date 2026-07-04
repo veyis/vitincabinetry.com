@@ -14,6 +14,24 @@ export type GuideMeta = {
 
 export const guides: GuideMeta[] = [
   {
+    slug: "flooring-or-cabinets-first",
+    title: "Floors or cabinets first? The install-order question, answered",
+    excerpt:
+      "Hardwood under the cabinets, LVP cut to them — the answer depends on the floor. The sequencing rules, the why behind them, and the mistakes we get called to fix.",
+    category: "Process",
+    readingMinutes: 7,
+    datePublished: "2026-07-03",
+  },
+  {
+    slug: "quartz-vs-granite-vs-porcelain-countertops",
+    title: "Quartz vs. granite vs. porcelain countertops — an honest comparison",
+    excerpt:
+      "Durability, maintenance, heat, cost drivers, and which material actually fits how your kitchen gets used. From a shop that installs all three.",
+    category: "Materials",
+    readingMinutes: 8,
+    datePublished: "2026-07-03",
+  },
+  {
     slug: "refacing-vs-custom",
     title: "Cabinet refacing vs. custom replacement — an honest comparison",
     excerpt:

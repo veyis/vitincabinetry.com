@@ -30,6 +30,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/cabinets/aging-in-place`, lastModified: now, changeFrequency: "monthly", priority: 0.8  },
   ];
 
+  const services: MetadataRoute.Sitemap = [
+    { url: `${base}/remodeling`,  lastModified: now, changeFrequency: "monthly", priority: 0.9  },
+    { url: `${base}/countertops`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/flooring`,    lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/closets`,     lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+  ];
+
   const supporting: MetadataRoute.Sitemap = [
     { url: `${base}/installation`, lastModified: now, changeFrequency: "yearly",  priority: 0.5 },
     { url: `${base}/showroom`,     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
@@ -60,5 +67,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...core, ...cabinets, ...supporting, ...pillars, ...townPages, ...projectPages, ...guidePages];
+  return [...core, ...cabinets, ...services, ...supporting, ...pillars, ...townPages, ...projectPages, ...guidePages];
 }

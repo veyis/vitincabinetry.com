@@ -12,6 +12,10 @@ const ALLOWED_TYPES = [
   "bath",
   "built-ins",
   "aging-in-place",
+  "countertops",
+  "flooring",
+  "closets",
+  "remodeling",
 ] as const;
 
 type ProjectType = typeof ALLOWED_TYPES[number];
@@ -151,6 +155,10 @@ export default function ContactForm() {
           <option value="bath">Bath cabinets</option>
           <option value="built-ins">Built-ins / library / mudroom</option>
           <option value="aging-in-place">Aging-in-place cabinetry</option>
+          <option value="remodeling">Kitchen / bath remodeling</option>
+          <option value="countertops">Countertops</option>
+          <option value="flooring">Flooring</option>
+          <option value="closets">Custom closets</option>
           <option value="install">Installation add-on</option>
           <option value="trade">Trade pricing inquiry</option>
           <option value="other">Other</option>
