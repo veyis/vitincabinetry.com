@@ -64,6 +64,8 @@ export default function Navbar() {
   const cabinetsActive = isActive("/cabinets");
 
   return (
+    <>
+    <div className="nav-scrim" aria-hidden="true" />
     <nav
       className={`navbar ${isOpen ? "navbar--open" : ""}`}
       aria-label="Primary"
@@ -170,5 +172,6 @@ export default function Navbar() {
         })}
       </div>
     </nav>
+    </>
   );
 }
