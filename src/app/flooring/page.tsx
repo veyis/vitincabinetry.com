@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 import { shareMetadata } from "@/lib/seo";
 
-const PAGE_TITLE = "Flooring Installation — LVP, Hardwood & Tile · Quakertown, PA";
+const PAGE_TITLE = "Flooring Installation — LVP, Hardwood & Tile · Easton, PA";
 const PAGE_DESC =
-  "Luxury vinyl plank, hardwood, engineered hardwood, and tile flooring installed in Quakertown, PA and across Bucks County — sequenced correctly with your kitchen or bath remodel.";
+  "Luxury vinyl plank, hardwood, engineered hardwood, and tile flooring installed in Easton, PA and across Bucks County — sequenced correctly with your kitchen or bath remodel.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -59,7 +59,7 @@ const faqs = [
     a: "A typical room is one to three days. A whole first floor is usually under a week, plus acclimation time for wood products — hardwood needs to sit in your house several days before installation so it stabilizes at your home's humidity. We build that into the schedule instead of skipping it.",
   },
   {
-    q: "Do older Quakertown-area homes need special prep?",
+    q: "Do older Lehigh Valley homes need special prep?",
     a: "Frequently. Upper Bucks housing stock ranges from 1800s stone farmhouses with uneven subfloors to post-war ranches with plywood that needs refastening. Skipping subfloor prep is the number-one cause of squeaks, cracked tile, and lifting planks — so we assess it during the estimate, not after demo day.",
   },
 ];
@@ -91,7 +91,7 @@ export default function Page() {
             Flooring that&apos;s sequenced with the rest of the room.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "660px", margin: "0 auto", lineHeight: 1.6 }}>
-            Luxury vinyl plank, hardwood, engineered hardwood, and tile — installed across Quakertown, Bucks County, and the Lehigh Valley. Most of our flooring goes in as part of a kitchen or bath remodel, which is exactly when install order and subfloor prep matter most.
+            Luxury vinyl plank, hardwood, engineered hardwood, and tile — installed across Easton, Bethlehem, Allentown, and the greater Lehigh Valley. Most of our flooring goes in as part of a kitchen or bath remodel, which is exactly when install order and subfloor prep matter most.
           </p>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function Page() {
         <div className="container--narrow prose">
           <h2>Upper Bucks floors have upper Bucks problems.</h2>
           <p>
-            The housing around Quakertown isn&apos;t uniform, and neither are its subfloors. Borough homes from the early 1900s often hide narrow-strip pine or oak under decades of carpet. The ranches and split-levels of Richland Township tend to have plywood subfloors that need refastening before anything goes on top — squeaks are the giveaway. And the stone farmhouses scattered through Milford and Springfield townships move with the seasons in ways that punish rigid flooring choices.
+            The housing across the Lehigh Valley isn&apos;t uniform, and neither are its subfloors. Easton and Bethlehem rowhomes from the early 1900s often hide narrow-strip pine or oak under decades of carpet. The postwar ranches and split-levels around Allentown and Palmer Township tend to have plywood subfloors that need refastening before anything goes on top — squeaks are the giveaway. And the older stone homes scattered from Forks to the Saucon Valley move with the seasons in ways that punish rigid flooring choices.
           </p>
           <p>
             None of this is a problem if it&apos;s diagnosed before installation. All of it is a problem after. Our estimates start with the subfloor, because that&apos;s where flooring jobs are actually won or lost.
@@ -196,7 +196,7 @@ export default function Page() {
             serviceSchema({
               name: "Flooring Installation",
               description:
-                "Luxury vinyl plank, hardwood, engineered hardwood, and tile flooring installed by Vitrin Cabinetry in Quakertown, PA and across Bucks County.",
+                "Luxury vinyl plank, hardwood, engineered hardwood, and tile flooring installed by Vitrin Cabinetry in Easton, PA and across Bucks County.",
               url: pageUrl,
               serviceType: "Flooring Installation",
             })

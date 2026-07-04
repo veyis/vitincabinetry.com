@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "About — Bench-Built Custom Cabinets in Quakertown, PA",
+  title: "About — Bench-Built Custom Cabinets in Easton, PA",
   description:
-    "Meet Vitrin Cabinetry: a Quakertown, PA shop building Vitrin Signature kitchens to order, stocking Vitrin Stock for faster projects, and serving Bucks County and the Lehigh Valley with transparent timelines and line-item quotes.",
+    "Meet Vitrin Cabinetry: an Easton, PA shop building Vitrin Signature kitchens to order, stocking Vitrin Stock for faster projects, and serving the Lehigh Valley and Bucks County with transparent timelines and line-item quotes.",
   alternates: { canonical: "/about" },
 };
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
       <section className="hero" style={{ minHeight: "60vh", padding: "180px 0 80px" }}>
         <Image
           src="/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png"
-          alt="Master cabinetmaker hand-planing solid white oak at the Vitrin Cabinetry workshop in Quakertown, PA"
+          alt="Master cabinetmaker hand-planing solid white oak at the Vitrin Cabinetry workshop in Easton, PA"
           fill
           priority
           sizes="100vw"
@@ -41,7 +41,7 @@ export default function AboutPage() {
             A working shop — not a pass-through for someone else&apos;s line.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Vitrin Cabinetry is a hands-on cabinet shop in Quakertown, PA. Vitrin Signature kitchens are drawn, built, and finished at our bench — then delivered by us, installed by our crew or yours. Vitrin Stock is a curated in-shop lineup for faster projects, still backed by the same team. No franchise. No disappearing act after the sale.
+            Vitrin Cabinetry is a hands-on cabinet shop in Easton, PA. Vitrin Signature kitchens are drawn, built, and finished at our bench — then delivered by us, installed by our crew or yours. Vitrin Stock is a curated in-shop lineup for faster projects, still backed by the same team. No franchise. No disappearing act after the sale.
           </p>
         </div>
       </section>
@@ -50,12 +50,12 @@ export default function AboutPage() {
         <div className="container--narrow prose">
           <h3>Why we exist</h3>
           <p>
-            The cabinetry buyer in Bucks County and the Lehigh Valley is often stuck between two extremes: a semi-custom showroom that optimizes for catalog SKUs and outsourced install, or a luxury design-build firm with a months-long queue. Vitrin sits in the middle — a real Quakertown shop where Signature work is bench-built to your dimensions, Stock is on the floor when you need speed, pricing tiers are published, and timelines are what we&apos;d want quoted to our own families.
+            The cabinetry buyer in Bucks County and the Lehigh Valley is often stuck between two extremes: a semi-custom showroom that optimizes for catalog SKUs and outsourced install, or a luxury design-build firm with a months-long queue. Vitrin sits in the middle — a real Easton shop where Signature work is bench-built to your dimensions, Stock is on the floor when you need speed, pricing tiers are published, and timelines are what we&apos;d want quoted to our own families.
           </p>
 
           <h3>The shop</h3>
           <p>
-            Our workshop is in Quakertown. It is where every Vitrin cabinet is built. Inside, you&apos;ll find a CNC for joinery accuracy, a hand-bench for the parts a machine should never touch, a dust-controlled finishing room, and racks of solid hardwood waiting to become someone&apos;s kitchen. We invite every prospective client to walk through it. What you see is what builds your project.
+            Our workshop is in Easton. It is where every Vitrin cabinet is built. Inside, you&apos;ll find a CNC for joinery accuracy, a hand-bench for the parts a machine should never touch, a dust-controlled finishing room, and racks of solid hardwood waiting to become someone&apos;s kitchen. We invite every prospective client to walk through it. What you see is what builds your project.
           </p>
 
           <h3>The team</h3>
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
           <h3>Where we work</h3>
           <p>
-            We install across {site.areaServed.slice(0, 8).map((t) => t.replace(", PA", "")).join(", ")} and the rest of upper Bucks and the Lehigh Valley. Our shop is in Quakertown — most clients live within a 25-minute drive of it.
+            We install across {site.areaServed.slice(0, 8).map((t) => t.replace(", PA", "")).join(", ")} and the rest of the Lehigh Valley and upper Bucks. Our shop is in Easton — most clients live within a 25-minute drive of it.
           </p>
         </div>
       </section>

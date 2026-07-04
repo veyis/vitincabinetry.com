@@ -18,7 +18,7 @@ const stats = [
 
 const pillars = [
   {
-    title: "Built in Quakertown.",
+    title: "Built in Easton.",
     desc: "Every Vitrin Signature cabinet is milled, assembled, and finished here. Plywood boxes, dovetail drawers, Blum hardware — and shop tours so you see the bench before you sign.",
   },
   {
@@ -74,7 +74,7 @@ const beyondCabinets = [
   },
   {
     title: "Custom closets",
-    desc: "Designed in 3D, built to your walls at our Quakertown bench, installed by our team.",
+    desc: "Designed in 3D, built to your walls at our Easton bench, installed by our team.",
     href: "/closets",
   },
 ];
@@ -116,9 +116,9 @@ const theLook = [
   },
   {
     src: "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png",
-    alt: "Craftsman hand-planing white oak in the Vitrin Cabinetry workshop in Quakertown, PA",
+    alt: "Craftsman hand-planing white oak in the Vitrin Cabinetry workshop in Easton, PA",
     title: "On the Bench",
-    loc: "Quakertown workshop",
+    loc: "Easton workshop",
     span: "tile--wide",
     href: "/shop-tour",
   },
@@ -183,15 +183,15 @@ export default function Home() {
         <div className="hero__inner">
           <div className="eyebrow-row">
             <span className="eyebrow-rule" aria-hidden="true" style={{ background: "#e6c87a" }} />
-            <span className="eyebrow" style={{ color: "#e6c87a", marginBottom: 0 }}>Quakertown&apos;s Cabinet Shop</span>
+            <span className="eyebrow" style={{ color: "#e6c87a", marginBottom: 0 }}>The Lehigh Valley&apos;s Cabinet Shop</span>
           </div>
           <h1 className="hero__title">
             <span className="mask-line"><span>Cabinets, built and sold</span></span>
             {" "}
-            <span className="mask-line"><span>in <em>Quakertown.</em></span></span>
+            <span className="mask-line"><span>in <em>Easton.</em></span></span>
           </h1>
           <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.92)", maxWidth: "720px", lineHeight: 1.6 }}>
-            We don&apos;t sell kitchens out of a catalog — we build them at our own bench in Quakertown, PA, with in-stock door styles on the floor when speed matters. Kitchen, bath, and closet cabinetry drawn in 3D and finished in our shop, then completed with quartz, granite, or porcelain counters, tile, and flooring by the same crew — in homes that have stood in Bucks County and the Lehigh Valley for decades.
+            We don&apos;t sell kitchens out of a catalog — we build them at our own bench in Easton, PA, with in-stock door styles on the floor when speed matters. Kitchen, bath, and closet cabinetry drawn in 3D and finished in our shop, then completed with quartz, granite, or porcelain counters, tile, and flooring by the same crew — in homes that have stood in Easton, Bethlehem, and Allentown for a century or more.
           </p>
           <div className="hero__cta">
             <Link href="/cabinets/stock" className="btn-primary">Browse Stock Cabinets &rarr;</Link>
@@ -216,10 +216,10 @@ export default function Home() {
         </div>
         <div className="hero__strip">
           <div className="hero__strip-inner">
-            <span>Quakertown, PA</span>
+            <span>Easton, PA</span>
             <span>15+ Years on the Bench</span>
             <span>500+ Cabinets Built</span>
-            <span>Bucks County &amp; Lehigh Valley</span>
+            <span>Easton &middot; Bethlehem &middot; Allentown</span>
           </div>
         </div>
       </section>
@@ -246,7 +246,7 @@ export default function Home() {
           <SectionHead
             num="01"
             label="The Vitrin Difference"
-            title={<>Bench-built Signature. Curated Stock. <em>One Quakertown shop.</em></>}
+            title={<>Bench-built Signature. Curated Stock. <em>One Easton shop.</em></>}
             sub="When you want a kitchen built to your room — not a line card — we mill and finish it here. When you need quality fast, we stock door styles on the floor. Same address, same craftspeople, same warranty philosophy: we answer for the work."
           />
 
@@ -288,8 +288,8 @@ export default function Home() {
           <SectionHead
             num="03"
             label="From the Showroom"
-            title={<>Stock cabinets in our <em>Quakertown shop</em></>}
-            sub="Featured Vitrin Stock door styles. Pickup or delivery from Quakertown, PA."
+            title={<>Stock cabinets in our <em>Easton shop</em></>}
+            sub="Featured Vitrin Stock door styles. Pickup or delivery from Easton, PA."
           />
 
           <div className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
@@ -316,7 +316,7 @@ export default function Home() {
             <span className="eyebrow">Vitrin Signature</span>
             <h2 className="section-heading">When stock isn&apos;t right, <em>we build it.</em></h2>
             <p className="section-sub">
-              Fully custom kitchens, built at our Quakertown bench. Any size, any door style, any finish. 4 to 8 weeks in the shop, weekly photo updates.
+              Fully custom kitchens, built at our Easton bench. Any size, any door style, any finish. 4 to 8 weeks in the shop, weekly photo updates.
             </p>
           </div>
           <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
@@ -457,9 +457,9 @@ export default function Home() {
           <div className="pullquote reveal">
             <span className="pullquote__mark" aria-hidden="true">&ldquo;</span>
             <blockquote>
-              We answer for the work. Every cabinet that leaves this shop was measured, drawn, milled, and finished by people you can meet in Quakertown.
+              We answer for the work. Every cabinet that leaves this shop was measured, drawn, milled, and finished by people you can meet in Easton.
             </blockquote>
-            <div className="pullquote__attr">The Vitrin Promise &middot; Quakertown, PA</div>
+            <div className="pullquote__attr">The Vitrin Promise &middot; Easton, PA</div>
           </div>
         </div>
       </section>
@@ -469,7 +469,7 @@ export default function Home() {
         <div className="container">
           <div className="section-center reveal">
             <span className="eyebrow">Where We Sell</span>
-            <h2 className="section-heading">Built in Quakertown. Sold across Bucks County and the Lehigh Valley.</h2>
+            <h2 className="section-heading">Built in Easton. Sold across the Lehigh Valley and Bucks County.</h2>
             <p className="section-sub">
               We supply cabinets to homeowners and trade in {towns.slice(0, 6).map((t) => t.name).join(", ")} and beyond.
             </p>
@@ -500,7 +500,7 @@ export default function Home() {
         <div className="container" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Ready to order cabinets?</h2>
           <p style={{ fontSize: "1.1rem", maxWidth: "560px", margin: "1rem auto 2.5rem" }}>
-            Visit our Quakertown showroom — or send us your kitchen drawings for a quote.
+            Visit our Easton showroom — or send us your kitchen drawings for a quote.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/showroom" className="btn-primary" style={{ padding: "1.25rem 2.5rem", fontSize: "1rem" }}>

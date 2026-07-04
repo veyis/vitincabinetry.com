@@ -12,7 +12,7 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Cabinets — Stock & Custom · Vitrin Cabinetry",
   description:
-    "Two ways to buy cabinets from Vitrin: stock cabinets ready from our Quakertown showroom, or fully custom kitchens built to your exact dimensions. Trade pricing on both.",
+    "Two ways to buy cabinets from Vitrin: stock cabinets ready from our Easton showroom, or fully custom kitchens built to your exact dimensions. Trade pricing on both.",
   alternates: { canonical: "/cabinets" },
 };
 
@@ -37,7 +37,7 @@ export default function CabinetsPage() {
       <section className="hero" style={{ minHeight: "50vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/heritage-green-custom-kitchen-cabinets-bucks-county.png"
-          alt="Two ways to buy cabinets at Vitrin Cabinetry — stock and custom, Quakertown PA"
+          alt="Two ways to buy cabinets at Vitrin Cabinetry — stock and custom, Easton PA"
           fill
           priority
           sizes="100vw"
@@ -52,7 +52,7 @@ export default function CabinetsPage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>Cabinets</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Two ways to buy cabinets. One Quakertown shop.
+            Two ways to buy cabinets. One Easton shop.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Stock cabinets ready from the showroom. Custom kitchens built at our bench. Same construction bar on both.

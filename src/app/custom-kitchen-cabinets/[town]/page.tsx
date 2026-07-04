@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   if (!data) return {};
   return {
     title: `Custom Kitchen Cabinets in ${data.name}, PA`,
-    description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetry builds every cabinet at our Quakertown shop and supplies them across Bucks County. Transparent pricing tiers, lifetime cabinetry warranty.`,
+    description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetry builds every cabinet at our Easton shop and supplies them across Bucks County. Transparent pricing tiers, lifetime cabinetry warranty.`,
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
   };
 }
@@ -33,7 +33,7 @@ const sharedWhyCards = [
   },
   {
     title: "Bench-built, not catalog product.",
-    body: "Every cabinet is built at our Quakertown shop — plywood box, dovetail drawers, soft-close hardware, finished in a dust-controlled spray booth.",
+    body: "Every cabinet is built at our Easton shop — plywood box, dovetail drawers, soft-close hardware, finished in a dust-controlled spray booth.",
   },
   {
     title: "Transparent pricing tiers.",
@@ -145,7 +145,7 @@ export default async function TownPage({ params }: PageParams) {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Two ways to buy in {data.name}</span>
-            <h2 className="section-heading">Stock and custom cabinets — one Quakertown shop, both delivered to {data.name}.</h2>
+            <h2 className="section-heading">Stock and custom cabinets — one Easton shop, both delivered to {data.name}.</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
             <Link href="/cabinets/stock" className="card">
@@ -158,7 +158,7 @@ export default async function TownPage({ params }: PageParams) {
             <Link href="/cabinets/custom" className="card">
               <h3 className="card__title">Custom kitchens in {data.name}</h3>
               <p className="card__desc">
-                Built at our Quakertown bench to your kitchen&apos;s exact dimensions. Delivered to {data.name} when ready — install if you&apos;d like us to, or your contractor&apos;s crew if you wouldn&apos;t.
+                Built at our Easton bench to your kitchen&apos;s exact dimensions. Delivered to {data.name} when ready — install if you&apos;d like us to, or your contractor&apos;s crew if you wouldn&apos;t.
               </p>
               <div className="card__more">Order a Vitrin Signature kitchen →</div>
             </Link>

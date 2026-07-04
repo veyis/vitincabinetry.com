@@ -11,7 +11,7 @@ import PortfolioGrid from "./PortfolioGrid";
 export const metadata: Metadata = {
   title: "Portfolio — Custom Kitchens Built by Vitrin Cabinetry",
   description:
-    "Selected custom kitchen and bath projects by Vitrin Cabinetry — bench-built at our Quakertown, PA shop. Browse by style and town.",
+    "Selected custom kitchen and bath projects by Vitrin Cabinetry — bench-built at our Easton, PA shop. Browse by style and town.",
   alternates: { canonical: "/portfolio" },
 };
 
@@ -43,7 +43,7 @@ export default function PortfolioPage() {
             Selected work, photographed and named.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Every project below was built by our team at the bench in Quakertown. Click through any of them for the story, the style, and the choices behind the work.
+            Every project below was built by our team at the bench. Click through any of them for the story, the style, and the choices behind the work.
           </p>
         </div>
       </section>

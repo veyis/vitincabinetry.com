@@ -22,7 +22,7 @@ export function shareMetadata(
   const pageUrl = absoluteUrl(pathname);
   const imagePath = opts?.imagePath ?? DEFAULT_OG_PATH;
   const imageUrl = absoluteUrl(imagePath);
-  const imageAlt = opts?.imageAlt ?? `${site.name} — Custom cabinetry in Quakertown, PA`;
+  const imageAlt = opts?.imageAlt ?? `${site.name} — Custom cabinetry in Easton, PA`;
 
   return {
     openGraph: {

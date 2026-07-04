@@ -12,18 +12,18 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Custom Kitchen Cabinets in Bucks County, PA",
   description:
-    "Custom kitchen cabinets for Bucks County homes — bench-built in Quakertown, not catalog-dropped. Vitrin Cabinetry: local install, published pricing tiers, historic-district experience, and a lifetime workmanship warranty on Signature work.",
+    "Custom kitchen cabinets for Bucks County homes — bench-built in Easton, not catalog-dropped. Vitrin Cabinetry: local install, published pricing tiers, historic-district experience, and a lifetime workmanship warranty on Signature work.",
   alternates: { canonical: "/custom-kitchen-cabinets/bucks-county" },
 };
 
 const reasons = [
   {
     title: "We are local — actually local.",
-    body: "Our shop is in Quakertown, PA. Bucks County is our home market, and we install across it weekly. Every town we serve is within a 35-minute drive of the bench where your cabinets are built.",
+    body: "Our shop is in Easton, PA. Bucks County is our home market, and we install across it weekly. Every town we serve is within a 35-minute drive of the bench where your cabinets are built.",
   },
   {
     title: "Bench-built, not catalog product.",
-    body: "Every cabinet is built at our Quakertown shop — plywood box, dovetail drawers, soft-close hardware, finished in a dust-controlled spray booth. No franchise catalog, no manufactured-line shortcut.",
+    body: "Every cabinet is built at our Easton shop — plywood box, dovetail drawers, soft-close hardware, finished in a dust-controlled spray booth. No franchise catalog, no manufactured-line shortcut.",
   },
   {
     title: "Same team start to finish.",
@@ -114,7 +114,7 @@ export default function BucksCountyPillar() {
             Custom kitchen cabinets across Bucks County.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
-            From Doylestown to New Hope to Quakertown, Bucks County kitchens are rarely “standard size.” Vitrin draws, mills, and finishes Signature cabinetry at our Quakertown shop — and keeps curated Stock on hand when the schedule does not allow an 8-week bench build. One team, line-item quotes, weekly bench photos on custom work.
+            From Doylestown to New Hope to Quakertown, Bucks County kitchens are rarely “standard size.” Vitrin draws, mills, and finishes Signature cabinetry at our Easton shop — and keeps curated Stock on hand when the schedule does not allow an 8-week bench build. One team, line-item quotes, weekly bench photos on custom work.
           </p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Get a Quote</Link>
@@ -301,7 +301,7 @@ export default function BucksCountyPillar() {
             serviceSchema({
               name: "Custom Kitchen Cabinets in Bucks County, PA",
               description:
-                "Custom kitchen cabinetry built in Quakertown and supplied across Bucks County, PA by Vitrin Cabinetry. Serving 12+ towns from Quakertown to New Hope.",
+                "Custom kitchen cabinetry built in Easton and supplied across Bucks County, PA by Vitrin Cabinetry. Serving Bucks County towns from Quakertown to New Hope from our Easton bench.",
               url: pageUrl,
               serviceType: "Custom Kitchen Cabinets",
             })

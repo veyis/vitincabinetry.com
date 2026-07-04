@@ -12,7 +12,7 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Stock Cabinets — Ready from the Showroom · Vitrin Cabinetry",
   description:
-    "Vitrin Stock cabinets — plywood-box construction, Blum hardware, dovetail drawers. Curated door styles and finishes, available for pickup or delivery from our Quakertown, PA showroom. Trade pricing.",
+    "Vitrin Stock cabinets — plywood-box construction, Blum hardware, dovetail drawers. Curated door styles and finishes, available for pickup or delivery from our Easton, PA showroom. Trade pricing.",
   alternates: { canonical: "/cabinets/stock" },
 };
 
@@ -42,7 +42,7 @@ export default function StockPage() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"
-          alt="Stock cabinets ready for pickup at the Vitrin Cabinetry showroom in Quakertown, PA"
+          alt="Stock cabinets ready for pickup at the Vitrin Cabinetry showroom in Easton, PA"
           fill
           priority
           sizes="100vw"
@@ -113,7 +113,7 @@ export default function StockPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
             {[
-              { title: "Will-call pickup", desc: "By appointment at the Quakertown shop once your order is ready. Most stock orders ready within 2 business days." },
+              { title: "Will-call pickup", desc: "By appointment at the Easton shop once your order is ready. Most stock orders ready within 2 business days." },
               { title: "Local delivery", desc: "Bucks County, Lehigh Valley, Montgomery County. Flat-fee tiers by zone." },
               { title: "Jobsite delivery", desc: "Scheduled against your install date. We coordinate with your foreman." },
               { title: "Lift-gate / inside delivery", desc: "Available on request for larger orders." },

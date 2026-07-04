@@ -11,7 +11,7 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Bath Vanities & Cabinets — Stock & Custom · Vitrin Cabinetry",
   description:
-    "Bathroom vanities and cabinetry from Vitrin Cabinetry — stock vanities ready from the Quakertown showroom, or fully custom bath cabinetry built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
+    "Bathroom vanities and cabinetry from Vitrin Cabinetry — stock vanities ready from the Easton showroom, or fully custom bath cabinetry built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
   alternates: { canonical: "/cabinets/bath" },
 };
 
@@ -40,7 +40,7 @@ export default function Page() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/sage-inset-cabinet-door-brass-cup-pull-detail.png"
-          alt="Custom bath vanity built by Vitrin Cabinetry in Quakertown, PA"
+          alt="Custom bath vanity built by Vitrin Cabinetry in Easton, PA"
           fill
           priority
           sizes="100vw"
@@ -60,7 +60,7 @@ export default function Page() {
             Bath vanities — stock or built to fit.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Floating vanities, double vanities, custom dimensions — pick from in-stock SKUs at our Quakertown showroom, or order built to fit. Same construction bar on both tiers.
+            Floating vanities, double vanities, custom dimensions — pick from in-stock SKUs at our Easton showroom, or order built to fit. Same construction bar on both tiers.
           </p>
         </div>
       </section>
@@ -191,7 +191,7 @@ export default function Page() {
           __html: toJsonLd(
             serviceSchema({
               name: "Bath Vanity & Cabinet Supply",
-              description: "Stock and custom bath vanities sold from Vitrin Cabinetry in Quakertown, PA. Plywood boxes, moisture-rated finishes.",
+              description: "Stock and custom bath vanities sold from Vitrin Cabinetry in Easton, PA. Plywood boxes, moisture-rated finishes.",
               url: pageUrl,
               serviceType: "Custom Cabinetry Supply",
             })

@@ -93,7 +93,7 @@ export default function TradePage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>Trade Program</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Your cabinet supplier in Quakertown.
+            Your cabinet supplier in Easton.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
             Trade pricing on every cabinet we make. Stock cabinets ready for pickup. Custom kitchens built to your spec. For contractors, builders, designers, and installers across Bucks County and the Lehigh Valley.
@@ -171,7 +171,7 @@ export default function TradePage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
             {[
-              { title: "Will-call pickup", desc: "At the Quakertown shop, by appointment." },
+              { title: "Will-call pickup", desc: "At the Easton shop, by appointment." },
               { title: "Local delivery", desc: "Bucks County, Lehigh Valley, Montgomery County. Flat-fee tiers by zone." },
               { title: "Jobsite delivery", desc: "Scheduled against your install date. We coordinate with your foreman." },
               { title: "Lift-gate / inside delivery", desc: "Available on request for larger orders." },

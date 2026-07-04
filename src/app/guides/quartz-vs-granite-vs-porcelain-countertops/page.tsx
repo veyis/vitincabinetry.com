@@ -171,7 +171,7 @@ export default function QuartzVsGraniteVsPorcelainPage() {
         <div className="container--narrow" style={{ textAlign: "center" }}>
           <h2 className="section-heading">See all three next to your door style.</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Slab samples and full-size cabinet doors, side by side at the Quakertown materials bench. The decision takes ten minutes in person.
+            Slab samples and full-size cabinet doors, side by side at the Easton materials bench. The decision takes ten minutes in person.
           </p>
           <Link href="/contact?type=countertops" className="btn-primary">Get a Countertop Quote</Link>
         </div>

@@ -11,7 +11,7 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Kitchen Cabinets — Stock & Custom · Vitrin Cabinetry",
   description:
-    "Kitchen cabinets from Vitrin Cabinetry — stock cabinets ready from the Quakertown showroom, or fully custom kitchens built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
+    "Kitchen cabinets from Vitrin Cabinetry — stock cabinets ready from the Easton showroom, or fully custom kitchens built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
   alternates: { canonical: "/cabinets/kitchen" },
 };
 
@@ -40,7 +40,7 @@ export default function Page() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/walnut-waterfall-island-modern-custom-kitchen.png"
-          alt="Custom kitchen cabinets built by Vitrin Cabinetry in Quakertown, PA"
+          alt="Custom kitchen cabinets built by Vitrin Cabinetry in Easton, PA"
           fill
           priority
           sizes="100vw"
@@ -60,7 +60,7 @@ export default function Page() {
             Kitchen cabinets — stock or built to fit.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Two ways to cabinet your kitchen — pick door styles from in-stock SKUs in our Quakertown showroom, or order a kitchen built to your room&apos;s exact dimensions.
+            Two ways to cabinet your kitchen — pick door styles from in-stock SKUs in our Easton showroom, or order a kitchen built to your room&apos;s exact dimensions.
           </p>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function Page() {
             </Link>
             <Link href="/cabinets/custom" className="card">
               <h2 className="card__title">Custom kitchen cabinets</h2>
-              <p className="card__desc">Built at our Quakertown bench to your room&apos;s exact dimensions. Any door style, any wood species, any finish. 4–8 week build.</p>
+              <p className="card__desc">Built at our Easton bench to your room&apos;s exact dimensions. Any door style, any wood species, any finish. 4–8 week build.</p>
               <div className="card__more">Order a Vitrin Signature kitchen →</div>
             </Link>
           </div>
@@ -117,7 +117,7 @@ export default function Page() {
                   &quot;Custom&quot; means different things in this industry. At Vitrin, it means your cabinets are physically built in our shop, to dimensions drawn for your house — not picked from a catalog. Stock cabinets share the same construction bar: plywood boxes, dovetail drawers, Blum hardware.
                 </p>
                 <p>
-                  Both tiers give you a single point of contact, a written quote, and cabinetry built in Quakertown — not assembled overseas and warehoused at a big-box store.
+                  Both tiers give you a single point of contact, a written quote, and cabinetry built in Easton — not assembled overseas and warehoused at a big-box store.
                 </p>
               </div>
               <ul style={{ listStyle: "none", padding: 0, marginTop: "1.5rem" }}>
@@ -194,7 +194,7 @@ export default function Page() {
           __html: toJsonLd(
             serviceSchema({
               name: "Kitchen Cabinet Supply",
-              description: "Stock and custom kitchen cabinets sold from Vitrin Cabinetry in Quakertown, PA. Plywood box construction, Blum hardware, dovetail drawers.",
+              description: "Stock and custom kitchen cabinets sold from Vitrin Cabinetry in Easton, PA. Plywood box construction, Blum hardware, dovetail drawers.",
               url: pageUrl,
               serviceType: "Custom Cabinetry Supply",
             })

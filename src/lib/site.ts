@@ -46,29 +46,32 @@ export const site = {
 
   address: {
     street: process.env.NEXT_PUBLIC_BUSINESS_STREET || "TBD — Showroom address",
-    locality: "Quakertown",
+    locality: "Easton",
     region: "PA",
-    postalCode: "18951",
+    postalCode: "18042",
     country: "US",
   },
 
-  // Approximate Quakertown lat/lon. Update once the showroom address is set.
-  geo: { latitude: 40.4418, longitude: -75.3413 },
+  // Approximate Easton lat/lon. Update once the showroom address is set.
+  geo: { latitude: 40.6916, longitude: -75.2202 },
 
   // Service area towns — used in schema `areaServed` and footer.
   areaServed: [
+    "Easton, PA",
+    "Bethlehem, PA",
+    "Allentown, PA",
+    "Hellertown, PA",
+    "Emmaus, PA",
+    "Center Valley, PA",
+    "Coopersburg, PA",
     "Quakertown, PA",
     "Perkasie, PA",
     "Doylestown, PA",
     "Sellersville, PA",
     "Souderton, PA",
-    "Coopersburg, PA",
-    "Hellertown, PA",
-    "Emmaus, PA",
     "Harleysville, PA",
     "Lansdale, PA",
     "New Hope, PA",
-    "Center Valley, PA",
   ],
 
   /** Topics for Organization / LocalBusiness `knowsAbout` in JSON-LD. */
@@ -84,8 +87,9 @@ export const site = {
     "Kitchen and bathroom remodeling",
     "3D kitchen design",
     "Backsplash installation",
-    "Bucks County kitchen remodeling",
+    "Lehigh Valley kitchen remodeling",
     "Lehigh Valley cabinetry",
+    "Bucks County kitchen remodeling",
     "Aging-in-place kitchen design",
   ],
 

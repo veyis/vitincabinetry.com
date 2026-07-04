@@ -49,7 +49,7 @@ export default function InstallationPage() {
       <section className="hero" style={{ minHeight: "45vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png"
-          alt="Cabinet craftsman at the Vitrin workshop in Quakertown, PA"
+          alt="Cabinet craftsman at the Vitrin workshop in Easton, PA"
           fill
           priority
           sizes="100vw"

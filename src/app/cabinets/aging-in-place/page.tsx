@@ -11,7 +11,7 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Aging-in-Place Cabinets — Stock & Custom · Vitrin Cabinetry",
   description:
-    "Aging-in-place kitchen and bath cabinetry from Vitrin Cabinetry — lower counter heights, knee space, pull-out accessibility. Stock and custom options. Built in Quakertown, PA.",
+    "Aging-in-place kitchen and bath cabinetry from Vitrin Cabinetry — lower counter heights, knee space, pull-out accessibility. Stock and custom options. Built in Easton, PA.",
   alternates: { canonical: "/cabinets/aging-in-place" },
 };
 
@@ -196,7 +196,7 @@ export default function Page() {
           __html: toJsonLd(
             serviceSchema({
               name: "Aging-in-Place Cabinet Supply",
-              description: "Accessible cabinetry for kitchens and baths — lower counters, knee space, pull-out drawers. Stock and custom options from Vitrin Cabinetry, Quakertown, PA.",
+              description: "Accessible cabinetry for kitchens and baths — lower counters, knee space, pull-out drawers. Stock and custom options from Vitrin Cabinetry, Easton, PA.",
               url: pageUrl,
               serviceType: "Custom Cabinetry Supply",
             })

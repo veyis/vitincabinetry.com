@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 import { shareMetadata } from "@/lib/seo";
 
-const PAGE_TITLE = "Custom Closets — Designed in 3D, Built in Quakertown, PA";
+const PAGE_TITLE = "Custom Closets — Designed in 3D, Built in Easton, PA";
 const PAGE_DESC =
-  "Custom closets designed in 3D and bench-built from plywood in Quakertown, PA — walk-ins, reach-ins, pantries, and mudrooms for Bucks County and Lehigh Valley homes.";
+  "Custom closets designed in 3D and bench-built from plywood in Easton, PA — walk-ins, reach-ins, pantries, and mudrooms for Bucks County and Lehigh Valley homes.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: "How long does a custom closet take?",
-    a: "Design takes a week or two depending on revisions. Build time at our Quakertown bench is typically two to four weeks, and installation is usually a single day for a reach-in or pantry, one to two days for a large walk-in.",
+    a: "Design takes a week or two depending on revisions. Build time at our Easton bench is typically two to four weeks, and installation is usually a single day for a reach-in or pantry, one to two days for a large walk-in.",
   },
   {
     q: "Is a custom closet worth it for a reach-in?",
@@ -91,7 +91,7 @@ export default function Page() {
             Closets built like furniture, not filing systems.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "660px", margin: "0 auto", lineHeight: 1.6 }}>
-            Walk-ins, reach-ins, pantries, and mudrooms — designed in 3D around what you actually own, bench-built from plywood at our Quakertown shop, and installed by the crew that built them. Serving Bucks County and the Lehigh Valley.
+            Walk-ins, reach-ins, pantries, and mudrooms — designed in 3D around what you actually own, bench-built from plywood at our Easton shop, and installed by the crew that built them. Serving Bucks County and the Lehigh Valley.
           </p>
         </div>
       </section>
@@ -104,7 +104,7 @@ export default function Page() {
             Most &quot;custom&quot; closets are wire racks or factory-drilled melamine panels cut to standard increments. They work — until a drawer slide gives out or the panel edges start to chip, and you discover nobody local built it and nobody local fixes it.
           </p>
           <p>
-            Vitrin closets come off the same bench as our <Link href="/cabinets/custom">custom kitchens</Link>: plywood carcasses, dovetail or doweled drawer boxes, soft-close hardware, finishes applied in a dust-controlled room. They&apos;re scribed to your walls during installation — which matters in the older housing stock around Quakertown, Perkasie, and Doylestown, where a &quot;flat&quot; wall can wander half an inch across a closet run. If you&apos;ve seen our <Link href="/cabinets/built-ins">built-ins</Link>, you already know the construction.
+            Vitrin closets come off the same bench as our <Link href="/cabinets/custom">custom kitchens</Link>: plywood carcasses, dovetail or doweled drawer boxes, soft-close hardware, finishes applied in a dust-controlled room. They&apos;re scribed to your walls during installation — which matters in the older housing stock around Easton, Bethlehem, and Allentown, where a &quot;flat&quot; wall can wander half an inch across a closet run. If you&apos;ve seen our <Link href="/cabinets/built-ins">built-ins</Link>, you already know the construction.
           </p>
         </div>
       </section>
@@ -193,7 +193,7 @@ export default function Page() {
             serviceSchema({
               name: "Custom Closet Design & Installation",
               description:
-                "Custom walk-in closets, reach-ins, pantries, and mudroom storage designed in 3D and bench-built by Vitrin Cabinetry in Quakertown, PA.",
+                "Custom walk-in closets, reach-ins, pantries, and mudroom storage designed in 3D and bench-built by Vitrin Cabinetry in Easton, PA.",
               url: pageUrl,
               serviceType: "Custom Closet Design",
             })

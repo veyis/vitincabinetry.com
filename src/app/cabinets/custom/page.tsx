@@ -10,9 +10,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Vitrin Signature — Custom Cabinets, Built in Quakertown",
+  title: "Vitrin Signature — Custom Cabinets, Built in Easton",
   description:
-    "Vitrin Signature is fully custom cabinetry built at our Quakertown bench. Any size, any door style, any finish. 4–8 week lead time. Plywood boxes, dovetail drawers, Blum hardware.",
+    "Vitrin Signature is fully custom cabinetry built at our Easton bench. Any size, any door style, any finish. 4–8 week lead time. Plywood boxes, dovetail drawers, Blum hardware.",
   alternates: { canonical: "/cabinets/custom" },
 };
 
@@ -20,7 +20,7 @@ const orderSteps = [
   { title: "Discovery", body: "30-minute phone call. Scope, location, budget tier, timeline." },
   { title: "In-home survey", body: "We measure, photograph, and document the space." },
   { title: "Design & quote", body: "3D renderings + line-item written quote within 1–2 weeks." },
-  { title: "Fabrication", body: "4–8 weeks at our Quakertown bench. Weekly photo updates." },
+  { title: "Fabrication", body: "4–8 weeks at our Easton bench. Weekly photo updates." },
   { title: "Delivery (install optional)", body: "Delivered to your home or jobsite. Install if you want it; your contractor's crew if you don't." },
 ];
 
@@ -33,7 +33,7 @@ export default function CustomPage() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/calacatta-marble-kitchen-island-overhead.png"
-          alt="Custom Vitrin Signature kitchen with honed Calacatta marble island, built at our Quakertown bench"
+          alt="Custom Vitrin Signature kitchen with honed Calacatta marble island, built at our Easton bench"
           fill
           priority
           sizes="100vw"
@@ -50,7 +50,7 @@ export default function CustomPage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>Vitrin Signature</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Custom cabinets, built at our Quakertown bench.
+            Custom cabinets, built at our Easton bench.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Any size. Any door style. Any finish. Built to your kitchen&apos;s exact dimensions. 4–8 weeks in the shop after design approval.
@@ -66,7 +66,7 @@ export default function CustomPage() {
               <h2 className="section-heading">Built to fit your house — not the next house over.</h2>
               <div className="prose">
                 <p>
-                  Vitrin Signature cabinets are drawn, milled, assembled, and finished at our Quakertown shop. We don&apos;t resell a manufactured line. Every box is built for your dimensions, in the door style and finish you chose.
+                  Vitrin Signature cabinets are drawn, milled, assembled, and finished at our Easton shop. We don&apos;t resell a manufactured line. Every box is built for your dimensions, in the door style and finish you chose.
                 </p>
                 <p>
                   Most of our Signature kitchens land between $35,000 and $90,000 in cabinetry alone. Final figure depends on box count, door style, wood species, and accessory choices.

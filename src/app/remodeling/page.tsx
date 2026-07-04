@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 import { shareMetadata } from "@/lib/seo";
 
-const PAGE_TITLE = "Kitchen & Bathroom Remodeling — Quakertown & Bucks County, PA";
+const PAGE_TITLE = "Kitchen & Bathroom Remodeling — Easton & the Lehigh Valley, PA";
 const PAGE_DESC =
-  "Complete kitchen and bathroom remodeling from a Quakertown, PA cabinet shop — 3D design, demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, and finishing.";
+  "Complete kitchen and bathroom remodeling from an Easton, PA cabinet shop — 3D design, demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, and finishing.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -42,11 +42,11 @@ const steps = [
 const faqs = [
   {
     q: "How long does a kitchen remodel take in Bucks County?",
-    a: "From signed contract to finished kitchen is typically 10–14 weeks: design lock, then 4–8 weeks of cabinet fabrication at our Quakertown bench, then 2–4 weeks on site covering demo, install, counters, backsplash, and finishing. Bathrooms are usually faster — commonly 3–6 weeks on site depending on tile scope.",
+    a: "From signed contract to finished kitchen is typically 10–14 weeks: design lock, then 4–8 weeks of cabinet fabrication at our Easton bench, then 2–4 weeks on site covering demo, install, counters, backsplash, and finishing. Bathrooms are usually faster — commonly 3–6 weeks on site depending on tile scope.",
   },
   {
     q: "Do I need permits for a kitchen or bathroom remodel?",
-    a: "If the project touches plumbing, electrical circuits, structural walls, or HVAC — usually yes. Cosmetic swaps typically don't. We coordinate with your municipality (Quakertown Borough, Richland Township, and the surrounding townships all handle this slightly differently) and pull permits in your name when the scope requires it.",
+    a: "If the project touches plumbing, electrical circuits, structural walls, or HVAC — usually yes. Cosmetic swaps typically don't. We coordinate with your municipality (Easton, Bethlehem, Allentown, and the surrounding townships all handle this slightly differently) and pull permits in your name when the scope requires it.",
   },
   {
     q: "Can I stay in my house during the remodel?",
@@ -89,7 +89,7 @@ export default function Page() {
             Complete kitchen &amp; bath remodels, run by the cabinet shop.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
-            From 3D design through demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, flooring, and finishing — one accountable team in Quakertown, PA, serving Bucks County and the Lehigh Valley.
+            From 3D design through demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, flooring, and finishing — one accountable team in Easton, PA, serving Bucks County and the Lehigh Valley.
           </p>
         </div>
       </section>
@@ -237,7 +237,7 @@ export default function Page() {
             serviceSchema({
               name: "Kitchen & Bathroom Remodeling",
               description:
-                "Complete kitchen and bathroom remodeling by Vitrin Cabinetry in Quakertown, PA — 3D design, demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, flooring, and finishing.",
+                "Complete kitchen and bathroom remodeling by Vitrin Cabinetry in Easton, PA — 3D design, demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, flooring, and finishing.",
               url: pageUrl,
               serviceType: "Kitchen and Bathroom Remodeling",
             })

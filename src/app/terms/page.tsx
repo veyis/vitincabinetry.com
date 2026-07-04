@@ -31,7 +31,7 @@ export default function TermsPage() {
         <div className="container--narrow prose">
           <p>
             By using {site.url} (the &ldquo;Site&rdquo;), you agree to these terms. The Site is
-            operated by {site.legalName} of Quakertown, Pennsylvania.
+            operated by {site.legalName} of Easton, Pennsylvania.
           </p>
 
           <h3>Informational content</h3>

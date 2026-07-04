@@ -22,6 +22,57 @@ export type TownData = {
 
 export const towns: TownData[] = [
   {
+    slug: "easton",
+    name: "Easton",
+    intro:
+      "Easton is home â our bench sits right here where the Lehigh meets the Delaware. The housing runs from grand College Hill Victorians to West Ward brick rowhomes to the newer colonials out in Palmer and Forks, and every one of them asks something different of a kitchen. Being the local shop means we've measured most of those room types more than once.",
+    housing: "College Hill Victorians, downtown and West Ward brick rowhomes, and 1990s–2000s colonials in Palmer and Forks",
+    projectTitle: "A College Hill Victorian, cooked in for the next century.",
+    projectBody:
+      "The house had the bones College Hill is famous for — high ceilings, original casings, a butler's pantry that had been walled off in the 1970s. The owners wanted the pantry back and a kitchen that looked like it had always been there.\n\nWe drew inset shaker doors in a hand-mixed warm white, reopened the pantry with glass-front uppers, and scribed every cabinet to plaster that hadn't been square in a century. Unlacquered brass hardware that will darken with the house.\n\nBuilt at our bench a few minutes away. Installed by our own crew.",
+    townships: "the City of Easton, Palmer Township, Forks Township, and Wilson Borough",
+    permitsNote:
+      "For projects that touch plumbing, electrical, structural walls, or HVAC, we coordinate with the city or township and pull permits in your name.",
+    popularStyleNote:
+      "Inset shaker leads on College Hill, painted transitional in the West Ward, and modern full-overlay in the newer Palmer and Forks builds.",
+    whyLocalLine:
+      "Our shop is in Easton. Not a corporate franchise office in another state, not a satellite branch — the actual workshop where your cabinets get built is a few minutes from your house.",
+  },
+  {
+    slug: "bethlehem",
+    name: "Bethlehem",
+    intro:
+      "Bethlehem's housing tells three centuries of history in a fifteen-minute drive: Moravian-era stone near the historic district, Southside rowhomes and twins built for steel families, 1920s brick semis on the west side, and newer construction out in the townships. Kitchens here have to answer to the house — and the houses have opinions.",
+    housing: "Historic-district stone homes, Southside steel-era rowhomes and twins, west-side 1920s brick semis, and township new builds",
+    projectTitle: "A west Bethlehem brick semi, opened to the back garden.",
+    projectBody:
+      "A 1920s brick semi with the classic problem: a proud little kitchen sealed off from the dining room and the yard. The owners wanted light, a place for two cooks, and cabinetry that respected the house's age without imitating it.\n\nWe opened the wall to the dining room, drew painted inset shaker with a quarter-sawn oak island, and ran cabinetry to the ceiling for storage the original room never had. The back door became a glass slider onto a new deck landing.\n\nThe neighbors in the other half of the semi asked for our card before the punch list was done.",
+    townships: "the City of Bethlehem (both the Northampton and Lehigh county sides), Bethlehem Township, and Hanover Township",
+    permitsNote:
+      "Work near the historic district gets extra review — we plan the schedule around it. Standard plumbing and electrical permits are straightforward.",
+    popularStyleNote:
+      "Period-sympathetic inset near the historic district, transitional shaker on the west side, and modern flat-panel in Southside conversions and township builds.",
+    whyLocalLine:
+      "Bethlehem is about 15 minutes from our Easton bench. It's our most frequent install territory after our home city.",
+  },
+  {
+    slug: "allentown",
+    name: "Allentown",
+    intro:
+      "Allentown is the Lehigh Valley's biggest kitchen market — West End trolley-era Tudors and brick colonials, center-city rowhomes, postwar ranches toward South Mountain, and the suburban townships wrapping the city. Most of our Allentown work is giving solidly built rooms the storage and workflow they were never designed for.",
+    housing: "West End Tudors and brick colonials, center-city rowhomes, postwar ranches, and South Whitehall/Salisbury suburban homes",
+    projectTitle: "A West End brick colonial, twice the storage in the same room.",
+    projectBody:
+      "A 1930s West End colonial near the Rose Garden — beautiful proportions, dismal storage, and a peninsula that blocked the only path to the back door. The owners wanted a real island, drawers instead of doors, and a finish that fit the neighborhood.\n\nWe drew painted shaker fronts in a soft white with a stained white-oak island, replaced every lower door with a drawer bank, and turned the old broom closet into a full-height pantry with rollouts. The path to the back door is finally a straight line.\n\nSame footprint. Twice the working storage.",
+    townships: "the City of Allentown, South Whitehall Township, and Salisbury Township",
+    permitsNote:
+      "City permits for plumbing and electrical scope are routine; the townships move quickly. We pull permits in your name and schedule the inspections.",
+    popularStyleNote:
+      "Painted shaker leads in the West End, modern full-overlay in newer township builds, and two-tone islands nearly everywhere.",
+    whyLocalLine:
+      "Allentown is about 25 minutes from our Easton bench, straight down Route 22. We install here every week.",
+  },
+  {
     slug: "quakertown",
     name: "Quakertown",
     intro:
@@ -36,7 +87,7 @@ export const towns: TownData[] = [
     popularStyleNote:
       "Inset shaker leads the list, followed by two-tone islands and the occasional full traditional in older Quaker homes.",
     whyLocalLine:
-      "Our shop is in Quakertown. Not a corporate franchise office in another state, not a satellite branch — the actual workshop where your cabinets get built is a few minutes from your house.",
+      "Quakertown is about 35 minutes from our Easton bench, straight down Route 33 to 78. We've built for upper Bucks homes since the beginning and still install here regularly.",
   },
   {
     slug: "perkasie",
@@ -50,7 +101,7 @@ export const towns: TownData[] = [
     townships: "Perkasie Borough, Hilltown Township, and East Rockhill Township",
     permitsNote: "We work with Pennridge-area municipalities regularly and pull permits for any scope beyond a like-for-like cabinet swap.",
     popularStyleNote: "Painted shaker, two-tone with stained islands, and traditional raised panel for the older Victorian homes.",
-    whyLocalLine: "We're a quick drive from Perkasie — about 20 minutes from the shop, and we install there regularly.",
+    whyLocalLine: "Perkasie is about 45 minutes from our Easton bench. We've worked the Pennridge corridor for years and still install here regularly.",
   },
   {
     slug: "doylestown",
@@ -64,7 +115,7 @@ export const towns: TownData[] = [
     townships: "Doylestown Borough, Doylestown Township, and Plumstead Township",
     permitsNote: "Projects in the historic district require additional review. We've done the dance — we'll guide it.",
     popularStyleNote: "Traditional raised panel in the borough, inset shaker and modern flat panel in the surrounding townships.",
-    whyLocalLine: "We install in Doylestown weekly — about 25 minutes from our Quakertown shop.",
+    whyLocalLine: "We make the drive to Doylestown often — about 45 minutes from our Easton bench.",
   },
   {
     slug: "sellersville",
@@ -78,7 +129,7 @@ export const towns: TownData[] = [
     townships: "Sellersville Borough and West Rockhill Township",
     permitsNote: "Anything that moves a wall or rerunes plumbing needs a permit in Sellersville — we handle the application.",
     popularStyleNote: "Modern full-overlay leads here, with shaker as the second option for owners who prefer transitional.",
-    whyLocalLine: "Sellersville is 10 minutes from our Quakertown shop. We're in town often.",
+    whyLocalLine: "Sellersville is about 40 minutes from our Easton bench, and part of our regular install territory.",
   },
   {
     slug: "souderton",
@@ -92,7 +143,7 @@ export const towns: TownData[] = [
     townships: "Souderton Borough, Franconia Township, and Telford Borough",
     permitsNote: "Indian Valley municipalities are generally straightforward on cabinetry; permits land within a couple of weeks for plumbing/electrical scope.",
     popularStyleNote: "Transitional shaker in painted finishes leads, with traditional raised panel as a strong second.",
-    whyLocalLine: "About 15 minutes from our shop — Souderton is one of our most frequent install destinations.",
+    whyLocalLine: "Souderton is about 50 minutes from our Easton bench — worth the drive, and we make it regularly.",
   },
   {
     slug: "coopersburg",
@@ -106,7 +157,7 @@ export const towns: TownData[] = [
     townships: "Coopersburg Borough and Upper Saucon Township",
     permitsNote: "Upper Saucon requires permits for plumbing and electrical changes — we coordinate the inspections.",
     popularStyleNote: "Painted inset shaker for the older homes, modern full-overlay for the newer construction.",
-    whyLocalLine: "Coopersburg is a short drive up Route 309 from our shop. We're in town regularly.",
+    whyLocalLine: "Coopersburg is about 30 minutes from our Easton bench via Route 78. We're in town regularly.",
   },
   {
     slug: "hellertown",
@@ -120,7 +171,7 @@ export const towns: TownData[] = [
     townships: "Hellertown Borough and Lower Saucon Township",
     permitsNote: "Lower Saucon is fast on cabinetry permits — typical turnaround is a week or two.",
     popularStyleNote: "Modern full-overlay leads, with shaker still strong in the older borough homes.",
-    whyLocalLine: "About 20 minutes from our shop. We install in Hellertown most months.",
+    whyLocalLine: "Hellertown is about 20 minutes from our Easton bench. We install here most months.",
   },
   {
     slug: "emmaus",
@@ -134,7 +185,7 @@ export const towns: TownData[] = [
     townships: "Emmaus Borough, Salisbury Township, and Upper Milford Township",
     permitsNote: "Borough permits move quickly. Township scope occasionally needs HVAC review.",
     popularStyleNote: "Transitional shaker leads, with two-tone islands close behind.",
-    whyLocalLine: "Emmaus is about 25 minutes from our shop. Most of our Lehigh Valley installs happen here.",
+    whyLocalLine: "Emmaus is about 30 minutes from our Easton bench, and one of our most frequent install destinations.",
   },
   {
     slug: "harleysville",
@@ -148,7 +199,7 @@ export const towns: TownData[] = [
     townships: "Lower Salford Township and Towamencin Township",
     permitsNote: "Townships are straightforward on cabinetry permits. We pull them in your name.",
     popularStyleNote: "Painted shaker leads here — modernizing 1990s-era developments tends to land on a transitional palette.",
-    whyLocalLine: "Harleysville is about 30 minutes from our shop. We install here regularly.",
+    whyLocalLine: "Harleysville is about 55 minutes from our Easton bench. We schedule installs here in efficient batches.",
   },
   {
     slug: "lansdale",
@@ -162,7 +213,7 @@ export const towns: TownData[] = [
     townships: "Lansdale Borough, Towamencin Township, and Hatfield Township",
     permitsNote: "Wall removal needs structural review. We coordinate engineering when the scope calls for it.",
     popularStyleNote: "Shaker in soft whites and warm woods leads, with two-tone islands as a close second.",
-    whyLocalLine: "Lansdale is about 30 minutes south of our shop. Frequent install territory for us.",
+    whyLocalLine: "Lansdale is about 55 minutes from our Easton bench. We batch our Montgomery County installs to keep scheduling tight.",
   },
   {
     slug: "new-hope",
@@ -176,7 +227,7 @@ export const towns: TownData[] = [
     townships: "New Hope Borough and Solebury Township",
     permitsNote: "Solebury and the historic district are slower on permits — we plan for it.",
     popularStyleNote: "Modern full-overlay in oak or walnut leads up the hill; period work leads in the historic district.",
-    whyLocalLine: "We make the drive to New Hope often — it's about 35 minutes from the shop.",
+    whyLocalLine: "We make the drive to New Hope often — about 40 minutes from our Easton bench along the river.",
   },
   {
     slug: "center-valley",
@@ -190,7 +241,7 @@ export const towns: TownData[] = [
     townships: "Upper Saucon Township",
     permitsNote: "Upper Saucon requires permits for plumbing and electrical scope. We pull and inspect.",
     popularStyleNote: "Painted shaker dominates here — most clients want a transitional look that won't date.",
-    whyLocalLine: "Center Valley is about 25 minutes from our Quakertown shop. Frequent install territory.",
+    whyLocalLine: "Center Valley is about 30 minutes from our Easton bench. Frequent install territory.",
   },
 ];
 

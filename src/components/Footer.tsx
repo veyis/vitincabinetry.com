@@ -60,7 +60,7 @@ export default function Footer() {
           <div style={{ fontFamily: "var(--font-serif)", fontSize: "1.25rem", color: "var(--text)", marginBottom: "0.75rem" }}>
             {site.name}
           </div>
-          <div>Kitchen, bathroom &amp; closet cabinetry — plus countertops, flooring, and full remodeling. Built and sold in Quakertown, PA, for homeowners and trade.</div>
+          <div>Kitchen, bathroom &amp; closet cabinetry — plus countertops, flooring, and full remodeling. Built and sold in Easton, PA, for homeowners and trade.</div>
           <div style={{ marginTop: "0.75rem" }}>
             <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a><br/>
             <a href={`mailto:${site.email}`}>{site.email}</a>

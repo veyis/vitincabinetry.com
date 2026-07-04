@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 import { shareMetadata } from "@/lib/seo";
 
-const PAGE_TITLE = "Quartz, Granite & Porcelain Countertops — Quakertown, PA";
+const PAGE_TITLE = "Quartz, Granite & Porcelain Countertops — Easton, PA";
 const PAGE_DESC =
-  "Quartz, granite, and porcelain countertops templated, fabricated, and installed from Quakertown, PA. Paired with our cabinets or fitted to yours. Serving Bucks County and the Lehigh Valley.";
+  "Quartz, granite, and porcelain countertops templated, fabricated, and installed from Easton, PA. Paired with our cabinets or fitted to yours. Serving Bucks County and the Lehigh Valley.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -38,7 +38,7 @@ const materials = [
 ];
 
 const steps = [
-  { name: "Material selection", text: "Sit at the materials bench in our Quakertown showroom with door samples and slab samples side by side — the way you'll actually see them in your kitchen." },
+  { name: "Material selection", text: "Sit at the materials bench in our Easton showroom with door samples and slab samples side by side — the way you'll actually see them in your kitchen." },
   { name: "Template after cabinets are set", text: "We template only after base cabinets are installed and level. Templating from drawings alone is how you end up with a seam over the dishwasher." },
   { name: "Fabrication", text: "Your tops are cut, polished, and edge-profiled to the template — cutouts for sink, cooktop, and faucet included." },
   { name: "Installation", text: "Set, seamed, and supported correctly, with plumbing reconnection coordinated so your kitchen is out of service for days, not weeks." },
@@ -76,7 +76,7 @@ export default function Page() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/calacatta-marble-kitchen-island-overhead.png"
-          alt="Honed stone countertop on a custom kitchen island built by Vitrin Cabinetry in Quakertown, PA"
+          alt="Honed stone countertop on a custom kitchen island built by Vitrin Cabinetry in Easton, PA"
           fill
           priority
           sizes="100vw"
@@ -94,7 +94,7 @@ export default function Page() {
             Quartz, granite &amp; porcelain countertops — done in the right order.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "660px", margin: "0 auto", lineHeight: 1.6 }}>
-            The countertop is the last big decision in a kitchen and the first thing everyone touches. We template after the cabinets are set, fabricate to the template, and install with the same crew accountability as our cabinetry — across Quakertown, Bucks County, and the Lehigh Valley.
+            The countertop is the last big decision in a kitchen and the first thing everyone touches. We template after the cabinets are set, fabricate to the template, and install with the same crew accountability as our cabinetry — across Easton, Bethlehem, Allentown, and the greater Lehigh Valley.
           </p>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default function Page() {
             Because the most common countertop problems aren&apos;t stone problems — they&apos;re sequencing problems. Tops templated before the cabinets were level. A seam landing in the worst possible spot because nobody looked at the cabinet layout. An overhang that doesn&apos;t clear the drawer bank. When the same shop is responsible for the boxes and the tops, those problems get caught on paper instead of in your kitchen.
           </p>
           <p>
-            We supply countertops two ways: paired with a <Link href="/cabinets/custom">Vitrin Signature</Link> or <Link href="/cabinets/stock">Vitrin Stock</Link> cabinet order on one schedule, or as a standalone replacement on cabinets you already own. Either way, you pick the material at our Quakertown showroom next to real door samples — not from a laminate chip under fluorescent light.
+            We supply countertops two ways: paired with a <Link href="/cabinets/custom">Vitrin Signature</Link> or <Link href="/cabinets/stock">Vitrin Stock</Link> cabinet order on one schedule, or as a standalone replacement on cabinets you already own. Either way, you pick the material at our Easton showroom next to real door samples — not from a laminate chip under fluorescent light.
           </p>
         </div>
       </section>
@@ -201,7 +201,7 @@ export default function Page() {
         <div className="container" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Pick your slab next to your door style.</h2>
           <p style={{ fontSize: "1.05rem", maxWidth: "560px", margin: "1rem auto 2.5rem" }}>
-            Visit the Quakertown showroom, or send us your kitchen dimensions for a countertop quote — with or without cabinets.
+            Visit the Easton showroom, or send us your kitchen dimensions for a countertop quote — with or without cabinets.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact?type=countertops" className="btn-primary">Get a Countertop Quote</Link>
@@ -230,7 +230,7 @@ export default function Page() {
             serviceSchema({
               name: "Countertop Fabrication & Installation",
               description:
-                "Quartz, granite, and porcelain countertops templated, fabricated, and installed by Vitrin Cabinetry in Quakertown, PA — with cabinets or standalone.",
+                "Quartz, granite, and porcelain countertops templated, fabricated, and installed by Vitrin Cabinetry in Easton, PA — with cabinets or standalone.",
               url: pageUrl,
               serviceType: "Countertop Installation",
             })

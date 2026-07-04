@@ -10,7 +10,7 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "How Ordering a Custom Kitchen Works — Vitrin Cabinetry",
   description:
-    "How Vitrin Cabinetry handles a custom kitchen order, end to end: discovery, in-home survey, design and quote, fabrication at our Quakertown bench, and delivery (install optional).",
+    "How Vitrin Cabinetry handles a custom kitchen order, end to end: discovery, in-home survey, design and quote, fabrication at our Easton bench, and delivery (install optional).",
   alternates: { canonical: "/process" },
 };
 
@@ -37,7 +37,7 @@ const steps = [
     title: "Fabrication at our bench",
     duration: "4–8 weeks",
     body:
-      "Your cabinets are built at our Quakertown shop by our team. Plywood boxes, dovetail solid-wood drawers, Blum soft-close hardware, finished in a dust-controlled spray booth. Weekly photo updates.",
+      "Your cabinets are built at our Easton shop by our team. Plywood boxes, dovetail solid-wood drawers, Blum soft-close hardware, finished in a dust-controlled spray booth. Weekly photo updates.",
   },
   {
     title: "Delivery — install optional",
@@ -140,7 +140,7 @@ export default function ProcessPage() {
             serviceSchema({
               name: "Custom Cabinet Supply",
               description:
-                "A 5-step process for ordering custom kitchens and bath cabinetry, manufactured at our Quakertown, PA shop. Installation is optional and offered separately.",
+                "A 5-step process for ordering custom kitchens and bath cabinetry, manufactured at our Easton, PA shop. Installation is optional and offered separately.",
               url: pageUrl,
               serviceType: "Custom Cabinet Supply",
             })

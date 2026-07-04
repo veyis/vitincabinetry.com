@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, cabinetStoreSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Visit the Vitrin Showroom — Quakertown, PA",
+  title: "Visit the Vitrin Showroom — Easton, PA",
   description:
-    "Vitrin Cabinetry's showroom in Quakertown, PA. Sit at the materials bench, browse stock cabinets ready to take home, and start a custom kitchen — all in one place.",
+    "Vitrin Cabinetry's showroom in Easton, PA. Sit at the materials bench, browse stock cabinets ready to take home, and start a custom kitchen — all in one place.",
   alternates: { canonical: "/showroom" },
 };
 
@@ -48,7 +48,7 @@ export default function ShowroomPage() {
             Visit the Vitrin showroom.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Quakertown, PA. Stock cabinets on the floor, materials bench, dedicated rep. The place to start, whether you came for one vanity or a full custom kitchen.
+            Easton, PA. Stock cabinets on the floor, materials bench, dedicated rep. The place to start, whether you came for one vanity or a full custom kitchen.
           </p>
         </div>
       </section>
@@ -75,7 +75,7 @@ export default function ShowroomPage() {
           <span className="eyebrow">Plan your visit</span>
           <h2 className="section-heading">Address coming soon</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Our Quakertown showroom is opening soon. Until the address is final, book a visit by phone or email — we&apos;ll confirm the exact location and time.
+            Our Easton showroom is opening soon. Until the address is final, book a visit by phone or email — we&apos;ll confirm the exact location and time.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <a href={`tel:${site.phone}`} className="btn-primary">
