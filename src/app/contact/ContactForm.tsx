@@ -99,7 +99,6 @@ export default function ContactForm() {
     <form
       onSubmit={onSubmit}
       style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
-      noValidate
     >
       {/* Honeypot — hidden from humans, bots fill it */}
       <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
