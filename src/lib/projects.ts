@@ -1,7 +1,7 @@
 /**
- * Portfolio projects. Photo paths point to /public/projects/*.jpg which
- * is intentionally empty for now — pages render placeholder blocks until
- * real photography lands. Add or update entries here; the dynamic
+ * Portfolio projects. `image` points at representative shop imagery until
+ * real project photography lands (pages render placeholder blocks on-page;
+ * these paths feed og:image and schema, which must resolve). Add or update entries here; the dynamic
  * /portfolio/[slug] route picks them up automatically.
  */
 
@@ -16,7 +16,7 @@ export type Project = {
   scope: string[];
   summary: string;    // 1-sentence
   story: string;      // 2–3 paragraph story
-  image: string;      // /projects/[slug].jpg (placeholder)
+  image: string;      // representative image (real photography pending)
   category?: ProjectCategory;
 };
 
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     summary: "A century-old Quaker farmhouse reorganized around how the owners actually cook.",
     story:
       "The house was older than the rest of the country. The walls were plaster, the ceiling sagged a quarter inch over six feet, and the kitchen had been laid out in 1948 for a different family entirely.\n\nWe scribed every cabinet to the wall, integrated panels on the refrigerator and dishwasher, and built a working island that runs almost the full length of the room. Inset shaker doors in a warm white paint, polished-nickel hardware, soapstone counter on the island and quartz on the perimeter.\n\nFinished in 11 weeks from contract to final walkthrough.",
-    image: "/projects/quakertown-farmhouse.jpg",
+    image: "/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png",
     category: "custom-kitchens",
   },
   {
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     summary: "A period-correct kitchen for a borough historic-district Victorian.",
     story:
       "Working in Doylestown's historic district means every detail gets weighed against what's already there. The original floor pattern, the casing profiles, the wood species choices — everything had to feel like it had always been part of the house.\n\nWe drew traditional raised-panel maple doors in a hand-mixed cream paint, hand-scribed every cabinet against the lath-and-plaster walls, and matched the island leg detail to the porch posts on the front of the house. The finish work alone took two weeks.\n\nA borough kitchen that looks like it was built with the house.",
-    image: "/projects/doylestown-victorian.jpg",
+    image: "/images/heros/heritage-green-custom-kitchen-cabinets-bucks-county.png",
     category: "custom-kitchens",
   },
   {
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     summary: "A 1900s Perkasie Victorian, opened up, with the island anchoring the room.",
     story:
       "The original kitchen had been remodeled three times across three decades — and looked like it. The owners wanted a kitchen that finally felt like it belonged to the house.\n\nWe drew a transitional inset face-frame in painted maple, kept the original heart-pine floors, and built a long stained-walnut island that anchors the room. The plumbing got rerun, electrical relocated, and the breakfast nook turned into a window-bench reading corner.\n\nPainted perimeter, stained island, polished hardware. Family kitchen that lives up to the house.",
-    image: "/projects/perkasie-two-tone.jpg",
+    image: "/images/heros/calacatta-marble-kitchen-island-overhead.png",
     category: "custom-kitchens",
   },
   {
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     summary: "Centuries-old stone walls meet minimalist Italian-modern cabinetry.",
     story:
       "Stone walls, original beam ceiling, and an owner who wanted a kitchen that looked like it had been parachuted in from Milan. The contrast is the design.\n\nMinimalist rift-cut white oak full-overlay cabinets with integrated handles, no upper cabinets, and a freestanding island that reads more like furniture than millwork. Hidden coffee station, integrated wet bar in the corner, and a pantry tucked behind a pivot door that matches the cabinetry.\n\nThe stone walls do the storytelling. The cabinetry stays out of their way.",
-    image: "/projects/new-hope-modern-stone.jpg",
+    image: "/images/heros/minimalist-white-oak-custom-kitchen-cabinetry.png",
     category: "custom-kitchens",
   },
   {
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     summary: "A downtown Emmaus Victorian's awkward 1950s extension turned into the most-used room in the house.",
     story:
       "Period-correct from the doorway, modern from inside. The original Victorian was beautiful, the 1950s extension awkward but full of light — a recurring problem in downtown Emmaus.\n\nWe drew tall shaker uppers to take advantage of the extra height, built a long island down the middle, and kept the original arched doorway as the visual anchor. Painted in a warm off-white with brushed-brass hardware.\n\nA pantry tower replaced the back wall. The light is the centerpiece.",
-    image: "/projects/emmaus-victorian-extension.jpg",
+    image: "/images/heros/indoor-outdoor-custom-kitchen-bucks-county-garden.png",
     category: "custom-kitchens",
   },
   {
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     summary: "A 2002 developer-grade kitchen rebuilt as proper custom cabinetry, same footprint, twice the storage.",
     story:
       "Original developer-grade cabinets — particle-board boxes, oak doors darkened over twenty years, awkward corners that wasted real space. The owners wanted custom storage in a contemporary palette without moving any walls.\n\nWe drew painted shaker fronts in a soft warm white, replaced every lower door with a drawer bank, added two pantry towers framing the breakfast nook, and finished the island in a deeper greige paint.\n\nNew cabinets, same footprint. Twice the working storage. The owners haven't put a thing in a top cabinet since.",
-    image: "/projects/center-valley-colonial.jpg",
+    image: "/images/heros/navy-blue-custom-kitchen-cabinets-twilight.png",
     category: "custom-kitchens",
   },
 ];
