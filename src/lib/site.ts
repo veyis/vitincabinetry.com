@@ -8,7 +8,7 @@
 export const site = {
   name: "Vitrin Cabinetry",
   legalName: "Vitrin Cabinetry",
-  url: "https://vitrincabinetry.com",
+  url: "https://www.vitrincabinetry.com",
   defaultLocale: "en-US",
 
   // Replace placeholders before launch — these become the schema NAP.
