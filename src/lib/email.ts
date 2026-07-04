@@ -61,11 +61,15 @@ export async function sendContactEmail(payload: ContactPayload) {
     .filter(Boolean)
     .join("\n");
 
-  return getClient().emails.send({
+  const { data, error } = await getClient().emails.send({
     from: `${site.name} Website <${contactFromEmail}>`,
     to: [contactToEmail],
     replyTo: payload.email,
     subject,
     text,
   });
+  if (error) {
+    throw new Error(`Resend: ${error.message}`);
+  }
+  return data;
 }

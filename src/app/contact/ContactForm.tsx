@@ -78,7 +78,6 @@ export default function ContactForm() {
         throw new Error(body.error || "Could not send message");
       }
       setStatus("success");
-      e.currentTarget.reset();
     } catch (err) {
       setStatus("error");
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
