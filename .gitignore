@@ -32,6 +32,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...but .env.example carries no secrets and is the onboarding reference
+# week1-checklist.md tells you to copy. Keep it tracked.
+!.env.example
 
 # vercel
 .vercel
