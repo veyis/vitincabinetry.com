@@ -868,5 +868,6 @@ End of Month 1 KPI: 12 indexed pages, 5+ Google reviews collected, baseline orga
 
 - `competitors.md` — full top-10 competitor profiles
 - `competitors.pdf` — client-ready PDF version
+- `backlinks.md` — executed off-page research: verified prospects + outreach drafts (expands §8)
 - `strategy.md` *(this document)*
 - `strategy.pdf` — client-ready PDF (generated from this document)

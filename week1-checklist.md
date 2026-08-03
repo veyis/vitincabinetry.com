@@ -129,7 +129,8 @@ returns `{ ok: true, id }` and appears in the PxlPeak leads dashboard.
    - **Yellow Pages** — https://accounts.yellowpages.com
    - **Foursquare** — https://business.foursquare.com
    - **Manta** — https://www.manta.com/claim
-   - **Quakertown Chamber of Commerce** — https://upperbuckschamber.org
+   - **Greater Lehigh Valley Chamber of Commerce** — https://www.lehighvalleychamber.org (covers Easton, Bethlehem, Allentown)
+   - **Upper Bucks Chamber of Commerce** — https://upperbuckschamber.org (secondary — only if defending the Bucks County pages)
    - **NARI member directory** (after joining — see below)
    - **NKBA member directory** (after joining — see below)
 
@@ -145,44 +146,44 @@ Set this up so we have a "before" snapshot.
 
 - **AccuRanker** — $30/mo, best UI ([https://www.accuranker.com](https://www.accuranker.com))
 - **SerpRobot** — $9/mo, basic ([https://www.serprobot.com](https://www.serprobot.com))
-- **Free path** — paste keywords into a Google Sheet, check positions manually weekly using an incognito window from Quakertown IP (via VPN if traveling).
+- **Free path** — paste keywords into a Google Sheet, check positions manually weekly using an incognito window from an Easton IP (via VPN if traveling).
 
 ### The 30 baseline keywords
 
-Paste these into the rank tracker. Target location: **Quakertown, PA 18951**. Device: **mobile** (70% of local search is mobile).
+Paste these into the rank tracker. Target location: **Easton, PA 18042** (must match `site.address` in `src/lib/site.ts`). Device: **mobile** (70% of local search is mobile).
 
 | # | Keyword | Tier |
 |---|---------|------|
-| 1 | custom kitchen cabinets quakertown | T1 money |
-| 2 | kitchen remodeling quakertown pa | T1 money |
-| 3 | kitchen cabinets bucks county | T1 money |
-| 4 | custom cabinets bucks county | T1 money |
-| 5 | kitchen designer quakertown | T1 money |
-| 6 | bathroom vanity quakertown | T1 money |
-| 7 | cabinet maker quakertown | T1 money |
-| 8 | kitchen remodeling bucks county pa | T1 money |
-| 9 | custom kitchen cabinets perkasie | T2 town |
-| 10 | custom kitchen cabinets doylestown | T2 town |
-| 11 | custom kitchen cabinets sellersville | T2 town |
-| 12 | custom kitchen cabinets souderton | T2 town |
-| 13 | custom kitchen cabinets coopersburg | T2 town |
-| 14 | custom kitchen cabinets hellertown | T2 town |
-| 15 | custom kitchen cabinets emmaus | T2 town |
-| 16 | custom kitchen cabinets harleysville | T2 town |
-| 17 | custom kitchen cabinets lansdale | T2 town |
-| 18 | custom kitchen cabinets new hope | T2 town |
-| 19 | custom kitchen cabinets center valley | T2 town |
-| 20 | cabinet refacing vs custom | T3 decision |
-| 21 | semi-custom vs custom cabinets | T3 decision |
-| 22 | custom kitchen cost bucks county pa | T3 decision |
-| 23 | how to choose a kitchen designer | T3 decision |
-| 24 | inset vs full overlay cabinets | T3 decision |
-| 25 | frameless vs face frame cabinets | T3 decision |
-| 26 | quartz vs granite countertops | T3 decision |
-| 27 | wolf cabinets vs custom | T3 decision (brand) |
-| 28 | inset shaker cabinets bucks county | T5 long-tail |
-| 29 | paint grade cabinetry quakertown | T5 long-tail |
-| 30 | custom pantry quakertown | T5 long-tail |
+| 1 | custom kitchen cabinets easton pa | T1 money |
+| 2 | custom kitchen cabinets bethlehem pa | T1 money |
+| 3 | custom kitchen cabinets allentown pa | T1 money |
+| 4 | cabinet maker easton pa | T1 money |
+| 5 | kitchen remodeling easton pa | T1 money |
+| 6 | bathroom vanity easton pa | T1 money |
+| 7 | custom cabinets lehigh valley | T1 money |
+| 8 | kitchen designer lehigh valley | T1 money |
+| 9 | custom kitchen cabinets quakertown | T2 town |
+| 10 | custom kitchen cabinets perkasie | T2 town |
+| 11 | custom kitchen cabinets doylestown | T2 town |
+| 12 | custom kitchen cabinets sellersville | T2 town |
+| 13 | custom kitchen cabinets souderton | T2 town |
+| 14 | custom kitchen cabinets coopersburg | T2 town |
+| 15 | custom kitchen cabinets hellertown | T2 town |
+| 16 | custom kitchen cabinets emmaus | T2 town |
+| 17 | custom kitchen cabinets harleysville | T2 town |
+| 18 | custom kitchen cabinets lansdale | T2 town |
+| 19 | custom kitchen cabinets new hope | T2 town |
+| 20 | custom kitchen cabinets center valley | T2 town |
+| 21 | kitchen cabinets bucks county | T2 regional |
+| 22 | custom cabinets bucks county | T2 regional |
+| 23 | cabinet refacing vs custom | T3 decision |
+| 24 | stock vs custom cabinets | T3 decision |
+| 25 | how to choose a kitchen designer | T3 decision |
+| 26 | inset vs full overlay cabinets | T3 decision |
+| 27 | quartz vs granite countertops | T3 decision |
+| 28 | custom kitchen cost bucks county pa | T3 decision |
+| 29 | contractor cabinet pricing | T3 decision |
+| 30 | flooring or cabinets first | T3 decision |
 
 Set the tool to email a weekly rank report. Save the **Week-0 snapshot** as the baseline — every gain measured from here.
 
