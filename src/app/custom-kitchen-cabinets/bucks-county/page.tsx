@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { projects } from "@/lib/projects";
-import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Custom Kitchen Cabinets in Bucks County, PA",
@@ -75,15 +75,7 @@ const faqs = [
 export default function BucksCountyPillar() {
   const pageUrl = `${site.url}/custom-kitchen-cabinets/bucks-county`;
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  const faqSchema = faqPageJsonLd(faqs);
 
   const featured = projects.slice(0, 3);
 

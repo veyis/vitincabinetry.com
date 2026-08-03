@@ -495,6 +495,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Financing Banner */}
+      <section style={{ padding: "3rem 0", background: "var(--background)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+        <div className="container" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+          <h3 style={{ fontSize: "1.2rem", margin: 0 }}>Flexible Financing Available</h3>
+          <p style={{ color: "var(--text-secondary)", margin: 0 }}>
+            Partnered with Hearth &amp; Wisetack. Financing from $250/mo. No prepayment penalties.
+          </p>
+        </div>
+      </section>
+
       {/* Dual final CTA */}
       <section className="section--dark">
         <div className="container" style={{ textAlign: "center" }}>

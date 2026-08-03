@@ -1,11 +1,31 @@
 import { site } from "./site";
+import type { 
+  WithContext, 
+  Thing, 
+  LocalBusiness, 
+  Organization, 
+  WebSite, 
+  Article, 
+  FAQPage, 
+  ItemList, 
+  AboutPage, 
+  CreativeWork, 
+  HowTo, 
+  VideoObject, 
+  BreadcrumbList, 
+  Service,
+  HomeAndConstructionBusiness,
+  Product,
+  Offer,
+  Person
+} from "schema-dts";
 
 /**
  * JSON-LD payload builders for schema.org structured data.
  * Render with: <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(payload) }} />
  */
 
-export function toJsonLd(payload: Record<string, unknown>): string {
+export function toJsonLd(payload: Thing | WithContext<Thing>): string {
   // Escape `<` to prevent HTML injection per Next.js docs guidance.
   return JSON.stringify(payload).replace(/</g, "\\u003c");
 }
@@ -13,7 +33,7 @@ export function toJsonLd(payload: Record<string, unknown>): string {
 // Omit streetAddress when site.address.street is still the placeholder value.
 // Once NEXT_PUBLIC_BUSINESS_STREET is set in the env, the real street flows through.
 const postalAddress = {
-  "@type": "PostalAddress",
+  "@type": "PostalAddress" as const,
   ...(site.address.street.startsWith("TBD") ? {} : { streetAddress: site.address.street }),
   addressLocality: site.address.locality,
   addressRegion: site.address.region,
@@ -22,7 +42,7 @@ const postalAddress = {
 };
 
 const openingHours = site.hours.map((h) => ({
-  "@type": "OpeningHoursSpecification",
+  "@type": "OpeningHoursSpecification" as const,
   dayOfWeek: h.dayOfWeek,
   opens: h.opens,
   closes: h.closes,
@@ -39,17 +59,17 @@ const hasMapUrl =
 
 /** Mirrors the GBP service list so Google sees the same offering on both surfaces. */
 const offerCatalog = {
-  "@type": "OfferCatalog",
+  "@type": "OfferCatalog" as const,
   name: "Kitchen, Bathroom & Closet Services",
   itemListElement: site.services.map((s) => ({
-    "@type": "Offer",
-    itemOffered: { "@type": "Service", name: s },
+    "@type": "Offer" as const,
+    itemOffered: { "@type": "Service" as const, name: s },
   })),
 };
 
-export const localBusinessSchema = {
+export const localBusinessSchema: WithContext<LocalBusiness> = {
   "@context": "https://schema.org",
-  "@type": "CabinetMaker",
+  "@type": "HomeAndConstructionBusiness",
   "@id": `${site.url}#localbusiness`,
   name: site.name,
   alternateName: site.gbpName,
@@ -67,7 +87,7 @@ export const localBusinessSchema = {
   hasOfferCatalog: offerCatalog,
   contactPoint: [
     {
-      "@type": "ContactPoint",
+      "@type": "ContactPoint" as const,
       telephone: site.phone,
       email: site.email,
       contactType: "customer service",
@@ -88,7 +108,7 @@ export const localBusinessSchema = {
     : {}),
 };
 
-export const organizationSchema = {
+export const organizationSchema: WithContext<Organization> = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${site.url}#organization`,
@@ -100,7 +120,7 @@ export const organizationSchema = {
   ...(sameAs.length > 0 ? { sameAs } : {}),
 };
 
-export const websiteSchema = {
+export const websiteSchema: WithContext<WebSite> = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${site.url}#website`,
@@ -111,12 +131,11 @@ export const websiteSchema = {
   publisher: { "@id": `${site.url}#organization` },
   potentialAction: [
     {
-      "@type": "ContactAction",
+      "@type": "SearchAction",
       name: "Request a consultation",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${site.url}/contact`,
-        inLanguage: "en-US",
+        urlTemplate: "https://vitrincabinetry.com/search?q={search_term_string}",
         actionPlatform: [
           "http://schema.org/DesktopWebPlatform",
           "http://schema.org/MobileWebPlatform",
@@ -133,7 +152,7 @@ export function articleJsonLd(opts: {
   datePublished: string;
   dateModified?: string;
   imageUrls?: string[];
-}) {
+}): WithContext<Article> {
   const images =
     opts.imageUrls && opts.imageUrls.length > 0 ? opts.imageUrls : [`${site.url}/og.jpg`];
   return {
@@ -151,7 +170,7 @@ export function articleJsonLd(opts: {
   };
 }
 
-export function faqPageJsonLd(faqs: ReadonlyArray<{ q: string; a: string }>) {
+export function faqPageJsonLd(faqs: ReadonlyArray<{ q: string; a: string }>): WithContext<FAQPage> {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -168,7 +187,7 @@ export function itemListJsonLd(opts: {
   description?: string;
   url?: string;
   items: ReadonlyArray<{ name: string; description: string; url?: string }>;
-}) {
+}): WithContext<ItemList> {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -196,7 +215,7 @@ export function itemListJsonLd(opts: {
   };
 }
 
-export function aboutPageJsonLd(opts: { name: string; description: string; url: string }) {
+export function aboutPageJsonLd(opts: { name: string; description: string; url: string }): WithContext<AboutPage> {
   return {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -216,7 +235,7 @@ export function portfolioProjectJsonLd(opts: {
   dateCreated: string;
   locationCreated: string;
   keywords: string;
-}) {
+}): WithContext<CreativeWork> {
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -237,7 +256,7 @@ export function howToJsonLd(opts: {
   url: string;
   steps: ReadonlyArray<{ name: string; text: string }>;
   totalTime?: string;
-}) {
+}): WithContext<HowTo> {
   return {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -261,7 +280,7 @@ export function videoObjectJsonLd(opts: {
   contentUrl: string;
   uploadDate: string;
   embedUrl?: string;
-}) {
+}): WithContext<VideoObject> {
   return {
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -275,7 +294,7 @@ export function videoObjectJsonLd(opts: {
   };
 }
 
-export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
+export function breadcrumbSchema(items: Array<{ name: string; url: string }>): WithContext<BreadcrumbList> {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -293,7 +312,7 @@ export function serviceSchema(opts: {
   description: string;
   url: string;
   serviceType?: string;
-}) {
+}): WithContext<Service> {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -313,9 +332,9 @@ export function serviceSchema(opts: {
  * This variant emphasizes the storefront and is rendered on /, /showroom,
  * and the town pages where both tiers are sold.
  */
-export const cabinetStoreSchema = {
+export const cabinetStoreSchema: WithContext<HomeAndConstructionBusiness> = {
   "@context": "https://schema.org",
-  "@type": ["FurnitureStore", "HomeAndConstructionBusiness"],
+  "@type": "HomeAndConstructionBusiness" as const,
   "@id": `${site.url}#cabinetstore`,
   name: site.name,
   alternateName: site.gbpName,
@@ -339,8 +358,8 @@ export function productSchema(opts: {
   image: string;
   url: string;
   sku?: string;
-  offers?: ReturnType<typeof offerSchema> | ReturnType<typeof offerSchema>[];
-}) {
+  offers?: Offer | Offer[];
+}): WithContext<Product> {
   const offers = opts.offers
     ? Array.isArray(opts.offers)
       ? opts.offers
@@ -367,7 +386,7 @@ export function offerSchema(opts: {
   // or "InStock" when the item is orderable from stock.
   availability?: "InStock" | "OutOfStock" | "PreOrder" | "BackOrder";
   url?: string;
-}) {
+}): Offer {
   return {
     "@type": "Offer",
     priceCurrency: opts.priceCurrency ?? "USD",
@@ -375,5 +394,24 @@ export function offerSchema(opts: {
     availability: `https://schema.org/${opts.availability ?? "InStock"}`,
     ...(opts.url ? { url: opts.url } : {}),
     seller: { "@id": `${site.url}#cabinetstore` },
+  };
+}
+
+export function personSchema(opts: {
+  name: string;
+  jobTitle?: string;
+  description?: string;
+  image?: string;
+  url: string;
+}): WithContext<Person> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: opts.name,
+    ...(opts.jobTitle ? { jobTitle: opts.jobTitle } : {}),
+    ...(opts.description ? { description: opts.description } : {}),
+    ...(opts.image ? { image: opts.image } : {}),
+    url: opts.url,
+    worksFor: { "@id": `${site.url}#organization` },
   };
 }

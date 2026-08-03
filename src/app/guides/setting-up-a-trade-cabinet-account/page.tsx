@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
-import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, toJsonLd, articleJsonLd } from "@/lib/schema";
 
 const SLUG = "setting-up-a-trade-cabinet-account";
 const meta = getGuide(SLUG)!;
@@ -19,18 +19,13 @@ export const metadata: Metadata = {
 export default function SettingUpTradeAccountPage() {
   const pageUrl = `${site.url}/guides/${SLUG}`;
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+  const articleSchema = articleJsonLd({
     headline: meta.title,
     description: meta.excerpt,
-    author: { "@id": `${site.url}#organization` },
-    publisher: { "@id": `${site.url}#organization` },
+    url: pageUrl,
     datePublished: meta.datePublished,
     dateModified: meta.datePublished,
-    mainEntityOfPage: pageUrl,
-    url: pageUrl,
-  };
+  });
 
   return (
     <main>

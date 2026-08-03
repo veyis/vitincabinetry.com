@@ -7,6 +7,7 @@ import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 import { shareMetadata } from "@/lib/seo";
+import LeadMagnet from "@/components/LeadMagnet";
 
 const SLUG = "custom-kitchen-cost-bucks-county";
 const meta = getGuide(SLUG)!;
@@ -257,6 +258,15 @@ export default function CostGuidePage() {
             </p>
 
             <h2 className="section-heading" style={{ marginTop: "2.5rem", marginBottom: "1rem", fontSize: "1.8rem" }}>FAQs</h2>
+          </div>
+
+          <div className="container--narrow" style={{ marginBottom: "3rem" }}>
+            <LeadMagnet 
+              title="Download the 2026 Kitchen Remodel Cost Breakdown" 
+              description="Get a detailed PDF showing exactly where every dollar goes in a $65k kitchen remodel in Bucks County, from demo to finishing." 
+              buttonText="Download PDF" 
+              downloadUrl="/downloads/2026-kitchen-cost-breakdown.pdf" 
+            />
           </div>
 
           <div className="container--narrow">

@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { towns, getTown, type TownData } from "@/lib/towns";
-import { breadcrumbSchema, cabinetStoreSchema, serviceSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, cabinetStoreSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 type PageParams = { params: Promise<{ town: string }> };
 
@@ -95,15 +95,7 @@ export default async function TownPage({ params }: PageParams) {
 
   const pageUrl = `${site.url}/custom-kitchen-cabinets/${data.slug}`;
   const faqs = buildFaqs(data);
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  const faqSchema = faqPageJsonLd(faqs);
 
   const whyCards = [{ title: `We are local — actually local.`, body: data.whyLocalLine }, ...sharedWhyCards];
 

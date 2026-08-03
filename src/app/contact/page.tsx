@@ -54,8 +54,23 @@ export default function Contact() {
             <div>
               <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>Get a cabinet quote</h2>
               <p style={{ color: "var(--text-secondary)", marginBottom: "2rem" }}>
-                Fill out the form. Your dedicated rep will reach out within one business day to confirm the details.
+                Fill out the form below. For stock cabinets or trade inquiries, your rep will reach out within one business day.
               </p>
+
+              <div style={{ marginBottom: "2.5rem", padding: "1.5rem", background: "var(--surface)", borderLeft: "4px solid var(--primary)", borderRadius: "0 4px 4px 0" }}>
+                <h3 style={{ fontSize: "1.25rem", marginBottom: "0.75rem", color: "var(--text)" }}>The $250 Discovery Session</h3>
+                <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>
+                  For fully custom kitchen projects, we start with a Paid Discovery Session. This 60-minute in-home or showroom consultation includes a hand-sketched layout and a ballpark written quote. <strong>The $250 fee is fully credited toward your deposit if you proceed.</strong> This ensures our design time is dedicated to serious homeowners.
+                </p>
+                <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text)" }}>
+                  Kitchen Pricing Tiers:
+                </div>
+                <ul style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginTop: "0.5rem", paddingLeft: "1.2rem", lineHeight: 1.6 }}>
+                  <li><strong>Vitrin Stock (Semi-Custom):</strong> $30k–$55k</li>
+                  <li><strong>Vitrin Signature (Custom):</strong> $55k–$95k</li>
+                  <li><strong>Vitrin Signature Luxury:</strong> $95k+</li>
+                </ul>
+              </div>
 
               <div style={{ marginBottom: "2rem" }}>
                 <div style={{ fontWeight: "bold", color: "var(--primary)", marginBottom: "0.5rem" }}>Showroom</div>
