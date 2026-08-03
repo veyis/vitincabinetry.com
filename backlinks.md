@@ -135,7 +135,7 @@ No other strategy in this pack has that economics.
 >    something similar with Langhorne and it got decent pickup.
 >
 > Thanks,
-> Veyis Akgul — Vitrin Cabinetry, Easton PA — (484) 542-2571
+> Vincent Karaca — Vitrin Cabinetry, Easton PA — (484) 542-2571
 > https://www.vitrincabinetry.com
 
 **Do not** ask for a link in this email. The link comes from the coverage, and
@@ -218,7 +218,7 @@ dealer locator. Reps say yes because it's their job.
 > Vitrin Cabinetry — [STREET], Easton, PA 18042 — (484) 542-2571 —
 > https://www.vitrincabinetry.com
 >
-> Thanks, Veyis
+> Thanks, Vincent
 
 Note this needs the street address too — so it lands in Track B, but it's the
 first thing to do the day the address exists.
@@ -406,7 +406,7 @@ with a member directory, directly relevant to a cabinet shop.
 > Worth a conversation? I'd rather show you a finished box than pitch you. Happy
 > to bring samples to your office, or you're welcome at the Easton showroom.
 >
-> Veyis Akgul — Vitrin Cabinetry — (484) 542-2571
+> Vincent Karaca — Vitrin Cabinetry — (484) 542-2571
 > https://www.vitrincabinetry.com
 
 Ask for the vendor-page listing on the **second** contact, after a real
@@ -517,10 +517,10 @@ listing on merit.
 > panel, matching existing profiles in Federal-era rowhomes. If the directory is
 > open to a cabinetry/millwork listing, we'd like to be considered:
 >
-> Vitrin Cabinetry — https://www.vitrincabinetry.com — Veyis Akgul — (484) 542-2571
+> Vitrin Cabinetry — https://www.vitrincabinetry.com — Vincent Karaca — (484) 542-2571
 >
 > Thanks,
-> Veyis
+> Vincent
 
 ### Re-running this
 
