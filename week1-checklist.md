@@ -13,17 +13,17 @@ Allow **2–4 hours total** across the week. None of these are hard; they just h
 ### Steps
 
 1. Go to https://business.google.com → **Manage now**.
-2. Search for "Vitrin Cabinetery, Quakertown, PA." If a profile already exists (auto-created by Google), claim it. If not, create new.
+2. Search for "Vitrin Cabinetry, Easton, PA." If a profile already exists (auto-created by Google), claim it. If not, create new.
 3. Choose category: **Cabinet maker** (primary). Secondary: **Kitchen remodeler**, **Bathroom remodeler**, **Custom furniture maker**.
 4. Verification: Google will offer postcard, phone, email, or video. Pick whichever is fastest. Video is usually approved within 5 business days.
 5. **Once verified**, complete every field:
-   - Business name (exactly: `Vitrin Cabinetery`)
-   - Address (exact — must match the address in `src/lib/site.ts` and every citation)
-   - Service area (use the 12 towns in `src/lib/site.ts`)
-   - Phone (same number used everywhere)
-   - Website URL: `https://vitrincabinetery.com`
-   - Hours (must match the website's footer + schema)
-   - Description (750 chars max — focus on craft + custom + Quakertown)
+   - Business name (exactly `site.gbpName`: `Vitrin Cabinetry | Kitchen, Bathroom & Closet`)
+   - Address (exact — must match `site.address` in `src/lib/site.ts` and every citation)
+   - Service area (use the 15 towns in `site.areaServed`)
+   - Phone (exactly `site.phoneDisplay`: `(484) 542-2571`)
+   - Website URL: `https://www.vitrincabinetry.com`
+   - Hours (must match `site.hours`: Mon–Fri 9–6, Sat 10–4)
+   - Description (750 chars max — focus on craft + custom + Easton / Lehigh Valley)
    - Products → add 6+ cabinet styles with photos
    - Services → add 8+ (custom kitchens, bath vanities, closets, pantries, etc.)
 6. Upload **20+ photos**: shop interior, team, completed projects, before/after pairs.
@@ -46,16 +46,16 @@ The site code is ready — just need to connect accounts and paste IDs into `.en
 
 ### Search Console (free, ~5 min)
 
-1. Go to https://search.google.com/search-console → **Add property** → **Domain** → enter `vitrincabinetery.com`.
+1. Go to https://search.google.com/search-console → **Add property** → **Domain** → enter `vitrincabinetry.com`.
 2. Verify via DNS TXT record (Vercel makes this easy — copy the TXT, add it in the Vercel domain dashboard).
-3. Submit sitemap: `https://vitrincabinetery.com/sitemap.xml`.
+3. Submit sitemap: `https://www.vitrincabinetry.com/sitemap.xml` (the apex 301s to `www` — see `vercel.json`).
 4. Set preferred reporting country: US.
 
 ### Google Analytics 4 (free, ~10 min)
 
-1. Go to https://analytics.google.com → **Admin** → **Create account** → "Vitrin Cabinetery."
-2. Create property → name "Vitrin Cabinetery Website" → United States → USD.
-3. **Data Streams** → **Web** → URL `https://vitrincabinetery.com` → Stream name "Web."
+1. Go to https://analytics.google.com → **Admin** → **Create account** → "Vitrin Cabinetry."
+2. Create property → name "Vitrin Cabinetry Website" → United States → USD.
+3. **Data Streams** → **Web** → URL `https://www.vitrincabinetry.com` → Stream name "Web."
 4. Copy the **Measurement ID** (starts with `G-`).
 5. In the repo, copy `.env.example` → `.env.local`, paste the ID into `NEXT_PUBLIC_GA_ID`.
 6. Set the same ID as a production env var in Vercel: `vercel env add NEXT_PUBLIC_GA_ID production`.
@@ -70,24 +70,33 @@ In GA4 → Admin → **Product links** → **Search Console links** → link the
 ## 3. Microsoft Clarity (free heatmaps + session recordings)
 
 1. Go to https://clarity.microsoft.com → sign in with Microsoft account.
-2. **New project** → name "Vitrin Cabinetery" → category Home Services → website URL.
+2. **New project** → name "Vitrin Cabinetry" → category Home Services → website URL.
 3. Copy the **Project ID** (alphanumeric string).
 4. Paste it as `NEXT_PUBLIC_CLARITY_ID` in `.env.local` and Vercel production env.
 
 ---
 
-## 4. Resend (transactional email for the contact form)
+## 4. PxlPeak (lead delivery for the contact form)
 
-The contact form is wired; we just need credentials.
+The form does **not** send its own email. `src/app/api/contact/route.ts` POSTs the lead to
+PxlPeak's `/api/v1/leads`, which handles storage, fraud scoring, the owner notification, and
+the customer auto-reply — same setup as the other agency sites. There is no Resend account
+and no `RESEND_API_KEY` / `CONTACT_TO_EMAIL` / `CONTACT_FROM_EMAIL` for this project.
 
-1. Go to https://resend.com → sign up.
-2. **Domains** → **Add domain** → `vitrincabinetery.com` → add the SPF + DKIM TXT records in Vercel DNS.
-3. Wait for verification (usually <30 min).
-4. **API Keys** → **Create API key** → name "vitrin-prod" → permission "Sending access" → restrict to verified domain.
-5. Copy the key. Paste it into `.env.local` as `RESEND_API_KEY`. Set the same value in Vercel as a production env var.
-6. Set `CONTACT_TO_EMAIL` (where leads should land) and `CONTACT_FROM_EMAIL` (must be `@vitrincabinetery.com`).
+1. In PxlPeak, confirm the `vitrincabinetry.com` site exists and note its site UUID.
+2. **Settings → Email receivers** (`v2.sites.settings.emailReceivers`) → add whoever should get
+   lead notifications. This is the only place recipients are configured.
+3. Create a publishable key scoped to that site (`pk_live_…`).
+4. Set `PXLPEAK_API_URL="https://pxlpeak.com"` and `PXLPEAK_API_KEY` in `.env.local`, then set
+   both in Vercel as production env vars.
 
-Test: submit the form locally with the env set. Resend's dashboard logs every send.
+Test: submit the form locally. A missing/blank key returns a 500 with
+`PXLPEAK_API_URL or PXLPEAK_API_KEY not configured` in the server log; a good submission
+returns `{ ok: true, id }` and appears in the PxlPeak leads dashboard.
+
+> Separately: `hello@vitrincabinetry.com` is published in the footer and JSON-LD but has no
+> mailbox behind it yet. Provision it (or a forwarder) before launch — the contact form is
+> unaffected, but anyone who clicks the address mails into a void.
 
 ---
 
@@ -124,7 +133,7 @@ Test: submit the form locally with the env set. Resend's dashboard logs every se
    - **NARI member directory** (after joining — see below)
    - **NKBA member directory** (after joining — see below)
 
-**Rule:** every entry must match `Vitrin Cabinetery / [exact street] / Quakertown, PA 18951 / [exact phone]`. One wrong digit anywhere = inconsistency penalty.
+**Rule:** every entry must match `src/lib/site.ts` exactly — `Vitrin Cabinetry / [site.address.street] / Easton, PA 18042 / (484) 542-2571`. One wrong digit anywhere = inconsistency penalty.
 
 ---
 
@@ -216,7 +225,7 @@ The technical foundation that supports everything above is already deployed:
 | Hero image converted from CSS background to `next/image fill` | `src/app/page.tsx` | Better LCP + automatic WebP/AVIF |
 | All internal nav uses `<Link>` (instant client-side transitions) | `src/components/Navbar.tsx`, `Footer.tsx`, `page.tsx` | INP + UX improvement |
 | Production-only Google Analytics, Vercel Analytics, Vercel Speed Insights, Microsoft Clarity, all gated on env vars | `src/app/layout.tsx` | Measurement infrastructure |
-| Contact form rebuilt as React client component → POST to `/api/contact` → Resend send | `src/app/contact/ContactForm.tsx`, `src/app/api/contact/route.ts`, `src/lib/email.ts` | Working lead capture with honeypot + validation |
+| Contact form rebuilt as React client component → POST to `/api/contact` → PxlPeak leads API | `src/app/contact/ContactForm.tsx`, `src/app/api/contact/route.ts`, `src/lib/geolocation.ts` | Working lead capture with honeypot + validation |
 | Single source of truth for NAP, hours, service-area towns | `src/lib/site.ts` | Edit one file, schema + footer + contact all update |
 | Sitemap + robots updated with all routes | `src/app/sitemap.ts`, `src/app/robots.ts` | Crawler-ready |
 | Security headers (X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy) | `next.config.ts` | Hardened defaults |
@@ -229,10 +238,11 @@ The technical foundation that supports everything above is already deployed:
 You can mark Week 1 complete when **all** of these are true:
 
 - [ ] GBP claimed, verified, fully filled, 20+ photos uploaded, weekly cadence on the calendar.
-- [ ] GSC verified for `vitrincabinetery.com`, sitemap submitted.
+- [ ] GSC verified for `vitrincabinetry.com`, sitemap submitted.
 - [ ] GA4 property created, Measurement ID pasted in Vercel env, linked to GSC.
 - [ ] Microsoft Clarity project created, ID pasted in Vercel env.
-- [ ] Resend API key set in Vercel env, domain verified, contact form tested end-to-end (real submission lands in inbox).
+- [ ] `PXLPEAK_API_KEY` set in Vercel env, email receivers configured in PxlPeak, contact form tested end-to-end (real submission lands in the leads dashboard + notification inbox).
+- [ ] `hello@vitrincabinetry.com` mailbox or forwarder provisioned.
 - [ ] Citation scan run; top 15 directories show consistent NAP.
 - [ ] 30-keyword baseline rank report saved as Week-0 snapshot.
 - [ ] First project photographer booked.

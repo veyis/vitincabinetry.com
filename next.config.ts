@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
+// Phone/email are literals in src/lib/site.ts now; only the street is still env-driven.
 const street = process.env.NEXT_PUBLIC_BUSINESS_STREET ?? "";
-const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "";
-const napIncomplete =
-  !street.trim() || street.includes("TBD") || !phone.trim() || phone.includes("555");
-if (process.env.VERCEL_ENV === "production" && napIncomplete) {
+if (process.env.VERCEL_ENV === "production" && (!street.trim() || street.includes("TBD"))) {
   console.warn(
-    "\n[vitrincabinetry] SEO: set NEXT_PUBLIC_BUSINESS_STREET and NEXT_PUBLIC_BUSINESS_PHONE to real values (NAP must match Google Business Profile).\n"
+    "\n[vitrincabinetry] SEO: set NEXT_PUBLIC_BUSINESS_STREET to the real showroom address (NAP must match Google Business Profile).\n"
   );
 }
 

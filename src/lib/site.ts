@@ -39,10 +39,12 @@ export const site = {
     "Finishing",
   ],
 
-  // Replace placeholders before launch — these become the schema NAP.
-  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-267-555-0100",
-  phoneDisplay: process.env.NEXT_PUBLIC_BUSINESS_PHONE_DISPLAY || "(267) 555-0100",
-  email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "hello@vitrincabinetry.com",
+  // Canonical NAP contact. Edit here only — no env override, so prod can never
+  // drift to a fallback. These feed the footer, contact/showroom/trade/legal
+  // pages, and the LocalBusiness JSON-LD `telephone` / `email`.
+  phone: "+1-484-542-2571",
+  phoneDisplay: "(484) 542-2571",
+  email: "hello@vitrincabinetry.com",
 
   address: {
     street: process.env.NEXT_PUBLIC_BUSINESS_STREET || "TBD — Showroom address",
