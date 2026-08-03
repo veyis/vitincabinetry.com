@@ -39,6 +39,7 @@ const tradeCol = [
 
 const vitrinCol = [
   { href: "/about", label: "About" },
+  { href: "/team", label: "Team" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/guides", label: "Guides" },
   { href: "/contact", label: "Contact" },

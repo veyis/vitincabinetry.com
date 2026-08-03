@@ -19,6 +19,7 @@ const topLevel: Array<{ href: string; label: string }> = [
   { href: "/trade", label: "Trade" },
   { href: "/showroom", label: "Showroom" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -82,7 +83,7 @@ export default function Navbar() {
       className={`navbar ${isOpen ? "navbar--open" : ""}`}
       aria-label="Primary"
     >
-      <Link href="/" className="navbar__brand" onClick={close} aria-label="Vitrin Cabinetry — home">
+      <Link href="/" className="navbar__brand" onClick={close} aria-label="Vitrin Cabinetry">
         <Image
           src="/logo-mark.png"
           alt=""

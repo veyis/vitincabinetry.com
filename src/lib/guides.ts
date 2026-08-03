@@ -104,6 +104,15 @@ export const guides: GuideMeta[] = [
     datePublished: "2026-05-12",
   },
   {
+    slug: "what-goes-wrong-in-a-cabinet-project",
+    title: "What actually goes wrong in a cabinet project — and the questions that prevent it",
+    excerpt:
+      "Six failure modes that show up again and again in cabinet complaints: delays, wrong doors, failing finishes, silence after the deposit, moving prices, and clearance mistakes. What causes each, and what to ask before you sign.",
+    category: "Process",
+    readingMinutes: 11,
+    datePublished: "2026-08-02",
+  },
+  {
     slug: "contractor-cabinet-pricing-explained",
     title: "Contractor Cabinet Pricing Explained",
     excerpt:
