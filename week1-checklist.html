@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>week1-checklist</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="print.css" />
+</head>
+<body>
+<h1 id="week-1-owner-action-checklist">Week 1 — Owner Action
+Checklist</h1>
+<p>A companion to <code>strategy.md</code>. These are the items that
+<strong>only the business owner can do</strong> because they require
+account creation, identity verification, or payment. The codebase items
+are already shipped (see end of file for what’s been deployed).</p>
+<p>Allow <strong>2–4 hours total</strong> across the week. None of these
+are hard; they just have to be done by an authorized human.</p>
+<hr />
+<h2 id="google-business-profile-gbp-highest-priority">1. Google Business
+Profile (GBP) — highest priority</h2>
+<p><strong>Why:</strong> GBP is the single biggest local-pack ranking
+signal. Without a verified profile, no amount of on-site SEO will
+surface Vitrin in the Map Pack.</p>
+<h3 id="steps">Steps</h3>
+<ol type="1">
+<li>Go to https://business.google.com → <strong>Manage
+now</strong>.</li>
+<li>Search for “Vitrin Cabinetry, Easton, PA.” If a profile already
+exists (auto-created by Google), claim it. If not, create new.</li>
+<li>Choose category: <strong>Cabinet maker</strong> (primary).
+Secondary: <strong>Kitchen remodeler</strong>, <strong>Bathroom
+remodeler</strong>, <strong>Custom furniture maker</strong>.</li>
+<li>Verification: Google will offer postcard, phone, email, or video.
+Pick whichever is fastest. Video is usually approved within 5 business
+days.</li>
+<li><strong>Once verified</strong>, complete every field:
+<ul>
+<li>Business name (exactly <code>site.gbpName</code>:
+<code>Vitrin Cabinetry | Kitchen, Bathroom &amp; Closet</code>)</li>
+<li>Address (exact — must match <code>site.address</code> in
+<code>src/lib/site.ts</code> and every citation)</li>
+<li>Service area (use the 15 towns in <code>site.areaServed</code>)</li>
+<li>Phone (exactly <code>site.phoneDisplay</code>:
+<code>(484) 542-2571</code>)</li>
+<li>Website URL: <code>https://www.vitrincabinetry.com</code></li>
+<li>Hours (must match <code>site.hours</code>: Mon–Fri 9–6, Sat
+10–4)</li>
+<li>Description (750 chars max — focus on craft + custom + Easton /
+Lehigh Valley)</li>
+<li>Products → add 6+ cabinet styles with photos</li>
+<li>Services → add 8+ (custom kitchens, bath vanities, closets,
+pantries, etc.)</li>
+</ul></li>
+<li>Upload <strong>20+ photos</strong>: shop interior, team, completed
+projects, before/after pairs.</li>
+<li>Add 10 seed Q&amp;As yourself (the FAQ section is owned by whoever
+answers first).</li>
+<li>Enable messaging.</li>
+</ol>
+<p><strong>Estimated time:</strong> 60–90 minutes initial + 5 minutes
+weekly.</p>
+<h3 id="weekly-cadence-after-launch">Weekly cadence after launch</h3>
+<ul>
+<li>2 Google Posts per week (a project, a tip, an offer, a
+behind-the-scenes shot).</li>
+<li>5 new photos per week.</li>
+<li>Reply to every review within 24 hours.</li>
+</ul>
+<hr />
+<h2 id="google-search-console-google-analytics-4">2. Google Search
+Console + Google Analytics 4</h2>
+<p>The site code is ready — just need to connect accounts and paste IDs
+into <code>.env.local</code>.</p>
+<h3 id="search-console-free-5-min">Search Console (free, ~5 min)</h3>
+<ol type="1">
+<li>Go to https://search.google.com/search-console → <strong>Add
+property</strong> → <strong>Domain</strong> → enter
+<code>vitrincabinetry.com</code>.</li>
+<li>Verify via DNS TXT record (Vercel makes this easy — copy the TXT,
+add it in the Vercel domain dashboard).</li>
+<li>Submit sitemap:
+<code>https://www.vitrincabinetry.com/sitemap.xml</code> (the apex 301s
+to <code>www</code> — see <code>vercel.json</code>).</li>
+<li>Set preferred reporting country: US.</li>
+</ol>
+<h3 id="google-analytics-4-free-10-min">Google Analytics 4 (free, ~10
+min)</h3>
+<ol type="1">
+<li>Go to https://analytics.google.com → <strong>Admin</strong> →
+<strong>Create account</strong> → “Vitrin Cabinetry.”</li>
+<li>Create property → name “Vitrin Cabinetry Website” → United States →
+USD.</li>
+<li><strong>Data Streams</strong> → <strong>Web</strong> → URL
+<code>https://www.vitrincabinetry.com</code> → Stream name “Web.”</li>
+<li>Copy the <strong>Measurement ID</strong> (starts with
+<code>G-</code>).</li>
+<li>In the repo, copy <code>.env.example</code> →
+<code>.env.local</code>, paste the ID into
+<code>NEXT_PUBLIC_GA_ID</code>.</li>
+<li>Set the same ID as a production env var in Vercel:
+<code>vercel env add NEXT_PUBLIC_GA_ID production</code>.</li>
+<li>In GA4 Admin → Data Streams → your stream → <strong>Enhanced
+measurement</strong> → enable all toggles.</li>
+</ol>
+<h3 id="link-gsc-ga4">Link GSC ↔︎ GA4</h3>
+<p>In GA4 → Admin → <strong>Product links</strong> → <strong>Search
+Console links</strong> → link the property.</p>
+<hr />
+<h2 id="microsoft-clarity-free-heatmaps-session-recordings">3. Microsoft
+Clarity (free heatmaps + session recordings)</h2>
+<ol type="1">
+<li>Go to https://clarity.microsoft.com → sign in with Microsoft
+account.</li>
+<li><strong>New project</strong> → name “Vitrin Cabinetry” → category
+Home Services → website URL.</li>
+<li>Copy the <strong>Project ID</strong> (alphanumeric string).</li>
+<li>Paste it as <code>NEXT_PUBLIC_CLARITY_ID</code> in
+<code>.env.local</code> and Vercel production env.</li>
+</ol>
+<hr />
+<h2 id="pxlpeak-lead-delivery-for-the-contact-form">4. PxlPeak (lead
+delivery for the contact form)</h2>
+<p>The form does <strong>not</strong> send its own email.
+<code>src/app/api/contact/route.ts</code> POSTs the lead to PxlPeak’s
+<code>/api/v1/leads</code>, which handles storage, fraud scoring, the
+owner notification, and the customer auto-reply — same setup as the
+other agency sites. There is no Resend account and no
+<code>RESEND_API_KEY</code> / <code>CONTACT_TO_EMAIL</code> /
+<code>CONTACT_FROM_EMAIL</code> for this project.</p>
+<ol type="1">
+<li>In PxlPeak, confirm the <code>vitrincabinetry.com</code> site exists
+and note its site UUID.</li>
+<li><strong>Settings → Email receivers</strong>
+(<code>v2.sites.settings.emailReceivers</code>) → add whoever should get
+lead notifications. This is the only place recipients are
+configured.</li>
+<li>Create a publishable key scoped to that site
+(<code>pk_live_…</code>).</li>
+<li>Set <code>PXLPEAK_API_URL="https://pxlpeak.com"</code> and
+<code>PXLPEAK_API_KEY</code> in <code>.env.local</code>, then set both
+in Vercel as production env vars.</li>
+</ol>
+<p>Test: submit the form locally. A missing/blank key returns a 500 with
+<code>PXLPEAK_API_URL or PXLPEAK_API_KEY not configured</code> in the
+server log; a good submission returns <code>{ ok: true, id }</code> and
+appears in the PxlPeak leads dashboard.</p>
+<blockquote>
+<p>Separately: <code>hello@vitrincabinetry.com</code> is published in
+the footer and JSON-LD but has no mailbox behind it yet. Provision it
+(or a forwarder) before launch — the contact form is unaffected, but
+anyone who clicks the address mails into a void.</p>
+</blockquote>
+<hr />
+<h2 id="citation-cleanup-brightlocal-or-free-alternative">5. Citation
+cleanup — BrightLocal (or free alternative)</h2>
+<p><strong>Why:</strong> Inconsistent Name/Address/Phone across
+directories is a top-3 cause of stagnant local rankings.</p>
+<h3 id="option-a-brightlocal-30mo-fastest">Option A — BrightLocal
+($30/mo, fastest)</h3>
+<ol type="1">
+<li>Go to https://www.brightlocal.com → sign up.</li>
+<li><strong>Citation Tracker</strong> → add the business.</li>
+<li>Run the initial scan — it finds existing listings across ~30
+directories.</li>
+<li>Fix every inconsistency (NAP, hours, website).</li>
+</ol>
+<h3 id="option-b-free-path-whitespark-scanner-manual-fixes">Option B —
+Free path (Whitespark scanner + manual fixes)</h3>
+<ol type="1">
+<li>Go to https://whitespark.ca/local-citation-finder/ → free 3
+scans.</li>
+<li>Export the list.</li>
+<li>Manually claim/correct on these high-value directories:
+<ul>
+<li><strong>Bing Places</strong> — https://www.bingplaces.com (uses
+Google data; claim it)</li>
+<li><strong>Apple Maps Connect</strong> —
+https://mapsconnect.apple.com</li>
+<li><strong>Yelp for Business</strong> — https://biz.yelp.com</li>
+<li><strong>Houzz Pro</strong> — https://www.houzz.com/pro/landing</li>
+<li><strong>BBB</strong> — https://www.bbb.org → Get Accredited (paid,
+optional but worth it)</li>
+<li><strong>Angi</strong> — https://www.angi.com/for-pros</li>
+<li><strong>HomeAdvisor</strong> — https://www.homeadvisor.com/pro</li>
+<li><strong>Thumbtack</strong> — https://www.thumbtack.com/pro</li>
+<li><strong>Porch</strong> — https://www.porch.com/for-pros</li>
+<li><strong>NextDoor Business</strong> —
+https://business.nextdoor.com</li>
+<li><strong>Yellow Pages</strong> —
+https://accounts.yellowpages.com</li>
+<li><strong>Foursquare</strong> — https://business.foursquare.com</li>
+<li><strong>Manta</strong> — https://www.manta.com/claim</li>
+<li><strong>Greater Lehigh Valley Chamber of Commerce</strong> —
+https://www.lehighvalleychamber.org (covers Easton, Bethlehem,
+Allentown)</li>
+<li><strong>Upper Bucks Chamber of Commerce</strong> —
+https://upperbuckschamber.org (secondary — only if defending the Bucks
+County pages)</li>
+<li><strong>NARI member directory</strong> (after joining — see
+below)</li>
+<li><strong>NKBA member directory</strong> (after joining — see
+below)</li>
+</ul></li>
+</ol>
+<p><strong>Rule:</strong> every entry must match
+<code>src/lib/site.ts</code> exactly —
+<code>Vitrin Cabinetry / [site.address.street] / Easton, PA 18042 / (484) 542-2571</code>.
+One wrong digit anywhere = inconsistency penalty.</p>
+<hr />
+<h2 id="baseline-keyword-rank-tracking">6. Baseline keyword rank
+tracking</h2>
+<p>Set this up so we have a “before” snapshot.</p>
+<h3 id="tool">Tool</h3>
+<ul>
+<li><strong>AccuRanker</strong> — $30/mo, best UI (<a
+href="https://www.accuranker.com">https://www.accuranker.com</a>)</li>
+<li><strong>SerpRobot</strong> — $9/mo, basic (<a
+href="https://www.serprobot.com">https://www.serprobot.com</a>)</li>
+<li><strong>Free path</strong> — paste keywords into a Google Sheet,
+check positions manually weekly using an incognito window from an Easton
+IP (via VPN if traveling).</li>
+</ul>
+<h3 id="the-30-baseline-keywords">The 30 baseline keywords</h3>
+<p>Paste these into the rank tracker. Target location: <strong>Easton,
+PA 18042</strong> (must match <code>site.address</code> in
+<code>src/lib/site.ts</code>). Device: <strong>mobile</strong> (70% of
+local search is mobile).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Keyword</th>
+<th>Tier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>custom kitchen cabinets easton pa</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>2</td>
+<td>custom kitchen cabinets bethlehem pa</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>3</td>
+<td>custom kitchen cabinets allentown pa</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>4</td>
+<td>cabinet maker easton pa</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>5</td>
+<td>kitchen remodeling easton pa</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>6</td>
+<td>bathroom vanity easton pa</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>7</td>
+<td>custom cabinets lehigh valley</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>8</td>
+<td>kitchen designer lehigh valley</td>
+<td>T1 money</td>
+</tr>
+<tr>
+<td>9</td>
+<td>custom kitchen cabinets quakertown</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>10</td>
+<td>custom kitchen cabinets perkasie</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>11</td>
+<td>custom kitchen cabinets doylestown</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>12</td>
+<td>custom kitchen cabinets sellersville</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>13</td>
+<td>custom kitchen cabinets souderton</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>14</td>
+<td>custom kitchen cabinets coopersburg</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>15</td>
+<td>custom kitchen cabinets hellertown</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>16</td>
+<td>custom kitchen cabinets emmaus</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>17</td>
+<td>custom kitchen cabinets harleysville</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>18</td>
+<td>custom kitchen cabinets lansdale</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>19</td>
+<td>custom kitchen cabinets new hope</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>20</td>
+<td>custom kitchen cabinets center valley</td>
+<td>T2 town</td>
+</tr>
+<tr>
+<td>21</td>
+<td>kitchen cabinets bucks county</td>
+<td>T2 regional</td>
+</tr>
+<tr>
+<td>22</td>
+<td>custom cabinets bucks county</td>
+<td>T2 regional</td>
+</tr>
+<tr>
+<td>23</td>
+<td>cabinet refacing vs custom</td>
+<td>T3 decision</td>
+</tr>
+<tr>
+<td>24</td>
+<td>stock vs custom cabinets</td>
+<td>T3 decision</td>
+</tr>
+<tr>
+<td>25</td>
+<td>how to choose a kitchen designer</td>
+<td>T3 decision</td>
+</tr>
+<tr>
+<td>26</td>
+<td>inset vs full overlay cabinets</td>
+<td>T3 decision</td>
+</tr>
+<tr>
+<td>27</td>
+<td>quartz vs granite countertops</td>
+<td>T3 decision</td>
+</tr>
+<tr>
+<td>28</td>
+<td>custom kitchen cost bucks county pa</td>
+<td>T3 decision</td>
+</tr>
+<tr>
+<td>29</td>
+<td>contractor cabinet pricing</td>
+<td>T3 decision</td>
+</tr>
+<tr>
+<td>30</td>
+<td>flooring or cabinets first</td>
+<td>T3 decision</td>
+</tr>
+</tbody>
+</table>
+<p>Set the tool to email a weekly rank report. Save the <strong>Week-0
+snapshot</strong> as the baseline — every gain measured from here.</p>
+<hr />
+<h2 id="memberships-to-apply-for-do-in-month-1">7. Memberships to apply
+for (do in Month 1)</h2>
+<p>These are paid but pay back via citations + trust signals +
+referrals.</p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Organization</th>
+<th>Annual cost</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Upper Bucks Chamber of Commerce</td>
+<td>~$300–$500</td>
+<td>Local backlink + chamber referrals</td>
+</tr>
+<tr>
+<td>NARI (National Association of the Remodeling Industry)</td>
+<td>~$500</td>
+<td>Membership badge + member-directory backlink</td>
+</tr>
+<tr>
+<td>NKBA (National Kitchen &amp; Bath Association)</td>
+<td>~$400</td>
+<td>Trust badge + directory listing + industry network</td>
+</tr>
+<tr>
+<td>Houzz Pro</td>
+<td>Tiered (free Lite, paid Pro)</td>
+<td>High-DR profile (~92 DR), lead generation</td>
+</tr>
+<tr>
+<td>BBB Accredited Business</td>
+<td>~$500/yr</td>
+<td>Trust signal especially with older buyers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="photographer-videographer-engagement">8. Photographer +
+videographer engagement</h2>
+<p>By end of Week 1, have two bookings on the calendar:</p>
+<ul>
+<li><strong>Project photographer</strong> — monthly retainer, 1 finished
+kitchen shoot per month. Budget $800–$1,500/shoot.</li>
+<li><strong>Videographer</strong> — one-time 60–90 second shop-tour hero
+video. Budget $1,500–$3,000.</li>
+</ul>
+<p>Local recommendations (search Google Maps for “interior photographer
+Bucks County” — most will quote within 24 hours).</p>
+<hr />
+<h2 id="whats-already-shipped-in-code-no-action-required">What’s already
+shipped in code (no action required)</h2>
+<p>The technical foundation that supports everything above is already
+deployed:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 17%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Where</th>
+<th>What it gives you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full <code>LocalBusiness</code> / <code>Organization</code> /
+<code>WebSite</code> JSON-LD on every page</td>
+<td><code>src/lib/schema.ts</code> +
+<code>src/app/layout.tsx</code></td>
+<td>Schema rich results eligibility</td>
+</tr>
+<tr>
+<td>Site-wide Metadata API (title template, OG, Twitter, canonical,
+robots)</td>
+<td><code>src/app/layout.tsx</code></td>
+<td>All pages emit correct head tags</td>
+</tr>
+<tr>
+<td><code>next/font</code> for Inter + Playfair Display (self-hosted,
+zero CLS)</td>
+<td><code>src/app/layout.tsx</code></td>
+<td>Fixes layout shift + privacy</td>
+</tr>
+<tr>
+<td>Hero image converted from CSS background to
+<code>next/image fill</code></td>
+<td><code>src/app/page.tsx</code></td>
+<td>Better LCP + automatic WebP/AVIF</td>
+</tr>
+<tr>
+<td>All internal nav uses <code>&lt;Link&gt;</code> (instant client-side
+transitions)</td>
+<td><code>src/components/Navbar.tsx</code>, <code>Footer.tsx</code>,
+<code>page.tsx</code></td>
+<td>INP + UX improvement</td>
+</tr>
+<tr>
+<td>Production-only Google Analytics, Vercel Analytics, Vercel Speed
+Insights, Microsoft Clarity, all gated on env vars</td>
+<td><code>src/app/layout.tsx</code></td>
+<td>Measurement infrastructure</td>
+</tr>
+<tr>
+<td>Contact form rebuilt as React client component → POST to
+<code>/api/contact</code> → PxlPeak leads API</td>
+<td><code>src/app/contact/ContactForm.tsx</code>,
+<code>src/app/api/contact/route.ts</code>,
+<code>src/lib/geolocation.ts</code></td>
+<td>Working lead capture with honeypot + validation</td>
+</tr>
+<tr>
+<td>Single source of truth for NAP, hours, service-area towns</td>
+<td><code>src/lib/site.ts</code></td>
+<td>Edit one file, schema + footer + contact all update</td>
+</tr>
+<tr>
+<td>Sitemap + robots updated with all routes</td>
+<td><code>src/app/sitemap.ts</code>, <code>src/app/robots.ts</code></td>
+<td>Crawler-ready</td>
+</tr>
+<tr>
+<td>Security headers (X-Content-Type-Options, X-Frame-Options,
+Referrer-Policy, Permissions-Policy)</td>
+<td><code>next.config.ts</code></td>
+<td>Hardened defaults</td>
+</tr>
+<tr>
+<td><code>.env.example</code> documenting every required env var</td>
+<td>repo root</td>
+<td>Onboarding clarity</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="end-of-week-1-definition-of-done">End-of-Week-1 Definition of
+Done</h2>
+<p>You can mark Week 1 complete when <strong>all</strong> of these are
+true:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />GBP claimed, verified, fully filled,
+20+ photos uploaded, weekly cadence on the calendar.</label></li>
+<li><label><input type="checkbox" />GSC verified for
+<code>vitrincabinetry.com</code>, sitemap submitted.</label></li>
+<li><label><input type="checkbox" />GA4 property created, Measurement ID
+pasted in Vercel env, linked to GSC.</label></li>
+<li><label><input type="checkbox" />Microsoft Clarity project created,
+ID pasted in Vercel env.</label></li>
+<li><label><input type="checkbox" /><code>PXLPEAK_API_KEY</code> set in
+Vercel env, email receivers configured in PxlPeak, contact form tested
+end-to-end (real submission lands in the leads dashboard + notification
+inbox).</label></li>
+<li><label><input
+type="checkbox" /><code>hello@vitrincabinetry.com</code> mailbox or
+forwarder provisioned.</label></li>
+<li><label><input type="checkbox" />Citation scan run; top 15
+directories show consistent NAP.</label></li>
+<li><label><input type="checkbox" />30-keyword baseline rank report
+saved as Week-0 snapshot.</label></li>
+<li><label><input type="checkbox" />First project photographer
+booked.</label></li>
+<li><label><input type="checkbox" />Shop-tour videographer
+booked.</label></li>
+<li><label><input type="checkbox" />NARI / NKBA / Chamber applications
+submitted.</label></li>
+</ul>
+</body>
+</html>

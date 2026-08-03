@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>backlinks</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="print.css" />
+</head>
+<body>
+<h1 id="backlinks-executed-research-action-pack">Backlinks — Executed
+Research &amp; Action Pack</h1>
+<p>Companion to <code>strategy.md</code> §8. That section
+<em>planned</em> off-page work; this file is the <em>executed</em>
+version: real prospects, verified by opening the page, plus the drafts.
+Researched 2026-08-02.</p>
+<p><strong>Verification standard:</strong> every row below is marked
+with what I actually confirmed. “Verified” = I opened the page and saw
+the thing. “Unverified” = I could not load it or could not see the
+claim. Nothing here is assumed.</p>
+<hr />
+<h2 id="read-this-before-doing-anything">0. Read this before doing
+anything</h2>
+<p>Two of the pack’s strategies are <strong>blocked</strong>, and
+running them now causes permanent damage rather than zero effect.</p>
+<p><code>src/lib/site.ts</code> still has:</p>
+<pre><code>street: process.env.NEXT_PUBLIC_BUSINESS_STREET || &quot;TBD — Showroom address&quot;</code></pre>
+<p><code>NEXT_PUBLIC_BUSINESS_STREET</code> is unset in Vercel.
+Confirmed against production on 2026-08-02 — <code>streetAddress</code>,
+<code>sameAs</code>, and <code>hasMap</code> are all absent from every
+JSON-LD node on the live homepage, and no analytics tag fires:</p>
+<pre><code>CabinetMaker    | #localbusiness  streetAddress: &lt;&lt;MISSING&gt;&gt;  sameAs: &lt;&lt;MISSING&gt;&gt;
+FurnitureStore  | #cabinetstore   streetAddress: &lt;&lt;MISSING&gt;&gt;  sameAs: &lt;&lt;MISSING&gt;&gt;</code></pre>
+<p><strong>Consequence for link building:</strong> a citation is a
+<em>Name + Address + Phone</em> record. Submitting 30 directory listings
+before the real address exists writes 30 wrong records across the web
+that then get scraped, syndicated, and cached by aggregators. Cleaning
+that up later costs more than the listings ever earned. This is the
+single most expensive mistake available in this pack.</p>
+<p>So the work splits cleanly:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>Needs the street address?</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Track A — Editorial links</strong> (PR, niche edits, guest
+posts, resource pages)</td>
+<td>No — needs a name and a URL</td>
+<td><strong>Start today</strong></td>
+</tr>
+<tr>
+<td><strong>Track B — Citations</strong> (directories, chambers, GBP,
+BBB, Houzz, Angi)</td>
+<td>Yes — the address <em>is</em> the payload</td>
+<td><strong>Blocked</strong> on <code>site.address.street</code> +
+verified GBP</td>
+</tr>
+</tbody>
+</table>
+<p>Track B is not “later because we’re lazy.” It is later because doing
+it now is net-negative. Get the address into <code>site.ts</code>,
+verify GBP, then Track B becomes the highest-ROI work on this list.</p>
+<hr />
+<h2
+id="strategy-triage-the-packs-12-scored-for-a-lehigh-valley-cabinet-shop">1.
+Strategy triage — the pack’s 12, scored for a Lehigh Valley cabinet
+shop</h2>
+<p>The pack is written for SaaS/affiliate sites. A local trade business
+with a physical showroom has a different payoff curve: relevance and
+locality beat volume, and several “S-tier” plays are actively wrong
+here.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pack strategy</th>
+<th>Pack tier</th>
+<th><strong>Real tier here</strong></th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NGO / charity links</td>
+<td>S</td>
+<td><strong>A — but reframed</strong></td>
+<td>The supporters-page mechanism doesn’t exist at the two relevant
+charities (§2). The <em>donation</em> still works — as a news story, not
+a listing.</td>
+</tr>
+<tr>
+<td>Niche edits</td>
+<td>S</td>
+<td><strong>B</strong></td>
+<td>Works, but the regional pool is small and mostly
+competitor-owned.</td>
+</tr>
+<tr>
+<td>Backlink exchange</td>
+<td>S</td>
+<td><strong>Skip as written → A as adapted</strong></td>
+<td>Every same-niche site in a 40-mile radius is a direct competitor
+(<code>competitors.md</code>). But the <em>adjacent-trade</em> version
+works and is verified — see §9.</td>
+</tr>
+<tr>
+<td>Guest posts</td>
+<td>A</td>
+<td><strong>B</strong></td>
+<td>Thin regional supply — searched, found almost nothing local
+accepting contributions. National remodeling blogs work but convert
+nothing.</td>
+</tr>
+<tr>
+<td>Directory listings</td>
+<td>A</td>
+<td><strong>S — when unblocked</strong></td>
+<td>This <em>is</em> local SEO. Blocked on address.</td>
+</tr>
+<tr>
+<td>PR / press release</td>
+<td>A</td>
+<td><strong>S</strong></td>
+<td>Proven in this exact market by two competitors (§2).</td>
+</tr>
+<tr>
+<td>Profile links</td>
+<td>B</td>
+<td><strong>C, except social</strong></td>
+<td>Generic profiles are noise. But the 4 in <code>site.social</code>
+are gate 4 — they populate <code>sameAs</code>. Do those.</td>
+</tr>
+<tr>
+<td>PBN / expired domains</td>
+<td>B</td>
+<td><strong>Never</strong></td>
+<td>Manual-action risk on a business whose entire lead flow is one local
+pack. Asymmetric downside.</td>
+</tr>
+<tr>
+<td>Parasite SEO</td>
+<td>B</td>
+<td><strong>Skip</strong></td>
+<td>Ranks the platform’s page, not the site. Nofollow. No local pack
+effect.</td>
+</tr>
+<tr>
+<td>Social links</td>
+<td>B</td>
+<td><strong>A (do now)</strong></td>
+<td>Free, unblocks JSON-LD gate 4.</td>
+</tr>
+<tr>
+<td>Broken link building</td>
+<td>Big Mover</td>
+<td><strong>C</strong></td>
+<td>Needs a backlink export to be efficient. Without a paid tool, the
+crawl-it-yourself version is low yield.</td>
+</tr>
+<tr>
+<td>Expired domain 301</td>
+<td>—</td>
+<td><strong>Never</strong></td>
+<td>Same reasoning as PBN.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Not in the pack, and better than most of it: supplier &amp;
+manufacturer dealer locators.</strong> See §5.</p>
+<hr />
+<h2 id="the-charity-play-whats-actually-true">2. The charity play —
+what’s actually true</h2>
+<p>The pack assumes: donate → get listed on a supporters page → get a
+link. I checked whether that page exists at the two charities that fit a
+cabinet shop.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Charity</th>
+<th>Donate/partner page</th>
+<th>Does it list sponsors <strong>with outbound links</strong>?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Habitat for Humanity of the Lehigh Valley</td>
+<td><a
+href="https://habitatlv.org/support">habitatlv.org/support</a></td>
+<td><strong>No.</strong> Verified — page describes corporate giving and
+house sponsorships, lists no sponsors, no logos, no outbound links.
+Contact: 610-776-7737.</td>
+</tr>
+<tr>
+<td>Habitat for Humanity of Bucks County</td>
+<td><a
+href="https://www.habitatbucks.org/give/corporate/">habitatbucks.org/give/corporate/</a></td>
+<td><strong>No.</strong> Verified — partnership tiers referenced via a
+“Partnership Recognition Benefits” PDF, but no partners named on-page.
+Contact: 215.822.2812.</td>
+</tr>
+</tbody>
+</table>
+<p>So the pack’s stated mechanism <strong>fails here.</strong> Reporting
+that rather than padding the table.</p>
+<p><strong>But the play still works — via a different
+mechanism.</strong> Both of Vitrin’s closest analogues already ran it,
+and both earned real links:</p>
+<ul>
+<li><strong>Kitchen Magic</strong> (competitor #5 in
+<code>competitors.md</code>) sponsored Lehigh Valley Habitat and got a
+<a
+href="https://www.prnewswire.com/news-releases/kitchen-magic-proud-sponsor-of-lehigh-valley-habitat-for-humanity-to-help-families-in-need-301612011.html">PRNewswire
+release</a> plus a <a
+href="https://www.kitchenmagic.com/about/awards/kitchen-magic-proud-sponsor-lehigh-valley-habitat-for-humanity-family-in-need">page
+on their own site</a>.</li>
+<li><strong>The Solid Wood Cabinet Company</strong> donated $100k of
+vanity cabinets to the Langhorne ReStore and earned an editorial writeup
+on <a
+href="https://buckscountyalive.com/bloginfo/the-solid-wood-cabinet-company-habitat-for-humanity-upcycle-together.cfm">buckscountyalive.com</a>
+— <strong>verified to contain an outbound link</strong> to
+solidwoodcabinets.com.</li>
+</ul>
+<p><strong>The correct play:</strong> donate <em>surplus and display
+cabinetry</em> to a ReStore — which a cabinet shop generates for free as
+a byproduct — then pitch the story. The link comes from coverage, not
+from a donor list.</p>
+<p>Why this fits Vitrin specifically: tear-out and showroom-refresh
+cabinetry is inventory that currently costs money to dump. The donation
+is tax-deductible, the material cost is already sunk, and it generates a
+genuine local news hook. No other strategy in this pack has that
+economics.</p>
+<p><strong>Donation logistics (verified):</strong> - Lehigh Valley
+ReStore (Whitehall) — pickup scheduling at <a
+href="https://www.onlinedonationpickup.com/habitatlv/">onlinedonationpickup.com/habitatlv</a>,
+610-776-7499 - Bucks County ReStores (Chalfont, Langhorne) — donate form
+at <a
+href="https://www.habitatbucks.org/restore/donate/">habitatbucks.org/restore/donate/</a>,
+215-822-2708</p>
+<h3 id="draft-donation-story-pitch">Draft — donation + story pitch</h3>
+<blockquote>
+<p><strong>Subject:</strong> Cabinet donation from an Easton shop — and
+a story for the ReStore</p>
+<p>Hi [NAME],</p>
+<p>I run Vitrin Cabinetry, a custom cabinet shop in Easton. We pull out
+serviceable cabinetry on most remodels and refresh our showroom displays
+a few times a year. Right now that material goes to a dumpster, which is
+a waste of good boxes.</p>
+<p>I’d like to set up a standing donation to the [Whitehall / Langhorne]
+ReStore — starting with [QUANTITY / DESCRIPTION], and recurring as jobs
+come through.</p>
+<p>Two questions: 1. What’s the easiest way to schedule drop-off or
+pickup on a recurring basis? 2. Would the ReStore want to co-promote it?
+I’m happy to supply photos and a quote, and I’d share it with local
+press. Solid Wood Cabinet Company did something similar with Langhorne
+and it got decent pickup.</p>
+<p>Thanks, Veyis Akgul — Vitrin Cabinetry, Easton PA — (484) 542-2571
+https://www.vitrincabinetry.com</p>
+</blockquote>
+<p><strong>Do not</strong> ask for a link in this email. The link comes
+from the coverage, and asking makes the donation look transactional to a
+nonprofit that gets that pitch constantly.</p>
+<hr />
+<h2 id="local-editorial-directory-targets-verified">3. Local editorial
+&amp; directory targets — verified</h2>
+<p>Track A rows can start now. Track B rows are listed so they’re ready
+the day the address lands.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Site</th>
+<th>URL</th>
+<th>Cost</th>
+<th>Links out?</th>
+<th>Track</th>
+<th>Verified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⭐1</td>
+<td><strong>BucksCountyAlive</strong> business listing</td>
+<td><a
+href="https://buckscountyalive.com/business/business-listing.cfm">business-listing.cfm</a></td>
+<td><strong>Free</strong> tier; $15/mo highlighted; $75/mo ad</td>
+<td><strong>Yes</strong> — free tier includes name, address, phone,
+<strong>website</strong></td>
+<td>B</td>
+<td>✅ opened, saw pricing tiers</td>
+</tr>
+<tr>
+<td>⭐2</td>
+<td><strong>LehighValleyAlive</strong> B2B directory</td>
+<td><a
+href="https://lehighvalleyalive.com/b2b/">lehighvalleyalive.com/b2b</a></td>
+<td><strong>Free</strong> listing</td>
+<td><strong>Yes</strong> — website link included</td>
+<td>B</td>
+<td>✅ opened</td>
+</tr>
+<tr>
+<td>⭐3</td>
+<td><strong>BucksCountyAlive</strong> editorial</td>
+<td><a
+href="https://buckscountyalive.com/advertise/business.cfm">advertise/business.cfm</a></td>
+<td>Unstated</td>
+<td>Yes — the Solid Wood article proves outbound links</td>
+<td>A</td>
+<td>✅ proven by live example</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Greater Lehigh Valley Chamber</td>
+<td><a
+href="https://www.lehighvalleychamber.org/memberbenefits.html">lehighvalleychamber.org/memberbenefits.html</a></td>
+<td>Dues not published; see <code>/join.html</code></td>
+<td><strong>Yes</strong> — free website listing + social links, stated
+$350 value</td>
+<td>B</td>
+<td>✅ opened; <strong>price unverified</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Easton Area Chamber (division of above)</td>
+<td><a
+href="https://www.lehighvalleychamber.org/easton.html">lehighvalleychamber.org/easton.html</a></td>
+<td>Included in GLVCC</td>
+<td>Presumed</td>
+<td>B</td>
+<td>⚠️ not separately opened</td>
+</tr>
+<tr>
+<td>6</td>
+<td>NKBA member directory</td>
+<td><a
+href="https://nkba.org/resources/directory/">nkba.org/resources/directory/</a></td>
+<td>~$400/yr (per <code>week1-checklist.md</code>)</td>
+<td>Member profile includes website link</td>
+<td>B</td>
+<td>⚠️ benefit described in third-party sources, not confirmed on NKBA’s
+own page</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Patch — Hellertown, Easton, Levittown etc.</td>
+<td><a href="https://patch.com">patch.com</a></td>
+<td>Free</td>
+<td>Community posts; <strong>assume nofollow</strong></td>
+<td>A</td>
+<td>⚠️ link attribute unverified</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Lehigh Valley Business “Movers &amp; Shakers”</td>
+<td><a
+href="https://lvb.com/movers-and-shakers-form/">lvb.com/movers-and-shakers-form</a></td>
+<td><strong>$300/person</strong>, $850 featured</td>
+<td>Unstated</td>
+<td>—</td>
+<td>✅ opened; <strong>paid — see §7</strong></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Discover Lehigh Valley</td>
+<td><a
+href="https://www.discoverlehighvalley.com/partnership/">discoverlehighvalley.com/partnership/</a></td>
+<td>Paid partnership</td>
+<td>Yes, partner listing</td>
+<td>—</td>
+<td>✅ opened; <strong>weak fit — tourism audience, not remodel
+buyers</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Rows 8 and 9 are listed to be dismissed with a reason, not
+recommended.</p>
+<hr />
+<h2 id="what-i-could-not-find-reported-not-padded">4. What I could
+<em>not</em> find — reported, not padded</h2>
+<p>Running the pack’s guest-post and niche-edit searches against this
+niche and region returned close to nothing usable:</p>
+<ul>
+<li><code>Lehigh Valley|Bucks County home improvement blog "write for us"</code>
+→ one regional remodeling blog with no contributor page, plus off-topic
+noise.</li>
+<li>The regional home-improvement publishing layer barely exists. What
+does exist is owned by competitors, who will not link to Vitrin.</li>
+</ul>
+<p><strong>This is a finding, not a gap in the research.</strong> For a
+local trade business the guest-post channel is genuinely weak, and any
+list of 20 “guest post opportunities” in this niche would be padded with
+national blogs whose readers will never buy a kitchen in Easton. Skip
+it.</p>
+<p><strong>Fabuwood dealer locator</strong> (<a
+href="https://www.fabuwood.com/dealers">fabuwood.com/dealers</a>)
+returned HTTP 429 — could not confirm whether entries link to dealer
+websites. Marked unverified; check manually.</p>
+<hr />
+<h2
+id="the-play-the-pack-misses-supplier-manufacturer-dealer-locators">5.
+The play the pack misses: supplier &amp; manufacturer dealer
+locators</h2>
+<p>Not in the prompt pack, and for a cabinet shop it beats most of what
+is.</p>
+<p>Cabinet lines, countertop brands, and flooring brands run “find a
+dealer” locators. Those pages are topically perfect, permanently
+maintained, and free — they cost a phone call to the rep Vitrin already
+buys from. Verified locators exist at:</p>
+<ul>
+<li><a href="https://showplacecabinetry.com/dealer-locator/">Showplace
+Cabinetry</a></li>
+<li><a href="https://www.schrock.com/dealer-locator">Schrock</a></li>
+<li><a href="https://www.fabuwood.com/dealers">Fabuwood</a> <em>(429 —
+link-out unverified)</em></li>
+</ul>
+<p><strong>Blocked on one fact I don’t have:</strong> which lines Vitrin
+actually carries. The site names <strong>Blum</strong> hardware
+(<code>ConstructionSpecs.tsx</code>) and mentions
+<strong>Aristokraft</strong> in a guide, but claims no dealer
+relationships.</p>
+<p><strong>Action:</strong> get the list of every brand Vitrin is an
+authorized dealer for — cabinet lines, countertop
+(Cambria/Silestone/MSI), flooring (Coretec/Shaw/Mohawk), hardware. For
+each, ask the rep to add Vitrin to the dealer locator. Reps say yes
+because it’s their job.</p>
+<blockquote>
+<p><strong>Subject:</strong> Dealer locator listing — Vitrin Cabinetry,
+Easton PA</p>
+<p>Hi [REP],</p>
+<p>We carry [LINE] out of our Easton showroom. I noticed we’re not on
+your dealer locator at [LOCATOR URL]. Can you get us added?</p>
+<p>Vitrin Cabinetry — [STREET], Easton, PA 18042 — (484) 542-2571 —
+https://www.vitrincabinetry.com</p>
+<p>Thanks, Veyis</p>
+</blockquote>
+<p>Note this needs the street address too — so it lands in Track B, but
+it’s the first thing to do the day the address exists.</p>
+<hr />
+<h2 id="social-profiles-do-this-now-it-unblocks-the-schema">6. Social
+profiles — do this now, it unblocks the schema</h2>
+<p>The pack’s “social links” prompt is B-tier generic advice, but here
+it closes <strong>gate 4</strong> in the local-SEO gate order:
+<code>site.social.*</code> are all empty, so <code>sameAs</code> is
+absent from all three business nodes.</p>
+<p>The code is already correct — <code>src/lib/schema.ts:51</code>
+filters empties and conditionally emits
+<code>sameAs</code>/<code>hasMap</code>. Nothing to build. Set the env
+vars in Vercel and the schema populates on next deploy:</p>
+<pre><code>NEXT_PUBLIC_FACEBOOK_URL
+NEXT_PUBLIC_INSTAGRAM_URL
+NEXT_PUBLIC_HOUZZ_URL
+NEXT_PUBLIC_GOOGLE_PROFILE_URL   # the Maps place URL, not the GBP admin link — enables hasMap</code></pre>
+<h3 id="profile-copy-consistent-everywhere">Profile copy — consistent
+everywhere</h3>
+<p><strong>Tagline (one line):</strong> &gt; Custom kitchen, bath, and
+closet cabinetry — built for the Lehigh Valley and Bucks County.</p>
+<p><strong>Short bio (~50 words):</strong> &gt; Vitrin Cabinetry
+designs, builds, and installs custom and semi-custom kitchen &gt;
+cabinets, bathroom vanities, and closets from our Easton, PA showroom.
+Full &gt; design-through-installation service across the Lehigh Valley
+and Bucks County, &gt; including countertops, flooring, and complete
+kitchen and bath remodels.</p>
+<p><strong>Long bio (~150 words):</strong> &gt; Vitrin Cabinetry is a
+custom cabinet shop serving Easton, Bethlehem, Allentown, &gt; and Bucks
+County from our Easton, PA showroom. We handle kitchen cabinets, &gt;
+bathroom vanities, custom closets, and built-ins — from 3D design
+through &gt; fabrication and professional installation. &gt; &gt; Our
+work spans the full remodel: cabinetry, quartz, granite and porcelain
+&gt; countertops, backsplashes, and flooring in luxury vinyl plank,
+hardwood, &gt; engineered hardwood, and tile. Boxes are built with
+dovetail drawers and &gt; soft-close Blum hardware, in inset and
+full-overlay styles to suit anything &gt; from a Federal-era Easton
+rowhome to new construction in Bucks County. &gt; &gt; We work directly
+with homeowners as well as builders, contractors, and interior &gt;
+designers through our trade program. &gt; &gt; Vitrin Cabinetry —
+[STREET], Easton, PA 18042 — (484) 542-2571 — &gt;
+https://www.vitrincabinetry.com</p>
+<p><strong>NAP block — paste this character-for-character,
+everywhere:</strong></p>
+<pre><code>Vitrin Cabinetry
+[STREET]
+Easton, PA 18042
+(484) 542-2571
+https://www.vitrincabinetry.com</code></pre>
+<p>Directory name field: <code>Vitrin Cabinetry</code>. Use the longer
+<code>Vitrin Cabinetry | Kitchen, Bathroom &amp; Closet</code>
+<strong>only</strong> on Google Business Profile, matching
+<code>site.gbpName</code>. Mixing the two across directories
+manufactures the exact inconsistency citations exist to prevent.</p>
+<hr />
+<h2 id="paid-tools-held-to-the-standing-rule">7. Paid tools — held to
+the standing rule</h2>
+<p>Standing constraint on this account: free tools only. That rule holds
+here, and the gate order gives it teeth — <strong>while gates 1–3 are
+open there is nothing for a paid tool to measure.</strong> Rank tracking
+a business Google has not verified returns “not in local pack” for
+$30/month.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Asked for</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BrightLocal ($30/mo, <code>week1-checklist.md</code> §5)</td>
+<td><strong>No</strong> — Option B free path. Nothing to track until GBP
+is verified.</td>
+</tr>
+<tr>
+<td>AccuRanker / SerpRobot</td>
+<td><strong>No</strong> — GSC is free and isn’t connected yet (gate 3).
+Connect that first.</td>
+</tr>
+<tr>
+<td>LVB Movers &amp; Shakers ($300–850)</td>
+<td><strong>No</strong> — that’s ad spend priced as a link.</td>
+</tr>
+<tr>
+<td>Discover Lehigh Valley partnership</td>
+<td><strong>No</strong> — tourism audience, wrong buyer.</td>
+</tr>
+<tr>
+<td>NARI / NKBA / Chamber dues</td>
+<td><strong>Defer, not reject</strong> — these are memberships with
+referral value, not SEO tools. Revisit once Track B opens.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="order-of-operations">8. Order of operations</h2>
+<p><strong>Now (unblocked):</strong> 1. Set the four social env vars in
+Vercel → closes gate 4, populates <code>sameAs</code>. 2. Connect GSC +
+GA4 (<code>week1-checklist.md</code> §2) → gate 3. Free, ~15 min. 3.
+Contact both ReStores about a standing cabinet donation (§2 draft). 4.
+Collect the authorized-dealer brand list from the owner (§5). 5. Open
+trade-partner conversations with Bucks/Lehigh GCs and designers — Turchi
+Construction first (§9 draft). Relationship now, link later. 6. Email
+<code>ListingDetails@HistoricPreservation.com</code> — free listing, no
+address required, dead-link audit as the opener (§11 draft).</p>
+<p><strong>Blockers to clear — these gate everything else:</strong> 7.
+Real street address into <code>site.address.street</code> (or set
+<code>NEXT_PUBLIC_BUSINESS_STREET</code> in Vercel) → gate 2. 8. Claim +
+verify GBP (<code>week1-checklist.md</code> §1) → gate 1.</p>
+<p><strong>Then (Track B unlocks), in this order:</strong> 9.
+<strong>Greater Lehigh Valley Chamber</strong> — highest-value single
+citation. Its Cabinetry Makers category has 4 entries and two are direct
+competitors (§9). 10. Free listings: BucksCountyAlive,
+LehighValleyAlive. 11. Dealer locator requests to every rep (§5). 12.
+Lehigh Valley Builders Association, NKBA, then the rest of the
+<code>week1-checklist.md</code> §5 citation list. 13. Pitch the donation
+story once material has actually moved.</p>
+<p><strong>Never:</strong> PBNs, expired-domain 301s, link swaps with
+local competitors.</p>
+<hr />
+<h2 id="trade-partner-links-the-swap-strategy-corrected">9.
+Trade-partner links — the swap strategy, corrected</h2>
+<p><code>strategy.md</code> §8.3 calls partnership backlinks “highest
+ROI” but never researched them. This section does. It also replaces the
+pack’s <strong>backlink exchange</strong> strategy, which is unusable as
+written: a link swap needs a non-competitor, and every cabinet shop
+within 40 miles competes with Vitrin directly. The adjacent trades —
+GCs, designers, architects — are the non-competitors, and they refer
+work as well as link.</p>
+<h3 id="verified-the-mechanism-is-real">Verified: the mechanism is
+real</h3>
+<p><strong>Turchi Construction</strong> (Bucks County GC) publishes <a
+href="https://turchiconstruction.com/kitchen-remodeling/">“Our Preferred
+Vendors For Quality Materials”</a> — five vendors, <strong>all
+hyperlinked to their own sites</strong>: Shenandoah Cabinetry, GAF
+Roofing, MI Windows, Therma-Tru, Jeld-Wen. Contact:
+<code>turchiconstruction@gmail.com</code>.</p>
+<p>Note <em>what</em> they link to: <strong>Shenandoah
+Cabinetry</strong>, a national factory brand. That’s the pitch. A Bucks
+County GC listing a national line has no local cabinetmaker to send
+clients to for custom work — and can’t offer a showroom visit. This is a
+genuine gap, not a favor to ask.</p>
+<h3 id="verified-competitors-are-already-using-the-chamber">Verified:
+competitors are already using the chamber</h3>
+<p>The Greater Lehigh Valley Chamber directory pages <strong>do carry
+outbound “Visit Site” links</strong>, confirmed on two category
+pages:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Category</th>
+<th>Businesses</th>
+<th>Outbound links?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://web.lehighvalleychamber.org/Cabinetry-Makers-Distributors">Cabinetry
+Makers &amp; Distributors</a></td>
+<td>4 listed</td>
+<td><strong>Yes</strong> — Stofanak → stofanak.com, Morris Black →
+morrisblack.com, American Millwork → amcmillwork.com</td>
+</tr>
+<tr>
+<td><a
+href="https://web.lehighvalleychamber.org/Home-Improvement-Remodeling">Home
+Improvement &amp; Remodeling</a></td>
+<td>15 listed</td>
+<td><strong>Yes</strong> — “Visit Site” on each</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stofanak (competitor #3) and Morris Black (competitor #4) are
+both already in the cabinetry category. Vitrin is not.</strong> That
+category page has four entries — it is not a crowded listing, and it is
+exactly the page a Lehigh Valley buyer lands on. This upgrades the
+chamber from “membership dues” to the single best-targeted citation
+available. Still Track B: it needs the address.</p>
+<h3 id="honest-limit-on-this-play">Honest limit on this play</h3>
+<p>I checked several regional designers and builders for published
+partner pages. Most have none — <a href="https://loveyourroom.com/">Love
+Your Room</a> (Allentown, 610-387-6002) names vendors only in Instagram
+captions, with no vendor page at all. Turchi is the exception, not the
+pattern.</p>
+<p><strong>So this is not a prospecting play, it’s a relationship
+play.</strong> You will not find 20 existing “preferred vendor” pages to
+get added to. You build the referral relationship first, and the page
+listing follows — often because you ask them to make one. Budget it as
+business development that yields links, not as link building.</p>
+<p>Also found and worth joining once Track B opens: <strong><a
+href="https://lvba.org/">Lehigh Valley Builders Association</a></strong>
+— trade association with a member directory, directly relevant to a
+cabinet shop.</p>
+<h3 id="draft-gc-designer-outreach">Draft — GC / designer outreach</h3>
+<blockquote>
+<p><strong>Subject:</strong> Custom cabinetry for your Bucks County
+kitchens</p>
+<p>Hi [NAME],</p>
+<p>I saw Shenandoah on your preferred vendors list. Reasonable line —
+but when a client wants something it can’t do (odd ceiling heights, an
+inset door, a period-correct box for an older home), you’re stuck
+ordering a semi-custom workaround.</p>
+<p>I run Vitrin Cabinetry in Easton. We mill, assemble, and finish in
+our own shop, so we handle the one-offs semi-custom lines refuse.
+Typical shop time is 4–8 weeks with weekly photo updates, which means
+you can hold a schedule.</p>
+<p>Worth a conversation? I’d rather show you a finished box than pitch
+you. Happy to bring samples to your office, or you’re welcome at the
+Easton showroom.</p>
+<p>Veyis Akgul — Vitrin Cabinetry — (484) 542-2571
+https://www.vitrincabinetry.com</p>
+</blockquote>
+<p>Ask for the vendor-page listing on the <strong>second</strong>
+contact, after a real conversation — never in the first email. A cold
+“please link to me” to a GC reads as spam and burns a referral
+relationship worth far more than the link.</p>
+<hr />
+<h2 id="two-dead-ends-checked-reported">10. Two dead ends — checked,
+reported</h2>
+<p><strong>No unlinked brand mentions exist.</strong> Searched
+<code>"Vitrin Cabinetry" Easton PA</code>. Every result is either the
+site itself or an unrelated HomeAdvisor/1stdibs page. The
+unlinked-mention reclamation play (usually a reliable quick win) has
+nothing to work with because the brand is new. Recheck in ~6 months.</p>
+<p><strong>No stale-title bug.</strong> A search snippet showed
+<code>/custom-kitchen-cabinets/new-hope</code> titled “…in Quakertown,
+PA”, which looked like a template defect. Checked production directly —
+all town titles render correctly from <code>data.name</code>, and
+<code>generateMetadata</code> in <code>[town]/page.tsx:23</code> is
+sound. It was a stale search index entry. No code change needed.</p>
+<hr />
+<h2 id="broken-link-building-actually-executed">11. Broken-link building
+— actually executed</h2>
+<p>I rated this C-tier in §1 partly because the pack says it needs a
+paid backlink export. Half of it doesn’t: <code>curl</code> can
+status-check any page’s outbound links for free. So I ran it rather than
+leaving the rating as an assumption.</p>
+<h3 id="method">Method</h3>
+<p>Target: <a
+href="https://historicpreservation.com/usa/contractors/preservationrestoration.html">historicpreservation.com
+preservation/restoration contractors directory</a> — chosen because
+Vitrin’s own copy sells period-correct cabinetry for Federal-era Easton
+rowhomes, so a preservation directory is a genuine topical fit.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract outbound links, then status-check all of them in parallel</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-u</span> urls.txt <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-P</span> 16 <span class="at">-I{}</span> <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  curl <span class="at">-sL</span> <span class="at">-o</span> /dev/null <span class="at">--max-time</span> 12 <span class="at">-w</span> <span class="st">&#39;%{http_code} %{url_effective}\n&#39;</span> {}</span></code></pre></div>
+<p><strong>160 outbound links checked. Result: 131 OK, 16× 404, 5×
+no-connect, 6× 406, 1× 403, 1× 409.</strong> A ~13% rot rate.</p>
+<h3 id="verified-dead-dns-confirmed-false-positive-removed">Verified
+dead — DNS-confirmed, false positive removed</h3>
+<p><code>000</code> from curl means “didn’t connect”, which is
+<em>not</em> the same as dead. I re-checked each with a real user-agent
+and a DNS lookup:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alleghenyrestoration.com</td>
+<td><strong>Dead</strong> — NXDOMAIN</td>
+</tr>
+<tr>
+<td>mjmayrestoration.com</td>
+<td><strong>Dead</strong> — NXDOMAIN</td>
+</tr>
+<tr>
+<td>graugeneral.com</td>
+<td><strong>Dead</strong> — NXDOMAIN</td>
+</tr>
+<tr>
+<td>evergreene.com</td>
+<td><strong>Unresolved</strong> — DNS resolves (216.146.198.22) but
+won’t connect. Not called dead.</td>
+</tr>
+<tr>
+<td>rjdoerr.com</td>
+<td><strong>NOT dead</strong> — 301s to rjdoerr.net. My first pass
+flagged it; the recheck cleared it.</td>
+</tr>
+</tbody>
+</table>
+<p>Plus 16 hard 404s across <code>atelierchroma.ca</code> (4),
+<code>talismanservices.com</code> (4),
+<code>hughloftingtimberframe.com</code> (3),
+<code>christmanco.com</code>, <code>oldnewenglandrestoration.com</code>,
+<code>thecoopergroupct.com</code>, <code>timelessbarncompany.com</code>,
+and their own X/Twitter link.</p>
+<h3 id="the-honest-verdict-mechanically-fine-relevance-starved">The
+honest verdict: mechanically fine, relevance-starved</h3>
+<p>The pack’s rule is “only offer my page as a replacement where it
+genuinely matches the dead one.” Applying it kills the play: the dead
+links are a West Virginia restoration contractor, a Wisconsin barn
+company, a timber framer, and a Canadian atelier. <strong>A custom
+cabinet shop in Easton is not a replacement for any of them.</strong>
+Pitching Vitrin as one would be exactly the transparent spam the Ground
+Rules warn about, and the editor would bin it.</p>
+<p><strong>Conclusion: don’t buy Ahrefs for this.</strong> The
+constraint isn’t tooling — I ran the play with free tools and got clean
+data. The constraint is that a hyper-local business rarely matches a
+dead national link. That is worth knowing <em>before</em> spending
+$100+/month to discover it.</p>
+<h3 id="what-the-data-is-actually-good-for">What the data is actually
+good for</h3>
+<p>Two real, unblocked wins fell out of it:</p>
+<p><strong>1. A free, topically-perfect listing — no address
+required.</strong> <code>historicpreservation.com</code> accepts
+directory submissions by email to
+<code>ListingDetails@HistoricPreservation.com</code>, and asks only for
+<strong>business name, website link, contact name, and phone</strong>.
+No address field. That makes it <strong>Track A</strong> — do it today.
+Site shows a 2026 copyright and is curated, not auto-listed.</p>
+<p><strong>2. The audit is the outreach.</strong> Instead of a fake
+relevance pitch, lead with the 21 broken links as a genuine favor. Rare,
+verifiable, and it earns the listing on merit.</p>
+<blockquote>
+<p><strong>Subject:</strong> 21 dead links in your preservation
+contractors directory</p>
+<p>Hi,</p>
+<p>I was working through your preservation/restoration contractors list
+and noticed a chunk of it has rotted. I checked all 160 outbound links —
+21 are dead. Three domains are gone entirely (alleghenyrestoration.com,
+mjmayrestoration.com, graugeneral.com), and there are 404s under
+talismanservices.com, atelierchroma.ca, hughloftingtimberframe.com,
+oldnewenglandrestoration.com, timelessbarncompany.com,
+thecoopergroupct.com, and christmanco.com. Your own X link is 404
+too.</p>
+<p>Happy to send the full list with status codes — no strings.</p>
+<p>Separately: I run Vitrin Cabinetry in Easton, PA. We build
+period-correct cabinetry and millwork for historic homes — inset doors,
+traditional raised panel, matching existing profiles in Federal-era
+rowhomes. If the directory is open to a cabinetry/millwork listing, we’d
+like to be considered:</p>
+<p>Vitrin Cabinetry — https://www.vitrincabinetry.com — Veyis Akgul —
+(484) 542-2571</p>
+<p>Thanks, Veyis</p>
+</blockquote>
+<h3 id="re-running-this">Re-running this</h3>
+<p>The script generalizes to any resource page. Swap the target URL,
+keep the DNS recheck step — it’s what separates a real audit from a list
+of transient timeouts, and it’s the step that makes the email
+credible.</p>
+<hr />
+<h2 id="local-preservation-angle-worth-a-look">12. Local preservation
+angle — worth a look</h2>
+<p>Surfaced while researching §11 and genuinely under-exploited:</p>
+<ul>
+<li><strong><a
+href="https://www.eastonconservationdistricts.com/">Easton Conservation
+Districts</a></strong> — grassroots preservation group for College Hill,
+the West Ward, and the Southside. Community org, local, topically
+aligned.</li>
+<li><strong><a
+href="https://www.easton-pa.com/167/Local-Historic-District">City of
+Easton Local Historic District</a></strong> — properties in the district
+need a Certificate of Appropriateness from the Historic District
+Commission for exterior work. Interior cabinetry is generally out of
+scope, but the <em>homeowner audience</em> is exactly Vitrin’s.</li>
+<li><strong>Easton Residential Façade Improvement Grant</strong>
+(Redevelopment Authority, ARPA-funded, West Ward / South Side priority)
+— the RDA helps homeowners scope work and select contractors.
+Exterior-focused, so a partial fit, but the contractor relationship is
+worth having.</li>
+</ul>
+<p>The content play here is stronger than the link play: a guide on
+period-correct cabinetry for Easton’s historic rowhomes would be the
+only such page in the market and gives every org above a natural reason
+to link. Flagging it for <code>strategy.md</code>’s editorial calendar
+rather than building it unprompted.</p>
+<hr />
+<h2 id="sources">Sources</h2>
+<ul>
+<li>https://habitatlv.org/support</li>
+<li>https://www.habitatbucks.org/give/corporate/</li>
+<li>https://www.habitatbucks.org/restore/donate/</li>
+<li>https://www.onlinedonationpickup.com/habitatlv/</li>
+<li>https://buckscountyalive.com/bloginfo/the-solid-wood-cabinet-company-habitat-for-humanity-upcycle-together.cfm</li>
+<li>https://buckscountyalive.com/business/business-listing.cfm</li>
+<li>https://lehighvalleyalive.com/b2b/</li>
+<li>https://www.lehighvalleychamber.org/memberbenefits.html</li>
+<li>https://lvb.com/movers-and-shakers-form/</li>
+<li>https://www.discoverlehighvalley.com/partnership/</li>
+<li>https://www.prnewswire.com/news-releases/kitchen-magic-proud-sponsor-of-lehigh-valley-habitat-for-humanity-to-help-families-in-need-301612011.html</li>
+<li>https://showplacecabinetry.com/dealer-locator/</li>
+<li>https://www.schrock.com/dealer-locator</li>
+<li>https://nkba.org/resources/directory/</li>
+<li>https://turchiconstruction.com/kitchen-remodeling/</li>
+<li>https://web.lehighvalleychamber.org/Cabinetry-Makers-Distributors</li>
+<li>https://web.lehighvalleychamber.org/Home-Improvement-Remodeling</li>
+<li>https://loveyourroom.com/</li>
+<li>https://lvba.org/</li>
+<li>https://historicpreservation.com/usa/contractors/preservationrestoration.html</li>
+<li>https://historicpreservation.com/</li>
+<li>https://www.eastonconservationdistricts.com/</li>
+<li>https://www.easton-pa.com/167/Local-Historic-District</li>
+</ul>
+</body>
+</html>
