@@ -70,6 +70,11 @@ const nextConfig: NextConfig = {
       { source: "/gallery", destination: "/portfolio", permanent: true },
       { source: "/projects", destination: "/portfolio", permanent: true },
       { source: "/our-work", destination: "/portfolio", permanent: true },
+      // GSC 404 ghosts (not in sitemap) — send crawl equity to the Bucks County hub
+      { source: "/locations", destination: "/custom-kitchen-cabinets/bucks-county", permanent: true },
+      { source: "/locations/:path*", destination: "/custom-kitchen-cabinets/bucks-county", permanent: true },
+      { source: "/areas", destination: "/custom-kitchen-cabinets/bucks-county", permanent: true },
+      { source: "/areas/:path*", destination: "/custom-kitchen-cabinets/bucks-county", permanent: true },
     ];
   },
 };
