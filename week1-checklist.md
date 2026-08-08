@@ -21,7 +21,7 @@ Allow **2–4 hours total** across the week. None of these are hard; they just h
    - Address (exact — must match `site.address` in `src/lib/site.ts` and every citation)
    - Service area (use the 15 towns in `site.areaServed`)
    - Phone (exactly `site.phoneDisplay`: `(484) 542-2571`)
-   - Website URL: `https://www.vitrincabinetry.com`
+   - Website URL: `https://vitrincabinetry.com`
    - Hours (must match `site.hours`: Mon–Fri 9–6, Sat 10–4)
    - Description (750 chars max — focus on craft + custom + Easton / Lehigh Valley)
    - Products → add 6+ cabinet styles with photos
@@ -48,14 +48,14 @@ The site code is ready — just need to connect accounts and paste IDs into `.en
 
 1. Go to https://search.google.com/search-console → **Add property** → **Domain** → enter `vitrincabinetry.com`.
 2. Verify via DNS TXT record (Vercel makes this easy — copy the TXT, add it in the Vercel domain dashboard).
-3. Submit sitemap: `https://www.vitrincabinetry.com/sitemap.xml` (the apex 301s to `www` — see `vercel.json`).
+3. Submit sitemap: `https://vitrincabinetry.com/sitemap.xml` (www 308s to apex — see `vercel.json`).
 4. Set preferred reporting country: US.
 
 ### Google Analytics 4 (free, ~10 min)
 
 1. Go to https://analytics.google.com → **Admin** → **Create account** → "Vitrin Cabinetry."
 2. Create property → name "Vitrin Cabinetry Website" → United States → USD.
-3. **Data Streams** → **Web** → URL `https://www.vitrincabinetry.com` → Stream name "Web."
+3. **Data Streams** → **Web** → URL `https://vitrincabinetry.com` → Stream name "Web."
 4. Copy the **Measurement ID** (starts with `G-`).
 5. In the repo, copy `.env.example` → `.env.local`, paste the ID into `NEXT_PUBLIC_GA_ID`.
 6. Set the same ID as a production env var in Vercel: `vercel env add NEXT_PUBLIC_GA_ID production`.

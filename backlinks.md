@@ -136,7 +136,7 @@ No other strategy in this pack has that economics.
 >
 > Thanks,
 > Vincent Karaca — Vitrin Cabinetry, Easton PA — (484) 542-2571
-> https://www.vitrincabinetry.com
+> https://vitrincabinetry.com
 
 **Do not** ask for a link in this email. The link comes from the coverage, and
 asking makes the donation look transactional to a nonprofit that gets that
@@ -216,7 +216,7 @@ dealer locator. Reps say yes because it's their job.
 > locator at [LOCATOR URL]. Can you get us added?
 >
 > Vitrin Cabinetry — [STREET], Easton, PA 18042 — (484) 542-2571 —
-> https://www.vitrincabinetry.com
+> https://vitrincabinetry.com
 >
 > Thanks, Vincent
 
@@ -269,7 +269,7 @@ NEXT_PUBLIC_GOOGLE_PROFILE_URL   # the Maps place URL, not the GBP admin link �
 > designers through our trade program.
 >
 > Vitrin Cabinetry — [STREET], Easton, PA 18042 — (484) 542-2571 —
-> https://www.vitrincabinetry.com
+> https://vitrincabinetry.com
 
 **NAP block — paste this character-for-character, everywhere:**
 ```
@@ -277,7 +277,7 @@ Vitrin Cabinetry
 [STREET]
 Easton, PA 18042
 (484) 542-2571
-https://www.vitrincabinetry.com
+https://vitrincabinetry.com
 ```
 Directory name field: `Vitrin Cabinetry`. Use the longer
 `Vitrin Cabinetry | Kitchen, Bathroom & Closet` **only** on Google Business
@@ -407,7 +407,7 @@ with a member directory, directly relevant to a cabinet shop.
 > to bring samples to your office, or you're welcome at the Easton showroom.
 >
 > Vincent Karaca — Vitrin Cabinetry — (484) 542-2571
-> https://www.vitrincabinetry.com
+> https://vitrincabinetry.com
 
 Ask for the vendor-page listing on the **second** contact, after a real
 conversation — never in the first email. A cold "please link to me" to a GC
@@ -517,7 +517,7 @@ listing on merit.
 > panel, matching existing profiles in Federal-era rowhomes. If the directory is
 > open to a cabinetry/millwork listing, we'd like to be considered:
 >
-> Vitrin Cabinetry — https://www.vitrincabinetry.com — Vincent Karaca — (484) 542-2571
+> Vitrin Cabinetry — https://vitrincabinetry.com — Vincent Karaca — (484) 542-2571
 >
 > Thanks,
 > Vincent
