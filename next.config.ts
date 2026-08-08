@@ -53,6 +53,23 @@ const nextConfig: NextConfig = {
         destination: "/cabinets/aging-in-place",
         permanent: true,
       },
+      // Legacy / guessed URLs that currently hard-404 (GSC "Blocked due to other 4xx").
+      // Apex host already 308s to www; these keep crawl equity on real pages.
+      { source: "/services", destination: "/cabinets", permanent: true },
+      { source: "/services/:path*", destination: "/cabinets", permanent: true },
+      { source: "/shop", destination: "/shop-tour", permanent: true },
+      { source: "/products", destination: "/cabinets", permanent: true },
+      { source: "/product", destination: "/cabinets", permanent: true },
+      { source: "/kitchen", destination: "/cabinets/kitchen", permanent: true },
+      { source: "/kitchen-cabinets", destination: "/cabinets/kitchen", permanent: true },
+      { source: "/bathroom", destination: "/cabinets/bath", permanent: true },
+      { source: "/bath", destination: "/cabinets/bath", permanent: true },
+      { source: "/vanities", destination: "/cabinets/bath", permanent: true },
+      { source: "/blog", destination: "/guides", permanent: true },
+      { source: "/blog/:path*", destination: "/guides", permanent: true },
+      { source: "/gallery", destination: "/portfolio", permanent: true },
+      { source: "/projects", destination: "/portfolio", permanent: true },
+      { source: "/our-work", destination: "/portfolio", permanent: true },
     ];
   },
 };

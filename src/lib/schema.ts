@@ -129,20 +129,7 @@ export const websiteSchema: WithContext<WebSite> = {
   description: `Custom kitchen, bathroom, and closet cabinetry designed, built, and installed in-house in ${site.address.locality}, ${site.address.region} — plus countertops, flooring, and complete kitchen and bath remodeling. Serving Bucks County and the Lehigh Valley.`,
   inLanguage: "en-US",
   publisher: { "@id": `${site.url}#organization` },
-  potentialAction: [
-    {
-      "@type": "SearchAction",
-      name: "Request a consultation",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://vitrincabinetry.com/search?q={search_term_string}",
-        actionPlatform: [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform",
-        ],
-      },
-    },
-  ],
+  // No SearchAction — /search 404s and poisoned GSC with dead sitelinks targets.
 };
 
 export function articleJsonLd(opts: {

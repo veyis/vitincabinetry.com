@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   title: "Leave a Review — Vitrin Cabinetry",
   description: "Review your experience with Vitrin Cabinetry on Google or Houzz.",
   robots: { index: false, follow: false }, // Don't index utility pages
+  // Self-canonical — pointing at `/` made GSC treat this as alternate/noindex noise.
+  alternates: { canonical: "/leave-review" },
 };
 
 export default function LeaveReviewPage() {
