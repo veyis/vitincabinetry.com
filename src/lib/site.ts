@@ -10,7 +10,7 @@ export const site = {
   legalName: "Vitrin Cabinetry",
   /** Business name as listed on Google Business Profile. */
   gbpName: "Vitrin Cabinetry | Kitchen, Bathroom & Closet",
-  url: "https://www.vitrincabinetry.com",
+  url: "https://vitrincabinetry.com",
   defaultLocale: "en-US",
 
   /** Keep in sync with the Google Business Profile "About" description. */

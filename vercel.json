@@ -3,8 +3,8 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "vitrincabinetry.com" }],
-      "destination": "https://www.vitrincabinetry.com/:path*",
+      "has": [{ "type": "host", "value": "www.vitrincabinetry.com" }],
+      "destination": "https://vitrincabinetry.com/:path*",
       "permanent": true
     }
   ]

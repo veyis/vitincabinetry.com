@@ -5,7 +5,7 @@ function siteHostname(): string {
   try {
     return new URL(site.url).hostname;
   } catch {
-    return "www.vitrincabinetry.com";
+    return "vitrincabinetry.com";
   }
 }
 

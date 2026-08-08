@@ -54,7 +54,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // Legacy / guessed URLs that currently hard-404 (GSC "Blocked due to other 4xx").
-      // Apex host already 308s to www; these keep crawl equity on real pages.
+      // www host 308s to apex; these keep crawl equity on real pages.
       { source: "/services", destination: "/cabinets", permanent: true },
       { source: "/services/:path*", destination: "/cabinets", permanent: true },
       { source: "/shop", destination: "/shop-tour", permanent: true },
