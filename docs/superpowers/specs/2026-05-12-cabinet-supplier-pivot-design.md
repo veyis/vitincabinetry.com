@@ -1,6 +1,6 @@
 ---
 name: cabinet-supplier-pivot
-description: Repositions vitrincabinetery.com from a design-build-install firm to a Quakertown cabinet supplier with two product tiers (Stock + Signature), serving both retail and trade. Optional installation; quiet contractor-friendly framing throughout.
+description: Repositions vitrincabinetry.com from a design-build-install firm to a Quakertown cabinet supplier with two product tiers (Stock + Signature), serving both retail and trade. Optional installation; quiet contractor-friendly framing throughout.
 metadata:
   type: design-spec
   date: 2026-05-12
@@ -9,7 +9,7 @@ metadata:
 
 # Cabinet Supplier Pivot — Design Spec
 
-**Project:** vitrincabinetery.com
+**Project:** vitrincabinetry.com
 **Approach:** C — Two-Tier Cabinet House (selected over A "pure supplier" and B "workshop that sells what it builds")
 **Companion artifact:** `cabinet-supplier-pivot.html` (visual brief at project root)
 **Companion strategy doc:** `strategy.md` (existing SEO + content roadmap — mostly retained, see Section 8)

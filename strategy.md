@@ -456,9 +456,9 @@ LocalBusiness schema on homepage and town pages:
   "@context": "https://schema.org",
   "@type": "CabinetMaker",
   "name": "Vitrin Cabinetery",
-  "image": "https://vitrincabinetery.com/og.jpg",
-  "@id": "https://vitrincabinetery.com",
-  "url": "https://vitrincabinetery.com",
+  "image": "https://vitrincabinetry.com/og.jpg",
+  "@id": "https://vitrincabinetry.com",
+  "url": "https://vitrincabinetry.com",
   "telephone": "+1-XXX-XXX-XXXX",
   "priceRange": "$$$",
   "address": {

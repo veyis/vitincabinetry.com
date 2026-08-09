@@ -102,6 +102,7 @@ town by appending to `towns.ts`; the route, sitemap, and schema follow.
 - Let `week1-checklist.md` drift from `site.ts`. It instructs humans what to
   type into GBP and citation directories; when it disagrees with `site.ts` it
   actively manufactures the NAP inconsistency it exists to prevent.
-- Change the canonical host. It is `www.vitrincabinetry.com`; the apex 301s in
-  `vercel.json`. `vitrincabinetery.com` is the repo and Vercel project name — a
-  misspelling, never a URL.
+- Change the canonical host. It is the apex `vitrincabinetry.com`; `www` 301s to
+  it in `vercel.json`, and the served pages carry `rel="canonical"` on the apex.
+  The Vercel project is still named `vitrincabinetery.com` — a misspelling of the
+  domain, never a URL. (The repo was renamed to match the domain 2026-08-09.)

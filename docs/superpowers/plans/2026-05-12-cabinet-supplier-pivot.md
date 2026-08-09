@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Reposition vitrincabinetery.com from a design-build-install firm to a Quakertown cabinet supplier with two product tiers (Vitrin Stock + Vitrin Signature), serving both retail and trade. Installation becomes a quiet, optional service.
+**Goal:** Reposition vitrincabinetry.com from a design-build-install firm to a Quakertown cabinet supplier with two product tiers (Vitrin Stock + Vitrin Signature), serving both retail and trade. Installation becomes a quiet, optional service.
 
 **Architecture:** Pure content + IA pivot on top of the existing Next.js 16 App Router site. New product-oriented `/cabinets/*` route surface replaces the existing `/services/*` surface (with 301 redirects). Homepage and `/trade` get full rewrites; supporting pages get tone edits. Schema, sitemap, navbar, and footer all updated to match the new IA. No new dependencies; no business logic changes.
 

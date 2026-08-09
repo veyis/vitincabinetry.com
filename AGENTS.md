@@ -12,7 +12,7 @@ is **pnpm**, never npm.
 
 - `src/lib/site.ts` is the only source of NAP (name/address/phone/email). Never
   hardcode contact info in a page or reintroduce `NEXT_PUBLIC_BUSINESS_*` vars.
-- Canonical host is `www.vitrincabinetry.com`; the apex 301s in `vercel.json`.
+- Canonical host is the apex `vitrincabinetry.com`; `www` 301s to it in `vercel.json`.
 - Contact form posts to the PxlPeak leads API (`src/app/api/contact/route.ts`),
   not to email. There is no database in this app.
 - Lightning CSS drops `-webkit-backdrop-filter` when paired with the standard
