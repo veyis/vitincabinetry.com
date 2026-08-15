@@ -142,6 +142,7 @@ export default function Footer() {
       >
         <div>© {new Date().getFullYear()} {site.name}. All rights reserved.</div>
         <div style={{ display: "flex", gap: "1.5rem" }}>
+          <a href="/portal">Client Portal</a>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
           <a href="/sitemap.xml">Sitemap</a>

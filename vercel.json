@@ -6,6 +6,16 @@
       "has": [{ "type": "host", "value": "www.vitrincabinetry.com" }],
       "destination": "https://vitrincabinetry.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/portal",
+      "destination": "https://pxlpeak.com/portal",
+      "permanent": false
+    },
+    {
+      "source": "/portal/:path*",
+      "destination": "https://pxlpeak.com/portal/:path*",
+      "permanent": false
     }
   ]
 }
