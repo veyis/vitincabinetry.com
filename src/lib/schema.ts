@@ -10,7 +10,6 @@ import type {
   ItemList, 
   AboutPage, 
   CreativeWork, 
-  HowTo, 
   VideoObject, 
   BreadcrumbList, 
   Service,
@@ -237,28 +236,8 @@ export function portfolioProjectJsonLd(opts: {
   };
 }
 
-export function howToJsonLd(opts: {
-  name: string;
-  description: string;
-  url: string;
-  steps: ReadonlyArray<{ name: string; text: string }>;
-  totalTime?: string;
-}): WithContext<HowTo> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: opts.name,
-    description: opts.description,
-    url: opts.url,
-    ...(opts.totalTime ? { totalTime: opts.totalTime } : {}),
-    step: opts.steps.map((s, i) => ({
-      "@type": "HowToStep",
-      position: i + 1,
-      name: s.name,
-      text: s.text,
-    })),
-  };
-}
+// howToJsonLd removed 2026-08-17: Google retired HowTo rich results in Sept
+// 2023, nothing consumes the markup, and this builder had no callers.
 
 export function videoObjectJsonLd(opts: {
   name: string;
