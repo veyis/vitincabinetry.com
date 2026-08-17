@@ -81,6 +81,8 @@ const nextConfig: NextConfig = {
       { source: "/locations/:path*", destination: "/custom-kitchen-cabinets/bucks-county", permanent: true },
       { source: "/areas", destination: "/custom-kitchen-cabinets/bucks-county", permanent: true },
       { source: "/areas/:path*", destination: "/custom-kitchen-cabinets/bucks-county", permanent: true },
+      // GSC leftover schema SearchAction placeholder.
+      { source: "/search", destination: "/", permanent: true },
     ];
   },
 };
