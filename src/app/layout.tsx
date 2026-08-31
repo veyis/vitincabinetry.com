@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   category: "Home Improvement",
 };
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-ZF38F7PSNQ";
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 const isProd = process.env.NODE_ENV === "production";
 
