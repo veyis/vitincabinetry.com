@@ -101,6 +101,21 @@ export const site = {
     { dayOfWeek: ["Saturday"], opens: "10:00", closes: "16:00" },
   ],
 
+  // GBP switch-on checklist. Vitrin has no Google Business Profile yet
+  // (measured 2026-08-31: absent from Google Maps at both 25 km and 80 km
+  // search radius). Nothing below is hardcoded on purpose — a `sameAs` that
+  // points at a profile which does not resolve is worse than no `sameAs`.
+  // The day the GBP goes live, set these in Vercel (Production + Preview) and
+  // redeploy; src/lib/schema.ts picks them up with no code change:
+  //   NEXT_PUBLIC_GOOGLE_PROFILE_URL  Maps place URL -> sameAs + hasMap
+  //   NEXT_PUBLIC_FACEBOOK_URL        profile URL    -> sameAs
+  //   NEXT_PUBLIC_INSTAGRAM_URL       profile URL    -> sameAs
+  //   NEXT_PUBLIC_HOUZZ_URL           profile URL    -> sameAs
+  //   NEXT_PUBLIC_BUSINESS_STREET     street address -> streetAddress in
+  //     PostalAddress (omitted while `address.street` still starts with "TBD")
+  // Then: set `gbpName` to match the listing character-for-character, align
+  // `hours` with the GBP, update `geo` to the real coordinates, and enable
+  // `aggregateRating` only once there are >= 10 real reviews.
   social: {
     facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || "",
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",

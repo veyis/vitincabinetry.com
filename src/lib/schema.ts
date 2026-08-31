@@ -315,6 +315,10 @@ export const cabinetStoreSchema: WithContext<HomeAndConstructionBusiness> = {
   openingHoursSpecification: openingHours,
   // aggregateRating intentionally omitted — the storefront and the workshop
   // share the same rating pool; render it only on localBusinessSchema.
+  // hasMap belongs on the storefront too: /showroom renders this schema, and
+  // the Maps place URL is the storefront's strongest entity link once the GBP
+  // exists. Both resolve to undefined until NEXT_PUBLIC_GOOGLE_PROFILE_URL is set.
+  ...(hasMapUrl ? { hasMap: hasMapUrl } : {}),
   ...(sameAs.length > 0 ? { sameAs } : {}),
 };
 

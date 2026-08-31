@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, cabinetStoreSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, cabinetStoreSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Visit the Vitrin Showroom — Easton, PA",
@@ -19,6 +19,36 @@ const expectations = [
   { title: "Materials bench", body: "Sit down with samples — wood species, paint and stain swatches, hardware, counter chips." },
   { title: "Dedicated rep on hand", body: "A real person who knows the inventory, the lead times, and the trade-pricing tiers." },
   { title: "No pressure visits", body: "Walk through, look, ask questions, leave. Or talk pricing and place an order. Whichever you came for." },
+];
+
+// Visible Q&A, mirrored into FAQPage JSON-LD. Every answer restates a fact
+// already published on this site or in src/lib/site.ts — no street address,
+// no invented drive times, no hours the GBP has not confirmed.
+const faqs = [
+  {
+    q: "Where is the Vitrin Cabinetry showroom?",
+    a: `The showroom is in Easton, Pennsylvania. It is opening soon, and the exact street address is confirmed when you book your visit — call ${site.phoneDisplay} or email ${site.email} and we will send you the location and a time.`,
+  },
+  {
+    q: "Can I visit the showroom before it officially opens?",
+    a: `Yes. Visits are arranged by appointment while the address is being finalized. Call ${site.phoneDisplay} or email ${site.email}, tell us roughly what you are working on, and we will confirm a time and the exact location.`,
+  },
+  {
+    q: "What can I see at the showroom?",
+    a: "The full Vitrin Stock lineup — door styles, finishes, and finished cabinets — plus a materials bench where you can sit down with wood species, paint and stain swatches, hardware, and counter chips. A rep who knows the inventory, the lead times, and the trade-pricing tiers is on hand.",
+  },
+  {
+    q: "Can I take cabinets home from the showroom?",
+    a: "Vitrin Stock cabinets are held in inventory, so finished cabinets can be ready to take home the same week rather than ordered and waited on. Custom cabinetry is built to order — the showroom is where that order starts.",
+  },
+  {
+    q: "Do you offer trade pricing for contractors and designers?",
+    a: "Yes. Trade-pricing tiers are available and the showroom rep can walk you through them. The trade page explains how an account is set up.",
+  },
+  {
+    q: "Do I have to visit the showroom to get a quote?",
+    a: `No. You can start a quote by phone at ${site.phoneDisplay}, by email at ${site.email}, or through the contact form. The showroom helps most when you want to see finishes and door styles next to each other before deciding.`,
+  },
 ];
 
 export default function ShowroomPage() {
@@ -49,6 +79,27 @@ export default function ShowroomPage() {
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Easton, PA. Stock cabinets on the floor, materials bench, dedicated rep. The place to start, whether you came for one vanity or a full custom kitchen.
+          </p>
+        </div>
+      </section>
+
+      {/* Answer-first block: the direct answer to "where is the Vitrin showroom",
+          kept in static HTML so passage extraction and zero-JS crawlers read it
+          without running the page. */}
+      <section>
+        <div className="container--narrow prose">
+          <h2>Where is the Vitrin Cabinetry showroom?</h2>
+          <p>
+            Vitrin Cabinetry&apos;s showroom is in Easton, Pennsylvania. You can see the full Vitrin Stock lineup on the
+            floor, sit at the materials bench with wood, paint, and countertop samples, and meet a rep who knows the
+            inventory and the lead times. The showroom is opening soon, and the exact street address is confirmed when
+            you book — call <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a> or email{" "}
+            <a href={`mailto:${site.email}?subject=Showroom%20Visit`}>{site.email}</a> to arrange a visit.
+          </p>
+          <p>
+            Vitrin serves Easton, Bethlehem, Allentown, and the wider Lehigh Valley and Bucks County. If you would
+            rather see where the cabinetry is actually built, the <Link href="/shop-tour">workshop tour</Link> is the
+            other half of the story.
           </p>
         </div>
       </section>
@@ -91,6 +142,23 @@ export default function ShowroomPage() {
         </div>
       </section>
 
+      <section>
+        <div className="container--narrow">
+          <div className="section-center">
+            <span className="eyebrow">Showroom FAQs</span>
+            <h2 className="section-heading">Before you drive over.</h2>
+          </div>
+          <div>
+            {faqs.map((f) => (
+              <details key={f.q} className="faq-item" style={{ borderBottom: "1px solid var(--border)", padding: "1rem 0" }}>
+                <summary style={{ fontWeight: 600, color: "var(--text)", cursor: "pointer" }}>{f.q}</summary>
+                <p style={{ marginTop: "0.75rem", color: "var(--text-secondary)", lineHeight: 1.7 }}>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Footer />
 
       <script
@@ -108,6 +176,12 @@ export default function ShowroomPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: toJsonLd(cabinetStoreSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: toJsonLd(faqPageJsonLd(faqs)),
         }}
       />
     </main>
